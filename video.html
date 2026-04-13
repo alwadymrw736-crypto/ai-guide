@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أدوات الفيديو - دليلك الشامل</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
+      --accent: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);
+      --text-dark: #1e293b;
+    }
+    body { font-family: 'Cairo', sans-serif; background: rgba(255, 255, 255, 0.8); margin: 0; padding: 0; color: var(--text-dark); }
+    .navbar { background: var(--main-bg); padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; font-size: 1.2rem; }
+    .container { width: 95%; max-width: 900px; margin: 30px auto; }
+    .tool-list-item { background: white; border-radius: 24px; padding: 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; }
+    .tool-number { width: 46px; height: 46px; background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
+    .tool-text { flex: 1; }
+    .tool-text h3 { margin: 0 0 6px 0; font-size: 1.15rem; color: #1e293b; }
+    .tool-text p { margin: 0; color: #64748b; font-size: 0.92rem; }
+    .visit-link { background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%); color: white; padding: 10px 18px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+    .back-home { display: block; text-align: center; margin: 20px auto; color: #8b5cf6; text-decoration: none; font-weight: 700; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">بوابة أدوات الفيديو</nav>
+  <div class="container">
+    <div id="video-list"></div>
+    <a href="index.html" class="back-home">← العودة للرئيسية</a>
+  </div>
+  <script>
+    const tools = [
+      { name: "Runway", url: "runway-review.html", desc: "الرائدة في تحويل النص إلى فيديو وتحرير المشاهد باحترافية (اقرأ تجربتي)." },
+      { name: "Luma Dream Machine", url: "luma-review.html", desc: "محرك قوي لإنشاء فيديوهات واقعية جداً من الصور والنصوص (اقرأ تجربتي)." },
+      { name: "Pika Art", url: "pika-review.html", desc: "أداة مذهلة لتحريك الرسوم وإضافة تأثيرات حركية سينمائية (اقرأ تجربتي)." },
+      { name: "Kling AI", url: "kling-review.html", desc: "الوحش الصيني الجديد لتوليد فيديوهات طويلة بجودة خرافية (تعلم اكثر)." },
+      { name: "HeyGen", url: "heygen-review.html", desc: "الأداة رقم #1 لصناعة المتحدثين الرقميين وترجمة الفيديوهات (اقرأ تجربتي)." },
+      { name: "InVideo AI", url: "invideo-review.html", desc: "حول أي فكرة إلى فيديو كامل لليوتيوب مع التعليق الصوتي والمونتاج تلقائياً (اقرأ تجربتي)." },
+      { 
+  name: "Fliki", 
+  url: "https://fliki.ai", 
+  desc: "تحويل المقالات والنصوص إلى فيديوهات بلقطات واقعية وتعليق صوتي." 
+},
+{ 
+  name: "Sora AI", 
+  url: "https://openai.com/sora", 
+  desc: "أداة OpenAI الثورية لإنتاج مشاهد واقعية لا يمكن تمييزها." 
+},
+{ 
+  name: "Synthesia", 
+  url: "https://www.synthesia.io", 
+  desc: "أفضل منصة لإنشاء فيديوهات تدريبية عبر الأفاتار الذكي." 
+},
+{ 
+  name: "Leonardo Motion", 
+  url: "https://leonardo.ai/ai-video-generator", 
+  desc: "إضافة حركة احترافية لصورك التي صممتها داخل ليوناردو." 
+}
+
+    ];
+
+    // هذا الجزء هو المسؤول عن إظهار الأدوات في الصفحة
+    document.getElementById('video-list').innerHTML = tools.map((t, i) => `
+      <div class="tool-list-item">
+        <div class="tool-number">${i + 1}</div>
+        <div class="tool-text">
+            <h3>${t.name}</h3>
+            <p>${t.desc}</p>
+        </div>
+        <a href="${t.url}" class="visit-link">زيارة</a>
+      </div>`).join('');
+</script>

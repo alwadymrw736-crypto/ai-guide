@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أدوات الدردشة والذكاء الشامل</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* هنا نستخدم نفس التنسيقات لضمان شكل الموقع */
+    :root {
+      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
+      --accent: linear-gradient(135deg, #22c55e 0%, #a855f7 100%);
+    }
+    body { font-family: 'Cairo', sans-serif; background: #f8fafc; margin: 0; padding: 0; color: #1e293b; }
+    .navbar { background: var(--main-bg); padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; }
+    .container { width: 95%; max-width: 800px; margin: 40px auto; }
+    .tool-list-item { background: white; border-radius: 20px; padding: 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .tool-number { width: 40px; height: 40px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
+    .tool-text { flex: 1; }
+    .tool-text h3 { margin: 0; font-size: 1.1rem; }
+    .tool-text p { margin: 5px 0 0; color: #64748b; font-size: 0.9rem; }
+    .visit-link { background: var(--accent); color: white; padding: 8px 15px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.8rem; }
+    .back-home { display: block; text-align: center; margin-top: 30px; color: #8b5cf6; text-decoration: none; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">قسم أدوات الدردشة والذكاء الشامل</nav>
+
+  <div class="container">
+    <div id="chat-tools-list">
+      </div>
+    <a href="index.html" class="back-home">← العودة للرئيسية</a>
+  </div>
+
+  <script>
+    const chatTools = [
+      { name: "ChatGPT", url: "chatgpt-review.html", desc: "مساعد شامل للمحادثات والبرمجة (اقرأ مراجعتنا الشاملة من هنا)" },
+      { name: "Claude", url: "claude-review.html", desc: "ممتاز في الصياغة الطويلة وتحليل الملفات (اقرأ تجربتي معه من هنا)." },
+      { name: "Gemini", url: "gemini-review.html", desc: "مساعد جوجل الذكي والمتكامل مع تطبيقاتك اليومية (اقرأ مراجعتي وتجربتي)." },
+      { name: "Perplexity", url: "perplexity-review.html", desc: "مستقبل البحث الذكي مع توثيق المصادر (تعرف على تجربتي في استخدامه للبحوث)." },
+      { name: "Copilot", url: "copilot-review.html", desc: "مساعد مايكروسوفت الذكي المدمج في ويندوز (تعرف على كيفية استخدامه مجاناً)." },
+      { name: "Notion AI", url: "https://www.notion.so", desc: "تنظيم ملاحظات ومهام وملخصات العمل بطريقة ذكية." },
+      { name: "Gamma", url: "https://gamma.app", desc: "إنشاء عروض تقديمية وصفحات عرض بشكل سريع." },
+      { name: "ElevenLabs", url: "https://elevenlabs.io", desc: "تحويل النص إلى صوت احترافي وطبيعي." },
+      { name: "Character.ai", url: "https://character.ai", desc: "محادثة شخصيات افتراضية وذكية متنوعة." },
+      { name: "Poe", url: "https://poe.com", desc: "منصة تجمع عدة نماذج ذكاء اصطناعي في مكان واحد." }
+    ];
+
+    const listContainer = document.getElementById('chat-tools-list');
+    listContainer.innerHTML = chatTools.map((tool, index) => `
+      <div class="tool-list-item">
+        <div class="tool-number">${index + 1}</div>
+        <div class="tool-text">
+          <h3>${tool.name}</h3>
+          <p>${tool.desc}</p>
+        </div>
+        <a href="${tool.url}" target="_blank" class="visit-link">زيارة</a>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

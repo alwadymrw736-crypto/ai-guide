@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أدوات الصور - دليلك الشامل</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
+      --accent: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);
+      --text-dark: #1e293b;
+    }
+    body { font-family: 'Cairo', sans-serif; background: rgba(255, 255, 255, 0.8); margin: 0; padding: 0; color: var(--text-dark); }
+    .navbar { background: var(--main-bg); padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; font-size: 1.2rem; }
+    .container { width: 95%; max-width: 900px; margin: 30px auto; }
+    .tool-list-item { background: white; border-radius: 24px; padding: 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; }
+    .tool-number { width: 46px; height: 46px; background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
+    .tool-text { flex: 1; }
+    .tool-text h3 { margin: 0 0 6px 0; font-size: 1.15rem; color: #1e293b; }
+    .tool-text p { margin: 0; color: #64748b; font-size: 0.92rem; }
+    .visit-link { background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%); color: white; padding: 10px 18px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+    .back-home { display: block; text-align: center; margin: 20px auto; color: #8b5cf6; text-decoration: none; font-weight: 700; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">بوابة أدوات الصور</nav>
+  <div class="container">
+    <div id="image-list"></div>
+    <a href="index.html" class="back-home">← العودة للرئيسية</a>
+  </div>
+  <script>
+    const tools = [
+      { name: "Midjourney", url: "midjourney-review.html", desc: "الأداة رقم #1 عالمياً لتوليد الصور الفنية (اقرأ تجربتي وكيف تحصل على نتائج مذهلة)." },
+      { name: "Leonardo AI", url: "leonardo-review.html", desc: "أفضل بديل مجاني واحترافي لإنتاج صور فنية بجودة سينمائية (اقرأ شرح الاستخدام)." },
+
+      { name: "Ideogram", url: "ideogram-review.html", desc: "الأداة الأقوى لتصميم الشعارات والنصوص داخل الصور بدقة مذهلة (اقرأ تجربتي وكيف تستخدمها)." },
+
+      { name: "Adobe Firefly", url: "firefly-review.html", desc: "أقوى أداة لتعديل الصور وإضافة العناصر بالذكاء الاصطناعي (تعرف على سحر أدوبي)." },
+      { name: "DALL-E", url: "dalle-review.html", desc: "أسهل أداة لتوليد الصور من داخل محادثة ChatGPT مباشرة (اقرأ تجربتي وشرح الاستخدام)." },
+      { 
+  name: "Krea AI", 
+  url: "https://www.krea.ai", 
+  desc: "أداة ثورية لتوليد الصور وتحسين جودتها (Upscaling) بشكل فوري ومذهل." 
+},
+{ 
+  name: "Magnific AI", 
+  url: "https://magnific.ai", 
+  desc: "أقوى أداة في العالم لزيادة تفاصيل الصور وتحويلها إلى جودة 4K و 8K." 
+},
+{ 
+  name: "Playground AI", 
+  url: "https://playground.com", 
+  desc: "منصة سهلة تمنحك حرية تصميم وتعديل الصور باستخدام أشهر نماذج الذكاء الاصطناعي." 
+},
+{ 
+  name: "Recraft AI", 
+  url: "https://www.recraft.ai", 
+  desc: "الأداة المفضلة للمصممين لإنشاء رسومات (Vector) وأيقونات احترافية للمواقع." 
+},
+{ 
+  name: "Remove.bg", 
+  url: "https://www.remove.bg", 
+  desc: "الأداة الأسرع والأشهر عالمياً لحذف خلفيات الصور بدقة بكسل واحدة." 
+}
+
+    ];
+    document.getElementById('image-list').innerHTML = tools.map((t, i) => `
+      <div class="tool-list-item">
+        <div class="tool-number">${i + 1}</div>
+        <div class="tool-text"><h3>${t.name}</h3><p>${t.desc}</p></div>
+        <a href="${t.url}" target="_blank" class="visit-link">زيارة</a>
+      </div>`).join('');
+  </script>
+</body>
+</html>

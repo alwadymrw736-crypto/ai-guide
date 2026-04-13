@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>اتصل بنا - بوابة الأدوات الذكية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
+      --accent: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);
+      --text-dark: #1e293b;
+    }
+    body { font-family: 'Cairo', sans-serif; background: #f8fafc; margin: 0; padding: 0; color: var(--text-dark); line-height: 1.8; }
+    .navbar { background: var(--main-bg); padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; font-size: 1.2rem; }
+    .container { width: 90%; max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+    h1 { color: #8b5cf6; text-align: center; margin-bottom: 20px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: 700; }
+    input, textarea { width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 12px; font-family: 'Cairo', sans-serif; box-sizing: border-box; }
+    button { width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; margin-top: 10px; }
+    .back-home { display: block; text-align: center; margin-top: 20px; color: #10b981; text-decoration: none; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">اتصل بنا</nav>
+  <div class="container">
+    <h1>نسعد بتواصلك معنا</h1>
+    <p style="text-align: center; color: #64748b;">إذا كان لديك أي استفسار أو اقتراح لأداة جديدة، لا تتردد في مراسلتنا.</p>
+    <form>
+      <div class="form-group">
+        <label>الاسم بالكامل</label>
+        <input type="text" placeholder="أدخل اسمك هنا">
+      </div>
+      <div class="form-group">
+        <label>البريد الإلكتروني</label>
+        <input type="email" placeholder="example@mail.com">
+      </div>
+      <div class="form-group">
+        <label>رسالتك</label>
+        <textarea rows="5" placeholder="اكتب استفسارك هنا..."></textarea>
+      </div>
+      <button type="button" onclick="alert('شكراً لتواصلك! تم استلام رسالتك بنجاح.')">إرسال الرسالة</button>
+    </form>
+    <a href="index.html" class="back-home">← العودة للرئيسية</a>
+  </div>
+</body>
+</html>

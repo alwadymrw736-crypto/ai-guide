@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أدوات التصميم - دليلك الشامل</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: linear-gradient(to bottom, #f0f9ff, #f8fafc);
+      --accent: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%);
+      --text-dark: #1e293b;
+    }
+    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); margin: 0; padding: 0; color: var(--text-dark); min-height: 100vh; }
+    .navbar { background: white; padding: 25px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 900; font-size: 1.5rem; color: #8b5cf6; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    .container { width: 95%; max-width: 900px; margin: 30px auto; }
+    
+    .tool-list-item { 
+      background: white; 
+      border-radius: 24px; 
+      padding: 22px; 
+      display: flex; 
+      align-items: center; 
+      gap: 18px; 
+      margin-bottom: 20px; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04); 
+      border: 1px solid #f1f5f9;
+      transition: transform 0.3s ease;
+    }
+    .tool-list-item:hover { transform: translateY(-5px); border-color: #8b5cf6; }
+    
+    .tool-number { 
+      width: 50px; 
+      height: 50px; 
+      background: var(--accent); 
+      color: white; 
+      border-radius: 16px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-weight: 900; 
+      font-size: 1.2rem;
+      flex-shrink: 0; 
+    }
+    .tool-text { flex: 1; }
+    .tool-text h3 { margin: 0 0 6px 0; font-size: 1.25rem; color: #1e293b; font-weight: 800; }
+    .tool-text p { margin: 0; color: #64748b; font-size: 0.95rem; line-height: 1.6; }
+    
+    .visit-link { 
+      background: var(--accent); 
+      color: white; 
+      padding: 12px 24px; 
+      border-radius: 14px; 
+      text-decoration: none; 
+      font-weight: 800; 
+      font-size: 0.9rem; 
+      transition: opacity 0.3s;
+    }
+    .visit-link:hover { opacity: 0.9; }
+    
+    .back-home { display: block; text-align: center; margin: 30px auto; color: #64748b; text-decoration: none; font-weight: 700; font-size: 1rem; transition: color 0.3s; }
+    .back-home:hover { color: #8b5cf6; }
+
+    @media (max-width: 600px) {
+      .tool-list-item { flex-direction: column; text-align: center; }
+      .visit-link { width: 100%; box-sizing: border-box; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">نخبة أدوات التصميم والإبداع 2026</nav>
+  <div class="container">
+    <div id="design-list"></div>
+    <a href="index.html" class="back-home">← العودة للرئيسية</a>
+  </div>
+
+  <script>
+    const tools = [
+      { name: "Leonardo AI", url: "leonardo-review.html", desc: "أقوى بديل لميدجورني، يمنحك تحكماً كاملاً في إنتاج الصور الفنية (اقرأ تجربتي)." },
+
+      { name: "Midjourney", url: "midjourney-review.html", desc: "الملك غير المتوج في دقة التفاصيل واللوحات الفنية الخيالية (اقرأ تجربتي)." },
+      { name: "Canva", url: "canva-review.html", desc: "الأداة الأشهر والأسهل لتصميم السوشيال ميديا والعروض التقديمية (اقرأ تجربتي)." },
+      { name: "Figma", url: "figma-review.html", desc: "المعيار العالمي لتصميم واجهات التطبيقات والمواقع باحترافية (اقرأ تجربتي)." },
+      { name: "Adobe Firefly", url: "firefly-review.html", desc: "ذكاء أدوبي المدمج لتوليد الصور وتعديلها داخل الفوتوشوب (اقرأ تجربتي)." },
+      { name: "Photopea", url: "https://www.photopea.com", desc: "فوتوشوب مجاني تماماً يعمل من المتصفح مباشرة دون تحميل." },
+      { name: "Framer", url: "https://www.framer.com", desc: "حول تصميماتك إلى مواقع ويب حقيقية ومتحركة بلمسات عصرية." },
+      { name: "Microsoft Designer", url: "https://designer.microsoft.com", desc: "أداة ذكية وبسيطة لإنشاء منشورات سريعة بدعم من DALL-E 3." },
+      { name: "Remove.bg", url: "https://www.remove.bg", desc: "أفضل وأسرع أداة لحذف خلفيات الصور بضغطة زر واحدة." },
+      { name: "Krea AI", url: "https://www.krea.ai", desc: "ثورة التصميم الفوري؛ حيث تتحول رسماتك البدائية إلى صور واقعية لحظياً." }
+    ];
+
+    document.getElementById('design-list').innerHTML = tools.map((t, i) => `
+      <div class="tool-list-item">
+        <div class="tool-number">${i + 1}</div>
+        <div class="tool-text">
+          <h3>${t.name}</h3>
+          <p>${t.desc}</p>
+        </div>
+        <a href="${t.url}" target="_blank" class="visit-link">زيارة الموقع</a>
+      </div>`).join('');
+  </script>
+</body>
+</html>

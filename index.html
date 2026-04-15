@@ -323,9 +323,17 @@
         <p id="daily-tool-desc">اكتشف أداة ذكاء اصطناعي مميزة تتغير تلقائياً كل يوم.</p>
     </div>
     <div class="action-area">
-        <a id="daily-tool-link" href="#" target="_blank" class="explore-btn" style="text-decoration: none; text-align: center; display: block; background: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);">زيارة أداة اليوم</a>
+        <a id="daily-tool-link" 
+   href="chatgpt-review.html" 
+   class="explore-btn" 
+   style="text-decoration: none; text-align: center; display: block; background: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%); color: white; padding: 12px; border-radius: 10px; font-weight: bold;">
+   اقرأ المراجعة واستخدم الأداة
+</a>
+>
+
     </div>
 </div>
+
 
     <div class="tool-card">
       <div class="tool-icon">💬</div>
@@ -400,22 +408,44 @@ function updateDailyTool() {
     if(linkEl) linkEl.href = selectedTool.url;
 }
 
-updateDailyTool();
-</script>
-<section class="container" style="margin-top: 40px;">
-    <h2 style="color: #8b5cf6; margin-bottom: 20px;">مقالات وشروحات حصرية 📚</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-        
-        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <div style="height: 150px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">✍️</div>
-            <div style="padding: 20px;">
-                <h3 style="font-size: 1.1rem; margin-bottom: 10px;">كيف تختار أداة الذكاء الاصطناعي المناسبة لمشروعك؟</h3>
-                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.6;">في هذا الدليل الشامل، نستعرض المعايير الأساسية لاختيار الأدوات التي توفر عليك الوقت والجهد...</p>
-                <a href="article1.html" style="color: #10b981; text-decoration: none; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-top: 10px;">اقرأ المزيد ←</a>
-            </div>
-        </div>
+// مصفوفة الأدوات المحدثة بروابط المقالات
+const dailyToolsList = [
+    { 
+        name: "ChatGPT", 
+        desc: "مساعدك الذكي للإجابة على التساؤلات وكتابة الأكواد البرمجية بدقة.", 
+        reviewUrl: "chatgpt-review.html" 
+    },
+    { 
+        name: "Perplexity", 
+        desc: "محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم إجابات موثقة بالمصادر.", 
+        reviewUrl: "perplexity-review.html" 
+    }
+    // يمكنك إضافة المزيد من الأدوات هنا لاحقاً بنفس الصيغة
+];
 
-        </div>
+function updateDailyTool() {
+    const today = new Date();
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    
+    const toolIndex = dayOfYear % dailyToolsList.length;
+    const selectedTool = dailyToolsList[toolIndex];
+
+    const titleEl = document.getElementById('daily-tool-title');
+    const descEl = document.getElementById('daily-tool-desc');
+    const linkEl = document.getElementById('daily-tool-link');
+
+    if(titleEl) titleEl.innerText = "أداة اليوم: " + selectedTool.name;
+    if(descEl) descEl.innerText = selectedTool.desc;
+    
+    // الربط التلقائي بصفحة المقال الخاصة بالأداة المختارة
+    if(linkEl) {
+        linkEl.href = selectedTool.reviewUrl;
+    }
+}
+
+// تشغيل التحديث تلقائياً عند فتح الصفحة
+updateDailyTool();
+
 </section>
 <section class="container" style="margin-top: 60px; margin-bottom: 60px; font-family: 'Cairo', sans-serif; direction: rtl;">
     <article style="background: rgba(10, 10, 10, 0.85); padding: 45px; border-radius: 35px; border: 2px solid #8b5cf6; backdrop-filter: blur(20px); line-height: 2.2; color: #ffffff; text-align: justify; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">

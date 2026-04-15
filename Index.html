@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>بوابة الأدوات الذكية | دليلك الشامل لأفضل أدوات الذكاء الاصطناعي</title>
+      <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+    <meta name="description" content="اكتشف أقوى أدوات الذكاء الاصطناعي للمحادثة، توليد الصور، صناعة الفيديو، والتصميم في مكان واحد. دليل شامل ومحدث يومياً للمبدعين والمبرمجين.">
+    <meta name="keywords" content="ذكاء اصطناعي, أدوات الذكاء الاصطناعي, توليد صور, صناعة فيديو, تصميم بالذكاء الاصطناعي, محادثة ذكية">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
+      --secondary-bg: rgba(255, 255, 255, 0.8);
+      --accent: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);
+      --text-dark: #1e293b;
+      --text-light: #475569;
+      --card-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+
+    /* --- كود الخلفية الفخمة --- */
+    background-color: #f8fafc; 
+    background-image: 
+        linear-gradient(135deg, rgba(224, 242, 254, 0.5) 0%, rgba(248, 250, 252, 0) 100%),
+        radial-gradient(#8b5cf6 0.6px, transparent 0.6px),
+        radial-gradient(#8b5cf6 0.6px, #f8fafc 0.6px);
+        
+    background-size: 100% 100%, 30px 30px, 30px 30px;
+    background-position: 0 0, 0 0, 15px 15px;
+    background-attachment: fixed; 
+}
+
+
+    .navbar {
+      background: var(--main-bg);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #e2e8f0;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #1e293b;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      padding: 48px 20px 28px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      margin: 0;
+      background: linear-gradient(to right, #001e3c, #0062ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.25;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 900px;
+      margin: 0 auto 45px auto;
+    }
+
+    .tool-card {
+      background: var(--main-bg);
+      border-radius: 20px;
+      margin-bottom: 20px;
+      padding: 24px;
+      display: flex;
+      align-items: flex-start;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #f1f5f9;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      gap: 16px;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+    }
+
+    .tool-icon {
+      width: 75px;
+      height: 110px;
+      background: #eef5ff;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 44px;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 10px rgba(0, 98, 255, 0.05);
+    }
+
+    .tool-info {
+      flex-grow: 1;
+      min-width: 0;
+    }
+
+    .tool-info h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .tool-info p {
+      margin: 0;
+      color: var(--text-light);
+      font-size: 1rem;
+      max-width: 90%;
+    }
+
+    .action-area {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: stretch;
+      padding-right: 12px;
+    }
+
+    .explore-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      transition: 0.25s ease;
+      width: 100%;
+      min-width: 140px;
+    }
+
+    .explore-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 15px rgba(0, 98, 255, 0.2);
+    }
+
+    .section-title {
+      text-align: center;
+      color: #15803d;
+      margin: 38px 0 20px;
+      font-weight: 900;
+      font-size: 1.6rem;
+      padding: 0 12px;
+    }
+
+    .tools-section {
+      width: 95%;
+      max-width: 1000px;
+      margin: 0 auto 30px auto;
+      padding: 0 0 10px;
+    }
+
+    .tools-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .tool-list-item {
+      background: white;
+      border-radius: 24px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border: 1px solid #f1f5f9;
+      transition: transform 0.2s ease;
+    }
+
+    .tool-list-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .tool-number {
+      width: 46px;
+      height: 46px;
+      background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .tool-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tool-text h3 {
+      margin: 0 0 6px 0;
+      font-size: 1.15rem;
+      color: #1e293b;
+    }
+
+    .tool-text p {
+      margin: 0;
+      color: #64748b;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .visit-link {
+      background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .visit-link:hover {
+      opacity: 0.95;
+    }
+
+    .back-btn {
+      display: block;
+      width: 100%;
+      max-width: 220px;
+      margin: 30px auto 60px;
+      padding: 12px;
+      background: #64748b;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .back-btn:hover { background: #475569; }
+
+    @media (max-width: 700px) {
+      .hero { padding: 30px 14px 18px; }
+      .hero h1 { font-size: 1.75rem; line-height: 1.45; }
+
+      .tool-card {
+        padding: 18px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        border-radius: 22px;
+        gap: 12px;
+      }
+
+      .tool-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+        margin: 0;
+        border-radius: 14px;
+      }
+
+      .tool-info h2 { font-size: 1.08rem; margin: 0; }
+      .tool-info p {
+        font-size: 0.9rem;
+        margin-top: 8px;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .action-area {
+        width: 100%;
+        padding-right: 0;
+      }
+
+      .explore-btn {
+        width: 100%;
+        padding: 12px;
+        border-radius: 14px;
+      }
+
+      .tool-list-item {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 12px;
+        padding: 18px;
+      }
+
+      .visit-link {
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 1.28rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">بوابة الأدوات الذكية</nav>
+
+  <div class="hero">
+    <h1>جميع أدوات <br> الذكاء الاصطناعي</h1>
+  </div>
+
+  <div class="container">
+    <div class="tool-card" style="border: 2px solid #10b981; background: #f0fdf4;">
+    <div class="tool-icon">🌟</div>
+    <div class="tool-info">
+        <h2 id="daily-tool-title">أداة اليوم</h2>
+        <p id="daily-tool-desc">اكتشف أداة ذكاء اصطناعي مميزة تتغير تلقائياً كل يوم.</p>
+    </div>
+    <div class="action-area">
+        <a id="daily-tool-link" 
+   href="chatgpt-review.html" 
+   class="explore-btn" 
+   style="text-decoration: none; text-align: center; display: block; background: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%); color: white; padding: 12px; border-radius: 10px; font-weight: bold;">
+   اقرأ المراجعة واستخدم الأداة
+</a>
+>
+
+    </div>
+</div>
+
+    <div class="tool-card">
+      <div class="tool-icon">💬</div>
+      <div class="tool-info">
+        <h2>أدوات الدردشة والذكاء الشامل</h2>
+        <p>أفضل نماذج الذكاء الاصطناعي لتوليد النصوص، البرمجة، والبحث المتقدم في مكان واحد.</p>
+      </div>
+      <div class="action-area">
+        <a href="chat.html" class="explore-btn" style="text-decoration: none; text-align: center; display: block;">استكشف الأدوات</a>
+        
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">🎨</div>
+      <div class="tool-info">
+        <h2>أدوات توليد الصور الفنية</h2>
+        <p>أدوات قوية لتحويل النصوص إلى صور واقعية وفنية بجودة عالية ولمسة إبداعية واضحة.</p>
+      </div>
+      <div class="action-area">
+        <a href="image.html" class="explore-btn" style="text-decoration: none; text-align: center; display: block;">استكشف الأدوات</a>
+        
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">🎬</div>
+      <div class="tool-info">
+        <h2>أدوات صناعة الفيديو والتحريك</h2>
+        <p>أدوات لتوليد الفيديو، تحريك الصور، وصناعة محتوى بصري حديث وسريع.</p>
+      </div>
+      <div class="action-area">
+        <a href="video.html" class="explore-btn" style="text-decoration: none; text-align: center; display: block;">استكشف الأدوات</a>
+
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">🖌️</div>
+      <div class="tool-info">
+        <h2>تحرير الصور والتصميم</h2>
+        <p>مجموعة أدوات لتعديل الصور، إزالة الخلفيات، تصميم المحتوى، وتسهيل العمل الإبداعي.</p>
+      </div>
+      <div class="action-area">
+        <a href="design.html" class="explore-btn" style="text-decoration: none; text-align: center; display: block;">استكشف الأدوات</a>
+
+      </div>
+    </div>
+  </div>
+<script>
+const dailyToolsList = [
+    { name: "ChatGPT", url: "https://chatgpt.com", desc: "أقوى مساعد ذكي للكتابة، البرمجة، والبحث عن المعلومات." },
+    { name: "Midjourney", url: "https://www.midjourney.com", desc: "ملك توليد الصور الفنية والواقعية من الخيال." },
+    { name: "Runway Gen-3", url: "https://runwayml.com", desc: "أداة سينمائية احترافية لتحويل النصوص إلى فيديو." },
+    { name: "ElevenLabs", url: "https://elevenlabs.io", desc: "أفضل تقنية لتحويل النصوص إلى أصوات بشرية طبيعية." },
+    { name: "Claude AI", url: "https://claude.ai", desc: "مساعد ذكي يمتاز بدقة عالية في تحليل النصوص الطويلة." },
+    { name: "Perplexity", url: "https://www.perplexity.ai", desc: "محرك بحث ذكي يقدم لك إجابات دقيقة مع المصادر." }
+];
+
+// مصفوفة الأدوات المحدثة بروابط المقالات
+const dailyToolsList = [
+    { 
+        name: "ChatGPT", 
+        desc: "مساعدك الذكي للإجابة على التساؤلات وكتابة الأكواد البرمجية بدقة.", 
+        reviewUrl: "chatgpt-review.html" 
+    },
+    { 
+        name: "Perplexity", 
+        desc: "محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم إجابات موثقة بالمصادر.", 
+        reviewUrl: "perplexity-review.html" 
+    }
+    // يمكنك إضافة المزيد من الأدوات هنا لاحقاً بنفس الصيغة
+];
+
+function updateDailyTool() {
+    const today = new Date();
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    
+    const toolIndex = dayOfYear % dailyToolsList.length;
+    const selectedTool = dailyToolsList[toolIndex];
+
+    const titleEl = document.getElementById('daily-tool-title');
+    const descEl = document.getElementById('daily-tool-desc');
+    const linkEl = document.getElementById('daily-tool-link');
+
+    if(titleEl) titleEl.innerText = "أداة اليوم: " + selectedTool.name;
+    if(descEl) descEl.innerText = selectedTool.desc;
+    
+    // الربط التلقائي بصفحة المقال الخاصة بالأداة المختارة
+    if(linkEl) {
+        linkEl.href = selectedTool.reviewUrl;
+    }
+}
+
+// تشغيل التحديث تلقائياً عند فتح الصفحة
+updateDailyTool();
+
+</script>
+<section class="container" style="margin-top: 40px;">
+    <h2 style="color: #8b5cf6; margin-bottom: 20px;">مقالات وشروحات حصرية 📚</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        
+        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <div style="height: 150px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">✍️</div>
+            <div style="padding: 20px;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 10px;">كيف تختار أداة الذكاء الاصطناعي المناسبة لمشروعك؟</h3>
+                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.6;">في هذا الدليل الشامل، نستعرض المعايير الأساسية لاختيار الأدوات التي توفر عليك الوقت والجهد...</p>
+                <a href="article1.html" style="color: #10b981; text-decoration: none; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-top: 10px;">اقرأ المزيد ←</a>
+            </div>
+        </div>
+
+        </div>
+</section>
+<section class="container" style="margin-top: 60px; margin-bottom: 60px; font-family: 'Cairo', sans-serif; direction: rtl;">
+    <article style="background: rgba(10, 10, 10, 0.85); padding: 45px; border-radius: 35px; border: 2px solid #8b5cf6; backdrop-filter: blur(20px); line-height: 2.2; color: #ffffff; text-align: justify; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        
+        <h1 style="color: #a78bfa; font-size: 2.5rem; text-align: center; margin-bottom: 40px; font-weight: 800; text-shadow: 0 0 15px rgba(167, 139, 250, 0.6);">
+            مستقبل الذكاء الاصطناعي 2026: الدليل التقني الشامل
+        </h1>
+
+        <p style="font-size: 1.25rem; margin-bottom: 30px; color: #ffffff; font-weight: 400;">
+            دخلنا في عام 2026 مرحلة جديدة كلياً من التطور التقني، حيث لم يعد الذكاء الاصطناعي مجرد أداة مساعدة، بل أصبح المحرك الأساسي لكافة العمليات الرقمية. من تطوير الويب عبر تطبيقات مثل <strong>Acode</strong> إلى إدارة المستودعات البرمجية في <strong>GitHub</strong>، يتغلغل الذكاء الاصطناعي في كل سطر برمجين وفكرة إبداعية. نحن في "بوابة الأدوات الذكية" استشعرنا هذه المسؤولية، وقررنا بناء هذا المرجع ليكون دليلاً حياً لكل باحث عن الكفاءة والاحترافية.
+        </p>
+
+        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">أولاً: معايير اختيار أدوات الذكاء الاصطناعي</h2>
+        <p style="font-size: 1.15rem; color: #f1f5f9;">
+            ليست كل أداة ذكاء اصطناعي هي الأداة المناسبة لك. في رحلتنا لجمع هذه الأدوات، اتبعنا منهجية "التحليل العميق" لضمان حصول زوارنا على أفضل تجربة مستخدم (UX). المعايير التي نعتمدها تتلخص في كفاءة الخوارزميات ومدى قدرة الأداة على فهم الأوامر المعقدة وتنفيذها بدقة متناهية، بالإضافة إلى التكلفة الإنتاجية وهل توفر الأداة قيمة حقيقية مقابل سعرها.
+        </p>
+
+        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">ثانياً: ثورة التوليد البصري والواقعية الفائقة</h2>
+        <p style="font-size: 1.15rem; color: #f1f5f9;">
+            تعد فئة توليد الصور (Image Generation) من أكثر الفئات جذباً للمبدعين في 2026. باستخدام نماذج متطورة مثل <strong>Nano Banana 2</strong>، أصبح من الممكن تحويل نص بسيط إلى لوحة فنية فخمة بأسلوب <em>Neo-Futurism</em> أو <em>Cyberpunk</em>. هذا التطور لم يخدم الفنانين فحسب، بل خدم المصممين المعماريين، ومطوري الألعاب، وحتى المسوقين الرقميين الذين يبحثون عن محتوى بصري حصري لا يخضع لحقوق الملكية الفكرية التقليدية.
+        </p>
+
+        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">ثالثاً: الذكاء الاصطناعي في خدمة المبرمجين (Coding AI)</h2>
+        <p style="font-size: 1.15rem; color: #f1f5f9;">
+            كمطورين نستخدم أدوات مثل <strong>Acode</strong> لإدارة مشاريعنا على الجوال، ندرك قيمة المساعد الذكي. أدوات البرمجة بالذكاء الاصطناعي لم تعد تكتفي بإكمال الكود تلقائياً، بل أصبحت قادرة على اكتشاف الثغرات الأمنية في الأكواد البرمجية قبل رفعها على <strong>GitHub</strong>، وتحويل التصاميم من ملفات عادية إلى كود HTML/CSS جاهز للعمل، وتحسين سرعة استجابة المواقع عبر إعادة صياغة الخوارزميات بشكل أكثر كفاءة.
+        </p>
+
+        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">رابعاً: تحسين محركات البحث (SEO) في عصر AI</h2>
+        <p style="font-size: 1.15rem; color: #f1f5f9;">
+            محركات البحث مثل جوجل أصبحت تعامل المحتوى المصنوع بالذكاء الاصطناعي بحذر، وهنا تأتي القيمة المضافة لموقعنا. نحن لا نعتمد على النصوص الآلية الجافة، بل ندمج الخبرة البشرية (E-E-A-T) مع الدقة التقنية. لكي يقبل موقعك في أدسنس، يجب أن تقدم تجربة حقيقية، وهذا ما نفعله في "بوابة الأدوات الذكية" من خلال تقديم شروحات مبنية على تجربة شخصية دامت لأكثر من 12 ساعة يومياً في العمل البرمجي.
+        </p>
+
+        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">خامساً: بناء مجتمع تقني تفاعلي واستشراف المستقبل</h2>
+        <p style="font-size: 1.15rem; color: #f1f5f9;">
+            أحد أهم شروط النجاح لأي منصة تقنية هو التفاعل. لذا قمنا بدمج نظام تعليقات متطور يعتمد على <strong>Giscus</strong>. هذا النظام يسمح للمبرمجين والتقنيين بمشاركة أكوادهم وتجاربهم مباشرة أسفل المقال. مع رؤية 2030 والتطور الرقمي المذهل في المملكة العربية السعودية، أصبح الذكاء الاصطناعي لغة العصر، وموقعنا يهدف لأن يكون جزءاً من هذا التحول، عبر تعريب المفاهيم التقنية الصعبة وجعلها في متناول المطور العربي الشاب.
+        </p>
+
+        <div style="background: rgba(139, 92, 246, 0.2); border-radius: 20px; padding: 35px; margin-top: 50px; border-right: 8px solid #a78bfa;">
+            <h3 style="color: #ffffff; margin-top: 0; font-weight: 700;">خلاصة الدليل التقني</h3>
+            <p style="margin-bottom: 0; font-size: 1.1rem; color: #ffffff;">
+                في النهاية، الذكاء الاصطناعي هو "قوة خارقة" تضاف إلى عقلك البشري. نحن هنا لنضمن أنك تمتلك أفضل الأدوات لاستخدام هذه القوة. تصفح الأقسام، جرب الأدوات، وشاركنا رأيك. موقعنا ليس مجرد صفحة ويب، بل هو رفيقك التقني في رحلة الإبداع الرقمي لعام 2026 وما بعده.
+            </p>
+        </div>
+
+    </article>
+</section>
+
+<section class="container" style="margin-top: 50px;">
+    <h2 style="text-align: center; color: #8b5cf6; margin-bottom: 30px;">ماذا يقول زوارنا؟</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        
+        <div style="background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 5px solid #10b981;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #8b5cf6;">أ</div>
+                <div>
+                    <h4 style="margin: 0; font-size: 0.9rem;">أحمد علي</h4>
+                    <span style="color: #fbbf24;">★★★★★</span>
+                </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #64748b; margin: 0;">"موقع خرافي! وفر علي وقت طويل في البحث عن أدوات الذكاء الاصطناعي. ميزة أداة اليوم جداً مفيدة."</p>
+        </div>
+
+        <div style="background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 5px solid #8b5cf6;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #10b981;">س</div>
+                <div>
+                    <h4 style="margin: 0; font-size: 0.9rem;">سارة حسن</h4>
+                    <span style="color: #fbbf24;">★★★★★</span>
+                </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #64748b; margin: 0;">"التصميم مريح للعين والأدوات مختارة بعناية. حبيت تقسيم الأقسام وسرعة التنقل بينها."</p>
+        </div>
+
+        <div style="background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 5px solid #10b981;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #8b5cf6;">م</div>
+                <div>
+                    <h4 style="margin: 0; font-size: 0.9rem;">محمد الكندي</h4>
+                    <span style="color: #fbbf24;">★★★★☆</span>
+                </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #64748b; margin: 0;">"دليل شامل وواضح. أتمنى إضافة قسم خاص لتعلم البرمجة بالذكاء الاصطناعي مستقبلاً. عمل رائع!"</p>
+        </div>
+
+    </div>
+</section>
+
+        <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px dashed #e2e8f0;">
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 10px;">هل أعجبك الموقع؟ شاركنا رأيك ليظهر هنا!</p>
+            <a href="contact.html" style="display: inline-block; text-decoration: none; padding: 12px 25px; background: var(--accent); color: white; border-radius: 15px; font-weight: 800; font-size: 0.9rem; transition: transform 0.2s;">
+                أضف تعليقك الآن ✍️
+            </a>
+        </div>
+
+<footer style="margin-top: 50px; padding: 30px; border-top: 1px solid #e2e8f0; text-align: center;">
+    <div style="margin-bottom: 15px;">
+        <a href="privacy.html" style="margin: 0 10px; color: #64748b; text-decoration: none; font-size: 0.9rem;">سياسة الخصوصية</a>
+        <a href="about.html" style="margin: 0 10px; color: #64748b; text-decoration: none; font-size: 0.9rem;">من نحن</a>
+        <a href="contact.html" style="margin: 0 10px; color: #64748b; text-decoration: none; font-size: 0.9rem;">اتصل بنا</a>
+        <a href="disclaimer.html" style="margin: 0 10px; color: #64748b; text-decoration: none; font-size: 0.9rem;"> إخلاء المسؤولية</a>
+        
+
+    </div>
+    <p style="color: #94a3b8; font-size: 0.8rem;">© 2026 بوابة الأدوات الذكية - جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>

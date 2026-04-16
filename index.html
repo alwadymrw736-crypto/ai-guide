@@ -589,6 +589,24 @@ updateDailyTool();
     </div>
     <p style="color: #94a3b8; font-size: 0.8rem;">© 2026 بوابة الأدوات الذكية - جميع الحقوق محفوظة</p>
 </footer>
+// كود تفعيل البحث الذكي في صفحتك
+const searchInput = document.getElementById('toolSearch'); // تأكد أن ID خانة البحث هو toolSearch
+const allTools = document.querySelectorAll('.tool-card'); // تأكد أن كل قسم عندك له كلاس اسمه tool-card
 
+searchInput.addEventListener('input', (e) => {
+    const value = e.target.value.toLowerCase().trim(); // الكلمة اللي كتبها المستخدم
+
+    allTools.forEach(tool => {
+        // بيبحث في العنوان والوصف الخاص بكل أداة
+        const isVisible = 
+            tool.querySelector('h3').textContent.toLowerCase().includes(value) || 
+            tool.querySelector('p').textContent.toLowerCase().includes(value);
+        
+        // إذا لقى تطابق يخليها ظاهرة، وإذا ما لقى يخفيها بسلاسة
+        tool.style.display = isVisible ? "block" : "none";
+        tool.style.opacity = isVisible ? "1" : "0";
+    });
+});
+  
 </body>
 </html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# رابط خريطة الموقع لمساعدة العناكب على إيجادك
+Sitemap: https://ai-gate-chi.vercel.app/sitemap.xml

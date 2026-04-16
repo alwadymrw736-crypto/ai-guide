@@ -327,14 +327,6 @@
   <div class="hero">
     <h1>جميع أدوات <br> الذكاء الاصطناعي</h1>
   </div>
-<div class="container" style="margin-top: 20px;">
-    <div style="background: rgba(255, 255, 255, 0.5); padding: 20px; border-radius: 20px; border: 1px solid #8b5cf6; backdrop-filter: blur(10px);">
-        <h3 style="text-align: center; color: #8b5cf6; margin-bottom: 15px; font-size: 1.1rem;">ابحث عن أي أداة ذكاء اصطناعي 🔍</h3>
-        
-        <script async src="https://cse.google.com/cse.js?cx=87f1ca386221d4289"></script>
-        <div class="gcse-search"></div>
-    </div>
-</div>
   
   <div class="container">
     <div class="tool-card" style="border: 2px solid #10b981; background: #f0fdf4;">
@@ -589,24 +581,6 @@ updateDailyTool();
     </div>
     <p style="color: #94a3b8; font-size: 0.8rem;">© 2026 بوابة الأدوات الذكية - جميع الحقوق محفوظة</p>
 </footer>
-// كود تفعيل البحث الذكي في صفحتك
-const searchInput = document.getElementById('toolSearch'); // تأكد أن ID خانة البحث هو toolSearch
-const allTools = document.querySelectorAll('.tool-card'); // تأكد أن كل قسم عندك له كلاس اسمه tool-card
 
-searchInput.addEventListener('input', (e) => {
-    const value = e.target.value.toLowerCase().trim(); // الكلمة اللي كتبها المستخدم
-
-    allTools.forEach(tool => {
-        // بيبحث في العنوان والوصف الخاص بكل أداة
-        const isVisible = 
-            tool.querySelector('h3').textContent.toLowerCase().includes(value) || 
-            tool.querySelector('p').textContent.toLowerCase().includes(value);
-        
-        // إذا لقى تطابق يخليها ظاهرة، وإذا ما لقى يخفيها بسلاسة
-        tool.style.display = isVisible ? "block" : "none";
-        tool.style.opacity = isVisible ? "1" : "0";
-    });
-});
-  
 </body>
 </html>

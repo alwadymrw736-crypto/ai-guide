@@ -404,25 +404,7 @@ function updateDailyTool() {
     document.getElementById('dynamic-link').setAttribute('href', selectedTool.link);
 }
 
-function startRedirect(event, element) {
-    event.preventDefault();
-    const targetUrl = element.getAttribute('href');
-    
-    // 2. نظام العداد للتحويل للموقع الأصلي
-    let seconds = 5;
-    const btnText = document.getElementById('btn-text');
-    element.style.pointerEvents = "none"; 
-    
-    const interval = setInterval(() => {
-        seconds--;
-        btnText.innerText = "جاري فتح الموقع الأصلي خلال " + seconds + "...";
-        
-        if (seconds <= 0) {
-            clearInterval(interval);
-            window.location.href = targetUrl; // ينقله لموقع الأداة الفعلي (ChatGPT مثلاً)
-        }
-    }, 1000);
-  
+
 </div>
   
   </script>

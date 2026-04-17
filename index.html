@@ -325,9 +325,6 @@
   <nav class="navbar">بوابة الأدوات الذكية</nav>
 
   <div class="hero">
-    <h1>جميع أدوات <br> الذكاء الاصطناعي</h1>
-  </div>
-  
   <div id="daily-tool-container">
     <div class="tool-card" style="border: 2px solid #10b981; background: #f0fdf4; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
@@ -338,7 +335,7 @@
             </div>
         </div>
         <div class="action-area">
-            <a id="dynamic-link" href="#" onclick="startRedirect(event, this)" class="explore-btn" 
+            <a id="dynamic-link" href="#" target="_blank" class="explore-btn" 
                style="text-decoration: none; text-align: center; display: block; background: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%); color: white; padding: 12px; border-radius: 10px; font-weight: bold;">
                <span id="btn-text">زيارة الأداة الآن واستخدامها</span>
             </a>
@@ -347,7 +344,6 @@
 </div>
 
 <script>
-// قائمة الـ 40 أداة (الاسم، الوصف، رابط الموقع الأصلي)
 const toolsList = [
     { title: "ChatGPT", desc: "أشهر مساعد ذكي للكتابة والبرمجة من OpenAI.", link: "https://chat.openai.com" },
     { title: "Midjourney", desc: "توليد صور فنية خيالية بجودة سينمائية.", link: "https://www.midjourney.com" },
@@ -393,9 +389,7 @@ const toolsList = [
 
 function updateDailyTool() {
     const today = new Date();
-    // حساب رقم اليوم في السنة
     const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
-    // اختيار الأداة بناءً على باقي القسمة لضمان التغيير اليومي
     const toolIndex = dayOfYear % toolsList.length;
     const selectedTool = toolsList[toolIndex];
     
@@ -404,14 +398,13 @@ function updateDailyTool() {
     document.getElementById('dynamic-link').setAttribute('href', selectedTool.link);
 }
 
-
-</div>
-  <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-        </div>
-
+// السطر السحري: تشغيل الوظيفة فور تحميل الصفحة
+window.onload = updateDailyTool;
+</script>
+  <h1>جميع أدوات <br> الذكاء الاصطناعي</h1>
+  </div>
+  
+  
   
   </script>
     <div class="tool-card">

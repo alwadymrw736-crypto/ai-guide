@@ -328,22 +328,109 @@
     <h1>جميع أدوات <br> الذكاء الاصطناعي</h1>
   </div>
   
-  <div class="container">
-    <div class="tool-card" style="border: 2px solid #10b981; background: #f0fdf4;">
-    <div class="tool-icon">🌟</div>
-    <div class="tool-info">
-        <h2 id="daily-tool-title">أداة اليوم</h2>
-        <p id="daily-tool-desc">اكتشف أداة ذكاء اصطناعي مميزة تتغير تلقائياً كل يوم.</p>
+  <div id="daily-tool-container">
+    <div class="tool-card" style="border: 2px solid #10b981; background: #f0fdf4; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <div class="tool-icon" style="font-size: 2rem;">🌟</div>
+            <div class="tool-info">
+                <h2 id="dynamic-title" style="margin: 0; color: #10b981;">جاري اختيار أداة اليوم...</h2>
+                <p id="dynamic-desc" style="margin: 5px 0; color: #64748b;">أفضل أدوات الذكاء الاصطناعي تتحدث هنا كل 24 ساعة.</p>
+            </div>
+        </div>
+        <div class="action-area">
+            <a id="dynamic-link" href="#" onclick="startRedirect(event, this)" class="explore-btn" 
+               style="text-decoration: none; text-align: center; display: block; background: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%); color: white; padding: 12px; border-radius: 10px; font-weight: bold;">
+               <span id="btn-text">زيارة الأداة الآن واستخدامها</span>
+            </a>
+        </div>
     </div>
-    <div class="action-area">
-        <a id="daily-tool-link" 
-   href="chatgpt-review.html" 
-   class="explore-btn" 
-   style="text-decoration: none; text-align: center; display: block; background: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%); color: white; padding: 12px; border-radius: 10px; font-weight: bold;">
-   اقرأ المراجعة واستخدم الأداة
-</a>
+</div>
 
-    </div>
+<script>
+// قائمة الـ 40 أداة (الاسم، الوصف، رابط الموقع الأصلي)
+const toolsList = [
+    { title: "ChatGPT", desc: "أشهر مساعد ذكي للكتابة والبرمجة من OpenAI.", link: "https://chat.openai.com" },
+    { title: "Midjourney", desc: "توليد صور فنية خيالية بجودة سينمائية.", link: "https://www.midjourney.com" },
+    { title: "Claude AI", desc: "منافس قوي لشات جي بي تي يمتاز بالدقة اللغوية.", link: "https://claude.ai" },
+    { title: "Leonardo AI", desc: "إنشاء صور مذهلة مع تحكم كامل في الأبعاد.", link: "https://leonardo.ai" },
+    { title: "Pika Labs", desc: "تحويل النصوص والصور إلى فيديوهات احترافية.", link: "https://pika.art" },
+    { title: "Jasper", desc: "مساعد متخصص في كتابة المحتوى التسويقي والإعلانات.", link: "https://www.jasper.ai" },
+    { title: "ElevenLabs", desc: "أفضل تقنية لتحويل النص إلى صوت بشري واقعي.", link: "https://elevenlabs.io" },
+    { title: "Gamma App", desc: "إنشاء عروض تقديمية ومواقع في ثوانٍ عبر الذكاء الاصطناعي.", link: "https://gamma.app" },
+    { title: "Runway Gen-2", desc: "أداة متطورة لصناعة السينما والفيديو بالذكاء الاصطناعي.", link: "https://runwayml.com" },
+    { title: "Perplexity AI", desc: "محرك بحث ذكي يعطيك إجابات مباشرة مع المصادر.", link: "https://www.perplexity.ai" },
+    { title: "Canva Magic Edit", desc: "تعديل الصور وإضافة عناصر بالذكاء الاصطناعي بسهولة.", link: "https://www.canva.com" },
+    { title: "Adobe Firefly", desc: "أدوات أدوبي المبتكرة للتصميم الإبداعي.", link: "https://www.adobe.com/firefly" },
+    { title: "HeyGen", desc: "إنشاء فيديو بمتحدث افتراضي (Avatar) واقعي جداً.", link: "https://www.heygen.com" },
+    { title: "Phind", desc: "محرك بحث مخصص للمبرمجين لحل المشاكل التقنية.", link: "https://www.phind.com" },
+    { title: "Luma Dream Machine", desc: "توليد فيديوهات ثلاثية الأبعاد بجودة مذهلة.", link: "https://lumalabs.ai" },
+    { title: "ClipDrop", desc: "مجموعة أدوات لتعديل الصور وإزالة الخلفيات بضغطة واحدة.", link: "https://clipdrop.co" },
+    { title: "Descript", desc: "تعديل الفيديو والصوت عن طريق تعديل النص المكتوب.", link: "https://www.descript.com" },
+    { title: "Remini", desc: "تحسين جودة الصور القديمة والمغبرة لتبدو احترافية.", link: "https://remini.ai" },
+    { title: "Veed.io", desc: "محرر فيديو سحابي مع ترجمة تلقائية ذكية.", link: "https://www.veed.io" },
+    { title: "Copy.ai", desc: "كتابة المقالات ورسائل البريد الإلكتروني بسرعة فائقة.", link: "https://www.copy.ai" },
+    { title: "Otter.ai", desc: "تسجيل الاجتماعات وتحويل الكلام إلى نص مكتوب.", link: "https://otter.ai" },
+    { title: "Suno AI", desc: "توليد أغاني وموسيقى كاملة من مجرد وصف بسيط.", link: "https://suno.com" },
+    { title: "Grammarly", desc: "تصحيح الأخطاء اللغوية وتحسين أسلوب الكتابة.", link: "https://www.grammarly.com" },
+    { title: "Tome", desc: "سرد قصصي وعروض تقديمية تفاعلية بالذكاء الاصطناعي.", link: "https://tome.app" },
+    { title: "D-ID", desc: "تحريك الصور وجعل الوجوه تتحدث بصوتك.", link: "https://www.d-id.com" },
+    { title: "Beautiful.ai", desc: "تصميم شرائح عروض تقديمية ذكية تنظم نفسها تلقائياً.", link: "https://www.beautiful.ai" },
+    { title: "Character.ai", desc: "الدردشة مع شخصيات افتراضية وتاريخية ذكية.", link: "https://character.ai" },
+    { title: "Upscale.media", desc: "تكبير حجم الصور دون فقدان الجودة.", link: "https://www.upscale.media" },
+    { title: "Synthesia", desc: "تحويل النصوص إلى فيديوهات احترافية بـ 120 لغة.", link: "https://www.synthesia.io" },
+    { title: "Bard (Gemini)", desc: "مساعد جوجل الذكي المتصل بأحدث المعلومات.", link: "https://gemini.google.com" },
+    { title: "Soundraw", desc: "تأليف موسيقى مخصصة لمقاطعك دون حقوق ملكية.", link: "https://soundraw.io" },
+    { title: "Pictory", desc: "تحويل المقالات الطويلة إلى فيديوهات قصيرة للسوشيال ميديا.", link: "https://pictory.ai" },
+    { title: "Krisp", desc: "إزالة الضجيج والخلفيات المزعجة من المكالمات فوراً.", link: "https://krisp.ai" },
+    { title: "StockImg AI", desc: "توليد شعارات، أغلفة كتب، وتصاميم جاهزة.", link: "https://stockimg.ai" },
+    { title: "Looka", desc: "تصميم هوية بصرية وشعارات احترافية في دقائق.", link: "https://looka.com" },
+    { title: "Murf AI", desc: "تحويل النصوص إلى أصوات استوديو احترافية.", link: "https://murf.ai" },
+    { title: "Poised", desc: "مدرب تواصل رقمي لتحسين طريقة كلامك في الاجتماعات.", link: "https://www.poised.com" },
+    { title: "Craiyon", desc: "مولد صور مجاني ومفتوح للجميع.", link: "https://www.craiyon.com" },
+    { title: "Writesonic", desc: "أداة شاملة لكتابة المحتوى المتوافق مع محركات البحث.", link: "https://writesonic.com" },
+    { title: "Remove.bg", desc: "إزالة خلفيات الصور بدقة مذهلة في ثانية واحدة.", link: "https://www.remove.bg" }
+];
+
+function updateDailyTool() {
+    const today = new Date();
+    // حساب رقم اليوم في السنة
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+    // اختيار الأداة بناءً على باقي القسمة لضمان التغيير اليومي
+    const toolIndex = dayOfYear % toolsList.length;
+    const selectedTool = toolsList[toolIndex];
+    
+    document.getElementById('dynamic-title').innerText = "أداة اليوم: " + selectedTool.title;
+    document.getElementById('dynamic-desc').innerText = selectedTool.desc;
+    document.getElementById('dynamic-link').setAttribute('href', selectedTool.link);
+}
+
+function startRedirect(event, element) {
+    event.preventDefault();
+    const targetUrl = element.getAttribute('href');
+    
+    // 1. فتح رابط الإعلان (الربح) في نافذة جديدة
+    window.open('https://www.profitablecpmratenetwork.com/jgsjvggy5p?key=19d3d76da73a6a97da531dd9a4683434', '_blank');
+    
+    // 2. نظام العداد للتحويل للموقع الأصلي
+    let seconds = 5;
+    const btnText = document.getElementById('btn-text');
+    element.style.pointerEvents = "none"; 
+    
+    const interval = setInterval(() => {
+        seconds--;
+        btnText.innerText = "جاري فتح الموقع الأصلي خلال " + seconds + "...";
+        
+        if (seconds <= 0) {
+            clearInterval(interval);
+            window.location.href = targetUrl; // ينقله لموقع الأداة الفعلي (ChatGPT مثلاً)
+        }
+    }, 1000);
+}
+
+// تشغيل الوظيفة فور تحميل الصفحة
+updateDailyTool();
+</script>
+
 </div>
 
     <div class="tool-card">
@@ -581,6 +668,8 @@ updateDailyTool();
     </div>
     <p style="color: #94a3b8; font-size: 0.8rem;">© 2026 بوابة الأدوات الذكية - جميع الحقوق محفوظة</p>
 </footer>
-
+<script src="https://pl29170220.profitablecpmratenetwork.com/0e/f9/92/0ef9928d6d541e54d8c5b8d6eaf391dd.js"></script>
+  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
+  
 </body>
 </html>

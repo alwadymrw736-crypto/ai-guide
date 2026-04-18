@@ -69,35 +69,33 @@
       { name: "Gemini", url: "gemini-review.html", desc: "مساعد جوجل الذكي والمتكامل مع تطبيقاتك اليومية (اقرأ مراجعتي وتجربتي)." },
       { name: "Perplexity", url: "perplexity-review.html", desc: "مستقبل البحث الذكي مع توثيق المصادر (تعرف على تجربتي في استخدامه للبحوث)." },
       { name: "Copilot", url: "copilot-review.html", desc: "مساعد مايكروسوفت الذكي المدمج في ويندوز (تعرف على كيفية استخدامه مجاناً)." },
-      { 
-    name: "Notion AI", 
-    url: "notion-ai.html", 
-    desc: "حوّل ملاحظاتك إلى نظام ذكي؛ شرح شامل لبناء عقلك الثاني وتنظيم مشاريعك البرمجية." 
-},
-
-      { 
-    name: "Gamma", 
-    url: "gamma-review.html", 
-    desc: "أنشئ عروضاً تقديمية ومواقع ويب احترافية في ثوانٍ باستخدام الذكاء الاصطناعي، وداعاً لبرامج التصميم المعقدة." 
-},
-
-      { 
-    name: "ElevenLabs", 
-    url: "elevenlabs-review.html", 
-    desc: "أقوى أداة لتوليد الأصوات البشرية بالذكاء الاصطناعي؛ حول نصوصك إلى مقاطع صوتية احترافية تتنفس وتنفعل كالبشر." 
-},
-
-      { 
-    name: "Character.ai", 
-    url: "character-ai-review.html", 
-    desc: "دردش مع شخصيات خيالية، تاريخية، أو برمجية؛ منصة رائدة تمنح الذكاء الاصطناعي شخصية وروحاً تفاعلية لا مثيل لها." 
-},
-
-      { 
-    name: "Poe", 
-    url: "poe-review.html", 
-    desc: "منصة شاملة تتيح لك تجربة أفضل نماذج الذكاء الاصطناعي في العالم من مكان واحد؛ بوابتك للوصول لكل تقنيات AI." 
-},
+      const chatTools = [
+    { 
+        name: "Notion AI", 
+        url: "notion-ai.html", 
+        desc: "حوّل ملاحظاتك إلى نظام ذكي؛ شرح شامل لبناء عقلك الثاني وتنظيم مشاريعك البرمجية." 
+    },
+    { 
+        name: "Gamma", 
+        url: "gamma-review.html", 
+        desc: "أنشئ عروضاً تقديمية ومواقع ويب احترافية في ثوانٍ باستخدام الذكاء الاصطناعي." 
+    },
+    { 
+        name: "ElevenLabs", 
+        url: "elevenlabs-review.html", 
+        desc: "أقوى أداة لتوليد الأصوات البشرية بالذكاء الاصطناعي؛ تحويل النصوص لمقاطع احترافية." 
+    },
+    { 
+        name: "Character.ai", 
+        url: "character-ai-review.html", 
+        desc: "دردش مع شخصيات خيالية، تاريخية، أو برمجية؛ منصة تمنح الذكاء الاصطناعي روحاً." 
+    },
+    { 
+        name: "Poe", 
+        url: "poe-review.html", 
+        desc: "منصة شاملة تتيح لك تجربة أفضل نماذج الذكاء الاصطناعي في العالم من مكان واحد." 
+    }
+];
 
     const listContainer = document.getElementById('chat-tools-list');
     listContainer.innerHTML = chatTools.map((tool, index) => `

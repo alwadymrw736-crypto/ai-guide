@@ -64,39 +64,17 @@
 
   <script>
     const chatTools = [
-      { name: "ChatGPT", url: "chatgpt-review.html", desc: "مساعد شامل للمحادثات والبرمجة (اقرأ مراجعتنا الشاملة من هنا)" },
-      { name: "Claude", url: "claude-review.html", desc: "ممتاز في الصياغة الطويلة وتحليل الملفات (اقرأ تجربتي معه من هنا)." },
-      { name: "Gemini", url: "gemini-review.html", desc: "مساعد جوجل الذكي والمتكامل مع تطبيقاتك اليومية (اقرأ مراجعتي وتجربتي)." },
-      { name: "Perplexity", url: "perplexity-review.html", desc: "مستقبل البحث الذكي مع توثيق المصادر (تعرف على تجربتي في استخدامه للبحوث)." },
-      { name: "Copilot", url: "copilot-review.html", desc: "مساعد مايكروسوفت الذكي المدمج في ويندوز (تعرف على كيفية استخدامه مجاناً)." },
-      const chatTools = [
-    { 
-        name: "Notion AI", 
-        url: "notion-ai.html", 
-        desc: "حوّل ملاحظاتك إلى نظام ذكي؛ شرح شامل لبناء عقلك الثاني وتنظيم مشاريعك البرمجية." 
-    },
-    { 
-        name: "Gamma", 
-        url: "gamma-review.html", 
-        desc: "أنشئ عروضاً تقديمية ومواقع ويب احترافية في ثوانٍ باستخدام الذكاء الاصطناعي." 
-    },
-    { 
-        name: "ElevenLabs", 
-        url: "elevenlabs-review.html", 
-        desc: "أقوى أداة لتوليد الأصوات البشرية بالذكاء الاصطناعي؛ تحويل النصوص لمقاطع احترافية." 
-    },
-    { 
-        name: "Character.ai", 
-        url: "character-ai-review.html", 
-        desc: "دردش مع شخصيات خيالية، تاريخية، أو برمجية؛ منصة تمنح الذكاء الاصطناعي روحاً." 
-    },
-    { 
-        name: "Poe", 
-        url: "poe-review.html", 
-        desc: "منصة شاملة تتيح لك تجربة أفضل نماذج الذكاء الاصطناعي في العالم من مكان واحد." 
-    }
+    { name: "ChatGPT", url: "chatgpt-review.html", desc: "مساعد شامل للمحادثات والبرمجة (اقرأ مراجعتنا من هنا)." },
+    { name: "Claude", url: "claude-review.html", desc: "ممتاز في الصياغة الطويلة وتحليل الملفات (اقرأ تجربتي معه)." },
+    { name: "Gemini", url: "gemini-review.html", desc: "مساعد جوجل الذكي والمتكامل مع تطبيقاتك اليومية." },
+    { name: "Perplexity", url: "perplexity-review.html", desc: "البحث الذكي مع توثيق المصادر (تعرف على تجربتي في استخدامه)." },
+    { name: "Copilot", url: "copilot-review.html", desc: "مساعد مايكروسوفت الذكي المدمج في ويندوز." },
+    { name: "Notion AI", url: "notion-ai.html", desc: "حوّل ملاحظاتك إلى نظام ذكي؛ شرح شامل لبناء عقلك الثاني." },
+    { name: "Gamma", url: "gamma-review.html", desc: "أنشئ عروضاً تقديمية ومواقع ويب احترافية في ثوانٍ." },
+    { name: "ElevenLabs", url: "elevenlabs-review.html", desc: "أقوى أداة لتوليد الأصوات البشرية بالذكاء الاصطناعي." },
+    { name: "Character.ai", url: "character-ai-review.html", desc: "دردش مع شخصيات خيالية أو تاريخية بأسلوب تفاعلي." },
+    { name: "Poe", url: "poe-review.html", desc: "منصة شاملة تتيح لك تجربة أفضل نماذج AI في مكان واحد." }
 ];
-
     const listContainer = document.getElementById('chat-tools-list');
     listContainer.innerHTML = chatTools.map((tool, index) => `
       <div class="tool-list-item">

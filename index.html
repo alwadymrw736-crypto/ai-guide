@@ -330,7 +330,7 @@
     }
   </style>
 </head>
- <div onclick="openMenu()" style="cursor: pointer; position: fixed; top: 20px; right: 20px; z-index: 1001; padding: 10px;">
+<div onclick="openMenu()" style="cursor: pointer; position: fixed; top: 20px; right: 20px; z-index: 1001; padding: 10px;">
     <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
     <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
     <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
@@ -347,6 +347,18 @@
     <a href="enhance.html" style="display: block; padding: 20px 30px; text-decoration: none; color: #1e293b; font-weight: bold; border-right: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.borderRightColor='#8b5cf6'" onmouseout="this.style.borderRightColor='transparent'">تحسين الجودة</a>
 
 </div>
+
+<script>
+    function openMenu() {
+        document.getElementById("sideSidebar").style.width = "260px";
+        document.getElementById("menuOverlay").style.display = "block";
+    }
+
+    function closeMenu() {
+        document.getElementById("sideSidebar").style.width = "0";
+        document.getElementById("menuOverlay").style.display = "none";
+    }
+</script>
   
 <body>
 

@@ -415,6 +415,46 @@ window.onload = updateDailyTool;
   <h1>جميع أدوات <br> الذكاء الاصطناعي</h1>
   </div>
   
+  <div style="text-align: center; margin: 40px 0;">
+    <button onclick="togglePaths()" style="background: #8b5cf6; color: white; padding: 20px 50px; border: none; border-radius: 50px; font-size: 1.3rem; font-weight: bold; cursor: pointer; box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);">
+        اختصر لي الطريق 🚀
+    </button>
+</div>
+
+<div id="paths-container" style="display: none; flex-direction: column; gap: 20px; max-width: 500px; margin: 20px auto; padding: 0 20px;">
+    
+    <a href="income-path.html" style="text-decoration: none;">
+        <div style="background: #ecfdf5; padding: 25px; border-radius: 20px; border: 2px solid #10b981; transition: 0.3s; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 5px;">💰</div>
+            <h3 style="color: #065f46; margin: 5px 0;">زيادة الدخل</h3>
+            <p style="color: #047857; font-size: 0.9rem; margin: 0;">اضغط هنا.. اكتشف كيف تحول الذكاء الاصطناعي إلى ماكينة مال! 💵</p>
+        </div>
+    </a>
+
+    <a href="coding-path.html" style="text-decoration: none;">
+        <div style="background: #eff6ff; padding: 25px; border-radius: 20px; border: 2px solid #3b82f6; transition: 0.3s; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 5px;">💻</div>
+            <h3 style="color: #1e40af; margin: 5px 0;">برمجة ومشاريع</h3>
+            <p style="color: #1e3a8a; font-size: 0.9rem; margin: 0;">لا تضيع وقتك في الكود.. خلنا نبني مشروعك في دقائق! 🚀</p>
+        </div>
+    </a>
+
+    <a href="content-path.html" style="text-decoration: none;">
+        <div style="background: #fffbeb; padding: 25px; border-radius: 20px; border: 2px solid #f59e0b; transition: 0.3s; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 5px;">🎬</div>
+            <h3 style="color: #92400e; margin: 5px 0;">صناعة المحتوى</h3>
+            <p style="color: #b45309; font-size: 0.9rem; margin: 0;">السر اللي يخفيه صناع المحتوى عنك.. ابدأ هنا! 🔥</p>
+        </div>
+    </a>
+</div>
+
+<script>
+function togglePaths() {
+    const container = document.getElementById('paths-container');
+    // تغيير إلى flex ليظهر عمودياً
+    container.style.display = (container.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
   
   
   </script>

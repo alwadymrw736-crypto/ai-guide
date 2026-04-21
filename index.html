@@ -330,7 +330,24 @@
     }
   </style>
 </head>
- 
+ <div onclick="openMenu()" style="cursor: pointer; position: fixed; top: 20px; right: 20px; z-index: 1001; padding: 10px;">
+    <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
+    <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
+    <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
+</div>
+
+<div id="menuOverlay" onclick="closeMenu()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 999;"></div>
+
+<div id="sideSidebar" style="height: 100%; width: 0; position: fixed; top: 0; right: 0; background: #ffffff; z-index: 1000; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); overflow-x: hidden; padding-top: 80px; box-shadow: -5px 0 15px rgba(0,0,0,0.1);">
+    
+    <a href="remove-bg.html" style="display: block; padding: 20px 30px; text-decoration: none; color: #1e293b; font-weight: bold; border-right: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.borderRightColor='#8b5cf6'" onmouseout="this.style.borderRightColor='transparent'">إزالة الخلفية</a>
+    
+    <a href="resize.html" style="display: block; padding: 20px 30px; text-decoration: none; color: #1e293b; font-weight: bold; border-right: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.borderRightColor='#8b5cf6'" onmouseout="this.style.borderRightColor='transparent'">اقتصاص الصورة</a>
+    
+    <a href="enhance.html" style="display: block; padding: 20px 30px; text-decoration: none; color: #1e293b; font-weight: bold; border-right: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.borderRightColor='#8b5cf6'" onmouseout="this.style.borderRightColor='transparent'">تحسين الجودة</a>
+
+</div>
+  
 <body>
 
   <nav class="navbar">بوابة الأدوات الذكية</nav>

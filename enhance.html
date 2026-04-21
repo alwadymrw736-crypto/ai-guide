@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحسين الصور الاحترافي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 50%, #ffffff 100%);
+            color: #1f2937;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #7C3AED 0%, #10B981 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .header-text h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 0;
+        }
+
+        .header-text p {
+            font-size: 12px;
+            color: #9ca3af;
+            margin: 0;
+        }
+
+        main {
+            padding: 20px 0;
+        }
+
+        .usage-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .usage-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .usage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .usage-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .usage-icon {
+            width: 35px;
+            height: 35px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .usage-count {
+            font-size: 20px;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        .usage-bar {
+            width: 100%;
+            height: 8px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .usage-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+            transition: width 0.3s ease;
+        }
+
+        .usage-bar-fill.limit-reached {
+            background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .usage-text {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .usage-text strong {
+            color: #10B981;
+        }
+
+        .usage-text.limit-reached {
+            color: #ef4444;
+        }
+
+        .usage-text.limit-reached strong {
+            color: #ef4444;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 15px;
+        }
+
+        .upload-area {
+            border: 2px dashed #7C3AED;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            margin-bottom: 25px;
+        }
+
+        .upload-area:hover {
+            border-color: #7C3AED;
+            background: #f9f5ff;
+        }
+
+        .upload-area.dragging {
+            border-color: #7C3AED;
+            background: #f3e8ff;
+            transform: scale(1.02);
+        }
+
+        .upload-area.disabled {
+            border-color: #d1d5db;
+            background: #f9fafb;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .upload-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 15px;
+        }
+
+        .upload-area.dragging .upload-icon {
+            background: rgba(124, 58, 237, 0.2);
+            font-size: 32px;
+        }
+
+        .upload-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .upload-text p {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 15px;
+        }
+
+        .upload-btn {
+            background: linear-gradient(135deg, #7C3AED 0%, #7C3AED 100%);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .upload-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+
+        .upload-btn:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .preview-section {
+            display: none;
+            animation: slideUp 0.5s ease;
+        }
+
+        .preview-section.show {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .preview-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background: #f3f4f6;
+        }
+
+        .progress-section {
+            display: none;
+            margin-bottom: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .progress-section.show {
+            display: block;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7C3AED 0%, #10B981 100%);
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #7C3AED;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .button-group button {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-enhance {
+            background: linear-gradient(135deg, #7C3AED 0%, #7C3AED 100%);
+            color: white;
+        }
+
+        .btn-enhance:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-enhance:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .btn-cancel {
+            background: white;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn-cancel:hover {
+            background: #f9fafb;
+        }
+
+        .comparison-section {
+            display: none;
+            margin-bottom: 25px;
+        }
+
+        .comparison-section.show {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+
+        .comparison-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            background: #000;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .comparison-before img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .comparison-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .comparison-after img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .comparison-slider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: white;
+            cursor: col-resize;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .comparison-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: grab;
+            z-index: 11;
+        }
+
+        .comparison-handle:active {
+            cursor: grabbing;
+        }
+
+        .arrow {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            color: #7C3AED;
+        }
+
+        .arrow.left {
+            left: -8px;
+        }
+
+        .arrow.right {
+            right: -8px;
+        }
+
+        .comparison-label {
+            position: absolute;
+            top: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            z-index: 5;
+        }
+
+        .comparison-label.before {
+            left: 15px;
+        }
+
+        .comparison-label.after {
+            right: 15px;
+        }
+
+        .comparison-percent {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .comparison-info {
+            text-align: center;
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 10px;
+        }
+
+        .download-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .new-image-btn {
+            width: 100%;
+            background: white;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .new-image-btn:hover {
+            background: #f9fafb;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .feature-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 15px;
+            display: none;
+            animation: slideUp 0.3s ease;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #10B981;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #9ca3af;
+            font-size: 13px;
+            margin-top: 40px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .upload-area {
+                padding: 30px 15px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .comparison-container {
+                aspect-ratio: 4 / 3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="logo">✨</div>
+                <div class="header-text">
+                    <h1>تحسين الصور</h1>
+                    <p>تحسين جودة صورك بتقنية معالجة متقدمة</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Usage Display -->
+            <div class="usage-card">
+                <div class="usage-header">
+                    <div class="usage-title">
+                        <div class="usage-icon">⚡</div>
+                        <span>استخدامات اليوم</span>
+                    </div>
+                    <div class="usage-count"><span id="remainingUsage">3</span>/<span id="maxUsage">3</span></div>
+                </div>
+                <div class="usage-bar">
+                    <div class="usage-bar-fill" id="usageBarFill" style="width: 0%"></div>
+                </div>
+                <div class="usage-text" id="usageText">
+                    <strong id="usageNumber">3</strong> استخدامات متبقية اليوم
+                </div>
+            </div>
+
+            <!-- Upload Section -->
+            <div id="uploadSection">
+                <h2 class="section-title">رفع الصورة</h2>
+                <p class="section-subtitle">اختر صورة من جهازك أو اسحبها إلى منطقة الرفع لتحسينها فوراً</p>
+  <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
+    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
+    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
+    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
+  </div>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon" id="uploadIcon">📤</div>
+                    <div class="upload-text">
+                        <h3 id="uploadTitle">اختر صورة أو اسحبها هنا</h3>
+                        <p>ادعم صيغ: JPG, PNG, WebP (حد أقصى 50 ميجابايت)</p>
+                    </div>
+                    <button class="upload-btn" id="selectBtn" type="button">اختر الصورة</button>
+                </div>
+
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-section" id="previewSection">
+                <h2 class="section-title">معاينة الصورة</h2>
+                <img id="previewImage" class="preview-image" alt="Preview">
+
+                <!-- Progress Section -->
+                <div class="progress-section" id="progressSection">
+                    <div class="progress-label">
+                        <span>حالة المعالجة</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0%</div>
+                </div>
+
+                <!-- Error Message -->
+                <div class="error-message" id="errorMessage"></div>
+
+                <!-- Buttons -->
+                <div class="button-group">
+                    <button class="btn-enhance" id="enhanceBtn" type="button">رفع وتحسين</button>
+                    <button class="btn-cancel" id="cancelBtn" type="button">إلغاء</button>
+                </div>
+            </div>
+
+            <!-- Comparison Section -->
+            <div class="comparison-section" id="comparisonSection">
+                <div class="success-message">
+                    ✓ تم تحسين الصورة بنجاح!
+                </div>
+                <h2 class="section-title">مقارنة الصورة</h2>
+                <p class="section-subtitle">اسحب الخط الفاصل لمقارنة الصورة الأصلية مع النسخة المحسنة</p>
+
+                <div class="comparison-container" id="comparisonContainer">
+                    <div class="comparison-before">
+                        <img id="beforeImage" alt="Before">
+                    </div>
+                    <div class="comparison-after" id="comparisonAfter">
+                        <img id="afterImage" alt="After">
+                    </div>
+                    <div class="comparison-slider" id="comparisonSlider">
+                        <div class="comparison-handle">
+                            <svg class="arrow left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                            <svg class="arrow right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="comparison-label before">قبل</div>
+                    <div class="comparison-label after">بعد</div>
+                    <div class="comparison-percent" id="comparisonPercent">50%</div>
+                </div>
+                <div class="comparison-info">اسحب الخط الفاصل يميناً ويساراً لمقارنة الصورتين</div>
+
+                <div class="button-group">
+                    <button class="download-btn" id="downloadBtn" type="button">
+                        <span>⬇️</span>
+                        <span>تحميل الصورة المحسنة</span>
+                    </button>
+                    <button class="new-image-btn" id="newImageBtn" type="button">صورة جديدة</button>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div id="featuresSection" class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <div class="feature-title">تحسين فوري</div>
+                    <div class="feature-desc">معالجة محلية سريعة دون الحاجة لخادم خارجي</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">بدون تأخير</div>
+                    <div class="feature-desc">معالجة فورية وسريعة جداً في المتصفح</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">آمن تماماً</div>
+                    <div class="feature-desc">صورك لا تُرسل لأي خادم خارجي</div>
+                </div>
+            </div>
+        </main>
+   <script>
+        // ============================================
+        // 1. إدارة الاستخدام اليومي
+        // ============================================
+        const STORAGE_KEY = 'image_enhancer_usage';
+        const MAX_DAILY_USAGE = 3;
+        const RESET_INTERVAL = 24 * 60 * 60 * 1000;
+
+        function loadUsageData() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                const now = Date.now();
+
+                if (stored) {
+                    const data = JSON.parse(stored);
+                    const timeSinceReset = now - data.lastReset;
+
+                    if (timeSinceReset > RESET_INTERVAL) {
+                        const newData = { count: 0, lastReset: now };
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+                        return 0;
+                    }
+                    return data.count;
+                } else {
+                    const newData = { count: 0, lastReset: now };
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+                    return 0;
+                }
+            } catch (error) {
+                console.error('خطأ:', error);
+                return 0;
+            }
+        }
+
+        function incrementUsage() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (!stored) return false;
+
+                const data = JSON.parse(stored);
+                const now = Date.now();
+                const timeSinceReset = now - data.lastReset;
+
+                if (timeSinceReset > RESET_INTERVAL) {
+                    const newData = { count: 1, lastReset: now };
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+                    return true;
+                }
+
+                if (data.count >= MAX_DAILY_USAGE) {
+                    return false;
+                }
+
+                const newData = { ...data, count: data.count + 1 };
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+                return true;
+            } catch (error) {
+                console.error('خطأ:', error);
+                return false;
+            }
+        }
+
+        function updateUsageDisplay() {
+            const usageCount = loadUsageData();
+            const remainingUsage = MAX_DAILY_USAGE - usageCount;
+            const isLimitReached = usageCount >= MAX_DAILY_USAGE;
+
+            document.getElementById('remainingUsage').textContent = remainingUsage;
+            document.getElementById('usageNumber').textContent = remainingUsage;
+            document.getElementById('maxUsage').textContent = MAX_DAILY_USAGE;
+
+            const fillPercent = (usageCount / MAX_DAILY_USAGE) * 100;
+            const usageBarFill = document.getElementById('usageBarFill');
+            usageBarFill.style.width = fillPercent + '%';
+
+            if (isLimitReached) {
+                usageBarFill.classList.add('limit-reached');
+                document.getElementById('usageText').classList.add('limit-reached');
+                document.getElementById('usageText').innerHTML = 'لقد وصلت للحد اليومي. حاول بعد 24 ساعة';
+                document.getElementById('selectBtn').disabled = true;
+                document.getElementById('uploadArea').classList.add('disabled');
+            } else {
+                usageBarFill.classList.remove('limit-reached');
+                document.getElementById('usageText').classList.remove('limit-reached');
+                document.getElementById('usageText').innerHTML = `<strong>${remainingUsage}</strong> استخدامات متبقية اليوم`;
+                document.getElementById('selectBtn').disabled = false;
+                document.getElementById('uploadArea').classList.remove('disabled');
+            }
+        }
+
+        // ============================================
+        // 2. معالجة الصور
+        // ============================================
+        function enhancePixels(data) {
+            const contrastFactor = 1.4;
+            const saturationFactor = 1.3;
+            const brightnessFactor = 1.05;
+
+            for (let i = 0; i < data.length; i += 4) {
+                let r = data[i];
+                let g = data[i + 1];
+                let b = data[i + 2];
+                const a = data[i + 3];
+
+                const [h, s, l] = rgbToHsl(r, g, b);
+                const newS = Math.min(100, s * saturationFactor);
+                [r, g, b] = hslToRgb(h, newS, l);
+
+                r = applyContrast(r, contrastFactor);
+                g = applyContrast(g, contrastFactor);
+                b = applyContrast(b, contrastFactor);
+
+                r = Math.min(255, r * brightnessFactor);
+                g = Math.min(255, g * brightnessFactor);
+                b = Math.min(255, b * brightnessFactor);
+
+                data[i] = Math.round(r);
+                data[i + 1] = Math.round(g);
+                data[i + 2] = Math.round(b);
+                data[i + 3] = a;
+            }
+        }
+
+        function applyContrast(value, factor) {
+            return (value - 128) * factor + 128;
+        }
+
+        function rgbToHsl(r, g, b) {
+            r /= 255;
+            g /= 255;
+            b /= 255;
+
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            let h = 0;
+            let s = 0;
+            const l = (max + min) / 2;
+
+            if (max !== min) {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+
+                switch (max) {
+                    case r:
+                        h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+                        break;
+                    case g:
+                        h = ((b - r) / d + 2) / 6;
+                        break;
+                    case b:
+                        h = ((r - g) / d + 4) / 6;
+                        break;
+                }
+            }
+
+            return [h * 360, s * 100, l * 100];
+        }
+
+        function hslToRgb(h, s, l) {
+            h = h / 360;
+            s = s / 100;
+            l = l / 100;
+
+            let r, g, b;
+
+            if (s === 0) {
+                r = g = b = l;
+            } else {
+                const hue2rgb = (p, q, t) => {
+                    if (t < 0) t += 1;
+                    if (t > 1) t -= 1;
+                    if (t < 1 / 6) return p + (q - p) * 6 * t;
+                    if (t < 1 / 2) return q;
+                    if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+                    return p;
+                };
+
+                const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                const p = 2 * l - q;
+
+                r = hue2rgb(p, q, h + 1 / 3);
+                g = hue2rgb(p, q, h);
+                b = hue2rgb(p, q, h - 1 / 3);
+            }
+
+            return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+        }
+
+        function enhanceImage(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    const base64Image = e.target.result;
+                    updateProgress(20);
+
+                    const img = new Image();
+                    img.onload = () => {
+                        try {
+                            updateProgress(40);
+
+                            const canvas = document.createElement('canvas');
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            const ctx = canvas.getContext('2d');
+
+                            if (!ctx) throw new Error('فشل الحصول على سياق الرسم');
+
+                            ctx.drawImage(img, 0, 0);
+                            updateProgress(50);
+
+                            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                            const data = imageData.data;
+
+                            updateProgress(60);
+                            enhancePixels(data);
+                            updateProgress(75);
+
+                            ctx.putImageData(imageData, 0, 0);
+                            updateProgress(85);
+
+                            const enhancedImageUrl = canvas.toDataURL('image/jpeg', 0.95);
+                            updateProgress(95);
+
+                            setTimeout(() => {
+                                updateProgress(100);
+                                resolve({
+                                    originalImage: base64Image,
+                                    enhancedImage: enhancedImageUrl,
+                                    success: true
+                                });
+                            }, 200);
+                        } catch (error) {
+                            showError('خطأ في معالجة الصورة');
+                            resolve(null);
+                        }
+                    };
+
+                    img.onerror = () => {
+                        showError('فشل تحميل الصورة');
+                        resolve(null);
+                    };
+
+                    img.src = base64Image;
+                };
+
+                reader.onerror = () => {
+                    showError('فشل قراءة الملف');
+                    resolve(null);
+                };
+
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // ============================================
+        // 3. إدارة الواجهة
+        // ============================================
+        let currentFile = null;
+        let currentResult = null;
+        let sliderPosition = 50;
+        let isSliderDragging = false;
+
+        function updateProgress(percent) {
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('progressPercent').textContent = Math.round(percent) + '%';
+            document.getElementById('progressText').textContent = percent === 100 ? 'تم!' : Math.round(percent) + '%';
+        }
+
+        function showProgress() {
+            document.getElementById('progressSection').classList.add('show');
+        }
+
+        function hideProgress() {
+            document.getElementById('progressSection').classList.remove('show');
+            updateProgress(0);
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.textContent = '⚠️ ' + message;
+            errorEl.classList.add('show');
+            setTimeout(() => errorEl.classList.remove('show'), 5000);
+        }
+
+        function showPreview() {
+            document.getElementById('previewSection').classList.add('show');
+            document.getElementById('featuresSection').style.display = 'none';
+        }
+
+        function hidePreview() {
+            document.getElementById('previewSection').classList.remove('show');
+            document.getElementById('featuresSection').style.display = 'grid';
+            hideProgress();
+        }
+
+        function showComparison() {
+            document.getElementById('comparisonSection').classList.add('show');
+            document.getElementById('previewSection').classList.remove('show');
+        }
+
+        function hideComparison() {
+            document.getElementById('comparisonSection').classList.remove('show');
+            hidePreview();
+        }
+
+        // ============================================
+        // 4. معالجة رفع الملفات
+        // ============================================
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const previewImage = document.getElementById('previewImage');
+
+        selectBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                handleFileSelect(file);
+            }
+        });
+
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            uploadArea.classList.add('dragging');
+            document.getElementById('uploadIcon').textContent = '☁️';
+            document.getElementById('uploadTitle').textContent = 'أفلت الصورة هنا';
+        });
+
+        uploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            uploadArea.classList.remove('dragging');
+            document.getElementById('uploadIcon').textContent = '📤';
+            document.getElementById('uploadTitle').textContent = 'اختر صورة أو اسحبها هنا';
+        });
+
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            uploadArea.classList.remove('dragging');
+            document.getElementById('uploadIcon').textContent = '📤';
+            document.getElementById('uploadTitle').textContent = 'اختر صورة أو اسحبها هنا';
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.type.startsWith('image/')) {
+                    handleFileSelect(file);
+                }
+            }
+        });
+
+        function handleFileSelect(file) {
+            currentFile = file;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+                showPreview();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // ============================================
+        // 5. معالجة التحسين
+        // ============================================
+        const enhanceBtn = document.getElementById('enhanceBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        enhanceBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            if (!currentFile) return;
+
+            const usageCount = loadUsageData();
+            if (usageCount >= MAX_DAILY_USAGE) {
+                showError('لقد وصلت للحد اليومي من الاستخدامات');
+                return;
+            }
+
+            if (!incrementUsage()) {
+                showError('لقد وصلت للحد اليومي من الاستخدامات');
+                return;
+            }
+
+            enhanceBtn.disabled = true;
+            cancelBtn.disabled = true;
+            showProgress();
+
+            const result = await enhanceImage(currentFile);
+
+            if (result && result.success) {
+                currentResult = result;
+                document.getElementById('beforeImage').src = result.originalImage;
+                document.getElementById('afterImage').src = result.enhancedImage;
+                sliderPosition = 50;
+                updateSlider();
+                showComparison();
+                updateUsageDisplay();
+            } else {
+                showError('فشل تحسين الصورة');
+                enhanceBtn.disabled = false;
+                cancelBtn.disabled = false;
+            }
+        });
+
+        cancelBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            currentFile = null;
+            hidePreview();
+            fileInput.value = '';
+        });
+
+        // ============================================
+        // 6. معالجة المقارنة
+        // ============================================
+        const comparisonContainer = document.getElementById('comparisonContainer');
+        const comparisonSlider = document.getElementById('comparisonSlider');
+        const comparisonAfter = document.getElementById('comparisonAfter');
+        const comparisonPercent = document.getElementById('comparisonPercent');
+
+        function updateSlider() {
+            comparisonSlider.style.left = sliderPosition + '%';
+            comparisonAfter.style.width = sliderPosition + '%';
+            comparisonPercent.textContent = Math.round(sliderPosition) + '%';
+        }
+
+        comparisonSlider.addEventListener('mousedown', function() {
+            isSliderDragging = true;
+        });
+
+        document.addEventListener('mouseup', function() {
+            isSliderDragging = false;
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!isSliderDragging) return;
+
+            const rect = comparisonContainer.getBoundingClientRect();
+            const newPosition = ((e.clientX - rect.left) / rect.width) * 100;
+
+            if (newPosition >= 0 && newPosition <= 100) {
+                sliderPosition = newPosition;
+                updateSlider();
+            }
+        });
+
+        comparisonSlider.addEventListener('touchstart', function() {
+            isSliderDragging = true;
+        });
+
+        document.addEventListener('touchend', function() {
+            isSliderDragging = false;
+        });
+
+        document.addEventListener('touchmove', function(e) {
+            if (!isSliderDragging) return;
+
+            const rect = comparisonContainer.getBoundingClientRect();
+            const touch = e.touches[0];
+            const newPosition = ((touch.clientX - rect.left) / rect.width) * 100;
+
+            if (newPosition >= 0 && newPosition <= 100) {
+                sliderPosition = newPosition;
+                updateSlider();
+            }
+        });
+
+        // ============================================
+        // 7. معالجة التحميل والأزرار
+        // ============================================
+        const downloadBtn = document.getElementById('downloadBtn');
+        const newImageBtn = document.getElementById('newImageBtn');
+
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!currentResult) return;
+
+            const link = document.createElement('a');
+            link.href = currentResult.enhancedImage;
+            link.download = 'enhanced-' + Date.now() + '.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        newImageBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            currentFile = null;
+            currentResult = null;
+            hideComparison();
+            fileInput.value = '';
+        });
+
+        // ============================================
+        // 8. التهيئة الأولية
+        // ============================================
+        updateUsageDisplay();
+    </script>
+    <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
+<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
+
+</body>
+</html>

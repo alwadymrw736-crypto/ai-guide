@@ -5,67 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>أدوات الدردشة والذكاء الشامل</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    /* هنا نستخدم نفس التنسيقات لضمان شكل الموقع */
+    <style>
+    /* التنسيق الجديد المتوافق مع الهوية الداكنة وفخامة الـ SaaS */
     :root {
-      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
+      /* تدرج كحلي ملكي للخلفية */
+      --main-bg: linear-gradient(to bottom, #0f172a, #05070a); 
+      /* التدرج الأخضر والبنفسجي المميز لموقعك */
       --accent: linear-gradient(135deg, #22c55e 0%, #a855f7 100%);
+      --card-bg: #111827; /* لون البطاقات الداكن */
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-color: #1e293b;
     }
-    body { font-family: 'Cairo', sans-serif; background: #f8fafc; margin: 0; padding: 0; color: #1e293b; }
-    .navbar { background: var(--main-bg); padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; }
-    .container { width: 95%; max-width: 800px; margin: 40px auto; }
-    .tool-list-item { background: white; border-radius: 20px; padding: 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-    .tool-number { width: 40px; height: 40px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
+
+    body { 
+      font-family: 'Cairo', sans-serif; 
+      background: #05070a; 
+      margin: 0; 
+      padding: 0; 
+      color: var(--text-main); 
+      line-height: 1.6;
+    }
+
+    .navbar { 
+      background: #0f172a; 
+      padding: 20px; 
+      text-align: center; 
+      border-bottom: 1px solid var(--border-color); 
+      font-weight: 800; 
+      color: var(--text-main);
+    }
+
+    .container { 
+      width: 95%; 
+      max-width: 800px; 
+      margin: 40px auto; 
+    }
+
+    /* تحويل بطاقات الأدوات لتصبح داكنة وفخمة */
+    .tool-list-item { 
+      background: var(--card-bg); 
+      border-radius: 20px; 
+      padding: 20px; 
+      display: flex; 
+      align-items: center; 
+      gap: 16px; 
+      margin-bottom: 15px; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease;
+    }
+
+    .tool-list-item:hover {
+      transform: translateY(-5px);
+      border-color: #a855f7; /* توهج بنفسجي خفيف عند اللمس */
+    }
+
+    .tool-number { 
+      width: 40px; 
+      height: 40px; 
+      background: var(--accent); 
+      color: white; 
+      border-radius: 50%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-weight: 900; 
+      flex-shrink: 0; 
+    }
+
     .tool-text { flex: 1; }
-    .tool-text h3 { margin: 0; font-size: 1.1rem; }
-    .tool-text p { margin: 5px 0 0; color: #64748b; font-size: 0.9rem; }
-    .visit-link { background: var(--accent); color: white; padding: 8px 15px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.8rem; }
-    .back-home { display: block; text-align: center; margin-top: 30px; color: #8b5cf6; text-decoration: none; font-weight: 700; }
-  </style>
+    .tool-text h3 { margin: 0; font-size: 1.1rem; color: var(--text-main); }
+    .tool-text p { margin: 5px 0 0; color: var(--text-muted); font-size: 0.9rem; }
+
+    .visit-link { 
+      background: var(--accent); 
+      color: white !important; 
+      padding: 10px 20px; 
+      border-radius: 12px; 
+      text-decoration: none; 
+      font-weight: 700; 
+      font-size: 0.85rem; 
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+    }
+
+    .back-home { 
+      display: block; 
+      text-align: center; 
+      margin-top: 30px; 
+      color: #a855f7; 
+      text-decoration: none; 
+      font-weight: 700; 
+      transition: 0.3s;
+    }
+
+    .back-home:hover {
+      filter: brightness(1.3);
+    }
+    </style>
+  
 </head>
   <link rel="stylesheet" href="theme.css">
 
 <script src="theme.js"></script>
 <body>
 
-  <nav class="navbar">قسم أدوات الدردشة والذكاء الشامل</nav>
-<article style="background: white; padding: 30px; border-radius: 20px; margin-bottom: 30px; line-height: 2; color: #334155; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: justify;">
+  <nav class="navbar" style="background: #0f172a; padding: 20px; text-align: center; border-bottom: 1px solid #1e293b; font-weight: 800; color: #f1f5f9;">
+    قسم أدوات الدردشة والذكاء الشامل
+</nav>
+
+<article style="background: #111827; padding: 30px; border-radius: 20px; margin-bottom: 30px; line-height: 2; color: #cbd5e1; box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: justify; border: 1px solid #1e293b;">
     
-  <h2 style="color: #8b5cf6; font-size: 1.8rem; margin-bottom: 20px; border-right: 6px solid #22c55e; padding-right: 15px; text-align: right;"> ثورة أدوات الدردشة والذكاء الشامل: اكتب فكرتك… وخذ نص جاهز خلال ثواني </h2>
+    <h2 style="color: #a855f7; font-size: 1.8rem; margin-bottom: 20px; border-right: 6px solid #22c55e; padding-right: 15px; text-align: right;">ثورة أدوات الدردشة والذكاء الشامل: دليلك لاختيار المساعد الأمثل</h2>
     
     <p style="font-size: 1.1rem; margin-bottom: 20px;">
         نعيش اليوم في عصر لا يتوقف عن التطور، حيث أصبحت أدوات الدردشة القائمة على الذكاء الاصطناعي (Chatbots) هي العمود الفقري للإنتاجية الرقمية. سواء كنت مبرمجاً يبحث عن حل لثغرة معينة عبر <strong>Acode</strong>، أو كاتباً يبحث عن إلهام، فإن اختيار الأداة الصحيحة هو ما يصنع الفارق. في "بوابة الأدوات الذكية"، قمنا بتجربة عشرات النماذج لنقدم لك زبدة الخبرة في هذا القسم المتخصص.
     </p>
 
-    <div style="background: #f0fdf4; border: 1px dashed #22c55e; padding: 15px; border-radius: 12px; margin-bottom: 25px; color: #166534; font-size: 0.95rem; text-align: right;">
+    <div style="background: #064e3b; border: 1px dashed #059669; padding: 15px; border-radius: 12px; margin-bottom: 25px; color: #ecfdf5; font-size: 0.95rem; text-align: right;">
         <strong>لماذا نراجع هذه الأدوات؟</strong> لأن محركات البحث مثل جوجل تعطي الأولوية للمحتوى الذي يقدم قيمة حقيقية وشرحاً وافياً. نحن لا نضع روابط فقط، بل نقدم لك "مراجعة شاملة" لكل أداة بناءً على استخدامنا الشخصي المكثف لأكثر من 12 ساعة يومياً في بيئات التطوير المختلفة لضمان المصداقية التقنية.
     </div>
 
-    <h3 style="color: #1e293b; margin-top: 30px; text-align: right;">معايير المفاضلة بين نماذج المحادثة في 2026</h3>
+    <h3 style="color: #f1f5f9; margin-top: 30px; text-align: right;">معايير المفاضلة بين نماذج المحادثة في 2026</h3>
     <p>
         عندما تستخدم أدوات مثل <strong>ChatGPT</strong> أو <strong>Claude</strong>، يجب أن تنظر إلى ثلاثة معايير أساسية: "نافذة السياق" التي تسمح للأداة بتذكر تفاصيل المحادثة الطويلة، و"دقة الاستدلال" خاصة في الأكواد البرمجية، ومدى تكامل الأداة مع سير عملك اليومي. فمثلاً، أداة مثل <strong>Perplexity</strong> ليست مجرد شات، بل هي محرك بحث استدلالي يوثق لك المصادر، وهو أمر حيوي جداً إذا كنت تبحث عن معلومات دقيقة لمشاريعك البرمجية على <strong>GitHub</strong>.
     </p>
 
-    <h3 style="color: #1e293b; margin-top: 30px; text-align: right;">نصيحة تقنية لتعظيم الفائدة</h3>
+    <h3 style="color: #f1f5f9; margin-top: 30px; text-align: right;">نصيحة تقنية لتعظيم الفائدة</h3>
     <p>
         من خلال خبرتنا في الإدارة التصميمية والبرمجية، ننصح دائماً بعدم الاعتماد على نموذج واحد فقط. استخدم <strong>Gemini</strong> للتكامل مع خدمات السحابة، و <strong>ElevenLabs</strong> لتحويل نصوصك إلى محتوى صوتي احترافي. التنوع هو سر الاحترافية في 2026. نحن نسعى لتعريب هذه المفاهيم وجعلها في متناول المطور العربي الشاب، تماشياً مع النهضة الرقمية التي تشهدها المنطقة.
     </p>
 
-    <p style="background: #f8fafc; padding: 10px; border-radius: 8px; font-weight: 700; color: #8b5cf6; text-align: center; margin-top: 20px;">👇 استكشف القائمة المحدثة لأفضل الأدوات الذكية أدناه</p>
+    <p style="background: #0f172a; padding: 10px; border-radius: 8px; font-weight: 700; color: #a855f7; text-align: center; margin-top: 20px; border: 1px solid #1e293b;">👇 استكشف القائمة المحدثة لأفضل الأدوات الذكية أدناه</p>
 </article>
-  <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-  </div>
   
-  <div class="container">
-    <div id="chat-tools-list">
-      </div>
-    <a href="index.html" class="back-home">← العودة للرئيسية</a>
-  </div>
-
-  <script>
 const chatTools = [
     { name: "ChatGPT", url: "chatgpt-review.html", desc: "مساعد شامل للمحادثات والبرمجة (اقرأ مراجعتنا الشاملة من هنا)." },
     { name: "Claude", url: "claude-review.html", desc: "ممتاز في الصياغة الطويلة وتحليل الملفات (اقرأ تجربتي معه من هنا)." },

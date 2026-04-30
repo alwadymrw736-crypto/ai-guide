@@ -330,6 +330,9 @@
     }
   </style>
 </head>
+  <link rel="stylesheet" href="theme.css">
+
+<script src="theme.js"></script>
 <div onclick="openMenu()" style="cursor: pointer; position: fixed; top: 20px; right: 20px; z-index: 1001; padding: 10px;">
     <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
     <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
@@ -345,7 +348,13 @@
     <a href="resize.html" style="display: block; padding: 20px 30px; text-decoration: none; color: #1e293b; font-weight: bold; border-right: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.borderRightColor='#8b5cf6'" onmouseout="this.style.borderRightColor='transparent'">اقتصاص الصورة</a>
     
     <a href="enhance.html" style="display: block; padding: 20px 30px; text-decoration: none; color: #1e293b; font-weight: bold; border-right: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.borderRightColor='#8b5cf6'" onmouseout="this.style.borderRightColor='transparent'">تحسين الجودة</a>
-
+<div style="padding: 15px 30px; border-top: 1px solid var(--border-color); margin-top: 10px;">
+    <button id="theme-toggle" style="width: 100%; padding: 12px; border-radius: 10px; border: none; background: #8b5cf6; color: white; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+        <span id="theme-icon">🌓</span>
+        <span id="theme-text">الوضع الليلي</span>
+    </button>
+</div>
+  
 </div>
 
 <script>

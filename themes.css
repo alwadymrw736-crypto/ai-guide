@@ -216,3 +216,32 @@ nav, header {
     background-color: var(--bg-container) !important;
     border-bottom: 1px solid var(--border-color) !important;
 }
+/* فرض الوضع الليلي على كل شيء حرفياً */
+*, *::before, *::after {
+    background-color: #05070a !important;
+    color: #f1f5f9 !important;
+    border-color: #1e293b !important;
+    background-image: none !important;
+}
+
+/* تمييز الكروت والطبقات المتداخلة بلون أفتح قليلاً لتعطي عمق */
+div, section, article, .card, [class*="box"] {
+    background-color: #111827 !important;
+}
+
+/* ضمان ظهور النصوص بوضوح */
+h1, h2, h3, h4, h5, h6, p, span, li, a, label {
+    color: #f1f5f9 !important;
+    background-color: transparent !important;
+}
+
+/* استثناء الأزرار لكي لا تختفي (الحفاظ على الألوان الزاهية) */
+.btn, button, a[class*="btn"], .btn-review {
+    background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%) !important;
+    color: #ffffff !important;
+    background-image: linear-gradient(135deg, #a855f7 0%, #22c55e 100%) !important;
+}
+
+/* تمييز العناوين */
+h2 { color: #22c55e !important; }
+h1 { border-right: 4px solid #a855f7 !important; padding-right: 10px; }

@@ -93,3 +93,41 @@ button {
 .container {
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8) !important;
 }
+/* الخيار النووي - مسح شامل للأبيض */
+
+/* 1. استهداف جميع العناصر بدون استثناء وقلب ألوانها */
+* {
+    background-color: transparent !important; /* نجعل كل شيء شفاف أولاً */
+    border-color: #1e293b !important;
+}
+
+/* 2. فرض الخلفية الداكنة على الجسم والحاويات الكبيرة */
+html, body, div, section, article, main, .container, [class*="box"] {
+    background-color: #05070a !important; /* الخلفية السوداء العميقة */
+    background-image: none !important; /* حذف أي تدرج أبيض */
+    color: #f1f5f9 !important;
+}
+
+/* 3. الصندوق الأبيض العنيد (استهداف مباشر للمساحات الكبيرة) */
+div[style*="background"], div.container, .article-box {
+    background: #111827 !important; /* الكحلي الغامق للبطاقات */
+    color: #f1f5f9 !important;
+}
+
+/* 4. إظهار النصوص (الحل النهائي للنص المخفي) */
+h1, h2, h3, h4, p, span, a, li, strong, b {
+    color: #f1f5f9 !important;
+    -webkit-text-fill-color: #f1f5f9 !important; /* لضمان الظهور في متصفحات الجوال */
+}
+
+/* 5. إصلاح منطقة الإعلانات والصور في الأسفل */
+.adzilla-grid, [class*="ad"], img {
+    background-color: #0f172a !important;
+    border-radius: 12px;
+}
+
+/* 6. استهداف أي عنصر خلفيته بيضاء برقم اللون الهكس */
+[style*="#fff"], [style*="#ffffff"], [style*="white"], [style*="255, 255, 255"] {
+    background-color: #111827 !important;
+    background: #111827 !important;
+}

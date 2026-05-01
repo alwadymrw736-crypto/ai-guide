@@ -1,30 +1,3 @@
-/* تفعيل الوضع الليلي النووي - يطبق فقط عند وجود كلاس dark-mode */
-body.dark-mode, 
-body.dark-mode * {
-    background-color: #111827 !important; /* لون الطبقات الداكن */
-    color: #f1f5f9 !important; /* لون النص الفاتح */
-    border-color: #1e293b !important;
-    background-image: none !important; 
-}
-
-/* استثناء الخلفية الأساسية لتكون أغمق قليلاً */
-body.dark-mode {
-    background-color: #05070a !important;
-}
-
-/* الحفاظ على الأزرار لكي لا تختفي */
-body.dark-mode .btn, 
-body.dark-mode button, 
-body.dark-mode a[class*="btn"],
-body.dark-mode .btn-review {
-    background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%) !important;
-    color: #ffffff !important;
-}
-
-/* الوضع النهاري: لا يتدخل الكود ويترك التصميم الأصلي يعمل */
-body:not(.dark-mode) {
-    /* اترك هذا فارغاً ليعود الموقع لطبيعته */
-}
 /* 
    AI Gate - Nuclear Dark Mode Override (ULTIMATE VERSION)
    هذا الكود يفرض الألوان على كافة الطبقات المتداخلة (Layers & Cards) 
@@ -157,6 +130,33 @@ nav, header {
     background-color: #0f172a !important;
     border-bottom: 1px solid #1e293b !important;
 }
+/* تفعيل الوضع الليلي النووي - يطبق فقط عند وجود كلاس dark-mode */
+body.dark-mode, 
+body.dark-mode * {
+    background-color: #111827 !important; /* لون الطبقات الداكن */
+    color: #f1f5f9 !important; /* لون النص الفاتح */
+    border-color: #1e293b !important;
+    background-image: none !important; 
+}
+
+/* استثناء الخلفية الأساسية لتكون أغمق قليلاً */
+body.dark-mode {
+    background-color: #05070a !important;
+}
+
+/* الحفاظ على الأزرار لكي لا تختفي */
+body.dark-mode .btn, 
+body.dark-mode button, 
+body.dark-mode a[class*="btn"],
+body.dark-mode .btn-review {
+    background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%) !important;
+    color: #ffffff !important;
+}
+
+/* الوضع النهاري: لا يتدخل الكود ويترك التصميم الأصلي يعمل */
+body:not(.dark-mode) {
+    /* اترك هذا فارغاً ليعود الموقع لطبيعته */
+}
 /* 1. تعريف المتغيرات للوضعين */
 :root {
     /* ألوان الوضع النهاري (الافتراضي) */
@@ -215,31 +215,4 @@ a { color: var(--accent-color); text-decoration: none; }
 nav, header {
     background-color: var(--bg-container) !important;
     border-bottom: 1px solid var(--border-color) !important;
-}
-/* تفعيل الوضع الليلي النووي - يطبق فقط عند وجود كلاس dark-mode */
-body.dark-mode, 
-body.dark-mode * {
-    background-color: #111827 !important; /* لون الطبقات الداكن */
-    color: #f1f5f9 !important; /* لون النص الفاتح */
-    border-color: #1e293b !important;
-    background-image: none !important; 
-}
-
-/* استثناء الخلفية الأساسية لتكون أغمق قليلاً */
-body.dark-mode {
-    background-color: #05070a !important;
-}
-
-/* الحفاظ على الأزرار لكي لا تختفي */
-body.dark-mode .btn, 
-body.dark-mode button, 
-body.dark-mode a[class*="btn"],
-body.dark-mode .btn-review {
-    background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%) !important;
-    color: #ffffff !important;
-}
-
-/* الوضع النهاري: لا يتدخل الكود ويترك التصميم الأصلي يعمل */
-body:not(.dark-mode) {
-    /* اترك هذا فارغاً ليعود الموقع لطبيعته */
 }

@@ -245,3 +245,46 @@ h1, h2, h3, h4, h5, h6, p, span, li, a, label {
 /* تمييز العناوين */
 h2 { color: #22c55e !important; }
 h1 { border-right: 4px solid #a855f7 !important; padding-right: 10px; }
+/* 
+   AI Gate - NUCLEAR DARK MODE (FORCED OVERRIDE)
+   هذا الكود قاطع ويفرض الوضع الليلي على كل الطبقات والطبقات المتداخلة
+*/
+
+/* 1. فرض الخلفية الداكنة على كل شيء حرفياً */
+html, body, div, section, article, nav, header, footer, aside, main, 
+canvas, ul, li, table, tr, td, .card, .container, [class*="box"], [class*="wrapper"] {
+    background-color: #05070a !important;
+    background: #05070a !important;
+    color: #f1f5f9 !important;
+    border-color: #1e293b !important;
+    background-image: none !important; /* إلغاء أي صور خلفية بيضاء */
+}
+
+/* 2. فرض لون الطبقات الداخلية (التي تظهر ككروت) */
+div[class*="card"], div[class*="box"], .experience-box, .article-box {
+    background-color: #111827 !important;
+    border: 1px solid #1e293b !important;
+}
+
+/* 3. ضمان ظهور النصوص فوق أي طبقة */
+h1, h2, h3, h4, h5, h6, p, span, li, a, strong, b, i, em, label {
+    color: #f1f5f9 !important;
+    background-color: transparent !important;
+}
+
+/* 4. استثناء الأزرار (لكي تظل واضحة ولا تصبح سوداء) */
+.btn, button, a[class*="btn"], .btn-review, .visit-link {
+    background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4) !important;
+}
+
+/* 5. حل مشكلة الصور أو الأيقونات التي قد تكون داكنة وتختفي */
+img {
+    filter: brightness(0.8) contrast(1.2); /* تحسين رؤية الصور في الوضع الداكن */
+}
+/* 6. منع أي تدخل من ملفات CSS الأخرى */
+* {
+    outline-color: #1e293b !important;
+}

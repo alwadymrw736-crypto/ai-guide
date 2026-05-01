@@ -1,59 +1,104 @@
-/* 1. تعريف المتغيرات للوضعين */
-:root {
-    /* ألوان الوضع النهاري (الافتراضي) */
-    --bg-main: #ffffff;
-    --bg-container: #f8fafc;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
-    --accent-color: #a855f7;
-    --success-color: #22c55e;
+/* تفعيل الوضع الليلي النووي - يطبق فقط عند وجود كلاس dark-mode */
+body.dark-mode, 
+body.dark-mode * {
+    background-color: #111827 !important; /* لون الطبقات الداكن */
+    color: #f1f5f9 !important; /* لون النص الفاتح */
+    border-color: #1e293b !important;
+    background-image: none !important; 
 }
 
-/* ألوان الوضع الليلي - يتم تفعيلها عند إضافة كلاس dark-mode للـ body */
+/* استثناء الخلفية الأساسية لتكون أغمق قليلاً */
+body.dark-mode {
+    background-color: #05070a !important;
+}
+
+/* الحفاظ على الأزرار لكي لا تختفي */
+body.dark-mode .btn, 
+body.dark-mode button, 
+body.dark-mode a[class*="btn"],
+body.dark-mode .btn-review {
+    background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%) !important;
+    color: #ffffff !important;
+}
+
+/* الوضع النهاري: لا يتدخل الكود ويترك التصميم الأصلي يعمل */
+body:not(.dark-mode) {
+    /* اترك هذا فارغاً ليعود الموقع لطبيعته */
+}
+/* 
+   AI Gate - Nuclear Dark Mode Override (ULTIMATE VERSION)
+   هذا الكود يفرض الألوان على كافة الطبقات المتداخلة (Layers & Cards) 
+   ويضمن عمل الوضع النهاري والليلي بشكل كامل.
+*/
+
+/* 1. نظام المتغيرات (الأساس المرن) */
+:root {
+    --bg-main: #ffffff;
+    --bg-layers: #f8fafc;
+    --text-main: #1e293b;
+    --border-main: #e2e8f0;
+}
+
+/* تفعيل الوضع الليلي النووي */
 body.dark-mode {
     --bg-main: #05070a;
-    --bg-container: #111827;
+    --bg-layers: #111827;
     --text-main: #f1f5f9;
-    --text-muted: #cbd5e1;
-    --border-color: #1e293b;
-    --accent-color: #a855f7;
-    --success-color: #22c55e;
+    --border-main: #1e293b;
 }
 
-/* 2. تطبيق المتغيرات على العناصر */
-html, body {
+/* 2. القوة الضاربة: استهداف كل شيء (*) لضمان عدم نسيان أي طبقة */
+body.dark-mode *, 
+body.dark-mode div, 
+body.dark-mode section, 
+body.dark-mode article, 
+body.dark-mode .card, 
+body.dark-mode [class*="box"], 
+body.dark-mode [class*="container"] {
+    background-color: var(--bg-layers) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-main) !important;
+    background-image: none !important; /* إزالة أي خلفيات صور قد تكون بيضاء */
+}
+
+/* 3. استثناءات لضمان عدم اختفاء العناصر الهامة */
+body.dark-mode html, 
+body.dark-mode body {
     background-color: var(--bg-main) !important;
+}
+
+/* ضمان ظهور النصوص بوضوح فوق أي طبقة */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6, 
+body.dark-mode p, 
+body.dark-mode span, 
+body.dark-mode li, 
+body.dark-mode a:not([class*="btn"]) {
     color: var(--text-main) !important;
-    transition: background-color 0.3s, color 0.3s;
+    background-color: transparent !important;
 }
 
-/* معالجة كافة الحاويات والبطاقات والطبقات */
-div, section, article, .container, .article-box, .experience-box, .card, .modal-content {
-    background-color: var(--bg-container) !important;
-    color: var(--text-main) !important;
-    border-color: var(--border-color) !important;
-}
-
-/* حل مشكلة النصوص المختفية */
-h1, h2, h3, h4, h5, h6, p, span, li, strong, b, em {
-    color: inherit !important; /* يأخذ اللون من الحاوية الأب */
-}
-
-h1 { color: var(--text-main) !important; border-right-color: var(--accent-color) !important; }
-h2 { color: var(--success-color) !important; }
-
-/* الأزرار والروابط */
-a { color: var(--accent-color); text-decoration: none; }
-
-.btn-review, .visit-link, .btn-link, a[class*="btn"] {
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--success-color) 100%) !important;
+/* 4. الحفاظ على هوية الأزرار (لكي لا تصبح داكنة وتختفي) */
+.btn-review, .visit-link, a[class*="btn"], button[class*="btn"], .btn {
+    background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%) !important;
     color: #ffffff !important;
     border: none !important;
+    opacity: 1 !important;
 }
 
-/* الهيدر والـ Navbar */
-nav, header {
-    background-color: var(--bg-container) !important;
-    border-bottom: 1px solid var(--border-color) !important;
+/* 5. معالجة الوضع النهاري (إعادة الضبط) */
+body:not(.dark-mode) {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
 }
+
+body:not(.dark-mode) * {
+    /* السماح للتصميم الأصلي بالعمل في الوضع النهاري دون تدخل قسري */
+}
+/* 6. لمسة جمالية للعناوين في الوضع الليلي */
+body.dark-mode h1 { border-right: 4px solid #a855f7 !important; }
+body.dark-mode h2 { color: #22c55e !important; }

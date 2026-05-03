@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
   <meta name='impact-site-verification' value='e8948f38-e105-4957-b4ef-7bf1f261187a'>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0G27GCNDD"></script>
@@ -330,6 +332,44 @@
     }
   </style>
 </head>
+  <style>
+    .lang-switcher {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 10000;
+    }
+    
+ #langBtn {
+    padding: 8px 16px; /* قللنا الطول والعرض الداخلي */
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 6px; /* حواف أنعم للزر الصغير */
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px; /* صغرنا حجم الخط */
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3); /* ظل أخف ليناسب الحجم الصغير */
+    transition: all 0.3s ease;
+}
+
+    
+    #langBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+    }
+    
+    .goog-te-banner-frame { display: none !important; }
+    .skiptranslate { display: none !important; }
+    body { top: 0 !important; }
+</style>
+
+<div class="lang-switcher">
+    <button id="langBtn">English</button>
+</div>
+
+<div id="google_translate_element" style="display:none;"></div>
+  
   <!-- 
     Ultimate Search Tool for ai-gate-chi.vercel.app
     - Fully Auto-Sync with Dark/Light Mode
@@ -1000,6 +1040,44 @@ updateDailyTool();
 </footer>
   <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
    <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
+         <script>
+// 1. تعريف الدالة التي يطلبها سكريبت جوجل في السطر 4
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'ar',
+        includedLanguages: 'ar,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+
+// 2. دالة التبديل
+function toggleLanguage() {
+    var combo = document.querySelector('.goog-te-combo');
+    var btn = document.getElementById('langBtn');
+
+    if (combo) {
+        if (combo.value === 'ar') {
+            combo.value = 'en';
+            btn.textContent = 'العربية';
+        } else {
+            combo.value = 'ar';
+            btn.textContent = 'English';
+        }
+        combo.dispatchEvent(new Event('change'));
+    } else {
+        // إذا لم يجد القائمة، يحاول تهيئتها يدوياً
+        if (typeof google !== 'undefined' && google.translate) {
+            googleTranslateElementInit();
+        }
+        btn.textContent = "Loading...";
+        setTimeout(toggleLanguage, 1000); 
+    }
+}
+
+// 3. ربط الزر بالدالة (تأكد أن هذا السطر موجود مرة واحدة فقط)
+document.getElementById('langBtn').onclick = toggleLanguage;
+         </script>
               
 </body>
 </html>

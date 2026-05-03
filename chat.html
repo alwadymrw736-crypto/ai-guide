@@ -17,7 +17,31 @@
       padding: 0; 
       line-height: 1.6;
     }
-
+.visit-link { 
+  /* تثبيت التدرج اللوني الأصلي ومنع تغييره */
+  background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%) !important; 
+  
+  /* تثبيت لون النص الأبيض */
+  color: #ffffff !important; 
+  
+  padding: 10px 18px; 
+  border-radius: 12px; 
+  text-decoration: none; 
+  font-weight: 700; 
+  font-size: 0.85rem; 
+  display: inline-block;
+  text-align: center;
+  
+  /* إزالة أي حدود قد تظهر في الوضع الليلي */
+  border: none !important;
+  
+  /* الظل لضمان ظهوره فوق الخلفية السوداء */
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3) !important;
+  
+  /* لضمان عدم تأثره بأي فلاتر أو أوضاع ليلية */
+  filter: none !important;
+}
+    
     .navbar { 
       padding: 20px; 
       text-align: center; 

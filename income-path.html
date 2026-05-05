@@ -9,9 +9,22 @@
         :root {
             --primary: #8b5cf6; /* بنفسجي */
             --secondary: #10b981; /* أخضر */
-            --bg: #f3f4f6; /* خلفية رمادية فاتحة مثل الصورة */
+            --bg: #f3f4f6; /* خلفية رمادية فاتحة */
             --text: #1e293b;
             --white: #ffffff;
+            --box-bg: #ffffff;
+            --card-border: #f1f5f9;
+            --desc-text: #475569;
+        }
+
+        /* تفعيل الوضع الليلي تلقائياً عند إضافة class="dark-mode" للجسم */
+        body.dark-mode {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --white: #1e293b;
+            --box-bg: #1e293b;
+            --card-border: #334155;
+            --desc-text: #94a3b8;
         }
 
         body {
@@ -21,6 +34,7 @@
             line-height: 1.8;
             margin: 0;
             padding: 0;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -30,6 +44,7 @@
             padding: 40px;
             border-radius: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: background 0.3s ease;
         }
 
         .nav-back {
@@ -63,7 +78,7 @@
             font-size: 1.15rem;
             margin-bottom: 25px;
             text-align: justify;
-            color: #475569;
+            color: var(--desc-text);
         }
 
         .experience-box {
@@ -73,6 +88,11 @@
             border-radius: 25px;
             margin: 40px 0;
             position: relative;
+        }
+
+        /* تعديل صندوق الخبرة في الوضع الليلي */
+        body.dark-mode .experience-box {
+            background: linear-gradient(135deg, #2e1065 0%, #064e3b 100%);
         }
 
         .experience-box::before {
@@ -89,15 +109,14 @@
         }
 
         .strategy-step {
-            background: #fff;
-            border: 1px solid #e5e7eb;
+            background: var(--box-bg);
+            border: 1px solid var(--card-border);
             padding: 20px;
             border-radius: 18px;
             margin-bottom: 15px;
             border-right: 5px solid var(--secondary);
         }
 
-        /* --- تنسيق قائمة الأدوات الجديد (مثل الصورة) --- */
         .tools-list {
             margin-top: 40px;
             display: flex;
@@ -106,8 +125,8 @@
         }
 
         .tool-row {
-            background: #fff;
-            border: 1px solid #f1f5f9;
+            background: var(--box-bg);
+            border: 1px solid var(--card-border);
             padding: 15px 25px;
             border-radius: 20px;
             display: flex;
@@ -150,14 +169,14 @@
         .tool-details h3 {
             margin: 0;
             font-size: 1.2rem;
-            color: #1e293b;
+            color: var(--text);
             font-weight: 700;
         }
 
         .tool-details p {
             margin: 5px 0 0;
             font-size: 0.95rem;
-            color: #64748b;
+            color: var(--desc-text);
             text-align: right;
         }
 
@@ -177,8 +196,8 @@
             text-align: center;
             margin-top: 50px;
             padding-top: 30px;
-            border-top: 1px solid #e2e8f0;
-            color: #64748b;
+            border-top: 1px solid var(--card-border);
+            color: var(--desc-text);
             font-size: 0.9rem;
         }
 
@@ -191,9 +210,6 @@
         }
     </style>
 </head>
-    <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
 
 <div class="container">
@@ -225,11 +241,7 @@
 
     <h2>المحور الثاني: ترسانة الأدوات العالمية لزيادة الدخل</h2>
     <p>هذه القائمة تضم أقوى الأدوات في السوق العالمي حالياً، وهي محركات نمو حقيقية لأي مشروع رقمي:</p>
-  <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-  </div>
+
     <div class="tools-list">
         <div class="tool-row">
             <div class="tool-main">
@@ -349,8 +361,15 @@
         <p>© 2026 بوابة الأدوات الذكية | طريقك نحو القمة يبدأ من هنا.</p>
     </footer>
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    
+
+<script>
+    // الكود الذي يقرأ إعداداتك السابقة من الـ LocalStorage ويطبقها
+    (function() {
+        if (localStorage.getItem("site_theme") === "dark" || localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    })();
+</script>
+
 </body>
 </html>

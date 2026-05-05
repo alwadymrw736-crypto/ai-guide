@@ -3,207 +3,259 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>أدوات الدردشة والذكاء الشامل</title>
+  <title>أدوات الدردشة والذكاء الشامل 2026 | بوابة الأدوات الذكية</title>
+
+  <script>
+    if (localStorage.getItem("site_theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+    }
+  </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="theme.css">
-  <script src="theme.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   
   <style>
-    /* تحسينات إضافية لتتوافق مع نظام الـ Variables الخاص بك */
-    body { 
-      font-family: 'Cairo', sans-serif; 
-      margin: 0; 
-      padding: 0; 
-      line-height: 1.6;
+    :root {
+      --purple: #8b5cf6;
+      --green: #10b981;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --desc: #334155;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #10b981 100%);
     }
-.visit-link { 
-  /* تثبيت التدرج اللوني الأصلي ومنع تغييره */
-  background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%) !important; 
-  
-  /* تثبيت لون النص الأبيض */
-  color: #ffffff !important; 
-  
-  padding: 10px 18px; 
-  border-radius: 12px; 
-  text-decoration: none; 
-  font-weight: 700; 
-  font-size: 0.85rem; 
-  display: inline-block;
-  text-align: center;
-  
-  /* إزالة أي حدود قد تظهر في الوضع الليلي */
-  border: none !important;
-  
-  /* الظل لضمان ظهوره فوق الخلفية السوداء */
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3) !important;
-  
-  /* لضمان عدم تأثره بأي فلاتر أو أوضاع ليلية */
-  filter: none !important;
-}
-    
-    .navbar { 
-      padding: 20px; 
-      text-align: center; 
-      font-weight: 800; 
-      font-size: 1.2rem;
+
+    .dark-mode {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --desc: #cbd5e1;
+      --muted: #94a3b8;
+      --border: #334155;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      transition: background 0.3s ease;
+      line-height: 2;
+    }
+
+    .navbar {
+      background: var(--card);
+      padding: 18px 5%;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      font-weight: 900;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      color: var(--purple);
+      font-size: 1.2rem;
     }
 
-    .container { 
-      width: 95%; 
-      max-width: 900px; 
-      margin: 30px auto; 
+    .wrap { width: 100%; max-width: 1100px; margin: 0 auto; padding: 40px 16px; }
+
+    .article {
+      background: var(--card);
+      padding: 50px;
+      border-radius: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
     }
 
-    .article-box {
-      padding: 25px;
+    .article h1 { color: var(--purple); font-weight: 900; font-size: 2.5rem; margin-bottom: 30px; line-height: 1.4; }
+    .article h2 { color: var(--green); font-weight: 800; margin-top: 40px; border-right: 6px solid var(--purple); padding-right: 15px; }
+    .article h3 { color: var(--purple); font-weight: 700; margin-top: 30px; }
+    .article p { font-size: 1.15rem; color: var(--desc); margin-bottom: 25px; text-align: justify; }
+
+    .highlight-box {
+      background: rgba(139, 92, 246, 0.05);
+      border: 1px solid var(--purple);
+      padding: 30px;
       border-radius: 20px;
-      margin-bottom: 30px;
-      border: 1px solid var(--border-color);
+      margin: 40px 0;
     }
 
-    .highlight {
-      background: rgba(168, 85, 247, 0.1); /* لون خفيف مشتق من accent-color */
-      border-right: 4px solid var(--accent-color);
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 8px;
+    .tools-shell { background: var(--card); border-radius: 30px; padding: 40px; border: 1px solid var(--border); }
+
+    #chat-tools-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
     }
 
-    /* تنسيق قائمة الأدوات */
-    .tool-list-item { 
-      border-radius: 24px; 
-      padding: 20px; 
-      display: flex; 
-      align-items: center; 
-      gap: 16px; 
-      margin-bottom: 16px; 
-      border: 1px solid var(--border-color);
-      transition: transform 0.3s ease;
+    .tool-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 25px;
+      display: flex;
+      gap: 16px;
+      border: 1px solid var(--border);
+      transition: 0.3s ease;
     }
 
-    .tool-list-item:hover {
-      transform: translateY(-5px);
+    .tool-card:hover { transform: translateY(-8px); border-color: var(--purple); box-shadow: 0 15px 30px rgba(139,92,246,0.1); }
+
+    .tool-number {
+      width: 45px; height: 45px; background: var(--accent-gradient); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0;
     }
 
-    .tool-number { 
-      width: 46px; 
-      height: 46px; 
-      background: linear-gradient(135deg, var(--success-color) 0%, var(--accent-color) 100%); 
-      color: white !important; 
-      border-radius: 50%; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      font-weight: 900; 
-      flex-shrink: 0; 
+    .visit-link {
+      background: var(--accent-gradient); color: white !important; padding: 10px 20px;
+      border-radius: 12px; text-decoration: none; font-size: 0.9rem; font-weight: 800; transition: 0.3s;
     }
 
-    .tool-text { flex: 1; }
-    .tool-text h3 { margin: 0 0 6px 0; font-size: 1.15rem; }
-    .tool-text p { margin: 0; color: var(--text-muted) !important; font-size: 0.92rem; }
+    .visit-link:hover { opacity: 0.9; transform: scale(1.05); }
 
-    .back-home { 
-      display: block; 
-      text-align: center; 
-      margin: 40px auto; 
-      color: var(--accent-color) !important; 
-      text-decoration: none; 
-      font-weight: 700; 
-      font-size: 1.1rem; 
+    .save-btn {
+      background: none; border: none; cursor: pointer; font-size: 1.4rem; color: var(--muted); transition: 0.2s;
     }
 
-    .cta-note {
-      text-align: center;
-      font-weight: 800;
-      margin-top: 20px;
-      color: var(--success-color) !important;
-    }
+    .save-btn.active { color: #ef4444; }
 
-    /* تنسيق الإعلانات */
-    .ad-wrap {
-      margin: 20px 0;
-      text-align: center;
-      padding: 10px;
-      border: 1px dashed var(--border-color);
-      border-radius: 12px;
+    .back-home { display: block; text-align: center; margin-top: 40px; color: var(--purple); font-weight: 900; text-decoration: none; font-size: 1.1rem; }
+
+    @media (max-width: 768px) {
+        .article { padding: 30px 20px; }
+        .article h1 { font-size: 1.8rem; }
     }
-    .ad-label { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 5px; }
   </style>
 </head>
 
 <body>
-  <nav class="navbar">قسم أدوات الدردشة والذكاء الشامل</nav>
 
-  <div class="container">
-    <article class="article-box">
-      <h2>ثورة أدوات الدردشة والذكاء الشامل: دليلك لاختيار المساعد الأمثل</h2>
+  <nav class="navbar">بوابة أدوات الدردشة والذكاء الشامل 2026</nav>
 
-      <p>
-        نعيش اليوم في عصر لا يتوقف عن التطور، حيث أصبحت أدوات الدردشة القائمة على الذكاء الاصطناعي (Chatbots) هي العمود الفقري للإنتاجية الرقمية. سواء كنت مبرمجاً يبحث عن حل لثغرة معينة عبر <strong>Acode</strong>، أو كاتباً يبحث عن إلهام، فإن اختيار الأداة الصحيحة هو ما يصنع الفارق. في "بوابة الأدوات الذكية"، قمنا بتجربة عشرات النماذج لنقدم لك زبدة الخبرة في هذا القسم المتخصص.
-      </p>
+  <div class="wrap">
+    <article class="article">
+      <h1>ثورة أدوات الدردشة والذكاء الشامل: كيف أعاد الذكاء الاصطناعي صياغة الإنتاجية البشرية؟</h1>
+      
+      <p>لم يعد الذكاء الاصطناعي مجرد خيال علمي أو تقنية بعيدة المنال؛ في عام 2026، أصبحنا نعيش في قلب "العصر التخاطبي". إن أدوات الدردشة والذكاء الشامل (General AI Chatbots) تحولت من مجرد روبوتات تجيب على الأسئلة إلى "عقول ثانية" تساعدنا في البرمجة، الكتابة، التخطيط الاستراتيجي، وحتى الدعم النفسي والتعليمي. هذا المقال ليس مجرد قائمة، بل هو مراجعة فلسفية وتقنية لأكبر تحول تكنولوجي في العقد الأخير.</p>
 
-      <div class="highlight">
-        <strong>لماذا نراجع هذه الأدوات؟</strong> لأن محركات البحث مثل جوجل تعطي الأولوية للمحتوى الذي يقدم قيمة حقيقية وشرحاً وافياً. نحن لا نضع روابط فقط، بل نقدم لك "مراجعة شاملة" لكل أداة بناءً على استخدامنا الشخصي المكثف لأكثر من 12 ساعة يومياً في بيئات التطوير المختلفة لضمان المصداقية التقنية.
+      <div class="highlight-box">
+        <h3>لماذا نراجع هذه الأدوات بعناية؟</h3>
+        <p>في ظل وفرة النماذج (ChatGPT, Claude, Gemini)، يقع المستخدم في حيرة: أيهم الأفضل لمشروعي؟ بصفتي تقنياً، اختبرت هذه الأدوات في بناء المواقع (مثل بوابتنا هذه)، وفي تحليل البيانات الضخمة. السر لا يكمن في "قوة النموذج" فحسب، بل في "سياق الاستخدام". سنغوص هنا في أعماق كل أداة لنعرف أين تضع وقتك واستثمارك.</p>
       </div>
 
-      <h3>معايير المفاضلة بين نماذج المحادثة في 2026</h3>
-      <p>
-        عندما تستخدم أدوات مثل <strong>ChatGPT</strong> أو <strong>Claude</strong>، يجب أن تنظر إلى ثلاثة معايير أساسية: "نافذة السياق" التي تسمح للأداة بتذكر تفاصيل المحادثة الطويلة، و"دقة الاستدلال" خاصة في الأكواد البرمجية، ومدى تكامل الأداة مع سير عملك اليومي. فمثلاً، أداة مثل <strong>Perplexity</strong> ليست مجرد شات، بل هي محرك بحث استدلالي يوثق لك المصادر، وهو أمر حيوي جداً إذا كنت تبحث عن معلومات دقيقة لمشاريعك البرمجية على <strong>GitHub</strong>.
-      </p>
+      <h2>أولاً: المعالجة اللغوية الكبرى (LLMs) والقدرة على الفهم المنطقي</h2>
+      <p>تعتمد أدوات مثل <strong>ChatGPT</strong> و <strong>Claude</strong> على مليارات المعاملات الرياضية لفهم السياق البشري. في عام 2026، انتقلنا من مرحلة "التوقع الاحتمالي للكلمات" إلى مرحلة "الاستدلال المنطقي". اليوم، يستطيع الذكاء الاصطناعي فهم النكات، الاستعارات، والأهم من ذلك، فهم الأخطاء البرمجية المعقدة التي قد تغيب عن عين المبرمج البشري لساعات.</p>
+      
+      <h3>ChatGPT (OpenAI): المعيار الذهبي الشامل</h3>
+      <p>يظل ChatGPT هو "السكين السويسري" للذكاء الاصطناعي. بفضل نموذج GPT-5 وما بعده، أصبح النظام قادراً على معالجة الوسائط المتعددة بشكل فوري. يمكنك رفع صورة لمخطط موقع مرسوم باليد، وسيقوم ChatGPT بتحويله إلى كود HTML/CSS جاهز في ثوانٍ. إنه الأداة المثالية لمن يريد "السرعة" و"تعدد المهام".</p>
 
-      <h3>نصيحة تقنية لتعظيم الفائدة</h3>
-      <p>
-        من خلال خبرتنا في الإدارة التصميمية والبرمجية، ننصح دائماً بعدم الاعتماد على نموذج واحد فقط. استخدم <strong>Gemini</strong> للتكامل مع خدمات السحابة، و <strong>ElevenLabs</strong> لتحويل نصوصك إلى محتوى صوتي احترافي. التنوع هو سر الاحترافية في 2026. نحن نسعى لتعريب هذه المفاهيم وجعلها في متناول المطور العربي الشاب، تماشياً مع النهضة الرقمية التي تشهدها المنطقة.
-      </p>
+      <h3>Claude (Anthropic): العقل التحليلي والمبدع</h3>
+      <p>إذا كان ChatGPT هو المساعد السريع، فإن Claude هو "المفكر العميق". يتميز Claude بقدرة هائلة على استيعاب نصوص طويلة جداً (Context Window). هل لديك كتاب من 500 صفحة وتريد استخراج التناقضات فيه؟ Claude هو خيارك الأول. كما أنه يتمتع بـ "نبرة بشرية" أكثر دفئاً وأقل آلية، مما يجعله المفضل للكتاب والمبدعين.</p>
 
-      <p class="cta-note">👇 استكشف القائمة المحدثة لأفضل الأدوات الذكية أدناه</p>
+      <h2>ثانياً: الذكاء المتكامل والبحث الموثق</h2>
+      <p>مشكلة الذكاء الاصطناعي الكبرى كانت "الهلوسة" (تأليف معلومات خاطئة). هنا برزت أدوات مثل <strong>Perplexity</strong> لتغير قواعد اللعبة. من خلال دمج البحث المباشر في الإنترنت مع القدرة اللغوية، لم يعد الذكاء الاصطناعي يكتفي بالإجابة، بل يقدم لك المصادر والروابط لنتأكد من صحة المعلومة.</p>
+      
+      <h3>Gemini (Google): قوة النظام المتكامل</h3>
+      <p>لا يمكن إغفال دور جوجل؛ فـ Gemini ليس مجرد شات، بل هو جزء من نظامك (Gmail, Drive, Docs). تخيل أن تطلب منه: "لخص لي الاجتماعات التي تمت في بريدي الأسبوع الماضي واصنع لي جدولاً بها". هذا التكامل يجعل من Gemini الأداة الأكثر فعالية لمديري المشاريع والشركات التي تعتمد على بيئة عمل جوجل.</p>
+
+      <h2>ثالثاً: ما وراء النصوص.. الصوت والعروض التقديمية</h2>
+      <p>الذكاء الشامل في 2026 امتد ليشمل الحواس الأخرى. أدوات مثل <strong>ElevenLabs</strong> جعلت من المستحيل التمييز بين صوت الروبوت وصوت الإنسان، مما فتح آفاقاً مذهلة في صناعة المحتوى الصوتي والبودكاست. أما <strong>Gamma</strong>، فقد أنهت عصر المعاناة مع "PowerPoint"؛ حيث يمكنك بناء عرض تقديمي كامل، بصور ومخططات، بمجرد كتابة فكرة المشروع.</p>
+
+      <div style="width: 100%; max-width: 900px; margin: 30px auto; text-align: center;">
+        <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
+        <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
+        <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
+      </div>
+
+      <h2>رابعاً: هندسة الأوامر (Prompt Engineering) - مهنة المستقبل</h2>
+      <p>الأدوات التي تراها في الأسفل هي مجرد محركات، وأنت السائق. السر في 2026 لم يعد في "معرفة البرمجة"، بل في "معرفة كيف تسأل". تعلم هندسة الأوامر يعني أنك تستطيع تحويل فكرة بسيطة إلى مشروع تجاري ضخم باستخدام هذه الأدوات. ننصحك دائماً بأن تكون دقيقاً، سياقياً، ومباشراً في طلباتك.</p>
+
+      <h2>خلاصة القول</h2>
+      <p>بوابة الأدوات الذكية تضع بين يديك عصارة هذه التقنيات. نحن في زمن يربح فيه من "يستخدم الآلة" وليس من "ينافسها". استكشف القائمة التالية، جرب النسخ المجانية، وابدأ ببناء مشروعك القادم اليوم.</p>
     </article>
 
-    <div class="ad-wrap">
-      <p class="ad-label">إعلان</p>
-      <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-      <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
+    <div class="tools-shell">
+      <h2 style="text-align: right; margin-bottom: 30px; color: var(--green);">دليل الأدوات المختارة</h2>
+      <div id="chat-tools-list"></div>
+      <a href="index.html" class="back-home">← العودة للرئيسية</a>
     </div>
-
-    <div id="chat-tools-list"></div>
-
-    <a href="index.html" class="back-home">← العودة للرئيسية</a>
   </div>
 
   <script>
-    // حافظنا على كافة الأدوات والروابط كما طلبت بدقة
     const chatTools = [
-      { name: "ChatGPT", url: "chatgpt-review.html", desc: "مساعد شامل للمحادثات والبرمجة (اقرأ مراجعتنا الشاملة من هنا)." },
-      { name: "Claude", url: "claude-review.html", desc: "ممتاز في الصياغة الطويلة وتحليل الملفات (اقرأ تجربتي معه من هنا)." },
-      { name: "Gemini", url: "gemini-review.html", desc: "مساعد جوجل الذكي والمتكامل مع تطبيقاتك اليومية (اقرأ مراجعتي وتجربتي)." },
-      { name: "Perplexity", url: "perplexity-review.html", desc: "البحث الذكي مع توثيق المصادر (تعرف على تجربتي في استخدامه للبحوث)." },
-      { name: "Copilot", url: "copilot-review.html", desc: "مساعد مايكروسوفت الذكي المدمج في ويندوز (تعرف على كيفية استخدامه مجاناً)." },
-      { name: "Notion AI", url: "notion-ai.html", desc: "حوّل ملاحظاتك إلى نظام ذكي؛ شرح شامل لبناء عقلك الثاني وتنظيم مشاريعك البرمجية." },
-      { name: "Gamma", url: "gamma-review.html", desc: "أنشئ عروضاً تقديمية ومواقع ويب احترافية في ثوانٍ باستخدام الذكاء الاصطناعي." },
-      { name: "ElevenLabs", url: "elevenlabs-review.html", desc: "أقوى أداة لتوليد الأصوات البشرية بالذكاء الاصطناعي؛ تحويل النصوص لمقاطع احترافية." },
-      { name: "Character.ai", url: "character-ai-review.html", desc: "دردش مع شخصيات خيالية، تاريخية، أو برمجية؛ منصة تمنح الذكاء الاصطناعي روحاً." },
-      { name: "Poe", url: "poe-review.html", desc: "منصة شاملة تتيح لك تجربة أفضل نماذج الذكاء الاصطناعي في العالم من مكان واحد." }
+      { id: "t1", name: "ChatGPT", url: "chatgpt-review.html", desc: "المساعد الشامل والمحرك الأكثر شهرة في العالم للبرمجة والمحادثة." },
+      { id: "t2", name: "Claude", url: "claude-review.html", desc: "الرائد في تحليل الملفات الضخمة والكتابة الإبداعية بنبرة بشرية." },
+      { id: "t3", name: "Gemini", url: "gemini-review.html", desc: "ذكاء جوجل المتكامل مع تطبيقاتك اليومية والبحث الفوري." },
+      { id: "t4", name: "Perplexity", url: "perplexity-review.html", desc: "محرك البحث الذكي الذي يقدم إجابات موثقة بالمصادر والروابط." },
+      { id: "t5", name: "Copilot", url: "copilot-review.html", desc: "مساعد الإنتاجية المدمج في Microsoft 365 وبيئة ويندوز." },
+      { id: "t6", name: "Notion AI", url: "notion-ai.html", desc: "تنظيم الأفكار، كتابة المسودات، وإدارة المشاريع بذكاء مدمج." },
+      { id: "t7", name: "Gamma", url: "gamma-review.html", desc: "الأداة السحرية لتحويل النصوص إلى عروض تقديمية ومواقع ويب." },
+      { id: "t8", name: "ElevenLabs", url: "elevenlabs-review.html", desc: "توليد أصوات بشرية فائقة الواقعية ودبلجة المحتوى بأي لغة." },
+      { id: "t9", name: "Character.ai", url: "character-ai-review.html", desc: "التفاعل مع شخصيات افتراضية ذكية للترفيه أو التعلم." },
+      { id: "t10", name: "Poe", url: "poe-review.html", desc: "منصة شاملة تتيح لك الوصول لكل نماذج الذكاء الاصطناعي في مكان واحد." }
     ];
 
-    const listContainer = document.getElementById('chat-tools-list');
-
-    if (listContainer) {
-      listContainer.innerHTML = chatTools.map((tool, index) => `
-        <div class="tool-list-item">
-          <div class="tool-number">${index + 1}</div>
-          <div class="tool-text">
-            <h3>${tool.name}</h3>
-            <p>${tool.desc}</p>
-          </div>
-          <a href="${tool.url}" class="visit-link">إقرأ المراجعة ←</a>
-        </div>
-      `).join('');
+    function getSavedTools() {
+      return JSON.parse(localStorage.getItem("savedTools")) || [];
     }
+
+    function toggleTool(toolId) {
+      let saved = getSavedTools();
+      const tool = chatTools.find(t => t.id === toolId);
+      const index = saved.findIndex(item => item.id === toolId);
+
+      if (index === -1) {
+        saved.push(tool);
+        localStorage.setItem("savedTools", JSON.stringify(saved));
+        return true;
+      } else {
+        saved.splice(index, 1);
+        localStorage.setItem("savedTools", JSON.stringify(saved));
+        return false;
+      }
+    }
+
+    function renderList() {
+      const container = document.getElementById("chat-tools-list");
+      const savedItems = getSavedTools();
+
+      container.innerHTML = chatTools.map((tool, index) => {
+        const isSaved = savedItems.some(item => item.id === tool.id);
+        return `
+          <div class="tool-card">
+            <div class="tool-number">${index + 1}</div>
+            <div style="flex:1">
+              <h3 style="margin-top:0; color:var(--text);">${tool.name}</h3>
+              <p style="font-size: 0.9rem; color: var(--desc); line-height:1.6;">${tool.desc}</p>
+              <div style="margin-top: 15px; display: flex; gap: 15px; align-items: center;">
+                <a href="${tool.url}" class="visit-link">قراءة المراجعة</a>
+                <button class="save-btn ${isSaved ? 'active' : ''}" onclick="handleSave(this, '${tool.id}')">
+                  <i class="${isSaved ? 'fas' : 'far'} fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function handleSave(btn, id) {
+      const isAdded = toggleTool(id);
+      btn.classList.toggle("active", isAdded);
+      btn.querySelector("i").className = isAdded ? "fas fa-heart" : "far fa-heart";
+    }
+
+    document.addEventListener("DOMContentLoaded", renderList);
   </script>
+
+  <script src="translate.js" defer></script>
+  <script src="translations-complete.js" defer></script>
+
+  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
 </body>
 </html>

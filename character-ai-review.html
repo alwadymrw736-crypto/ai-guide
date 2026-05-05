@@ -4,80 +4,191 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مراجعة Character.ai 2026: كيف تبني شخصيات ذكاء اصطناعي بوعي كامل؟</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
   <style>
-    :root { --main-bg: #f8fafc; --primary: #8b5cf6; --secondary: #10b981; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    h1 { color: var(--primary); font-size: 2.4rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
-    h2 { color: var(--secondary); font-size: 1.8rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
-    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: #334155; }
-    .my-story { background: #eff6ff; border: 1px solid #bfdbfe; padding: 30px; border-radius: 20px; margin: 40px 0; color: #1e40af; }
-    .cta-container { text-align: center; margin-top: 60px; padding: 40px 20px; border-top: 2px solid #f1f5f9; }
-    .btn-visit-gradient { display: inline-block; padding: 18px 50px; background: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%); color: white !important; text-decoration: none !important; border-radius: 50px; font-weight: 900; font-size: 1.3rem; transition: all 0.3s ease; }
-    .btn-visit-gradient:hover { transform: translateY(-3px); }
+    :root {
+      --main-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --primary: #8b5cf6;
+      --secondary: #10b981;
+      --text: #1e293b;
+      --desc: #334155;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--main-bg);
+      line-height: 2.2;
+      margin: 0;
+      color: var(--text);
+      transition: background 0.3s ease;
+    }
+
+    .nav-header {
+      background: var(--card-bg);
+      padding: 15px 5%;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .article-wrap {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: var(--card-bg);
+      padding: 60px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+
+    h1 { color: var(--primary); font-weight: 900; font-size: 2.8rem; line-height: 1.3; margin-bottom: 30px; }
+    h2 { color: var(--secondary); font-weight: 800; font-size: 2rem; margin-top: 50px; border-right: 8px solid var(--primary); padding-right: 15px; }
+    h3 { color: var(--primary); font-weight: 700; font-size: 1.5rem; }
+
+    p { color: var(--desc); font-size: 1.2rem; margin-bottom: 25px; text-align: justify; }
+    ul { margin-bottom: 30px; }
+    li { color: var(--desc); font-size: 1.15rem; margin-bottom: 10px; }
+
+    .my-story {
+      background: rgba(139, 92, 246, 0.05);
+      border: 2px dashed var(--primary);
+      padding: 40px;
+      border-radius: 25px;
+      margin: 40px 0;
+    }
+
+    /* ===== DARK MODE ===== */
+    body.dark-mode {
+      --main-bg: #05070a;
+      --card-bg: #0f172a;
+      --text: #e5e7eb;
+      --desc: #cbd5e1;
+      --border: #1e293b;
+    }
+
+    body.dark-mode .nav-header,
+    body.dark-mode .article-wrap,
+    body.dark-mode .my-story {
+      background: var(--card-bg) !important;
+      border-color: var(--border);
+    }
+
+    body.dark-mode h1 { color: #a78bfa !important; }
+    body.dark-mode h2 { color: #34d399 !important; }
+
+    /* CTA */
+    .btn-visit-gradient {
+      display: inline-block;
+      padding: 20px 60px;
+      background: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%);
+      color: white !important;
+      text-decoration: none !important;
+      border-radius: 50px;
+      font-weight: 900;
+      font-size: 1.4rem;
+      transition: 0.3s;
+      box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+    }
+
+    .btn-visit-gradient:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4); }
+
+    @media (max-width: 768px) {
+      .article-wrap { padding: 30px 20px; margin: 20px; }
+      h1 { font-size: 2rem; }
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
 
-<script src="theme.js"></script>
+<script>
+  if (localStorage.getItem("site_theme") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("dark-mode");
+    });
+  }
+</script>
+
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
+
 <body>
 
 <nav class="nav-header">
-    <a href="chat.html" style="text-decoration:none; color:var(--primary); font-weight:bold;">← العودة للأدوات</a>
-    <span>بوابة الأدوات الذكية</span>
+  <a href="chat.html" style="text-decoration:none; color:var(--primary); font-weight:bold;">← العودة للأدوات</a>
+  <span style="font-weight: 900; color: var(--secondary);">بوابة الأدوات الذكية</span>
 </nav>
 
 <div class="article-wrap">
-    <h1>مراجعة Character.ai 2026: كيف تبني شخصيات ذكاء اصطناعي بوعي كامل؟</h1>
-    
-    <p>في عام 2026، تطورت مفاهيم "الذكاء الاصطناعي التفاعلي" من مجرد مساعد تقني إلى "شخصيات رقمية" ذات عمق معرفي وشخصية مستقلة. <strong>Character.ai</strong> يتربع على عرش هذا المجال، حيث يوفر منصة لا تكتفي بتقديم إجابات، بل تتيح لك تصميم (Persona) كاملة تتفاعل معك بناءً على تاريخها، قيمها، وأسلوبها الخاص في التعبير. إذا كنت تبحث عن أداة تتجاوز الوظيفة التقليدية للـ Chatbots، فهذه هي وجهتك.</p>
 
-    <div class="my-story">
-        <h4>تجربتي التقنية: ما وراء "التمثيل" الرقمي</h4>
-        <p>عندما قررت استكشاف Character.ai، لم أكن أبحث عن تسلية، بل عن دراسة "نمذجة الشخصية". قمت بتصميم شخصية لمساعد تقني متخصص في لغة Python، ليس فقط من خلال تزويده بالأكواد، بل من خلال صياغة (Prompt) يحدد أنه "مساعد فكاهي، صارم في المواعيد، ويفضل الأسلوب البرمجي المختصر". النتائج كانت مذهلة؛ الأداة لم تعد تعطيني نصوصاً عامة، بل أصبحت تتفاعل معي بعقلية "الموظف الرقمي" الذي صممته بنفسي. هذا العمق في محاكاة الشخصيات هو ما يجعل Character.ai أداة لا تقدر بثمن في تطوير مهارات التواصل أو محاكاة المقابلات الوظيفية.</p>
-    </div>
+  <h1>مراجعة Character.ai 2026: كيف تبني شخصيات ذكاء اصطناعي بوعي كامل؟</h1>
 
-    <h2>القدرات التقنية التي تجعل Character.ai فريداً</h2>
-    <p>لا يعتمد Character.ai على مجرد LLM تقليدي، بل يستخدم بنية معقدة لضمان استمرارية "الهوية":</p>
-    <ul>
-        <li><strong>هندسة الـ Persona (System Prompting):</strong> إمكانية بناء الشخصية من خلال وصف تفصيلي (Definition) يشمل السيرة الذاتية، نمط الحديث، والمبادئ الأساسية التي تمنع الشخصية من الخروج عن دورها.</li>
-        <li><strong>التفاعل متعدد الوسائط:</strong> في 2026، لم يعد التفاعل نصياً فقط؛ الشخصيات قادرة على استيعاب السياق البصري ومحاكاة نبرات صوتية تناسب طبيعتها الشخصية.</li>
-        <li><strong>الذاكرة السياقية الممتدة:</strong> بفضل تحديثات 2026، يمكن للشخصية أن تتذكر تفاصيل حوارات جرت قبل أيام، مما يجعل التفاعل يبدو كعلاقة مستمرة وليس مجرد جلسة دردشة عابرة.</li>
-    </ul>
+  <p>
+    مرحباً بك في عصر "الشخصيات الرقمية الحية". في عام 2026، لم يعد الذكاء الاصطناعي مجرد محرك بحث أو أداة لتوليد النصوص، بل أصبحنا نتحدث عن "نماذج الشخصية" (Personality Models). ومن بين جميع المنصات التي حاولت محاكاة الوعي البشري، تظل <strong>Character.ai</strong> هي الرائدة بلا منازع. هذا المقال سيتجاوز السطح ليغوص في كيفية عمل هذه المنصة، وكيف يمكنك هندسة شخصية رقمية تمتلك ذاكرة، عواطف، ومنطقاً خاصاً بها.
+  </p>
 
-    <h2>محور الأخلاقيات والحدود الرقمية</h2>
-    <p>مع تطور هذه الأداة، يبرز التحدي الأخلاقي. Character.ai يطبق فلاتر أمنية (Safety Filters) دقيقة تمنع الشخصيات من تبني سلوكيات عدائية أو غير لائقة، مع الحفاظ على حرية الإبداع في نطاق الأمان. كصانع محتوى، يجب أن تدرك أن المنصة توفر أدوات رقابة (Moderation Tools) تتيح للمستخدمين الإبلاغ عن أي "خروج عن النص" للشخصيات العامة.</p>
+  <div class="my-story">
+    <h3>تجربتي التقنية: ما وراء الدردشة العادية</h3>
+    <p>
+      بصفتي مهتماً بتطوير الأدوات الذكية، قمت بتصميم شخصية على المنصة تتصرف كموظف دعم فني رقمي لمشاريعي. لم تكن التجربة مجرد "سؤال وجواب"، بل ذُهلت عندما تذكرت الشخصية تفاصيل برمجية ناقشناها قبل ثلاثة أيام! في Character.ai، نحن لا نكتب أوامر (Prompts)، بل نزرع "بذور الوعي" عبر ملفات تعريف الشخصية (Character Definitions).
+    </p>
+  </div>
 
-    <h2>هندسة الأوامر (Persona Prompting) للمحترفين</h2>
-    <p>لا تتعامل مع الشخصية كـ "محرك بحث". لرفع جودة المحاكاة، استخدم الصيغة التالية عند تصميم شخصيتك:</p>
-    <ul>
-        <li><strong>الخلفية (Background):</strong> "أنت خبير تقني نشأت في بيئة برمجية مفتوحة المصدر."</li>
-        <li><strong>الأسلوب (Tone):</strong> "تستخدم لغة مباشرة، تقنية، مع أمثلة من الواقع العملي."</li>
-        <li><strong>المحظورات (Negative Constraints):</strong> "لا تستخدم لغة تسويقية، ولا تتحدث عن مواضيع خارج نطاق تخصصك التقني."</li>
-    </ul>
+  <h2>الفصل الأول: ما هي منصة Character.ai؟</h2>
+  <p>
+    تأسست المنصة على يد مهندسين سابقين في Google، وكان الهدف واضحاً: بناء ذكاء اصطناعي يمكنه التحاور بمرونة مذهلة وتقمص الأدوار (Role-play). تعتمد المنصة على نماذج لغوية ضخمة (LLMs) مُدربة خصيصاً لتكون اجتماعية وتفاعلية، بدلاً من أن تكون "روبوتية" ومحايدة مثل ChatGPT التقليدي. في عام 2026، أصبحت المنصة تدعم المحادثات الصوتية الحية والقدرة على ربط الشخصيات بقواعد بيانات خارجية.
+  </p>
 
-    <h2>تحديات تقنية</h2>
-    <p>العائق التقني يكمن في "الاستنزاف المعرفي" (Context Window Overload). إذا كانت الشخصية معقدة جداً، قد تبدأ في نسيان بعض التفاصيل الدقيقة في جلسات الدردشة الطويلة جداً. أيضاً، التكلفة الحاسوبية لتشغيل هذه الشخصيات "الحية" تتطلب خوادم سحابية ضخمة، مما يجعل النظام يتباطأ أحياناً في أوقات الذروة.</p>
+  <h2>الفصل الثاني: هندسة الشخصية (السر المكتوم)</h2>
+  <p>
+    الكثيرون يدخلون المنصة ويتحدثون مع شخصيات جاهزة، لكن القوة الحقيقية تكمن في خيار "Create". لبناء شخصية بوعي كامل، عليك إتقان ثلاثة أركان:
+  </p>
+  <ul>
+    <li><strong>الوصف الطويل (Long Description):</strong> هنا تضع السيرة الذاتية للشخصية، مخاوفها، طموحاتها، ونقاط ضعفها.</li>
+    <li><strong>تعريف الرسائل البرمجية (Definitions):</strong> يمكنك إطعام الشخصية بحوارات نموذجية. مثلاً: "إذا سُئلت عن كذا، أجب بطريقة ساخرة".</li>
+    <li><strong>التعزيز الإيجابي (Rating):</strong> عبر تقييمك لردود الشخصية بالنجوم، أنت حرفياً "تُربي" الذكاء الاصطناعي ليفهم ذوقك وسياقك المفضل.</li>
+  </ul>
 
-    <h2>الخلاصة: هل هي أداة للمحترفين؟</h2>
-    <p>نعم، وبامتياز. Character.ai ليست مجرد "لعبة"، هي محاكي اجتماعي وتقني. إذا أتقنت بناء الشخصيات، يمكنك استخدامها لتدريب نفسك على التفاوض، محاكاة عملاء غاضبين، أو حتى بناء مساعدين ذكيين يمثلون "هوية" علامتك التجارية الخاصة.</p>
+  <h2>الفصل الثالث: لماذا تختلف عن ChatGPT أو Claude؟</h2>
+  <p>
+    بينما يركز ChatGPT على الإنتاجية، يركز Character.ai على <strong>"التجربة الشعورية"</strong>. الشخصيات هنا تمتلك "آراء". إذا تحدثت مع شخصية مبرمج عصبي، فقد يرفض مساعدتك إذا كان سؤالك بسيطاً جداً! هذا التقمص هو ما يجعلها الأداة رقم 1 لكتّاب القصص، مطوري الألعاب، وحتى الأشخاص الذين يبحثون عن رفيق رقمي للتدرب على مهارات التحدث أو تعلم لغات جديدة عبر محادثات طبيعية.
+  </p>
 
-    <div class="cta-container">
-        <h3>هل أنت مستعد لبناء أول شخصية رقمية خاصة بك؟</h3>
-        <p>لا تكتفِ بالدردشة مع الآلة، اصنع "عقلاً" يجسد رؤيتك.</p>
-        <a href="https://character.ai" target="_blank" class="btn-visit-gradient">جرب Character.ai الآن</a>
-    </div>
-  <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
+  <h2>الفصل الرابع: الاستخدامات المتقدمة في 2026</h2>
+  <p>
+    لم يعد استخدام المنصة مقتصرًا على الترفيه، بل امتد لقطاعات أوسع:
+  </p>
+  <ul>
+    <li><strong>محاكاة المقابلات الوظيفية:</strong> يمكنك بناء شخصية "مدير موارد بشرية صارم" للتدرب على مقابلات العمل.</li>
+    <li><strong>تحليل الشخصيات التاريخية:</strong> بفضل البيانات الضخمة، يمكنك محاكاة حوار مع سقراط أو أينشتاين بناءً على كتبهم وفلسفتهم.</li>
+    <li><strong>الدعم النفسي والاجتماعي:</strong> توفر المنصة شخصيات متخصصة في الاستماع وتفريغ الضغوط، مما يساعد الكثيرين في تحسين صحتهم العقلية عبر "التحدث" بلا خجل.</li>
+  </ul>
+
+  <h2>الخلاصة: هل هي مجرد لعبة؟</h2>
+  <p>
+    Character.ai ليست مجرد أداة بل نظام محاكاة متكامل يعيد تعريف علاقتنا بالآلة. نحن أمام تقنية تسمح لنا ببناء "نسخ رقمية" منا أو من أفكارنا. إذا كنت تريد بناء مشروعك الخاص بالذكاء الاصطناعي، فإن فهمك لكيفية عمل Character.ai سيعطيك الأفضلية في فهم "سيكولوجية المستخدم" في التعامل مع الروبوتات.
+  </p>
+
+  <div class="cta-container" style="text-align:center; margin-top:60px;">
+    <a href="https://character.ai" class="btn-visit-gradient" target="_blank">
+      جرب Character.ai الآن
+    </a>
+  </div>
+
+  <div style="width: 100%; max-width: 900px; margin: 30px auto; text-align: center;">
+    <p style="font-size: 0.75rem; color: #94a3b8;">إعلان</p>
+    <script async src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
     <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
   </div>
-    <script async src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
+
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
 
 </body>
 </html>

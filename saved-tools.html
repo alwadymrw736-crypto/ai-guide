@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الأدوات المحفوظة - بوابة الأدوات الذكية</title>
+
+  <script>
+    if (localStorage.getItem("site_theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --purple: #8b5cf6;
+      --green: #10b981;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --desc: #64748b;
+      --border: rgba(139, 92, 246, 0.1);
+    }
+
+    /* تعديلات الوضع الليلي */
+    .dark-mode {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --desc: #94a3b8;
+      --border: rgba(139, 92, 246, 0.2);
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 30px 0;
+      direction: rtl;
+      text-align: right;
+      color: var(--text);
+      transition: background 0.3s ease;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--card);
+      padding: 34px;
+      border-radius: 22px;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 6px;
+      background: linear-gradient(135deg, var(--purple), var(--green));
+    }
+
+    h1 {
+      margin: 8px 0 15px;
+      text-align: center;
+      font-size: 2.35rem;
+      font-weight: 900;
+      color: var(--purple);
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--desc);
+      margin: 0 0 40px;
+      font-size: 1.1rem;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+      justify-content: center;
+    }
+
+    .tool-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+      text-align: right;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.1);
+    }
+
+    .tool-card h3 {
+      margin: 0 0 10px;
+      color: var(--purple);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .tool-card p {
+      color: var(--desc);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .visit-link {
+      background: linear-gradient(135deg, var(--purple), var(--green));
+      color: white !important;
+      padding: 10px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+      white-space: nowrap;
+    }
+
+    .visit-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .remove-btn {
+      background: #fee2e2;
+      color: #ef4444;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .remove-btn:hover {
+      background: #ef4444;
+      color: white;
+    }
+
+    .dark-mode .remove-btn {
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    #no-items-message {
+      text-align: center;
+      color: var(--desc);
+      font-size: 1.15rem;
+      margin-top: 40px;
+      padding: 40px 20px;
+      background: rgba(139, 92, 246, 0.03);
+      border-radius: 18px;
+      border: 2px dashed var(--border);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: var(--purple);
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 20px; margin: 10px; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+    
+    <h1>الأدوات المحفوظة</h1>
+    <div class="subtitle">جميع الأدوات التي قمت بتمييزها للوصول السريع</div>
+
+    <div id="saved-items-list" class="row"></div>
+
+    <div class="empty-wrap">
+      <p id="no-items-message" style="display: none;">لا توجد أدوات محفوظة حتى الآن. ابدأ بحفظ أدواتك المفضلة من الصفحة الرئيسية!</p>
+    </div>
+  </div>
+
+  <script src="translate.js" defer></script>
+  <script src="translations-complete.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedItemsList = document.getElementById("saved-items-list");
+      const noItemsMessage = document.getElementById("no-items-message");
+
+      function getSavedItems() {
+        try {
+          const savedItems = localStorage.getItem("savedTools");
+          return savedItems ? JSON.parse(savedItems) : [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function saveItems(items) {
+        localStorage.setItem("savedTools", JSON.stringify(items));
+      }
+
+      function removeSavedItem(id) {
+        let items = getSavedItems();
+        items = items.filter(item => String(item.id) !== String(id));
+        saveItems(items);
+        renderSavedItems();
+      }
+
+      function renderSavedItems() {
+        const items = getSavedItems();
+        savedItemsList.innerHTML = "";
+
+        if (items.length === 0) {
+          noItemsMessage.style.display = "block";
+          return;
+        }
+
+        noItemsMessage.style.display = "none";
+
+        items.forEach(item => {
+          const toolCard = document.createElement("div");
+          toolCard.className = "tool-card";
+          toolCard.innerHTML = `
+            <div>
+              <h3>${item.name}</h3>
+              <p>${item.desc}</p>
+            </div>
+            <div class="card-actions">
+              <a href="${item.url}" class="visit-link" target="_blank" rel="noopener noreferrer">عرض الأداة</a>
+              <button class="remove-btn" type="button" data-id="${item.id}">إزالة</button>
+            </div>
+          `;
+          savedItemsList.appendChild(toolCard);
+        });
+
+        document.querySelectorAll(".remove-btn").forEach(button => {
+          button.addEventListener("click", (event) => {
+            removeSavedItem(event.currentTarget.dataset.id);
+          });
+        });
+      }
+
+      renderSavedItems();
+    });
+  </script>
+</body>
+</html>

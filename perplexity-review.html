@@ -7,40 +7,119 @@
   <title>شرح Perplexity AI للمبتدئين 2026: تجربتي مع محرك البحث الأكثر دقة</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --main-bg: #f8fafc; --primary: #8b5cf6; --secondary: #10b981; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    :root { 
+        --main-bg: #f8fafc; 
+        --primary: #8b5cf6; 
+        --secondary: #10b981; 
+        --text: #1e293b; 
+        --card-bg: #ffffff;
+        --border-color: #e2e8f0;
+        --desc-text: #334155;
+        --exp-bg: #fefce8;
+        --exp-border: #fef08a;
+        --exp-text: #854d0e;
+    }
+
+    /* إعدادات الوضع الليلي */
+    body.dark-mode {
+        --main-bg: #0f172a;
+        --text: #f1f5f9;
+        --card-bg: #1e293b;
+        --border-color: #334155;
+        --desc-text: #cbd5e1;
+        --exp-bg: #1e1b0c;
+        --exp-border: #713f12;
+        --exp-text: #fef08a;
+    }
+
+    body { 
+        font-family: 'Cairo', sans-serif; 
+        background: var(--main-bg); 
+        line-height: 2.2; 
+        margin: 0; 
+        color: var(--text); 
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-header { 
+        background: var(--card-bg); 
+        padding: 15px 5%; 
+        border-bottom: 1px solid var(--border-color); 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+    }
+
+    .article-wrap { 
+        max-width: 900px; 
+        margin: 40px auto; 
+        background: var(--card-bg); 
+        padding: 50px; 
+        border-radius: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        transition: background 0.3s ease;
+    }
     
     h1 { color: var(--primary); font-size: 2.4rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
     h2 { color: var(--secondary); font-size: 1.8rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
     h3 { color: var(--text); font-size: 1.4rem; margin-top: 35px; font-weight: 700; }
-    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: #334155; }
+    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: var(--desc-text); }
 
-    .real-experience { background: #fefce8; border: 1px solid #fef08a; padding: 30px; border-radius: 20px; margin: 40px 0; color: #854d0e; }
-    .real-experience h4 { margin-top: 0; color: #a16207; font-size: 1.3rem; }
+    .real-experience { 
+        background: var(--exp-bg); 
+        border: 1px solid var(--exp-border); 
+        padding: 30px; 
+        border-radius: 20px; 
+        margin: 40px 0; 
+        color: var(--exp-text); 
+    }
+    .real-experience h4 { margin-top: 0; color: var(--primary); font-size: 1.3rem; }
 
-    .internal-links { background: #f1f5f9; padding: 20px; border-radius: 15px; margin-bottom: 35px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.95rem; }
-    .internal-links a { color: var(--primary); font-weight: bold; text-decoration: none; }
+    .internal-links { 
+        background: var(--main-bg); 
+        padding: 20px; 
+        border-radius: 15px; 
+        margin-bottom: 35px; 
+        display: flex; 
+        gap: 20px; 
+        flex-wrap: wrap; 
+        font-size: 0.95rem; 
+    }
+    .internal-links a { color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px dashed var(--primary); }
 
     .check-list { list-style: none; padding: 0; }
-    .check-list li { background: #fff; border: 1px solid #eee; margin-bottom: 12px; padding: 15px 20px; border-radius: 10px; position: relative; padding-right: 45px; }
+    .check-list li { 
+        background: var(--card-bg); 
+        border: 1px solid var(--border-color); 
+        margin-bottom: 12px; 
+        padding: 15px 20px; 
+        border-radius: 10px; 
+        position: relative; 
+        padding-right: 45px; 
+        color: var(--desc-text);
+    }
     .check-list li::before { content: "📋"; position: absolute; right: 15px; }
 
-    .comparison-box { width: 100%; border-collapse: collapse; margin: 30px 0; border-radius: 15px; overflow: hidden; }
+    .comparison-box { width: 100%; border-collapse: collapse; margin: 30px 0; border-radius: 15px; overflow: hidden; border: 1px solid var(--border-color); }
     .comparison-box th { background: var(--primary); color: white; padding: 18px; }
-    .comparison-box td { padding: 15px; border: 1px solid #eee; text-align: center; background: #fff; }
+    .comparison-box td { padding: 15px; border: 1px solid var(--border-color); text-align: center; background: var(--card-bg); color: var(--desc-text); }
 
-    .faq-grid { background: #fafafa; padding: 30px; border-radius: 20px; margin-top: 50px; }
+    .faq-grid { background: var(--main-bg); padding: 30px; border-radius: 20px; margin-top: 50px; border: 1px solid var(--border-color); }
     .faq-q { color: var(--secondary); font-weight: 900; display: block; margin-bottom: 8px; font-size: 1.15rem; }
 
-    .final-cta { text-align: center; margin-top: 60px; padding: 40px; border-top: 2px solid #f1f5f9; }
-    .btn-action { background: linear-gradient(135deg, var(--secondary), var(--primary)); color: white; padding: 20px 45px; border-radius: 15px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1.3rem; }
+    .final-cta { text-align: center; margin-top: 60px; padding: 40px; border-top: 2px solid var(--border-color); }
+    .btn-action { background: linear-gradient(135deg, var(--secondary), var(--primary)); color: white !important; padding: 20px 45px; border-radius: 15px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1.3rem; transition: transform 0.3s ease; }
+    .btn-action:hover { transform: translateY(-3px); }
+
+    @media (max-width: 768px) {
+        .article-wrap { padding: 25px; margin: 15px; }
+        h1 { font-size: 1.8rem; }
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
 
 <nav class="nav-header">
@@ -131,17 +210,20 @@
     <div class="final-cta">
         <h3>هل أنت مستعد لوداع البحث التقليدي؟</h3>
         <p>إذا كنت تريد إجابات تثق بها وتوفر وقتك في التدقيق، فابدأ باستخدام Perplexity اليوم. إنه المحرك الذي سيجعلك تبدو كخبير في أي موضوع تبحث عنه.</p>
-        <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-        </div>
+        
         <a href="https://www.perplexity.ai" target="_blank" rel="noopener" class="btn-action">جرب Perplexity AI الآن</a>
         <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px;">* الرابط يفتح في نافذة جديدة - رحلة بحث ممتعة!</p>
     </div>
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
+
+<script>
+    // تطبيق الوضع الليلي تلقائياً بناءً على إعدادات الموقع الرئيسية
+    (function() {
+        if (localStorage.getItem("site_theme") === "dark" || localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    })();
+</script>
+
 </body>
 </html>

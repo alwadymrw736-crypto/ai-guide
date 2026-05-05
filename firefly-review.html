@@ -3,43 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+    // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
+    if (localStorage.getItem("site_theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+    }
+  </script>
+
   <meta name="description" content="شرح Adobe Firefly للمبتدئين 2026: كيف تستخدم ذكاء أدوبي لتوليد الصور وتعديلها باحترافية؟ مراجعة شاملة بناءً على تجربة شخصية في دمج الذكاء الاصطناعي بالفوتوشوب.">
   <title>شرح Adobe Firefly للمبتدئين 2026: تجربتي مع ثورة أدوبي في عالم التصميم</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --main-bg: #f8fafc; --primary: #eb1000; --secondary: #000000; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    :root { 
+        --main-bg: #f8fafc; 
+        --primary: #eb1000; 
+        --secondary: #000000; 
+        --text: #1e293b; 
+        --card-bg: white;
+        --border-color: #e2e8f0;
+    }
+
+    /* تنسيقات الثيم المظلم */
+    .dark-mode {
+        --main-bg: #0f172a;
+        --text: #f1f5f9;
+        --card-bg: #1e293b;
+        --border-color: #334155;
+        --secondary: #ffffff;
+    }
+
+    body { 
+        font-family: 'Cairo', sans-serif; 
+        background: var(--main-bg); 
+        line-height: 2.2; 
+        margin: 0; 
+        color: var(--text); 
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .nav-header { 
+        background: var(--card-bg); 
+        padding: 15px 5%; 
+        border-bottom: 1px solid var(--border-color); 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+        transition: background 0.3s;
+    }
+
+    .article-wrap { 
+        max-width: 900px; 
+        margin: 40px auto; 
+        background: var(--card-bg); 
+        padding: 50px; 
+        border-radius: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .dark-mode .article-wrap {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
     
     h1 { color: var(--primary); font-size: 2.5rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
     h2 { color: var(--secondary); font-size: 1.9rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
-    p { font-size: 1.25rem; margin-bottom: 25px; text-align: justify; color: #334155; }
+    
+    p { 
+        font-size: 1.25rem; 
+        margin-bottom: 25px; 
+        text-align: justify; 
+        color: var(--text); 
+        transition: color 0.3s;
+    }
 
-    .firefly-story { background: #fff1f0; border: 1px solid #ffccc7; padding: 35px; border-radius: 20px; margin: 40px 0; border-left: 8px solid var(--primary); }
+    .firefly-story { 
+        background: #fff1f0; 
+        border: 1px solid #ffccc7; 
+        padding: 35px; 
+        border-radius: 20px; 
+        margin: 40px 0; 
+        border-left: 8px solid var(--primary); 
+    }
+    .dark-mode .firefly-story {
+        background: #2d1614;
+        border-color: #5c1a16;
+    }
     .firefly-story h4 { margin-top: 0; color: var(--primary); font-size: 1.4rem; font-weight: 900; }
 
-    .internal-links { background: #f1f5f9; padding: 20px; border-radius: 15px; margin-bottom: 35px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.95rem; }
+    .internal-links { 
+        background: var(--border-color); 
+        padding: 20px; 
+        border-radius: 15px; 
+        margin-bottom: 35px; 
+        display: flex; 
+        gap: 20px; 
+        flex-wrap: wrap; 
+        font-size: 0.95rem; 
+    }
     .internal-links a { color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px dashed var(--primary); }
 
     .firefly-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 35px 0; }
-    .tool-card { background: #fff; border: 1px solid #eee; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .tool-card { 
+        background: var(--card-bg); 
+        border: 1px solid var(--border-color); 
+        padding: 25px; 
+        border-radius: 15px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+    }
     .tool-card b { color: var(--primary); font-size: 1.2rem; display: block; margin-bottom: 10px; }
 
-    .comparison-table { width: 100%; border-collapse: collapse; margin: 35px 0; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
-    .comparison-table th { background: var(--secondary); color: white; padding: 20px; }
-    .comparison-table td { padding: 18px; border: 1px solid #eee; text-align: center; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 35px 0; border-radius: 15px; overflow: hidden; border: 1px solid var(--border-color); }
+    .comparison-table th { background: var(--secondary); color: var(--card-bg); padding: 20px; }
+    .comparison-table td { padding: 18px; border: 1px solid var(--border-color); text-align: center; color: var(--text); }
 
-    .faq-firefly { background: #fafafa; padding: 40px; border-radius: 25px; margin-top: 60px; border: 1px solid #f1f5f9; }
+    .faq-firefly { 
+        background: var(--main-bg); 
+        padding: 40px; 
+        border-radius: 25px; 
+        margin-top: 60px; 
+        border: 1px solid var(--border-color); 
+    }
     .faq-q { color: var(--primary); font-weight: 900; font-size: 1.3rem; display: block; margin-bottom: 10px; }
 
-    .cta-firefly { text-align: center; margin-top: 70px; padding: 55px; background: linear-gradient(145deg, #ffffff, #fff1f0); border-radius: 35px; border: 2px solid #e2e8f0; }
-    .btn-firefly { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 22px 55px; border-radius: 18px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1.4rem; box-shadow: 0 12px 25px rgba(235, 16, 0, 0.2); }
+    .cta-firefly { 
+        text-align: center; 
+        margin-top: 70px; 
+        padding: 55px; 
+        background: var(--card-bg); 
+        border-radius: 35px; 
+        border: 2px solid var(--border-color); 
+    }
+    .btn-firefly { 
+        background: linear-gradient(135deg, var(--primary), #000000); 
+        color: white; 
+        padding: 22px 55px; 
+        border-radius: 18px; 
+        text-decoration: none; 
+        font-weight: 900; 
+        display: inline-block; 
+        font-size: 1.4rem; 
+        box-shadow: 0 12px 25px rgba(235, 16, 0, 0.2); 
+    }
+    .dark-mode .btn-firefly {
+        background: linear-gradient(135deg, var(--primary), #444);
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
 
 <nav class="nav-header">
@@ -136,18 +250,13 @@
     <div class="cta-firefly">
         <h3>اجعل خيالك جزءاً من واقعك</h3>
         <p>لا تتوقف عند حدود الصورة التي التقطتها. مع Adobe Firefly، يمكنك إعادة رسم العالم كما تراه في مخيلتك.</p>
-        <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-        </div>
-      
+        
         <a href="https://firefly.adobe.com" target="_blank" rel="noopener" class="btn-firefly">جرب Adobe Firefly الآن</a>
         <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px;">* الرابط يفتح في نافذة جديدة - أبدع بذكاء أدوبي!</p>
     </div>
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
+
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
 </body>
 </html>

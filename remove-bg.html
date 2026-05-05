@@ -3,352 +3,1516 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إزالة الخلفية الاحترافي | بوابة الأدوات</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <title>إزالة الخلفية الاحترافية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #8b5cf6;
-            --danger: #ef4444;
-            --bg: #fdfaff;
-            --card-bg: #ffffff;
-            --text: #1e293b;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .main-wrapper {
-            width: 100%;
-            max-width: 500px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0e8ff 50%, #ffffff 100%);
+            color: #1f2937;
+            min-height: 100vh;
             padding: 20px;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* الهيدر العلوي */
-        .header-tool {
-            background: white;
-            padding: 15px;
-            border-radius: 20px;
+        /* ============================================
+           الثيم الداكن
+           ============================================ */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+        }
+
+        body.dark-mode header {
+            background: rgba(26, 26, 46, 0.9);
+            border-bottom-color: #333;
+        }
+
+        body.dark-mode .usage-card,
+        body.dark-mode .upload-area,
+        body.dark-mode .preview-section,
+        body.dark-mode .result-container,
+        body.dark-mode .feature-card,
+        body.dark-mode .progress-section,
+        body.dark-mode .btn-cancel {
+            background: #2a2a3e;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .upload-area:hover {
+            background: #3a3a4e;
+        }
+
+        body.dark-mode .upload-area.dragging {
+            background: #4a4a5e;
+        }
+
+        body.dark-mode .section-title,
+        body.dark-mode .header-text h1,
+        body.dark-mode .feature-title,
+        body.dark-mode .upload-text h3 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .section-subtitle,
+        body.dark-mode .header-text p,
+        body.dark-mode .feature-desc,
+        body.dark-mode .upload-text p,
+        body.dark-mode .usage-text,
+        body.dark-mode footer {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .btn-cancel {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .btn-cancel:hover {
+            background: #3a3a4e;
+        }
+
+        body.dark-mode .new-image-btn {
+            background: #2a2a3e;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+
+        body.dark-mode .new-image-btn:hover {
+            background: #3a3a4e;
+        }
+
+        /* ============================================
+           النمط الأساسي
+           ============================================ */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
             display: flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            margin-bottom: 20px;
+            padding: 0 20px;
+            justify-content: space-between;
         }
 
-        .tool-icon {
-            width: 45px;
-            height: 45px;
-            background: #f5f3ff;
-            border-radius: 12px;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .header-text h1 {
+            font-family: 'Poppins', sans-serif;
             font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 0;
         }
 
-        .header-content h2 { margin: 0; font-size: 16px; font-weight: 900; }
-        .header-content p { margin: 0; font-size: 11px; color: #64748b; }
+        .header-text p {
+            font-size: 12px;
+            color: #9ca3af;
+            margin: 0;
+        }
 
-        /* شريط الاستخدامات اليومية */
-        .usage-container {
+        .header-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .theme-toggle, .lang-toggle {
+            background: none;
+            border: 1px solid #e5e7eb;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .theme-toggle,
+        body.dark-mode .lang-toggle {
+            border-color: #444;
+        }
+
+        .theme-toggle:hover, .lang-toggle:hover {
+            background: #f3f4f6;
+        }
+
+        body.dark-mode .theme-toggle:hover,
+        body.dark-mode .lang-toggle:hover {
+            background: #3a3a4e;
+        }
+
+        main {
+            padding: 20px 0;
+        }
+
+        .usage-card {
             background: white;
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #fee2e2;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
         }
 
-        .usage-info {
+        .usage-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .usage-header {
             display: flex;
             justify-content: space-between;
-            font-size: 12px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .usage-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .usage-icon {
+            width: 35px;
+            height: 35px;
+            background: rgba(236, 72, 153, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .usage-count {
+            font-size: 20px;
             font-weight: 700;
+            color: #EC4899;
+        }
+
+        .usage-bar {
+            width: 100%;
+            height: 8px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .usage-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #EC4899 0%, #DB2777 100%);
+            transition: width 0.3s ease;
+        }
+
+        .usage-bar-fill.limit-reached {
+            background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .usage-text {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .usage-text strong {
+            color: #EC4899;
+        }
+
+        .usage-text.limit-reached {
+            color: #ef4444;
+        }
+
+        .usage-text.limit-reached strong {
+            color: #ef4444;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 15px;
+        }
+
+        .upload-area {
+            border: 2px dashed #8B5CF6;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            margin-bottom: 25px;
+        }
+
+        .upload-area:hover {
+            border-color: #8B5CF6;
+            background: #faf5ff;
+        }
+
+        .upload-area.dragging {
+            border-color: #8B5CF6;
+            background: #f3e8ff;
+            transform: scale(1.02);
+        }
+
+        .upload-area.disabled {
+            border-color: #d1d5db;
+            background: #f9fafb;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .upload-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 15px;
+        }
+
+        .upload-area.dragging .upload-icon {
+            background: rgba(139, 92, 246, 0.2);
+            font-size: 32px;
+        }
+
+        .upload-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .upload-text p {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 15px;
+        }
+
+        .upload-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .upload-btn {
+            background: linear-gradient(135deg, #8B5CF6 0%, #8B5CF6 100%);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .upload-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .upload-btn:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .upload-btn.secondary {
+            background: white;
+            color: #8B5CF6;
+            border: 1px solid #8B5CF6;
+        }
+
+        .upload-btn.secondary:hover:not(:disabled) {
+            background: #f3e8ff;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .preview-section {
+            display: none;
+            animation: slideUp 0.5s ease;
+        }
+
+        .preview-section.show {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .preview-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background: #f3f4f6;
+        }
+
+        .progress-section {
+            display: none;
+            margin-bottom: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .progress-section.show {
+            display: block;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 500;
         }
 
         .progress-bar {
-            height: 6px;
-            background: #f1f5f9;
+            width: 100%;
+            height: 12px;
+            background: #f3f4f6;
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .progress-fill {
             height: 100%;
-            background: var(--danger);
-            width: 0%; /* يتحدث عبر الـ JS */
-            transition: 0.5s;
+            background: linear-gradient(90deg, #8B5CF6 0%, #EC4899 100%);
+            transition: width 0.3s ease;
+            width: 0%;
         }
 
-        .limit-msg {
-            color: var(--danger);
-            font-size: 10px;
-            text-align: left;
-            margin-top: 5px;
-            display: block;
-        }
-
-        /* منطقة الرفع */
-        .upload-card {
-            background: white;
-            border-radius: 25px;
-            padding: 40px 20px;
+        .progress-text {
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            margin-bottom: 20px;
+            margin-top: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #8B5CF6;
         }
 
-        .drop-zone {
-            border: 2px dashed #e2e8f0;
-            border-radius: 20px;
-            padding: 30px;
-            background: #fcfcfd;
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .button-group button {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            transition: 0.3s;
-            position: relative;
+            transition: all 0.3s ease;
+            border: none;
         }
 
-        .drop-zone:hover { border-color: var(--primary); background: #f5f3ff; }
-
-        .drop-zone input {
-            position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; cursor: pointer;
+        .btn-remove {
+            background: linear-gradient(135deg, #8B5CF6 0%, #8B5CF6 100%);
+            color: white;
         }
 
-        .upload-btn {
-            background: var(--primary);
+        .btn-remove:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-remove:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .btn-cancel {
+            background: white;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+        }
+
+        .btn-cancel:hover {
+            background: #f9fafb;
+        }
+
+        .result-section {
+            display: none;
+            margin-bottom: 25px;
+        }
+
+        .result-section.show {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+
+        .result-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 15px;
+        }
+
+        .result-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #f3f4f6 25%, transparent 25%, transparent 75%, #f3f4f6 75%, #f3f4f6),
+                        linear-gradient(45deg, #f3f4f6 25%, transparent 25%, transparent 75%, #f3f4f6 75%, #f3f4f6);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-color: #e5e7eb;
+        }
+
+        .download-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
             color: white;
             border: none;
-            width: 100%;
-            padding: 15px;
-            border-radius: 15px;
-            font-weight: 900;
-            margin-top: 20px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .upload-btn:disabled { background: #cbd5e1; box-shadow: none; cursor: not-allowed; }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+        }
 
-        /* المميزات (البطاقات الثلاث) */
-        .features-grid {
+        .new-image-btn {
+            width: 100%;
+            background: white;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .new-image-btn:hover {
+            background: #f9fafb;
+        }
+
+        .features {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
             margin-top: 30px;
         }
 
-        .f-card {
+        .feature-card {
             background: white;
-            padding: 15px 5px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-        }
-
-        .f-card i { font-size: 20px; display: block; margin-bottom: 8px; }
-        .f-card span { font-size: 10px; font-weight: 700; color: #475569; }
-
-        /* منطقة النتائج */
-        #resultContainer { margin-top: 20px; display: none; }
-        .result-img { width: 100%; border-radius: 15px; border: 2px solid var(--primary); }
-        .dl-btn {
-            display: block;
-            text-align: center;
-            background: #10b981;
-            color: white;
-            text-decoration: none;
-            padding: 12px;
+            border: 1px solid #e5e7eb;
             border-radius: 12px;
-            margin-top: 10px;
-            font-weight: 700;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .loader {
-            display: none;
-            width: 25px; height: 25px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 15px auto;
+        .feature-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .feature-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 15px;
+            display: none;
+            animation: slideUp 0.3s ease;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #EC4899;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #9ca3af;
+            font-size: 13px;
+            margin-top: 40px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-controls {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .upload-area {
+                padding: 30px 15px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .upload-buttons {
+                flex-direction: column;
+            }
+
+            .upload-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
-    <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
-
-<div class="main-wrapper">
-    <div class="header-tool">
-        <div class="tool-icon">✂️</div>
-        <div class="header-content">
-            <h2>إزالة الخلفية</h2>
-            <p>ذكاء اصطناعي فائق الدقة، سريع وسهل</p>
-        </div>
-    </div>
-
-    <div class="usage-container">
-        <div class="usage-info">
-            <span>⚡ استخدامات اليوم</span>
-            <span id="usageText">0/3</span>
-        </div>
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressBar"></div>
-        </div>
-        <small class="limit-msg" id="limitMsg">لقد استنفدت طلبات اليوم، حاول بعد 24 ساعة.</small>
-    </div>
-  <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-  </div>
-    <div class="upload-card">
-        <div class="drop-zone" id="dropZone">
-            <div style="font-size: 40px; margin-bottom: 10px;">🎂</div>
-            <p id="fileLabel" style="font-size: 13px; font-weight: 700;">اختر صورة أو اسحبها هنا</p>
-            <p style="font-size: 10px; color: #94a3b8;">يدعم JPG, PNG, WEBP</p>
-            <input type="file" id="fileInput" accept="image/*">
-        </div>
-
-        <button class="upload-btn" id="btnProcess" onclick="handleRemoval()">إزالة الخلفية الآن</button>
-        <div class="loader" id="loader"></div>
-    </div>
-
-    <div id="resultContainer">
-        <p style="font-weight: 700; font-size: 13px;">النتيجة الجاهزة:</p>
-        <img id="outputImage" class="result-img">
-        <a id="downloadBtn" class="dl-btn" download="no-bg.png">تحميل الصورة</a>
-    </div>
-
-    <div class="features-grid">
-        <div class="f-card">
-            <i>⚡</i>
-            <span>إزالة فورية<br>بثوانٍ معدودة</span>
-        </div>
-        <div class="f-card">
-            <i>🎯</i>
-            <span>دقة عالية جداً<br>عبر تقنية AI</span>
-        </div>
-        <div class="f-card">
-            <i>🔒</i>
-            <span>آمن تماماً<br>صورك لا تُحفظ</span>
-        </div>
-    </div>
-
-    <footer style="text-align: center; margin-top: 40px; font-size: 10px; color: #94a3b8;">
-        © 2026 بوابة الأدوات الذكية - جميع الحقوق محفوظة
-    </footer>
-</div>
-
-<script>
-    const API_KEY = "28QCfri7DHSu1Eq9oPan1FWa";
-    const MAX_DAILY = 3;
-    
-    // عناصر الصفحة
-    const fileInput = document.getElementById('fileInput');
-    const fileLabel = document.getElementById('fileLabel');
-    const btnProcess = document.getElementById('btnProcess');
-    const usageText = document.getElementById('usageText');
-    const progressBar = document.getElementById('progressBar');
-    const limitMsg = document.getElementById('limitMsg');
-
-    // منطق العداد اليومي
-    function getUsage() {
-        const data = JSON.parse(localStorage.getItem('bg_remover_usage')) || { count: 0, date: "" };
-        const today = new Date().toLocaleDateString();
-        
-        if (data.date !== today) {
-            return { count: 0, date: today };
+    <!-- كود التحقق الفوري من الثيم لمنع الومضة البيضاء -->
+    <script>
+        if (localStorage.getItem("site_theme") === "dark") {
+            document.documentElement.classList.add("dark-mode");
+            document.documentElement.style.colorScheme = "dark";
         }
-        return data;
-    }
-
-    function updateUsageUI() {
-        const usage = getUsage();
-        usageText.innerText = `${usage.count}/${MAX_DAILY}`;
-        const percent = (usage.count / MAX_DAILY) * 100;
-        progressBar.style.width = percent + "%";
-        
-        if (usage.count >= MAX_DAILY) {
-            btnProcess.disabled = true;
-            limitMsg.style.display = "block";
-        } else {
-            limitMsg.style.display = "none";
+        if (localStorage.getItem("site_lang") === "en") {
+            document.documentElement.lang = "en";
+            document.documentElement.dir = "ltr";
         }
-    }
+    </script>
 
-    function incrementUsage() {
-        const usage = getUsage();
-        usage.count += 1;
-        localStorage.setItem('bg_remover_usage', JSON.stringify(usage));
-        updateUsageUI();
-    }
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">✂️</div>
+                    <div class="header-text">
+                        <h1 data-i18n="title">إزالة الخلفية</h1>
+                        <p data-i18n="subtitle">إزالة خلفية الصور بتقنية ذكية وسريعة</p>
+                    </div>
+                </div>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle" title="تبديل الثيم">🌙</button>
+                    <button class="lang-toggle" id="langToggle" title="تبديل اللغة">EN</button>
+                </div>
+            </div>
+        </header>
 
-    // تحديث الواجهة عند اختيار ملف
-    fileInput.onchange = () => {
-        if (fileInput.files[0]) fileLabel.innerText = fileInput.files[0].name;
-    };
+        <main>
+            <!-- Usage Display -->
+            <div class="usage-card">
+                <div class="usage-header">
+                    <div class="usage-title">
+                        <div class="usage-icon">⚡</div>
+                        <span data-i18n="daily_usage">استخدامات اليوم</span>
+                    </div>
+                    <div class="usage-count"><span id="remainingUsage">3</span>/<span id="maxUsage">3</span></div>
+                </div>
+                <div class="usage-bar">
+                    <div class="usage-bar-fill" id="usageBarFill" style="width: 0%"></div>
+                </div>
+                <div class="usage-text" id="usageText">
+                    <strong id="usageNumber">3</strong> <span data-i18n="remaining_usage">استخدامات متبقية اليوم</span>
+                </div>
+            </div>
 
-    // الوظيفة الرئيسية
-    async function handleRemoval() {
-        const file = fileInput.files[0];
-        if (!file) { alert("اختر صورة أولاً"); return; }
+            <!-- Upload Section -->
+            <div id="uploadSection">
+                <h2 class="section-title" data-i18n="upload_image">رفع الصورة</h2>
+                <p class="section-subtitle" data-i18n="upload_description">اختر صورة من جهازك أو اسحبها إلى منطقة الرفع لإزالة الخلفية فوراً</p>
 
-        const usage = getUsage();
-        if (usage.count >= MAX_DAILY) return;
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon" id="uploadIcon">📤</div>
+                    <div class="upload-text">
+                        <h3 id="uploadTitle" data-i18n="upload_title">اختر صورة أو اسحبها هنا</h3>
+                        <p data-i18n="upload_formats">ادعم صيغ: JPG, PNG, WebP (حد أقصى 50 ميجابايت)</p>
+                    </div>
+                    <div class="upload-buttons">
+                        <button class="upload-btn" id="selectBtn" type="button" data-i18n="select_image">اختر الصورة</button>
+                        <button class="upload-btn secondary" id="cameraBtn" type="button" data-i18n="take_photo">التقط صورة</button>
+                    </div>
+                </div>
 
-        // إعدادات العرض
-        document.getElementById('loader').style.display = "block";
-        btnProcess.disabled = true;
-        document.getElementById('resultContainer').style.display = "none";
+                <input type="file" id="fileInput" accept="image/*">
+                <input type="file" id="cameraInput" accept="image/*" capture="environment">
+            </div>
 
-        const formData = new FormData();
-        formData.append('image_file', file);
-        formData.append('size', 'auto');
+            <!-- Preview Section -->
+            <div class="preview-section" id="previewSection">
+                <h2 class="section-title" data-i18n="preview">معاينة الصورة</h2>
+                <img id="previewImage" class="preview-image" alt="Preview">
 
-        try {
-            const response = await fetch('https://api.remove.bg/v1.0/removebg', {
-                method: 'POST',
-                headers: { 'X-Api-Key': API_KEY },
-                body: formData
+                <!-- Progress Section -->
+                <div class="progress-section" id="progressSection">
+                    <div class="progress-label">
+                        <span data-i18n="processing">حالة المعالجة</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0%</div>
+                </div>
+
+                <!-- Error Message -->
+                <div class="error-message" id="errorMessage"></div>
+
+                <!-- Buttons -->
+                <div class="button-group">
+                    <button class="btn-remove" id="removeBtn" type="button" data-i18n="remove_bg">رفع وإزالة الخلفية</button>
+                    <button class="btn-cancel" id="cancelBtn" type="button" data-i18n="cancel">إلغاء</button>
+                </div>
+            </div>
+
+            <!-- Result Section -->
+            <div class="result-section" id="resultSection">
+                <div class="success-message" data-i18n="success">
+                    ✓ تم إزالة الخلفية بنجاح!
+                </div>
+                <h2 class="section-title" data-i18n="result_title">الصورة بدون خلفية</h2>
+                <p class="section-subtitle" data-i18n="result_subtitle">الصورة جاهزة للتحميل</p>
+
+                <div class="result-container">
+                    <img id="resultImage" class="result-image" alt="Result">
+                </div>
+
+                <div class="button-group">
+                    <button class="download-btn" id="downloadBtn" type="button">
+                        <span>⬇️</span>
+                        <span data-i18n="download">تحميل الصورة</span>
+                    </button>
+                    <button class="new-image-btn" id="newImageBtn" type="button" data-i18n="new_image">صورة جديدة</button>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div id="featuresSection" class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title" data-i18n="feature1_title">إزالة فورية</div>
+                    <div class="feature-desc" data-i18n="feature1_desc">معالجة محلية سريعة دون الحاجة لخادم خارجي</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title" data-i18n="feature2_title">دقة عالية</div>
+                    <div class="feature-desc" data-i18n="feature2_desc">إزالة دقيقة للخلفية مع الحفاظ على جودة الصورة</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title" data-i18n="feature3_title">آمن تماماً</div>
+                    <div class="feature-desc" data-i18n="feature3_desc">صورك لا تُرسل لأي خادم خارجي</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p data-i18n="footer">© 2026 أداة إزالة الخلفية. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
+
+    <!-- مكتبة MediaPipe لإزالة الخلفية المتقدمة -->
+    <script async src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation@0.1/selfie_segmentation.js"></script>
+
+    <!-- كود الترجمة -->
+    <script>
+        // قاموس الترجمة
+        const translations = {
+            ar: {
+                title: "إزالة الخلفية",
+                subtitle: "إزالة خلفية الصور بتقنية ذكية وسريعة",
+                daily_usage: "استخدامات اليوم",
+                remaining_usage: "استخدامات متبقية اليوم",
+                upload_image: "رفع الصورة",
+                upload_description: "اختر صورة من جهازك أو اسحبها إلى منطقة الرفع لإزالة الخلفية فوراً",
+                upload_title: "اختر صورة أو اسحبها هنا",
+                upload_formats: "ادعم صيغ: JPG, PNG, WebP (حد أقصى 50 ميجابايت)",
+                select_image: "اختر الصورة",
+                take_photo: "التقط صورة",
+                preview: "معاينة الصورة",
+                processing: "حالة المعالجة",
+                remove_bg: "رفع وإزالة الخلفية",
+                cancel: "إلغاء",
+                success: "✓ تم إزالة الخلفية بنجاح!",
+                result_title: "الصورة بدون خلفية",
+                result_subtitle: "الصورة جاهزة للتحميل",
+                download: "تحميل الصورة",
+                new_image: "صورة جديدة",
+                feature1_title: "إزالة فورية",
+                feature1_desc: "معالجة محلية سريعة دون الحاجة لخادم خارجي",
+                feature2_title: "دقة عالية",
+                feature2_desc: "إزالة دقيقة للخلفية مع الحفاظ على جودة الصورة",
+                feature3_title: "آمن تماماً",
+                feature3_desc: "صورك لا تُرسل لأي خادم خارجي",
+                footer: "© 2026 أداة إزالة الخلفية. جميع الحقوق محفوظة.",
+                limit_reached: "لقد وصلت للحد اليومي. حاول بعد 24 ساعة",
+                error_daily_limit: "لقد وصلت للحد اليومي من الاستخدامات",
+                error_processing: "خطأ في معالجة الصورة",
+                error_load: "فشل تحميل الصورة",
+                error_file: "خطأ في قراءة الملف",
+                error_read: "فشل قراءة الملف",
+                error_unexpected: "حدث خطأ غير متوقع",
+                error_failed: "فشل إزالة الخلفية"
+            },
+            en: {
+                title: "Remove Background",
+                subtitle: "Remove image backgrounds with smart and fast technology",
+                daily_usage: "Today's Usage",
+                remaining_usage: "remaining uses today",
+                upload_image: "Upload Image",
+                upload_description: "Choose an image from your device or drag it to the upload area to remove the background immediately",
+                upload_title: "Choose an image or drag it here",
+                upload_formats: "Supported formats: JPG, PNG, WebP (maximum 50 MB)",
+                select_image: "Select Image",
+                take_photo: "Take Photo",
+                preview: "Image Preview",
+                processing: "Processing Status",
+                remove_bg: "Upload and Remove Background",
+                cancel: "Cancel",
+                success: "✓ Background removed successfully!",
+                result_title: "Image without Background",
+                result_subtitle: "Image is ready for download",
+                download: "Download Image",
+                new_image: "New Image",
+                feature1_title: "Instant Removal",
+                feature1_desc: "Fast local processing without needing an external server",
+                feature2_title: "High Accuracy",
+                feature2_desc: "Precise background removal while maintaining image quality",
+                feature3_title: "Completely Safe",
+                feature3_desc: "Your images are not sent to any external server",
+                footer: "© 2026 Background Removal Tool. All rights reserved.",
+                limit_reached: "You've reached the daily limit. Try again after 24 hours",
+                error_daily_limit: "You've reached the daily limit of uses",
+                error_processing: "Error processing image",
+                error_load: "Failed to load image",
+                error_file: "Error reading file",
+                error_read: "Failed to read file",
+                error_unexpected: "An unexpected error occurred",
+                error_failed: "Failed to remove background"
+            }
+        };
+
+        // دالة تحديث الترجمة
+        function updateLanguage(lang) {
+            localStorage.setItem("site_lang", lang);
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
+
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
             });
 
-            if (!response.ok) throw new Error("فشلت العملية، تأكد من مفتاح API");
-
-            const blob = await response.blob();
-            const url = URL.createObjectURL(blob);
-            
-            // عرض النتيجة
-            document.getElementById('outputImage').src = url;
-            document.getElementById('downloadBtn').href = url;
-            document.getElementById('resultContainer').style.display = "block";
-            
-            // زيادة العداد
-            incrementUsage();
-
-        } catch (error) {
-            alert(error.message);
-        } finally {
-            document.getElementById('loader').style.display = "none";
-            btnProcess.disabled = false;
-            updateUsageUI();
+            document.getElementById("langToggle").textContent = lang === "ar" ? "EN" : "AR";
+            updateUsageDisplay();
         }
-    }
 
-    // تشغيل العداد عند فتح الصفحة
-    updateUsageUI();
-</script>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    
+        // دالة تبديل الثيم
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle("dark-mode");
+            document.body.classList.toggle("dark-mode", isDark);
+            localStorage.setItem("site_theme", isDark ? "dark" : "light");
+            document.getElementById("themeToggle").textContent = isDark ? "☀️" : "🌙";
+        }
+
+        // معالجات الأزرار
+        document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+        document.getElementById("langToggle").addEventListener("click", function() {
+            const currentLang = localStorage.getItem("site_lang") || "ar";
+            updateLanguage(currentLang === "ar" ? "en" : "ar");
+        });
+
+        // تهيئة اللغة والثيم عند التحميل
+        window.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem("site_lang") || "ar";
+            const isDark = localStorage.getItem("site_theme") === "dark";
+
+            if (isDark) {
+                document.documentElement.classList.add("dark-mode");
+                document.body.classList.add("dark-mode");
+                document.getElementById("themeToggle").textContent = "☀️";
+            }
+
+            updateLanguage(savedLang);
+        });
+
+        // دالة للحصول على النص المترجم
+        function getTranslation(key) {
+            const lang = localStorage.getItem("site_lang") || "ar";
+            return translations[lang] && translations[lang][key] ? translations[lang][key] : key;
+        }
+    </script>
+
+    <!-- كود معالجة الصور -->
+    <script>
+        // ============================================
+        // 1. إدارة الاستخدام اليومي
+        // ============================================
+        const STORAGE_KEY = 'bg_remove_usage';
+        const MAX_DAILY_USAGE = 3;
+        const RESET_INTERVAL = 24 * 60 * 60 * 1000;
+
+        function loadUsageData() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                const now = Date.now();
+
+                if (stored) {
+                    const data = JSON.parse(stored);
+                    const timeSinceReset = now - data.lastReset;
+
+                    if (timeSinceReset > RESET_INTERVAL) {
+                        const newData = { count: 0, lastReset: now };
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+                        return 0;
+                    }
+                    return data.count;
+                } else {
+                    const newData = { count: 0, lastReset: now };
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+                    return 0;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                return 0;
+            }
+        }
+
+        function incrementUsage() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (!stored) return false;
+
+                const data = JSON.parse(stored);
+                const now = Date.now();
+                const timeSinceReset = now - data.lastReset;
+
+                if (timeSinceReset > RESET_INTERVAL) {
+                    const newData = { count: 1, lastReset: now };
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+                    return true;
+                }
+
+                if (data.count >= MAX_DAILY_USAGE) {
+                    return false;
+                }
+
+                const newData = { ...data, count: data.count + 1 };
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
+                return true;
+            } catch (error) {
+                console.error('Error:', error);
+                return false;
+            }
+        }
+
+        function updateUsageDisplay() {
+            const usageCount = loadUsageData();
+            const remainingUsage = MAX_DAILY_USAGE - usageCount;
+            const isLimitReached = usageCount >= MAX_DAILY_USAGE;
+
+            document.getElementById('remainingUsage').textContent = remainingUsage;
+            document.getElementById('usageNumber').textContent = remainingUsage;
+            document.getElementById('maxUsage').textContent = MAX_DAILY_USAGE;
+
+            const fillPercent = (usageCount / MAX_DAILY_USAGE) * 100;
+            const usageBarFill = document.getElementById('usageBarFill');
+            usageBarFill.style.width = fillPercent + '%';
+
+            if (isLimitReached) {
+                usageBarFill.classList.add('limit-reached');
+                document.getElementById('usageText').classList.add('limit-reached');
+                document.getElementById('usageText').innerHTML = `<strong>${remainingUsage}</strong> ${getTranslation('limit_reached')}`;
+                document.getElementById('selectBtn').disabled = true;
+                document.getElementById('cameraBtn').disabled = true;
+                document.getElementById('uploadArea').classList.add('disabled');
+            } else {
+                usageBarFill.classList.remove('limit-reached');
+                document.getElementById('usageText').classList.remove('limit-reached');
+                document.getElementById('usageText').innerHTML = `<strong>${remainingUsage}</strong> ${getTranslation('remaining_usage')}`;
+                document.getElementById('selectBtn').disabled = false;
+                document.getElementById('cameraBtn').disabled = false;
+                document.getElementById('uploadArea').classList.remove('disabled');
+            }
+        }
+
+        // ============================================
+        // 2. معالجة إزالة الخلفية - دعم متعدد المكتبات
+        // ============================================
+        let segmenter = null;
+        let useMediaPipe = false;
+
+        // تهيئة MediaPipe
+        async function initMediaPipe() {
+            try {
+                if (typeof SelfieSegmentation === 'undefined') {
+                    console.log('MediaPipe not available, using fallback method');
+                    return false;
+                }
+
+                segmenter = new SelfieSegmentation({
+                    locateFile: (file) => {
+                        return `https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation@0.1/${file}`;
+                    }
+                });
+
+                await segmenter.initialize();
+                useMediaPipe = true;
+                console.log('MediaPipe initialized successfully');
+                return true;
+            } catch (error) {
+                console.log('MediaPipe initialization failed, using fallback:', error);
+                useMediaPipe = false;
+                return false;
+            }
+        }
+
+        // إزالة الخلفية باستخدام MediaPipe
+        async function removeBackgroundWithMediaPipe(file) {
+            return new Promise(async (resolve) => {
+                try {
+                    const reader = new FileReader();
+
+                    reader.onload = async (e) => {
+                        try {
+                            const img = new Image();
+                            img.onload = async () => {
+                                try {
+                                    updateProgress(20);
+
+                                    const canvas = document.createElement('canvas');
+                                    canvas.width = img.width;
+                                    canvas.height = img.height;
+                                    const ctx = canvas.getContext('2d');
+
+                                    ctx.drawImage(img, 0, 0);
+                                    updateProgress(40);
+
+                                    // معالجة باستخدام MediaPipe
+                                    const results = await segmenter.segmentForVideo(img);
+                                    updateProgress(60);
+
+                                    const mask = results.segmentationMask;
+                                    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                                    const data = imageData.data;
+
+                                    for (let i = 0; i < mask.data.length; i++) {
+                                        const shouldMask = mask.data[i] < 0.5;
+                                        if (shouldMask) {
+                                            data[i * 4 + 3] = 0;
+                                        }
+                                    }
+
+                                    updateProgress(80);
+                                    ctx.putImageData(imageData, 0, 0);
+                                    updateProgress(95);
+
+                                    const resultImage = canvas.toDataURL('image/png');
+                                    updateProgress(100);
+
+                                    resolve({
+                                        originalImage: e.target.result,
+                                        resultImage: resultImage,
+                                        success: true
+                                    });
+                                } catch (error) {
+                                    console.error('Error in MediaPipe processing:', error);
+                                    resolve(null);
+                                }
+                            };
+
+                            img.onerror = () => {
+                                showError(getTranslation('error_load'));
+                                resolve(null);
+                            };
+
+                            img.src = e.target.result;
+                        } catch (error) {
+                            console.error('Error:', error);
+                            showError(getTranslation('error_file'));
+                            resolve(null);
+                        }
+                    };
+
+                    reader.onerror = () => {
+                        showError(getTranslation('error_read'));
+                        resolve(null);
+                    };
+
+                    reader.readAsDataURL(file);
+                } catch (error) {
+                    console.error('Error:', error);
+                    showError(getTranslation('error_unexpected'));
+                    resolve(null);
+                }
+            });
+        }
+
+        // إزالة الخلفية بالطريقة التقليدية (Fallback)
+        async function removeBackgroundFallback(file) {
+            return new Promise(async (resolve) => {
+                try {
+                    const reader = new FileReader();
+
+                    reader.onload = async (e) => {
+                        try {
+                            const base64Image = e.target.result;
+                            updateProgress(15);
+
+                            const img = new Image();
+                            img.onload = async () => {
+                                try {
+                                    updateProgress(30);
+
+                                    const canvas = document.createElement('canvas');
+                                    canvas.width = img.width;
+                                    canvas.height = img.height;
+                                    const ctx = canvas.getContext('2d');
+
+                                    if (!ctx) throw new Error('Failed to get drawing context');
+
+                                    ctx.drawImage(img, 0, 0);
+                                    updateProgress(45);
+
+                                    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                                    const data = imageData.data;
+
+                                    updateProgress(60);
+
+                                    // خوارزمية إزالة الخلفية المحسنة
+                                    removeBackgroundPixels(data);
+
+                                    updateProgress(75);
+
+                                    ctx.putImageData(imageData, 0, 0);
+                                    updateProgress(85);
+
+                                    const resultImage = canvas.toDataURL('image/png');
+                                    updateProgress(95);
+
+                                    setTimeout(() => {
+                                        updateProgress(100);
+                                        resolve({
+                                            originalImage: base64Image,
+                                            resultImage: resultImage,
+                                            success: true
+                                        });
+                                    }, 200);
+                                } catch (error) {
+                                    console.error('Error in processing:', error);
+                                    showError(getTranslation('error_processing'));
+                                    resolve(null);
+                                }
+                            };
+
+                            img.onerror = () => {
+                                showError(getTranslation('error_load'));
+                                resolve(null);
+                            };
+
+                            img.src = base64Image;
+                        } catch (error) {
+                            console.error('Error:', error);
+                            showError(getTranslation('error_file'));
+                            resolve(null);
+                        }
+                    };
+
+                    reader.onerror = () => {
+                        showError(getTranslation('error_read'));
+                        resolve(null);
+                    };
+
+                    reader.readAsDataURL(file);
+                } catch (error) {
+                    console.error('Error:', error);
+                    showError(getTranslation('error_unexpected'));
+                    resolve(null);
+                }
+            });
+        }
+
+        // الدالة الرئيسية لإزالة الخلفية
+        async function removeBackground(file) {
+            if (useMediaPipe && segmenter) {
+                return await removeBackgroundWithMediaPipe(file);
+            } else {
+                return await removeBackgroundFallback(file);
+            }
+        }
+
+        function removeBackgroundPixels(data) {
+            // خوارزمية إزالة الخلفية المحسنة
+            for (let i = 0; i < data.length; i += 4) {
+                const r = data[i];
+                const g = data[i + 1];
+                const b = data[i + 2];
+                const a = data[i + 3];
+
+                // حساب السطوع
+                const brightness = (r + g + b) / 3;
+
+                // حساب التشبع
+                const max = Math.max(r, g, b);
+                const min = Math.min(r, g, b);
+                const saturation = max === 0 ? 0 : (max - min) / max;
+
+                // حساب الفرق بين القنوات
+                const diff = max - min;
+
+                // إذا كانت الخلفية فاتحة جداً أو مظلمة جداً وغير مشبعة، اجعلها شفافة
+                if ((brightness > 200 || brightness < 50) && saturation < 0.3) {
+                    data[i + 3] = 0;
+                } else if (brightness > 220 && saturation < 0.2 && diff < 30) {
+                    // خلفية بيضاء
+                    data[i + 3] = Math.max(0, 255 - (brightness - 200) * 5);
+                } else if (brightness < 30 && saturation < 0.2 && diff < 30) {
+                    // خلفية سوداء
+                    data[i + 3] = Math.max(0, brightness * 5);
+                } else if (saturation < 0.15 && (brightness > 180 || brightness < 70)) {
+                    // خلفية رمادية
+                    data[i + 3] = Math.max(0, 255 - Math.abs(brightness - 128) * 2);
+                }
+            }
+        }
+
+        // ============================================
+        // 3. إدارة الواجهة
+        // ============================================
+        let currentFile = null;
+        let currentResult = null;
+
+        function updateProgress(percent) {
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('progressPercent').textContent = Math.round(percent) + '%';
+            document.getElementById('progressText').textContent = percent === 100 ? getTranslation('success').split('!')[0].trim() : Math.round(percent) + '%';
+        }
+
+        function showProgress() {
+            document.getElementById('progressSection').classList.add('show');
+        }
+
+        function hideProgress() {
+            document.getElementById('progressSection').classList.remove('show');
+            document.getElementById('progressFill').style.width = '0%';
+            document.getElementById('progressPercent').textContent = '0%';
+            document.getElementById('progressText').textContent = '0%';
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMessage');
+            errorEl.textContent = '⚠️ ' + message;
+            errorEl.classList.add('show');
+            setTimeout(() => errorEl.classList.remove('show'), 5000);
+        }
+
+        function showPreview() {
+            document.getElementById('previewSection').classList.add('show');
+            document.getElementById('featuresSection').style.display = 'none';
+        }
+
+        function hidePreview() {
+            document.getElementById('previewSection').classList.remove('show');
+            document.getElementById('featuresSection').style.display = 'grid';
+            hideProgress();
+        }
+
+        function showResult() {
+            document.getElementById('resultSection').classList.add('show');
+            document.getElementById('previewSection').classList.remove('show');
+        }
+
+        function hideResult() {
+            document.getElementById('resultSection').classList.remove('show');
+            hidePreview();
+        }
+
+        // ============================================
+        // 4. معالجة رفع الملفات - محسنة للهاتف
+        // ============================================
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const cameraInput = document.getElementById('cameraInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const cameraBtn = document.getElementById('cameraBtn');
+        const previewImage = document.getElementById('previewImage');
+
+        selectBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            fileInput.click();
+        });
+
+        cameraBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            cameraInput.click();
+        });
+
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                handleFileSelect(file);
+            }
+        });
+
+        cameraInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                handleFileSelect(file);
+            }
+        });
+
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            uploadArea.classList.add('dragging');
+            document.getElementById('uploadIcon').textContent = '☁️';
+            document.getElementById('uploadTitle').textContent = getTranslation('upload_title');
+        });
+
+        uploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            uploadArea.classList.remove('dragging');
+            document.getElementById('uploadIcon').textContent = '📤';
+            document.getElementById('uploadTitle').textContent = getTranslation('upload_title');
+        });
+
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            uploadArea.classList.remove('dragging');
+            document.getElementById('uploadIcon').textContent = '📤';
+            document.getElementById('uploadTitle').textContent = getTranslation('upload_title');
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.type.startsWith('image/')) {
+                    handleFileSelect(file);
+                }
+            }
+        });
+
+        function handleFileSelect(file) {
+            currentFile = file;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+                showPreview();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // ============================================
+        // 5. معالجة إزالة الخلفية
+        // ============================================
+        const removeBtn = document.getElementById('removeBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        removeBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            if (!currentFile) return;
+
+            const usageCount = loadUsageData();
+            if (usageCount >= MAX_DAILY_USAGE) {
+                showError(getTranslation('error_daily_limit'));
+                return;
+            }
+
+            if (!incrementUsage()) {
+                showError(getTranslation('error_daily_limit'));
+                return;
+            }
+
+            removeBtn.disabled = true;
+            cancelBtn.disabled = true;
+            showProgress();
+
+            const result = await removeBackground(currentFile);
+
+            if (result && result.success) {
+                currentResult = result;
+                document.getElementById('resultImage').src = result.resultImage;
+                showResult();
+                updateUsageDisplay();
+            } else {
+                showError(getTranslation('error_failed'));
+                removeBtn.disabled = false;
+                cancelBtn.disabled = false;
+            }
+        });
+
+        cancelBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            currentFile = null;
+            hidePreview();
+            fileInput.value = '';
+            cameraInput.value = '';
+        });
+
+        // ============================================
+        // 6. معالجة التحميل والأزرار
+        // ============================================
+        const downloadBtn = document.getElementById('downloadBtn');
+        const newImageBtn = document.getElementById('newImageBtn');
+
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!currentResult) return;
+
+            const link = document.createElement('a');
+            link.href = currentResult.resultImage;
+            link.download = 'no-background-' + Date.now() + '.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        newImageBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            currentFile = null;
+            currentResult = null;
+            hideResult();
+            fileInput.value = '';
+            cameraInput.value = '';
+        });
+
+        // ============================================
+        // 7. التهيئة الأولية
+        // ============================================
+        window.addEventListener('DOMContentLoaded', async function() {
+            updateUsageDisplay();
+            await initMediaPipe();
+        });
+    </script>
 </body>
 </html>

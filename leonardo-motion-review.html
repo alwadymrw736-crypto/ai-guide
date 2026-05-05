@@ -3,83 +3,239 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مراجعة Leonardo Motion 2026: سحر تحريك التصاميم الثابتة</title>
+  <meta name="description" content="شرح Leonardo AI للمبتدئين 2026: كيف تصمم صوراً خرافية بالذكاء الاصطناعي مجاناً؟ مراجعة شاملة بناءً على تجربة شخصية في تصميم الشعارات والصور الفنية.">
+  <title>شرح Leonardo AI للمبتدئين 2026: تجربتي مع أفضل بديل لـ Midjourney</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --main-bg: #f8fafc; --primary: #8b5cf6; --secondary: #10b981; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    h1 { color: var(--primary); font-size: 2.4rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
-    h2 { color: var(--secondary); font-size: 1.8rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
-    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: #334155; }
-    .my-story { background: #eff6ff; border: 1px solid #bfdbfe; padding: 30px; border-radius: 20px; margin: 40px 0; color: #1e40af; }
-    .cta-container { text-align: center; margin-top: 60px; padding: 40px 20px; border-top: 2px solid #f1f5f9; }
-    .btn-visit-gradient { display: inline-block; padding: 18px 50px; background: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%); color: white !important; text-decoration: none !important; border-radius: 50px; font-weight: 900; font-size: 1.3rem; transition: all 0.3s ease; }
-    .btn-visit-gradient:hover { transform: translateY(-3px); }
+    :root { 
+        --main-bg: #f8fafc; 
+        --primary: #8b5cf6; 
+        --secondary: #10b981; 
+        --text: #1e293b; 
+        --card-bg: #ffffff;
+        --border-color: #e2e8f0;
+        --desc-text: #334155;
+        --story-bg: #fdf2f8;
+        --story-border: #fce7f3;
+    }
+
+    /* إعدادات الوضع الليلي */
+    body.dark-mode {
+        --main-bg: #0f172a;
+        --text: #f1f5f9;
+        --card-bg: #1e293b;
+        --border-color: #334155;
+        --desc-text: #cbd5e1;
+        --story-bg: #50072420;
+        --story-border: #831843;
+    }
+
+    body { 
+        font-family: 'Cairo', sans-serif; 
+        background: var(--main-bg); 
+        line-height: 2.2; 
+        margin: 0; 
+        color: var(--text); 
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-header { 
+        background: var(--card-bg); 
+        padding: 15px 5%; 
+        border-bottom: 1px solid var(--border-color); 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+    }
+
+    .article-wrap { 
+        max-width: 900px; 
+        margin: 40px auto; 
+        background: var(--card-bg); 
+        padding: 50px; 
+        border-radius: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        transition: background 0.3s ease;
+    }
+    
+    h1 { color: var(--primary); font-size: 2.5rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
+    h2 { color: var(--secondary); font-size: 1.9rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
+    p { font-size: 1.25rem; margin-bottom: 25px; text-align: justify; color: var(--desc-text); }
+
+    .leonardo-story { 
+        background: var(--story-bg); 
+        border: 1px solid var(--story-border); 
+        padding: 35px; 
+        border-radius: 20px; 
+        margin: 40px 0; 
+        border-right: 8px solid #db2777; 
+    }
+    .leonardo-story h4 { margin-top: 0; color: #db2777; font-size: 1.4rem; font-weight: 900; }
+
+    .internal-navigation { 
+        background: var(--main-bg); 
+        padding: 20px; 
+        border-radius: 15px; 
+        margin-bottom: 35px; 
+        display: flex; 
+        gap: 20px; 
+        flex-wrap: wrap; 
+        font-size: 0.95rem; 
+    }
+    .internal-navigation a { color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px dashed var(--primary); }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 35px 0; }
+    .feature-card { 
+        background: var(--card-bg); 
+        border: 1px solid var(--border-color); 
+        padding: 25px; 
+        border-radius: 15px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+    }
+    .feature-card b { color: var(--primary); font-size: 1.2rem; display: block; margin-bottom: 10px; }
+
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 35px 0; border-radius: 15px; overflow: hidden; border: 1px solid var(--border-color); }
+    .comparison-table th { background: var(--primary); color: white; padding: 20px; }
+    .comparison-table td { padding: 18px; border: 1px solid var(--border-color); text-align: center; }
+
+    .faq-leonardo { 
+        background: var(--main-bg); 
+        padding: 40px; 
+        border-radius: 25px; 
+        margin-top: 60px; 
+        border: 1px solid var(--border-color); 
+    }
+    .faq-q { color: var(--primary); font-weight: 900; font-size: 1.3rem; display: block; margin-bottom: 10px; }
+
+    .cta-leonardo { 
+        text-align: center; 
+        margin-top: 70px; 
+        padding: 55px; 
+        background: var(--card-bg); 
+        border-radius: 35px; 
+        border: 2px solid var(--border-color); 
+    }
+    .btn-leonardo { background: linear-gradient(135deg, #db2777, var(--primary)); color: white; padding: 22px 55px; border-radius: 18px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1.4rem; box-shadow: 0 12px 25px rgba(219, 39, 119, 0.2); }
+
+    @media (max-width: 768px) {
+        .article-wrap { padding: 20px; margin: 15px; }
+        h1 { font-size: 1.8rem; }
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
 
 <nav class="nav-header">
-    <a href="chat.html" style="text-decoration:none; color:var(--primary); font-weight:bold;">← العودة للأدوات</a>
-    <span>بوابة الأدوات الذكية</span>
+    <a href="design.html" style="text-decoration:none; color:var(--primary); font-weight:bold;">← العودة لقسم التصميم</a>
+    <span style="font-weight:900;">بوابة الأدوات الذكية</span>
 </nav>
 
 <div class="article-wrap">
-    <h1>مراجعة Leonardo Motion 2026: سحر تحريك التصاميم الثابتة</h1>
-
-    <p>لطالما كان الفرق بين "المصمم المحترف" و"المصمم العادي" هو القدرة على إضافة الحياة للعمل الفني. مع <strong>Leonardo Motion</strong>، أصبح هذا الفرق متاحاً للجميع بضغطة زر. لا تحتاج لتعلم برامج تحريك معقدة (مثل After Effects)؛ Leonardo Motion يأخذ الصورة التي صممتها داخل المنصة ويمنحها حركة انسيابية مدروسة تجعلها تنبض بالحياة.</p>
-
-    <div class="my-story">
-        <h4>تجربتي التقنية: عندما تتحول البكسلات إلى واقع</h4>
-        <p>كمصمم، غالباً ما أصل لنتيجة بصرية مذهلة في تصميماتي، لكنها تفتقر إلى "العنصر الإضافي" الذي يجذب انتباه المشاهد على وسائل التواصل الاجتماعي. تجربتي مع Leonardo Motion كانت بمثابة فتح جديد؛ حيث أستطيع التحكم في "قوة الحركة" (Motion Strength) لضمان أن الصورة لا تتحول إلى "فوضى بصرية"، بل تحافظ على هويتها الأصلية مع إضافة حركة دقيقة وسلسة. لقد أصبح هذا الخيار هو الخطوة الأخيرة في سير عملي (Workflow) قبل نشر أي تصميم، فهو يرفع من تفاعل الجمهور بشكل ملحوظ.</p>
+    <div class="internal-navigation">
+        <strong>اقرأ أيضاً:</strong>
+        <a href="runway-review.html">مراجعة Runway</a>
+        <a href="invideo-review.html">مراجعة InVideo</a>
+        <a href="index.html">الرئيسية</a>
     </div>
 
-    <h2>العمق التقني: كيف تعمل خوارزمية Motion؟</h2>
-    <ul>
-        <li><strong>تحليل الكائنات (Semantic Object Tracking):</strong> الأداة تفهم عناصر الصورة؛ فهي تميز بين السماء، الشخصيات، والمحيط، مما يسمح لها بتحريك العناصر بشكل فردي ومنطقي بدلاً من تحريك كامل إطار الصورة.</li>
-        <li><strong>التحكم في شدة الحركة:</strong> هذه الميزة تقنية بحتة؛ فهي تتيح لك تحديد (Motion Scale) من 1 إلى 10. هذا المستوى من التحكم يمنع "التشوه الرقمي" الذي يحدث عند المبالغة في التحريك.</li>
-        <li><strong>التكامل السلس (Ecosystem Integration):</strong> الجمال الحقيقي يكمن في أنك تولد الصورة داخل Leonardo وتضغط زر Motion فوراً، دون الحاجة لنقل الملفات أو تغيير الأدوات.</li>
-    </ul>
+    <h1>شرح Leonardo AI للمبتدئين 2026: تجربتي في عالم التصميم السحري</h1>
+    
+    <p>إذا كنت تظن أن التصميم يتطلب سنوات من تعلم "الفوتوشوب"، فأنت لم تجرب <strong>Leonardo AI</strong> بعد. في عام 2026، أصبحت هذه الأداة هي المنافس الشرس والمجاني (تقريباً) لبرنامج Midjourney الشهير. ما يميز ليوناردو ليس فقط جودة الصور، بل واجهة الاستخدام السهلة والتحكم الكامل في التفاصيل. من خلال رحلتي في إنشاء الشعارات والتصاميم الفنية، وجدت أن <strong>Leonardo AI</strong> يقدم توازناً مذهلاً بين الفن والتقنية. في هذا المقال، سأقدم لك <strong>شرح ليوناردو للمبتدئين</strong> وكيف بدأت باستخدامه لإنتاج صور تبدو وكأنها رسمت بيد فنان عالمي.</p>
 
-    <h2>لماذا تستثمر في نسخة Pro (الإصدار الاحترافي)؟</h2>
-    <p>للعمل المهني، الترقية ليست رفاهية، بل هي حاجة لعدة أسباب تقنية:</p>
-    <ul>
-        <li><strong>سرعة المعالجة (Turbo Processing):</strong> كصانع محتوى، وقتك ثمين. نسخ Pro توفر معالجة أسرع بكثير للفيديوهات، مما يعني إنجاز ضعف العمل في نفس الوقت.</li>
-        <li><strong>جودة مخرجات أعلى:</strong> الحصول على فيديوهات بنقاء وحواف حادة (Clean Edges) هو ما يفرق بين الهواة والمحترفين عند العرض على شاشات عالية الدقة.</li>
-        <li><strong>وصول أسرع للنماذج الجديدة:</strong> تحديثات Leonardo التقنية تضاف أولاً لمستخدمي Pro، مما يعني أنك دائماً تمتلك أحدث خوارزميات التحريك قبل غيرك.</li>
-        <li><strong>الاستخدام التجاري غير المحدود:</strong> الترقية توفر لك الغطاء القانوني لاستخدام هذه الفيديوهات في أعمال تجارية مع العملاء، وهو شرط أساسي لأي مصمم يعمل مع شركات.</li>
-    </ul>
-
-    <h2>نصيحة الخبراء: كيف تحقق أفضل نتيجة حركية؟</h2>
-    <ul>
-        <li><strong>اختر الصور ذات العمق (Depth):</strong> الصور التي تحتوي على تفاصيل في الأمام والخلف تظهر فيها ميزة Motion بشكل أفضل بكثير.</li>
-        <li><strong>لا تبالغ:</strong> في معظم الحالات، تكون شدة الحركة (Motion Strength) بين 3 و 5 هي الأكثر واقعية واحترافية.</li>
-        <li><strong>التعديل اليدوي:</strong> بعد التوليد، إذا لم تعجبك الحركة، جرب تغيير (Seed) الصورة أو خفض قوة الحركة قليلاً للحصول على نتيجة أكثر استقراراً.</li>
-    </ul>
-
-    <h2>الخلاصة: هل هو الأداة المثالية؟</h2>
-    <p>Leonardo Motion هو "اللمسة النهائية" المثالية لأي مصمم. هو لا يستبدل مهاراتك الإبداعية، بل يضاعف قيمتها من خلال تحويل إبداعاتك الثابتة إلى محتوى مرئي متحرك وجذاب.</p>
-
-    <div class="cta-container">
-        <h3>هل أنت مستعد لبث الحياة في تصاميمك؟</h3>
-        <p>لا تترك تصاميمك ثابتة، امنحها بعداً حركياً الآن.</p>
-          <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-  </div>
-        <a href="https://leonardo.ai" target="_blank" class="btn-visit-gradient">جرب Leonardo Motion الآن</a>
+    <div class="leonardo-story">
+        <h4>تجربتي الشخصية: كيف صممت شعار مشروعي في دقيقتين؟</h4>
+        <p>أتذكر جيداً عندما أردت تصميم لوغو لمحل عصير طازج. في السابق، كنت سأقضي ساعات في البحث عن أفكار، لكنني فتحت <b>Leonardo AI</b> واستخدمت نموذج "AlbedoBase XL" وكتبت: "شعار بسيط لزجاجة عصير تتطاير منها الفواكه، ألوان حيوية، خلفية بيضاء، جودة 8K". النتيجة كانت تفوق توقعاتي! لم يعطني صورة واحدة، بل أعطاني خيارات متعددة مكنتني من اختيار الأفضل فوراً. ميزة <b>Image Guidance</b> سمحت لي برفع رسمة كروكي بيدي، ليحولها الذكاء الاصطناعي إلى تحفة فنية مبهرة.</p>
     </div>
 
-    <script async src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
+    <h2>ما هو Leonardo AI؟ (شرح مبسط للمبتدئين)</h2>
+    <p>ببساطة، <strong>شرح مبسط لـ Leonardo AI</strong> هو منصة متكاملة لإنتاج الصور بالذكاء الاصطناعي تعتمد على نماذج Stable Diffusion المتطورة. في عام 2026، أضافت المنصة ميزات مثل توليد الفيديو (Motion) وتحويل الرسم المباشر إلى صور (Realtime Canvas). المنصة توفر لك 150 نقطة مجانية يومياً، وهو ما يكفي لإنتاج حوالي 15-30 صورة عالية الجودة كل يوم دون دفع سنت واحد.</p>
+
+    <h2>أهم مميزات Leonardo AI التي تجعلها الأفضل</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <b>Canvas Editor:</b> واجهة قوية تتيح لك الرسم والتعديل على أجزاء محددة من الصورة بذكاء.
+        </div>
+        <div class="feature-card">
+            <b>Image Guidance:</b> القدرة على استخدام صورة مرجعية للتحكم في الوضعية (Pose) أو الألوان.
+        </div>
+        <div class="feature-card">
+            <b>AI Canvas:</b> يمكنك "توسيع" خلفية الصورة (Outpainting) لتشمل مساحات لم تكن موجودة أصلاً.
+        </div>
+        <div class="feature-card">
+            <b>Custom Models:</b> إمكانية تدريب الذكاء الاصطناعي على أسلوبك الخاص أو استخدام نماذج المستخدمين الآخرين.
+        </div>
+    </div>
+
+    <h2>كيف تستخدم Leonardo AI باحترافية؟</h2>
+    <p>لإتقان <strong>كيفية استخدام Leonardo AI</strong>، عليك البدء باختيار "Model" الصحيح. إذا كنت تريد صوراً واقعية، استخدم (PhotoReal)، وإذا كنت تريد رسوماً كرتونية، استخدم (3D Animation Style). في 2026، أصبحت ميزة "Prompt Magic" تقوم بتحسين وصفك تلقائياً لتعطيك نتائج أكثر تفصيلاً. تذكر دائماً استخدام "Negative Prompt" لاستبعاد الأشياء التي لا تريدها (مثل: تشوه الأصابع أو ضبابية الخلفية).</p>
+
+    <h2>مقارنة: Leonardo AI مقابل Midjourney</h2>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>الميزة</th>
+                <th>Leonardo AI</th>
+                <th>Midjourney</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>واجهة الاستخدام</td>
+                <td>سهلة (موقع ويب وتطبيق)</td>
+                <td>صعبة (عبر ديسكورد)</td>
+            </tr>
+            <tr>
+                <td>التحكم اليدوي</td>
+                <td>عالي جداً (أزرار وإعدادات)</td>
+                <td>عبر الأوامر النصية فقط</td>
+            </tr>
+            <tr>
+                <td>الخطة المجانية</td>
+                <td>متاحة (150 نقطة يومياً)</td>
+                <td>غير متوفرة حالياً</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>العيوب التي قد تواجهها</h2>
+    <p>على الرغم من إمكانيات <strong>Leonardo AI</strong> الجبارة، إلا أن بعض النماذج القديمة قد تعاني في كتابة "النصوص" داخل الصور بشكل دقيق. كما أن الواجهة المليئة بالخيارات قد تكون "مشتتة" للمبتدئ في أول 10 دقائق، ولكن بمجرد فهم الأساسيات، ستشعر أنها أقوى أداة ملكتها يوماً ما.</p>
+
+    <div class="faq-leonardo">
+        <h3>الأسئلة الشائعة حول Leonardo AI (FAQ)</h3>
+        <div class="faq-item">
+            <span class="faq-q">هل يمكنني استخدام الصور تجارياً؟</span>
+            <p>نعم، في الخطط المدفوعة تمتلك الحقوق بالكامل، وفي الخطة المجانية يمكنك استخدامها مع ذكر المصدر في بعض الحالات.</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">كيف أحصل على نقاط إضافية؟</span>
+            <p>النقاط (Tokens) تتجدد تلقائياً كل 24 ساعة، أو يمكنك الاشتراك في باقاتهم الشهرية للحصول على آلاف النقاط.</p>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">هل يدعم تصميم الشعارات؟</span>
+            <p>بالتأكيد، هو من أفضل الأدوات حالياً لتوليد أفكار الشعارات (Logos) والأيقونات بدقة متناهية.</p>
+        </div>
+    </div>
+
+    <div class="cta-leonardo">
+        <h3>أطلق العنان للفنان الكامن بداخلك</h3>
+        <p>المستقبل هو للتصاميم التي يصنعها خيالك لا يدك. جرب Leonardo AI اليوم واصنع أول تحفة فنية لك.</p>
+        
+        <a href="https://leonardo.ai" target="_blank" rel="noopener" class="btn-leonardo">ابدأ التصميم مجاناً مع Leonardo AI</a>
+        <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px;">* الرابط يفتح في نافذة جديدة - ابدأ رحلة الإبداع!</p>
+    </div>
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
+
+<script>
+    // كود تطبيق الوضع الليلي تلقائياً بناءً على إعدادات الموقع الرئيسية
+    (function() {
+        if (localStorage.getItem("site_theme") === "dark" || localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    })();
+</script>
 
 </body>
 </html>

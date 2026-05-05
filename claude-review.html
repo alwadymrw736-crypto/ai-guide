@@ -3,153 +3,282 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="شرح Claude AI للمبتدئين 2026: مراجعة شاملة بناءً على تجربة شخصية في البرمجة وتلخيص الملفات الضخمة. اكتشف الفرق الحقيقي بين كلود وشات جي بي تي.">
-  <title>شرح Claude AI للمبتدئين 2026: تجربتي الشخصية وهل يستحق الاستخدام؟</title>
+  <meta name="description" content="شرح Claude AI للمبتدئين 2026: مراجعة شاملة بناءً على تجربة شخصية في البرمجة وتلخيص الملفات الضخمة.">
+  <title>شرح Claude AI للمبتدئين 2026</title>
+
+  <script>
+    if (localStorage.getItem("site_theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+    }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
   <style>
-    :root { --main-bg: #f8fafc; --primary: #8b5cf6; --secondary: #10b981; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    :root {
+      --purple: #8b5cf6;
+      --green: #10b981;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --desc: #334155;
+      --border: #e5e7eb;
+    }
+
+    /* تعديلات الوضع الليلي */
+    .dark-mode {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --desc: #cbd5e1;
+      --border: #334155;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      line-height: 2.2;
+      margin: 0;
+      color: var(--text);
+      transition: background 0.3s ease;
+    }
+
+    .nav-header {
+      background: var(--card);
+      padding: 15px 5%;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .article-wrap {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--card);
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+
+    h1 {
+      color: var(--purple);
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    h2 {
+      color: var(--green);
+      font-size: 1.8rem;
+      margin-top: 50px;
+      border-right: 6px solid var(--purple);
+      padding-right: 15px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      text-align: justify;
+      color: var(--desc);
+    }
+
+    /* صناديق المحتوى */
+    .my-experience {
+      background: rgba(139, 92, 246, 0.05);
+      border: 1px solid var(--purple);
+      padding: 30px;
+      border-radius: 20px;
+      margin: 40px 0;
+    }
     
-    h1 { color: var(--primary); font-size: 2.4rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
-    h2 { color: var(--secondary); font-size: 1.8rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
-    h3 { color: var(--text); font-size: 1.4rem; margin-top: 35px; font-weight: 700; }
-    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: #334155; }
+    .my-experience h4 { color: var(--purple); margin-top: 0; font-weight: 900; }
 
-    .my-experience { background: #f5f3ff; border: 1px solid #ddd6fe; padding: 30px; border-radius: 20px; margin: 40px 0; }
-    .my-experience h4 { margin-top: 0; color: var(--primary); font-size: 1.3rem; }
+    .internal-nav {
+      background: var(--bg);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 35px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+    }
 
-    .internal-nav { background: #f1f5f9; padding: 20px; border-radius: 15px; margin-bottom: 35px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.95rem; }
-    .internal-nav a { color: var(--primary); font-weight: bold; text-decoration: none; }
+    .internal-nav a {
+      color: var(--purple);
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .internal-nav a:hover { color: var(--green); }
 
-    .feature-list { list-style: none; padding: 0; }
-    .feature-list li { background: #fdfdfd; border: 1px solid #eee; margin-bottom: 12px; padding: 15px 20px; border-radius: 10px; position: relative; padding-right: 45px; }
-    .feature-list li::before { content: "✔"; position: absolute; right: 15px; color: var(--secondary); font-weight: bold; }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
 
-    .comparison-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; }
-    .comparison-table th { background: var(--primary); color: white; padding: 15px; border: 1px solid #ddd; }
-    .comparison-table td { padding: 15px; border: 1px solid #eee; text-align: center; }
+    .feature-list li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      padding: 15px 45px 15px 20px;
+      border-radius: 10px;
+      position: relative;
+      color: var(--desc);
+    }
 
-    .faq-section { background: #fafafa; padding: 30px; border-radius: 20px; margin-top: 50px; border: 1px solid #eee; }
-    .faq-item { margin-bottom: 25px; }
-    .faq-item strong { color: var(--primary); display: block; margin-bottom: 8px; font-size: 1.15rem; }
+    .feature-list li::before {
+      content: "✔";
+      position: absolute;
+      right: 15px;
+      color: var(--green);
+      font-weight: bold;
+    }
 
-    .cta-container { text-align: center; margin-top: 60px; padding: 40px; border-top: 2px solid #f1f5f9; }
-    .btn-visit { background: linear-gradient(135deg, var(--secondary), var(--primary)); color: white; padding: 20px 40px; border-radius: 15px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1.3rem; }
-    .disclaimer { font-size: 0.85rem; color: #94a3b8; margin-top: 15px; display: block; }
+    /* الجداول */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      overflow: hidden;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+    }
+
+    .comparison-table th {
+      background: var(--purple);
+      color: white;
+      padding: 15px;
+    }
+
+    .comparison-table td {
+      padding: 15px;
+      border: 1px solid var(--border);
+      text-align: center;
+      background: var(--card);
+      color: var(--desc);
+    }
+
+    .faq-section {
+      background: var(--bg);
+      padding: 30px;
+      border-radius: 20px;
+      margin-top: 50px;
+      border: 1px solid var(--border);
+    }
+
+    .faq-item strong {
+      color: var(--purple);
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .cta-container {
+      text-align: center;
+      margin-top: 60px;
+      padding: 40px;
+      border-top: 2px solid var(--border);
+    }
+
+    .btn-visit {
+      background: linear-gradient(135deg, var(--green), var(--purple));
+      color: white !important;
+      padding: 20px 45px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 900;
+      display: inline-block;
+      font-size: 1.3rem;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+    }
+    
+    .btn-visit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px rgba(139, 92, 246, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        .article-wrap { padding: 25px; width: 92%; }
+        h1 { font-size: 1.8rem; }
+    }
   </style>
 </head>
-<link rel="stylesheet" href="themes.css">
 
-<script src="theme.js"></script>
 <body>
 
 <nav class="nav-header">
-    <a href="chat.html" style="text-decoration:none; color:var(--primary); font-weight:bold;">← العودة للأدوات</a>
-    <span style="font-weight:900;">بوابة الأدوات الذكية</span>
+    <a href="chat.html" style="text-decoration:none; color:var(--purple); font-weight:bold;">← العودة للأدوات</a>
+    <span style="font-weight: 900; color: var(--green);">بوابة الأدوات الذكية</span>
 </nav>
 
 <div class="article-wrap">
+
     <div class="internal-nav">
-        <strong>انتقل إلى:</strong>
-        <a href="chatgpt-review.html">مراجعة ChatGPT</a>
-        <a href="image.html">أدوات الصور</a>
-        <a href="index.html">الصفحة الرئيسية</a>
+        <strong style="color: var(--text);">انتقل إلى:</strong>
+        <a href="chatgpt-review.html">ChatGPT</a>
+        <a href="index.html">الرئيسية</a>
     </div>
 
     <h1>شرح Claude AI للمبتدئين 2026: تجربتي الشخصية وهل يستحق الاستخدام؟</h1>
-    
-    <p>كثير من المستخدمين اليوم يعتمدون على الذكاء الاصطناعي في أعمالهم، لكن الأغلبية لا تزال عالقة عند استخدام أداة واحدة فقط. في رحلتي لتطوير "بوابة الأدوات الذكية"، كان عليّ تجربة عشرات النماذج، ومن هنا بدأت قصتي مع <strong>Claude AI</strong>. هل هو فعلاً مجرد منافس لـ ChatGPT أم أنه يمتلك هوية مختلفة تماماً؟ في هذا المقال، سأشاركك تجربتي الواقعية بعيداً عن الكلام التسويقي الممل.</p>
+
+    <p>كثير من المستخدمين يعتمدون على الذكاء الاصطناعي لإنجاز مهامهم اليومية، ولكن يبرز سؤال دائماً: أي أداة هي الأكثر دقة؟ هنا يأتي دور Claude.</p>
 
     <div class="my-experience">
         <h4>لماذا تركت ChatGPT مؤقتاً واتجهت لـ Claude؟</h4>
-        <p>بصراحة، واجهت مشكلة في مشروع برمجي كبير يضم مئات السطور من الكود المترابط. ChatGPT كان يبدأ بـ "نسيان" التفاصيل بعد فترة من المحادثة، مما يضطرني لإعادة شرح المشروع كل مرة. عندما جربت Claude، رفعت له 5 ملفات برمجية كاملة، وانبهرت بقدرته على تحليل العلاقة بين الملف الأول والأخير دون أي تشتت. هذه القدرة على استيعاب "السياق الطويل" هي ما جعلتني أعتمد عليه في المهام المعقدة.</p>
+        <p>كنت أعاني في مشاريع برمجية كبيرة من حدود الذاكرة (Context Window)، حيث ينسى الذكاء الاصطناعي الأكواد السابقة. مع Claude، استطعت رفع ملفات المشروع بالكامل دفعة واحدة والحصول على تحليل دقيق وشامل.</p>
     </div>
 
-    <h2>ما هو Claude AI؟ (شرح مبسط للمبتدئين)</h2>
-    <p>إذا كنت تبحث عن <strong>شرح Claude AI للمبتدئين</strong>، فإليك الزبدة: هو نموذج لغوي متطور طورته شركة Anthropic. ما يميز هذه الشركة أن مؤسسيها كانوا جزءاً من OpenAI (الشركة المطورة لـ ChatGPT) ولكنهم انفصلوا ليركزوا على بناء ذكاء اصطناعي أكثر أماناً، ودقة، وقدرة على فهم المنطق البشري المعقد. في 2026، أصبح كلود هو الخيار الأول للباحثين والمبرمجين الذين يحتاجون إلى إجابات دقيقة بعيدة عن "الهلوسة الرقمية".</p>
+    <h2>ما هو Claude AI؟</h2>
+    <p>Claude هو نموذج لغوي متطور من شركة Anthropic، يركز بشكل أساسي على "الأمان" و"الدقة". تم تصميمه ليكون مساعداً ذكياً يتجنب الإجابات المضللة ويقدم صياغة لغوية قريبة جداً من أسلوب البشر.</p>
 
-    <h2>مميزات تجعل كلود يتفوق في سوق الذكاء الاصطناعي</h2>
-    <p>لا نكتب هنا كلاماً عاماً، بل فوائد حقيقية لمستها أثناء الاستخدام اليومي:</p>
+    <h2>أهم مميزات كلود في 2026</h2>
     <ul class="feature-list">
-        <li><strong>معالجة الملفات الضخمة:</strong> يمكنك رفع ملفات PDF أو جداول بيانات ضخمة، وسيحللها لك في ثوانٍ.</li>
-        <li><strong>الأسلوب البشري في الكتابة:</strong> بعيداً عن الجمود، يكتب كلود نصوصاً عربية فصيحة تشعر وكأنها كتبت بيد إنسان، وهذا مثالي لصناع المحتوى.</li>
-        <li><strong>الدقة البرمجية:</strong> يتفوق بشكل ملحوظ في لغات البرمجة مثل Python و JavaScript، حيث يقلل من الأخطاء المنطقية.</li>
+        <li><strong>معالجة ملفات ضخمة:</strong> يمكنك رفع كتب كاملة أو آلاف السطور البرمجية وسيفهمها في ثوانٍ.</li>
+        <li><strong>كتابة بشرية طبيعية:</strong> يبتعد عن التكرار والأسلوب الآلي المعتاد في النماذج الأخرى.</li>
+        <li><strong>دقة برمجية عالية:</strong> يتفوق في منطق البرمجة وتصحيح الأخطاء التقنية المعقدة.</li>
     </ul>
 
-    <h2>مقارنة واقعية: Claude AI ضد ChatGPT</h2>
-    <p>من خلال <strong>تجربتي الشخصية</strong>، قمت بعمل هذا الجدول البسيط ليوضح لك الفرق الجوهري لتختار ما يناسبك:</p>
-    
+    <h2>المقارنة السريعة</h2>
     <table class="comparison-table">
         <thead>
-            <tr>
-                <th>الميزة</th>
-                <th>Claude AI</th>
-                <th>ChatGPT</th>
-            </tr>
+            <tr><th>الميزة</th><th>Claude</th><th>ChatGPT</th></tr>
         </thead>
         <tbody>
-            <tr>
-                <td>التركيز الأساسي</td>
-                <td>المنطق والأمان</td>
-                <td>الإبداع والسرعة</td>
-            </tr>
-            <tr>
-                <td>سعة الذاكرة</td>
-                <td>عالية جداً (كتاب كامل)</td>
-                <td>متوسطة</td>
-            </tr>
-            <tr>
-                <td>جودة اللغة العربية</td>
-                <td>ممتازة وطبيعية</td>
-                <td>جيدة جداً</td>
-            </tr>
+            <tr><td>الذاكرة والملفات</td><td>عالية جداً</td><td>متوسطة</td></tr>
+            <tr><td>أسلوب الكتابة</td><td>بشري/إبداعي</td><td>تقني/منظم</td></tr>
+            <tr><td>دعم البرمجة</td><td>ممتاز</td><td>ممتاز</td></tr>
         </tbody>
     </table>
 
-    <h2>كيف تستخدم Claude AI بطريقة صحيحة؟</h2>
-    <p>الخطأ الذي يقع فيه المبتدئون هو إعطاء أوامر قصيرة مثل "اكتب لي مقال". الطريقة الصحيحة التي أتبعها في عملي هي:</p>
-    <ol>
-        <li><strong>إعطاء السياق:</strong> قل له "أنت مبرمج خبير" أو "أنت كاتب سيو".</li>
-        <li><strong>تحديد النتيجة:</strong> اطلب منه تنسيقاً معيناً (جدول، نقاط، كود).</li>
-        <li><strong>التغذية الراجعة:</strong> إذا لم تعجبك الإجابة، اطلب منه التعديل على أجزاء محددة بدلاً من إعادة المحادثة.</li>
-    </ol>
+    <h2>العيوب التي قد تواجهك</h2>
+    <p>على الرغم من قوته، إلا أن النسخة المجانية قد تكون محدودة بعدد الرسائل يومياً، كما أنه قد يكون "محافظاً" جداً في بعض الردود بسبب معايير الأمان العالية لدى الشركة المصنعة.</p>
 
-    <h2>عيوب Claude AI التي واجهتها</h2>
-    <p>لكي نكون واقعيين، كلود ليس مثالياً. أكبر عيب واجهته هو "عدد الرسائل المحدود" في النسخة المجانية. قد تكون في عز اندماجك في العمل ويخبرك أنك وصلت للحد المسموح به. أيضاً، نظام الأمان فيه قد يكون "حساساً بزيادة"، فيرفض الإجابة على بعض الأسئلة البرمجية إذا ظن أنها قد تستخدم بشكل خاطئ.</p>
-
-    <h2>أسئلة شائعة حول Claude AI (FAQ)</h2>
     <div class="faq-section">
         <div class="faq-item">
-            <strong>هل كلود يدعم اللغة العربية؟</strong>
-            <p>نعم، وبشكل مذهل. من خلال تجربتي، هو من أفضل النماذج التي تصيغ الجمل العربية بشكل غير آلي ومريح للقراءة.</p>
-        </div>
-        <div class="faq-item">
-            <strong>هل يمكن استخدامه مجاناً؟</strong>
-            <p>نعم، يوفر نسخة مجانية قوية، لكنها محددة بعدد رسائل معين في اليوم الواحد.</p>
-        </div>
-        <div class="faq-item">
-            <strong>أيهما أفضل للبرمجة؟</strong>
-            <p>حسب تجربتي في بناء هذا الموقع، كلود يتفوق في حل المشكلات المعقدة وتصحيح الأخطاء المنطقية.</p>
+            <strong>هل يدعم اللغة العربية؟</strong>
+            <p>نعم، يدعم اللغة العربية بشكل ممتاز جداً، سواء في الكتابة الإبداعية أو في الترجمة والتلخيص.</p>
         </div>
     </div>
 
     <div class="cta-container">
-        <h3>هل أنت جاهز لتجربة ذكاء اصطناعي مختلف؟</h3>
-        <p>إذا كنت قد سئمت من الإجابات السطحية، أنصحك بشدة بفتح حساب في كلود وتجربة رفع أول ملف لك. ستكتشف الفرق بنفسك من الدقيقة الأولى.</p>
-        <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-        </div>
-      
-        <a href="https://claude.ai" target="_blank" rel="noopener" class="btn-visit">زيارة موقع Claude AI الرسمي</a>
-        <span class="disclaimer">* ملاحظة: هذا رابط لموقع خارجي. نحن نقدم هذه المراجعة لغرض الفائدة العلمية والتقنية بناءً على تجربة حقيقية.</span>
+        <a href="https://claude.ai" target="_blank" class="btn-visit">جرب Claude الآن</a>
     </div>
+
 </div>
+
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
+
 <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
+
 </body>
 </html>

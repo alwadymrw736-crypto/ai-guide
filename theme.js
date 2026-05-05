@@ -1,41 +1,13 @@
-(function() {
-    const html = document.documentElement;
-
-    // دالة لتحديث واجهة المستخدم (الألوان + نص الزر)
-    function updateUI(isDark) {
-        const icon = document.getElementById('theme-icon');
-        const text = document.getElementById('theme-text');
-
-        if (isDark) {
-            html.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            if (icon) icon.innerText = '🌓';
-            if (text) text.innerText = 'الوضع النهاري';
-        } else {
-            html.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'light');
-            if (icon) icon.innerText = '🌓';
-            if (text) text.innerText = 'الوضع الليلي';
-        }
-    }
-
-    // 1. التنفيذ الفوري عند تحميل الملف (يمنع الوميض)
-    const saved = localStorage.getItem('theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = saved === 'dark' || (!saved && systemDark);
-    updateUI(shouldBeDark);
-
-    // 2. انتظر تحميل الصفحة لربط الزر
-    document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.getElementById('theme-toggle');
-        if (btn) {
-            // تحديث النص مرة أخرى للتأكد بعد تحميل الـ DOM
-            updateUI(html.getAttribute('data-theme') === 'dark');
-            
-            btn.addEventListener('click', () => {
-                const isCurrentlyDark = html.getAttribute('data-theme') === 'dark';
-                updateUI(!isCurrentlyDark);
-            });
-        }
-    });
-})();
+body.dark-mode {
+  --card-bg: #0f172a;
+  --card-alt: #111827;
+  --text-dark: #e5e7eb;
+  --text-light: #cbd5e1;
+  --muted: #94a3b8;
+  --border: rgba(148,163,184,0.15);
+  --bg: linear-gradient(to bottom, #111827 0%, #0b1220 100%);
+  background:
+    radial-gradient(circle at top right, rgba(139,92,246,0.12), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(34,197,94,0.10), transparent 28%),
+    var(--bg);
+}

@@ -4,14 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خارطة طريق البرمجة والمشاريع 2026 | بوابة الأدوات الذكية</title>
+
+    <script>
+        if (localStorage.getItem("site_theme") === "dark") {
+            document.documentElement.classList.add("dark-mode");
+            document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+        }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #8b5cf6; /* البنفسجي الأساسي */
-            --secondary: #10b981; /* الأخضر الأساسي */
+            --primary: #8b5cf6; /* البنفسجي */
+            --secondary: #10b981; /* الأخضر */
             --bg: #f8fafc;
+            --card: #ffffff;
             --text: #1e293b;
-            --white: #ffffff;
+            --desc: #334155;
+            --border: #e2e8f0;
+        }
+
+        /* تعديلات الوضع الليلي */
+        .dark-mode {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --desc: #cbd5e1;
+            --border: #334155;
         }
 
         body {
@@ -21,15 +41,17 @@
             line-height: 2.2;
             margin: 0;
             padding: 0;
+            transition: background 0.3s ease;
         }
 
         .container {
             max-width: 1000px;
             margin: 50px auto;
-            background: var(--white);
+            background: var(--card);
             padding: 60px;
             border-radius: 40px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
         }
 
         .nav-back {
@@ -37,8 +59,11 @@
             margin-bottom: 30px;
             color: var(--primary);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 800;
+            transition: 0.3s;
         }
+
+        .nav-back:hover { transform: translateX(5px); }
 
         header {
             text-align: center;
@@ -65,11 +90,11 @@
             font-size: 1.3rem;
             margin-bottom: 35px;
             text-align: justify;
-            color: #334155;
+            color: var(--desc);
         }
 
         .experience-box {
-            background: linear-gradient(135deg, #f5f3ff 0%, #ecfdf5 100%);
+            background: rgba(139, 92, 246, 0.05);
             border: 2px dashed var(--primary);
             padding: 50px;
             border-radius: 30px;
@@ -90,8 +115,8 @@
         }
 
         .strategy-step {
-            background: #fff;
-            border: 1px solid #e2e8f0;
+            background: var(--card);
+            border: 1px solid var(--border);
             padding: 30px;
             border-radius: 20px;
             margin-bottom: 20px;
@@ -104,8 +129,8 @@
         }
 
         .tool-card {
-            background: var(--white);
-            border: 2px solid #f1f5f9;
+            background: var(--card);
+            border: 2px solid var(--border);
             padding: 40px;
             border-radius: 25px;
             margin-bottom: 30px;
@@ -113,6 +138,7 @@
             justify-content: space-between;
             align-items: center;
             transition: all 0.4s ease;
+            gap: 20px;
         }
 
         .tool-card:hover {
@@ -131,11 +157,11 @@
         .tool-info p {
             margin: 15px 0 0;
             font-size: 1.1rem;
-            color: #64748b;
+            color: var(--desc);
             text-align: right;
         }
 
-        .btn-review {
+        .btn-link {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white !important;
             text-decoration: none;
@@ -144,25 +170,30 @@
             font-weight: 900;
             font-size: 1.1rem;
             white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .btn-link:hover {
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+            transform: scale(1.05);
         }
 
         footer {
             text-align: center;
             margin-top: 80px;
             padding-top: 50px;
-            border-top: 2px solid #f1f5f9;
+            border-top: 2px solid var(--border);
         }
 
         @media (max-width: 768px) {
-            .container { padding: 30px; }
+            .container { padding: 30px; width: 92%; }
             h1 { font-size: 2.2rem; }
             .tool-card { flex-direction: column; text-align: center; gap: 30px; }
+            .tool-info p { text-align: center; }
         }
     </style>
 </head>
-    <link rel="stylesheet" href="themes.css">
 
-<script src="theme.js"></script>
 <body>
 
 <div class="container">
@@ -198,97 +229,100 @@
 
     <h2>الفصل الثالث: ترسانة المبرمج الخارق - أفضل 10 أدوات تقنية</h2>
     <p>هذه القائمة هي عصارة الأدوات التي استخدمتها فعلياً لبناء مشاريع برمجية حقيقية بالذكاء الاصطناعي:</p>
-  <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-  </div>
+  
+    <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
+        <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
+        <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
+        <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
+    </div>
+
     <div class="tools-section">
-        
-     <div class="tool-card">
-    <div class="tool-info">
-        <h3>1. Acode</h3>
-        <p>محرر البرمجة من الجوال. أفضل محرر كود للأندرويد، يدعم الإضافات ويسمح لك بالبرمجة في أي مكان وزمان.</p>
-    </div>
-    <a href="https://acode.app" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
-</div>
+        <div class="tool-card">
+            <div class="tool-info">
+                <h3>1. Acode</h3>
+                <p>محرر البرمجة من الجوال. أفضل محرر كود للأندرويد، يدعم الإضافات ويسمح لك بالبرمجة في أي مكان وزمان.</p>
+            </div>
+            <a href="https://acode.app" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
+        </div>
 
-<div class="tool-card">
-    <div class="tool-info">
-        <h3>2. WPS Office AI</h3>
-        <p>المنافس الأقوى والأخف لـ Microsoft Office. يوفر لك ميزات الذكاء الاصطناعي لتلخيص المستندات وكتابة التقارير، مع أداة احترافية مدمجة لتعديل وتحويل ملفات PDF مجاناً.</p>
-    </div>
-    <a href="https://wpssoftwarepteltd.sjv.io/dy7LNy" target="_blank" class="btn-link">حمل النسخة المجانية ➡️</a>
-</div>
-        
+        <div class="tool-card">
+            <div class="tool-info">
+                <h3>2. WPS Office AI</h3>
+                <p>المنافس الأقوى والأخف لـ Microsoft Office. يوفر لك ميزات الذكاء الاصطناعي لتلخيص المستندات وكتابة التقارير، مع أداة احترافية مدمجة لتعديل وتحويل ملفات PDF مجاناً.</p>
+            </div>
+            <a href="https://wpssoftwarepteltd.sjv.io/dy7LNy" target="_blank" class="btn-link">حمل النسخة المجانية ➡️</a>
+        </div>
 
-<div class="tool-card">
-    <div class="tool-info">
-        <h3>3. Vercel</h3>
-        <p>منصة الإطلاق السريع. أفضل منصة لاستضافة مواقعك وتطبيقاتك بضغطة زر واحدة من GitHub.</p>
-    </div>
-    <a href="https://vercel.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
-</div>
+        <div class="tool-card">
+            <div class="tool-info">
+                <h3>3. Vercel</h3>
+                <p>منصة الإطلاق السريع. أفضل منصة لاستضافة مواقعك وتطبيقاتك بضغطة زر واحدة من GitHub.</p>
+            </div>
+            <a href="https://vercel.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
+        </div>
 
-<div class="tool-card">
-    <div class="tool-info">
-        <h3>4. Codeium</h3>
-        <p>المساعد المجاني الخارق. يقترح عليك الكود أثناء الكتابة ويفهم سياق مشروعك بالكامل ليوفر عليك آلاف السطور.</p>
-    </div>
-    <a href="https://codeium.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
-</div>
+        <div class="tool-card">
+            <div class="tool-info">
+                <h3>4. Codeium</h3>
+                <p>المساعد المجاني الخارق. يقترح عليك الكود أثناء الكتابة ويفهم سياق مشروعك بالكامل ليوفر عليك آلاف السطور.</p>
+            </div>
+            <a href="https://codeium.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
+        </div>
 
-<div class="tool-card">
-    <div class="tool-info">
-        <h3>5. Cursor</h3>
-        <p>المحرر الذكي القادم من المستقبل. يمكنك التحدث معه ليقوم بتغيير ملفات كاملة أو شرح كود معقد في لحظات.</p>
-    </div>
-    <a href="https://cursor.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
-</div>
+        <div class="tool-card">
+            <div class="tool-info">
+                <h3>5. Cursor</h3>
+                <p>المحرر الذكي القادم من المستقبل. يمكنك التحدث معه ليقوم بتغيير ملفات كاملة أو شرح كود معقد في لحظات.</p>
+            </div>
+            <a href="https://cursor.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
+        </div>
 
-<div class="tool-card">
-    <div class="tool-info">
-        <h3>6. Replit</h3>
-        <p>بيئة تطوير في المتصفح. لا تحتاج لتثبيت أي شيء. برمج، شغل، واستضف تطبيقاتك بالكامل من المتصفح مع دعم هائل للذكاء الاصطناعي.</p>
-    </div>
-    <a href="https://replit.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
-</div>
+        <div class="tool-card">
+            <div class="tool-info">
+                <h3>6. Replit</h3>
+                <p>بيئة تطوير في المتصفح. لا تحتاج لتثبيت أي شيء. برمج، شغل، واستضف تطبيقاتك بالكامل من المتصفح مع دعم هائل للذكاء الاصطناعي.</p>
+            </div>
+            <a href="https://replit.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
+        </div>
 
-<div class="tool-card">
-    <div class="tool-info">
-        <h3>7. Blackbox AI</h3>
-        <p>سارق الأكواد الذكي. أفضل أداة لاستخراج الكود من الفيديوهات أو الصور وتوليد دوال برمجية معقدة بمجرد كتابة كود بسيط عما تريده.</p>
-    </div>
-    <a href="https://www.blackbox.ai" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
-</div>
+        <div class="tool-card">
+            <div class="tool-info">
+                <h3>7. Blackbox AI</h3>
+                <p>سارق الأكواد الذكي. أفضل أداة لاستخراج الكود من الفيديوهات أو الصور وتوليد دوال برمجية معقدة بمجرد كتابة وصف لما تريده.</p>
+            </div>
+            <a href="https://www.blackbox.ai" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
+        </div>
 
-<div class="tool-card">
-    <div class="tool-info">
-        <h3>8. Phind</h3>
-        <p>محرك بحث المبرمجين. يعطيك إجابات برمجية مباشرة مع شرح الكود وتوفير الأسئلة العملية بدلاً من محرك بحث Stack Overflow التقليدي.</p>
-    </div>
-    <a href="https://www.phind.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
-</div>
+        <div class="tool-card">
+            <div class="tool-info">
+                <h3>8. Phind</h3>
+                <p>محرك بحث المبرمجين. يعطيك إجابات برمجية مباشرة مع شرح الكود وتوفير الأمثلة العملية بدلاً من محركات البحث التقليدية.</p>
+            </div>
+            <a href="https://www.phind.com" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
+        </div>
 
-<div class="tool-card">
-    <div class="tool-info">
-        <h3>9. v0.dev</h3>
-        <p>مولد الواجهات السحري. كامل واحترافي في ثوانٍ HTML/CSS لك وصف الواجهة التي تريدها. القوة هي بكتابة كود Vercel.</p>
-    </div>
-    <a href="https://
-
-
+        <div class="tool-card">
+            <div class="tool-info">
+                <h3>9. v0.dev</h3>
+                <p>مولد الواجهات السحري من Vercel. اكتب وصف الواجهة التي تريدها وسيقوم بتوليد كود React/HTML كامل واحترافي في ثوانٍ.</p>
+            </div>
+            <a href="https://v0.dev" target="_blank" class="btn-link">استكشف الأداة ➡️</a>
+        </div>
     </div>
 
     <h2>خاتمة: لا تتعلم لتبرمج.. برمج لتعلم!</h2>
-    <p>أكبر نصيحة يمكنني تقديمها لك هي: لا تنتظر حتى "تتقن" لغة برمجة معينة. ابدأ فوراً بمشروع صغير، واستخدم هذه الأدوات لتكمل طريقك. البرمجة اليوم ليست صعبة، بل هي ممتعة لمن يعرف كيف يقود التكنولوجيا لصالحه. أنت الآن تمتلك الخارطة، وتمتلك الأدوات، ولم يتبقَ سوى أن تبدأ. تذكر، أول سطر كود تكتبه اليوم قد يكون بداية لأكبر مشروع في حياتك.</p>
+    <p>أكبر نصيحة يمكنني تقديمها لك هي: لا تنتظر حتى "تتقن" لغة برمجة معينة. ابدأ فوراً بمشروع صغير، واستخدم هذه الأدوات لتكمل طريقك. البرمجة اليوم ليست صعبة، بل هي ممتعة لمن يعرف كيف يقود التكنولوجيا لصالحه.</p>
 
     <footer>
         <p style="font-weight: 900; color: var(--primary);">© 2026 بوابة الأدوات الذكية | قسم البرمجة والمشاريع المتطورة.</p>
     </footer>
 </div>
+
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
+
 <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
+<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
     
 </body>
 </html>

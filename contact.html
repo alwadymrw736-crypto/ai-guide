@@ -4,59 +4,160 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>اتصل بنا - بوابة الأدوات الذكية</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
-      --accent: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);
-      --text-dark: #1e293b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --primary: #8b5cf6;
+      --secondary: #10b981;
+      --border: #e2e8f0;
     }
-    body { font-family: 'Cairo', sans-serif; background: #f8fafc; margin: 0; padding: 0; color: var(--text-dark); line-height: 1.8; }
-    .navbar { background: var(--main-bg); padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; font-size: 1.2rem; }
-    .container { width: 90%; max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-    h1 { color: #8b5cf6; text-align: center; margin-bottom: 20px; }
-    .form-group { margin-bottom: 15px; }
-    label { display: block; margin-bottom: 5px; font-weight: 700; }
-    input, textarea { width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 12px; font-family: 'Cairo', sans-serif; box-sizing: border-box; }
-    button { width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; margin-top: 10px; }
-    .back-home { display: block; text-align: center; margin-top: 20px; color: #10b981; text-decoration: none; font-weight: 700; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* 🌙 Dark Mode */
+    .dark-mode {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --border: #334155;
+    }
+
+    .navbar {
+      background: var(--card);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 40px auto;
+      background: var(--card);
+      padding: 30px;
+      border-radius: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: inherit;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-family: 'Cairo', sans-serif;
+      box-sizing: border-box;
+      background: transparent;
+      color: var(--text);
+    }
+
+    input:focus, textarea:focus {
+      outline: 2px solid var(--primary);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 700;
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="theme.css">
+<script>
+  // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
+  if (localStorage.getItem("site_theme") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+  }
+</script>
 
-<script src="theme.js"></script>
+<!-- الترجمة -->
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
 <body>
-  <nav class="navbar">اتصل بنا</nav>
-  <div class="container">
-    <h1>نسعد بتواصلك معنا</h1>
-    <p style="text-align: center; color: #64748b;">إذا كان لديك أي استفسار أو اقتراح لأداة جديدة، لا تتردد في مراسلتنا.</p>
-    
-    <form action="https://formspree.io/f/mjgjkrao" method="POST">
-      <div class="form-group">
-        <label>الاسم بالكامل</label>
-        <input type="text" name="name" placeholder="أدخل اسمك هنا" required>
-      </div>
-      <div class="form-group">
-        <label>البريد الإلكتروني</label>
-        <input type="email" name="email" placeholder="example@mail.com" required>
-      </div>
-      <div class="form-group">
-        <label>رسالتك</label>
-        <textarea name="message" rows="5" placeholder="اكتب استفسارك هنا..." required></textarea>
-      </div>
-      
-      <button type="submit">إرسال الرسالة</button>
-    </form>
-    <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
+
+
+
+<nav class="navbar">اتصل بنا</nav>
+
+<div class="container">
+  <h1>نسعد بتواصلك معنا</h1>
+
+  <p style="text-align:center; color:#64748b;">
+    إذا كان لديك أي استفسار أو اقتراح لأداة جديدة، لا تتردد في مراسلتنا.
+  </p>
+
+  <form action="https://formspree.io/f/mjgjkrao" method="POST">
+
+    <div class="form-group">
+      <label>الاسم بالكامل</label>
+      <input type="text" name="name" placeholder="أدخل اسمك هنا" required>
     </div>
-    
-    <a href="index.html" class="back-home">← العودة للرئيسية</a>
-  </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
+
+    <div class="form-group">
+      <label>البريد الإلكتروني</label>
+      <input type="email" name="email" placeholder="example@mail.com" required>
+    </div>
+
+    <div class="form-group">
+      <label>رسالتك</label>
+      <textarea name="message" rows="5" placeholder="اكتب استفسارك هنا..." required></textarea>
+    </div>
+
+    <button type="submit">إرسال الرسالة</button>
+
+  </form>
+
+  <a href="index.html" class="back-home">← العودة للرئيسية</a>
+</div>
+
 </body>
 </html>

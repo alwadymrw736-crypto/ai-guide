@@ -6,27 +6,115 @@
   <title>مراجعة Playground AI 2026: الدليل الشامل لهندسة الإبداع البصري</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --main-bg: #f8fafc; --primary: #8b5cf6; --secondary: #10b981; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    :root { 
+        --main-bg: #f8fafc; 
+        --primary: #8b5cf6; 
+        --secondary: #10b981; 
+        --text: #1e293b; 
+        --card-bg: #ffffff;
+        --border-color: #e2e8f0;
+        --desc-text: #334155;
+        --story-bg: #eff6ff;
+        --story-border: #bfdbfe;
+        --story-text: #1e40af;
+    }
+
+    /* إعدادات الوضع الليلي الذكي */
+    body.dark-mode {
+        --main-bg: #0f172a;
+        --text: #f1f5f9;
+        --card-bg: #1e293b;
+        --border-color: #334155;
+        --desc-text: #cbd5e1;
+        --story-bg: #1e3a8a30;
+        --story-border: #1e40af;
+        --story-text: #93c5fd;
+    }
+
+    body { 
+        font-family: 'Cairo', sans-serif; 
+        background: var(--main-bg); 
+        line-height: 2.2; 
+        margin: 0; 
+        color: var(--text); 
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-header { 
+        background: var(--card-bg); 
+        padding: 15px 5%; 
+        border-bottom: 1px solid var(--border-color); 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+    }
+
+    .article-wrap { 
+        max-width: 900px; 
+        margin: 40px auto; 
+        background: var(--card-bg); 
+        padding: 50px; 
+        border-radius: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        transition: background 0.3s ease;
+    }
+
     h1 { color: var(--primary); font-size: 2.4rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
     h2 { color: var(--secondary); font-size: 1.8rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
-    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: #334155; }
-    .my-story { background: #eff6ff; border: 1px solid #bfdbfe; padding: 30px; border-radius: 20px; margin: 40px 0; color: #1e40af; }
-    .cta-container { text-align: center; margin-top: 60px; padding: 40px 20px; border-top: 2px solid #f1f5f9; }
-    .btn-visit-gradient { display: inline-block; padding: 18px 50px; background: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%); color: white !important; text-decoration: none !important; border-radius: 50px; font-weight: 900; font-size: 1.3rem; transition: all 0.3s ease; }
-    .btn-visit-gradient:hover { transform: translateY(-3px); }
+    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: var(--desc-text); }
+
+    .my-story { 
+        background: var(--story-bg); 
+        border: 1px solid var(--story-border); 
+        padding: 30px; 
+        border-radius: 20px; 
+        margin: 40px 0; 
+        color: var(--story-text); 
+    }
+    .my-story h4 { margin-top: 0; color: var(--primary); font-weight: 900; }
+
+    ul { color: var(--desc-text); font-size: 1.1rem; }
+    li { margin-bottom: 12px; }
+
+    .cta-container { 
+        text-align: center; 
+        margin-top: 60px; 
+        padding: 40px 20px; 
+        border-top: 2px solid var(--border-color); 
+    }
+
+    .btn-visit-gradient { 
+        display: inline-block; 
+        padding: 18px 50px; 
+        background: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%); 
+        color: white !important; 
+        text-decoration: none !important; 
+        border-radius: 50px; 
+        font-weight: 900; 
+        font-size: 1.3rem; 
+        transition: all 0.3s ease; 
+        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+    }
+
+    .btn-visit-gradient:hover { 
+        transform: translateY(-3px); 
+        box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+    }
+
+    @media (max-width: 768px) {
+        .article-wrap { padding: 25px; margin: 15px; }
+        h1 { font-size: 1.8rem; }
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
 
 <nav class="nav-header">
     <a href="chat.html" style="text-decoration:none; color:var(--primary); font-weight:bold;">← العودة للأدوات</a>
-    <span>بوابة الأدوات الذكية</span>
+    <span style="font-weight: 900;">بوابة الأدوات الذكية</span>
 </nav>
 
 <div class="article-wrap">
@@ -63,23 +151,30 @@
     <h2>رأيي الشخصي كخبير</h2>
     <p>أرى أن Playground AI هو "المعمل التقني" لكل مصمم في 2026. هو الأداة التي ستحول المبدع من "مستهلك للذكاء الاصطناعي" إلى "مهندس بصري". إذا كنت تملك رؤية فنية واضحة، فإن Playground سيعطيك الأدوات لتحويل هذه الرؤية إلى واقع بكسلي مثالي.</p>
 
-    <h2>المستقبل: لماذا الاستثمار في Playground؟</h2>
-    <p>مع استمرار تطور أدوات الذكاء الاصطناعي، تبرز المنصات التي تمنح "التحكم" كأكثر المنصات استدامة. Playground لا يكتفي بمواكبة الموديلات الجديدة، بل يطور واجهة استخدام تجعل هذه الموديلات قابلة للتطويع. إن قدرتك على بناء عمل فني مركب (Composite) هو ما سيجعلك متميزاً في سوق العمل، حيث لا يكفي أن تكون قادراً على كتابة أمر (Prompt)، بل يجب أن تكون قادراً على إدارة عملية إنتاج بصرية كاملة.</p>
-
     <div class="cta-container">
         <h3>هل أنت مستعد لبناء عالمك الخاص؟</h3>
         <p>لا تتوقف عند التوليد العشوائي، ابدأ بهندسة تصاميمك الآن.</p>
-          <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-  </div>
+        
+        <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
+            <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
+            <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
+            <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
+        </div>
+        
         <a href="https://playground.com" target="_blank" class="btn-visit-gradient">جرب Playground AI الآن</a>
     </div>
 
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
 
+<script>
+    // تفعيل الوضع الليلي تلقائياً بناءً على إعدادات الموقع
+    (function() {
+        if (localStorage.getItem("site_theme") === "dark" || localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    })();
+</script>
+
+<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
 </body>
 </html>

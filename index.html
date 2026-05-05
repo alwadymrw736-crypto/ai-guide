@@ -23,975 +23,1389 @@
     <meta name="keywords" content="ذكاء اصطناعي, أدوات الذكاء الاصطناعي, توليد صور, صناعة فيديو, تصميم بالذكاء الاصطناعي, محادثة ذكية">
 
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z0G27GCNDD');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بوابة الادوات الذكية | دليلك الشامل لأفضل أدوات الذكاء الاصطناعي</title>
+  <meta name="google-site-verification" content="kmsiYScfTRSLPuXUozsEYz6psd0s_WVkPtxjbM2KXKw" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <meta name="description" content="اكتشف أقوى أدوات الذكاء الاصطناعي للمحادثة، توليد الصور، صناعة الفيديو، والتصميم في مكان واحد. دليل شامل ومحدث يومياً للمبدعين والمبرمجين.">
+  <meta name="keywords" content="ذكاء اصطناعي, أدوات الذكاء الاصطناعي, توليد صور, صناعة فيديو, تصميم بالذكاء الاصطناعي, محادثة ذكية">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <script src="translations-complete.js" defer></script>
+  
+  <!-- روابط الثيمات المطلوبة -->
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="theme.css">
+
   <style>
     :root {
-      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
-      --secondary-bg: rgba(255, 255, 255, 0.8);
-      --accent: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);
+      --bg: linear-gradient(to bottom, #f5f3ff 0%, #ecfdf5 100%);
+      --card-bg: rgba(255,255,255,0.93);
+      --card-alt: #ffffff;
       --text-dark: #1e293b;
       --text-light: #475569;
-      --card-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.1);
+      --muted: #64748b;
+      --border: rgba(124,58,237,0.12);
+      --purple: #8b5cf6;
+      --green: #22c55e;
+      --accent: linear-gradient(135deg, #7c3aed 0%, #22c55e 100%);
+      --accent-soft: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(34, 197, 94, 0.12));
+      --shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+      --shadow-strong: 0 14px 34px rgba(15, 23, 42, 0.10);
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
-    font-family: 'Cairo', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: var(--text-dark);
-    line-height: 1.6;
-    scroll-behavior: smooth;
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      color: var(--text-dark);
+      background:
+        radial-gradient(circle at top right, rgba(139,92,246,0.08), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(34,197,94,0.08), transparent 28%),
+        var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
 
-    /* --- كود الخلفية الفخمة --- */
-    background-color: #f8fafc; 
-    background-image: 
-        linear-gradient(135deg, rgba(224, 242, 254, 0.5) 0%, rgba(248, 250, 252, 0) 100%),
-        radial-gradient(#8b5cf6 0.6px, transparent 0.6px),
-        radial-gradient(#8b5cf6 0.6px, #f8fafc 0.6px);
-        
-    background-size: 100% 100%, 30px 30px, 30px 30px;
-    background-position: 0 0, 0 0, 15px 15px;
-    background-attachment: fixed; 
-}
+    body.dark-mode {
+      --card-bg: #0f172a;
+      --card-alt: #111827;
+      --text-dark: #e5e7eb;
+      --text-light: #cbd5e1;
+      --muted: #94a3b8;
+      --border: rgba(148,163,184,0.15);
+      --bg: linear-gradient(to bottom, #111827 0%, #0b1220 100%);
+      background:
+        radial-gradient(circle at top right, rgba(139,92,246,0.12), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(34,197,94,0.10), transparent 28%),
+        var(--bg);
+    }
 
+    a { color: inherit; }
 
     .navbar {
-      background: var(--main-bg);
-      padding: 20px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.14), rgba(34,197,94,0.14));
+      padding: 18px 16px;
       text-align: center;
-      border-bottom: 1px solid #e2e8f0;
-      font-weight: 800;
-      font-size: 1.2rem;
-      color: #1e293b;
+      border-bottom: 1px solid rgba(124,58,237,0.10);
+      font-weight: 900;
+      font-size: 1.15rem;
+      color: #1f2937;
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
+      z-index: 40;
+      backdrop-filter: blur(12px);
+    }
+
+    body.dark-mode .navbar {
+      color: #f8fafc;
+    }
+
+    .floating-tools {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1200;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .float-btn {
+      width: 54px;
+      height: 54px;
+      border: none;
+      border-radius: 18px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.94);
+      box-shadow: var(--shadow);
+      color: var(--purple);
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .float-btn:hover { transform: translateY(-2px) scale(1.03); }
+
+    .floating-translate-panel {
+      position: fixed;
+      right: 18px;
+      bottom: 186px;
+      z-index: 1199;
+      width: 280px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(124,58,237,0.12);
+      border-radius: 18px;
+      box-shadow: var(--shadow-strong);
+      padding: 14px;
+      display: none;
+      backdrop-filter: blur(12px);
+    }
+
+    body.dark-mode .floating-translate-panel {
+      background: rgba(15,23,42,0.96);
+    }
+
+    .floating-translate-panel .title {
+      font-weight: 900;
+      color: var(--purple);
+      margin-bottom: 10px;
+    }
+
+    #language-selector {
+      min-height: 42px;
+    }
+
+    .search-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.42);
+      backdrop-filter: blur(6px);
+      z-index: 1300;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 92px 16px 16px;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 640px;
+      background: rgba(255,255,255,0.96);
+      border-radius: 22px;
+      border: 1px solid rgba(124,58,237,0.12);
+      box-shadow: var(--shadow-strong);
+      padding: 18px;
+    }
+
+    body.dark-mode .search-box {
+      background: rgba(15,23,42,0.98);
+    }
+
+    .search-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(148,163,184,0.10);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+
+    .search-top input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 1rem;
+      color: inherit;
+    }
+
+    .search-close {
+      cursor: pointer;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .search-result-item {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(148,163,184,0.16);
+      transition: background 0.2s ease;
+    }
+
+    .search-result-item:hover {
+      background: rgba(124,58,237,0.06);
+    }
+
+    .result-title {
+      display: block;
+      color: var(--purple);
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .result-desc {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.28);
+      backdrop-filter: blur(4px);
+      z-index: 1100;
+      display: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -330px;
+      width: 310px;
+      height: 100%;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      z-index: 1150;
+      box-shadow: -8px 0 24px rgba(0,0,0,0.10);
+      transition: right 0.28s ease;
+      padding: 60px 0 20px;
+      overflow-y: auto;
+      border-left: 1px solid rgba(124,58,237,0.08);
+    }
+
+    body.dark-mode .sidebar {
+      background: rgba(15,23,42,0.98);
+    }
+
+    .sidebar.open { right: 0; }
+
+    .side-link {
+      display: block;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 800;
+      border-right: 4px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .side-link:hover {
+      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(34,197,94,0.08));
+      border-right-color: var(--purple);
+      transform: translateX(-2px);
+    }
+
+    .side-link small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: rgba(148,163,184,0.25);
+      margin: 10px 0;
+    }
+
+    .sidebar-actions {
+      padding: 15px 20px 0;
+    }
+
+    .sidebar-action {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-family: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      color: #fff;
+      background: var(--accent);
+      margin-bottom: 10px;
+      box-shadow: 0 10px 18px rgba(34,197,94,0.12);
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 24px 16px 44px;
     }
 
     .hero {
-      padding: 48px 20px 28px;
-      text-align: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-top {
+      display: flex;
+      gap: 18px;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    .hero-copy {
+      flex: 1 1 420px;
+      min-width: 280px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      color: #6d28d9;
+      border: 1px solid rgba(124,58,237,0.14);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      margin-bottom: 14px;
     }
 
     .hero h1 {
-      font-size: 2.6rem;
-      font-weight: 900;
-      margin: 0;
-      background: linear-gradient(to right, #001e3c, #0062ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.25;
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.35;
+      color: var(--text-dark);
     }
 
-    .container {
-      width: 95%;
-      max-width: 900px;
-      margin: 0 auto 45px auto;
+    .hero p {
+      margin: 0 0 16px;
+      color: var(--text-light);
+      line-height: 1.9;
+      font-size: 1.02rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+      padding: 11px 16px;
+      border-radius: 12px;
+      font-weight: 900;
+      box-shadow: 0 10px 18px rgba(34,197,94,0.14);
+    }
+
+    .hero-link.secondary {
+      background: #fff;
+      color: #6d28d9;
+      border: 1px solid rgba(124,58,237,0.18);
+      box-shadow: none;
+    }
+
+    body.dark-mode .hero-link.secondary {
+      background: rgba(15,23,42,0.8);
+      color: #f8fafc;
+    }
+
+    .daily-box {
+      flex: 0 1 340px;
+      min-width: 280px;
+      background: linear-gradient(180deg, rgba(124,58,237,0.08), rgba(34,197,94,0.08));
+      border: 1px solid rgba(124,58,237,0.12);
+      border-radius: 20px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .daily-title {
+      font-weight: 900;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .daily-box p {
+      margin: 0;
+      line-height: 1.8;
+      color: var(--text-dark);
+      font-size: 0.98rem;
+    }
+
+    .section-title {
+      margin: 30px 0 14px;
+      font-size: 1.55rem;
+      color: var(--text-dark);
+      font-weight: 900;
+    }
+
+    .path-toggle-wrap {
+      margin: 18px 0 8px;
+      text-align: center;
+    }
+
+    .path-btn {
+      background: #8b5cf6;
+      color: #fff;
+      padding: 16px 34px;
+      border: none;
+      border-radius: 999px;
+      font-size: 1.08rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(139,92,246,0.22);
+    }
+
+    .paths-container {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 620px;
+      margin: 18px auto 0;
+      padding: 0 6px;
+    }
+
+    .path-card {
+      text-decoration: none;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease;
+      text-align: center;
+    }
+
+    .path-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .path-icon {
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    .path-card h3 {
+      margin: 6px 0;
+      color: var(--text-dark);
+    }
+
+    .path-card p {
+      margin: 0;
+      color: var(--text-light);
+      font-size: 0.94rem;
+      line-height: 1.8;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
     }
 
     .tool-card {
-      background: var(--main-bg);
-      border-radius: 20px;
-      margin-bottom: 20px;
-      padding: 24px;
+      background: var(--card-bg);
+      border-radius: 22px;
+      padding: 20px;
       display: flex;
       align-items: flex-start;
-      box-shadow: var(--card-shadow);
-      border: 1px solid #f1f5f9;
+      gap: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      gap: 16px;
+      position: relative;
     }
 
     .tool-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow-strong);
     }
 
     .tool-icon {
-      width: 75px;
-      height: 110px;
-      background: #eef5ff;
-      border-radius: 20px;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 44px;
       flex-shrink: 0;
-      box-shadow: inset 0 0 10px rgba(0, 98, 255, 0.05);
+      box-shadow: 0 10px 20px rgba(124,58,237,0.15);
+      font-size: 1.1rem;
     }
 
-    .tool-info {
-      flex-grow: 1;
+    .tool-main {
+      flex: 1;
       min-width: 0;
     }
 
-    .tool-info h2 {
-      margin: 0 0 10px 0;
-      font-size: 1.35rem;
-      font-weight: 800;
+    .tool-text h2 {
+      margin: 0 0 6px;
+      font-size: 1.12rem;
+      color: var(--text-dark);
+      font-weight: 900;
     }
 
-    .tool-info p {
+    .tool-text p {
       margin: 0;
       color: var(--text-light);
-      font-size: 1rem;
-      max-width: 90%;
+      font-size: 0.92rem;
+      line-height: 1.75;
     }
 
-    .action-area {
+    .tool-actions {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-self: stretch;
-      padding-right: 12px;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
     }
 
     .explore-btn {
       background: var(--accent);
       color: white;
-      border: none;
-      padding: 12px 22px;
+      padding: 10px 14px;
       border-radius: 12px;
-      font-weight: 700;
-      cursor: pointer;
+      text-decoration: none;
+      font-weight: 900;
       font-size: 0.9rem;
       white-space: nowrap;
-      transition: 0.25s ease;
-      width: 100%;
-      min-width: 140px;
+      box-shadow: 0 8px 16px rgba(34,197,94,0.14);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      border: none;
     }
 
     .explore-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 5px 15px rgba(0, 98, 255, 0.2);
+      opacity: 0.96;
     }
 
-    .section-title {
-      text-align: center;
-      color: #15803d;
-      margin: 38px 0 20px;
-      font-weight: 900;
-      font-size: 1.6rem;
-      padding: 0 12px;
-    }
-
-    .tools-section {
-      width: 95%;
-      max-width: 1000px;
-      margin: 0 auto 30px auto;
-      padding: 0 0 10px;
-    }
-
-    .tools-grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    .tool-list-item {
-      background: white;
-      border-radius: 24px;
-      padding: 20px;
+    .rating-box {
+      margin-top: 14px;
       display: flex;
-      align-items: center;
-      gap: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      border: 1px solid #f1f5f9;
-      transition: transform 0.2s ease;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
     }
 
-    .tool-list-item:hover {
-      transform: translateY(-3px);
+    .rating-label {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-weight: 800;
     }
 
-    .tool-number {
-      width: 46px;
-      height: 46px;
-      background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%);
-      color: white;
-      border-radius: 50%;
+    .stars {
+      display: inline-flex;
+      gap: 4px;
+      direction: ltr;
+    }
+
+    .star-btn {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 1.25rem;
+      line-height: 1;
+      color: #cbd5e1;
+      padding: 0;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+
+    .star-btn:hover { transform: scale(1.12); }
+    .star-btn.active { color: #f59e0b; }
+
+    .rating-value {
+      font-size: 0.85rem;
+      color: var(--purple);
+      font-weight: 800;
+    }
+
+    .article-preview {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-top: 26px;
+    }
+
+    .article-banner {
+      height: 160px;
+      background: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      flex-shrink: 0;
+      color: white;
+      font-size: 3rem;
     }
 
-    .tool-text {
-      flex: 1;
-      min-width: 0;
+    .article-preview-body {
+      padding: 20px;
     }
 
-    .tool-text h3 {
-      margin: 0 0 6px 0;
+    .article-preview-body h3 {
+      margin: 0 0 10px;
+      color: var(--text-dark);
       font-size: 1.15rem;
-      color: #1e293b;
     }
 
-    .tool-text p {
+    .article-preview-body p {
       margin: 0;
-      color: #64748b;
+      color: var(--text-light);
       font-size: 0.92rem;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    .visit-link {
-      background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%);
-      color: white;
-      padding: 10px 18px;
-      border-radius: 12px;
+    .read-more {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--green);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 0.85rem;
-      white-space: nowrap;
-      flex-shrink: 0;
+      font-weight: 900;
     }
 
-    .visit-link:hover {
-      opacity: 0.95;
+    .content-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      line-height: 2;
+      text-align: justify;
     }
 
-    .back-btn {
-      display: block;
-      width: 100%;
-      max-width: 220px;
-      margin: 30px auto 60px;
-      padding: 12px;
-      background: #64748b;
+    .content-card h2 {
+      color: var(--purple);
+      font-size: 1.8rem;
+      margin: 0 0 18px;
+      border-right: 6px solid var(--green);
+      padding-right: 14px;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .content-card h3 {
+      color: var(--text-dark);
+      margin-top: 28px;
+      font-size: 1.2rem;
+      text-align: right;
+    }
+
+    .content-card p {
+      color: var(--text-light);
+      margin: 0 0 18px;
+      font-size: 1.02rem;
+    }
+
+    .note {
+      background: linear-gradient(135deg, rgba(34,197,94,0.10), rgba(124,58,237,0.10));
+      border: 1px dashed rgba(34,197,94,0.55);
+      padding: 15px;
+      border-radius: 14px;
+      margin-bottom: 22px;
+      color: #166534;
+      font-size: 0.98rem;
+      text-align: right;
+    }
+
+    .comments-cta {
+      text-align: center;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px dashed rgba(148,163,184,0.25);
+    }
+
+    .comments-cta p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .comments-link {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 22px;
+      background: var(--accent);
       color: white;
-      border: none;
       border-radius: 15px;
-      cursor: pointer;
-      font-family: 'Cairo', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
+      font-weight: 900;
+      font-size: 0.95rem;
     }
 
-    .back-btn:hover { background: #475569; }
+    .discussion-section {
+      margin-top: 26px;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(124,58,237,0.18);
+      background: var(--card-bg);
+    }
 
-    @media (max-width: 700px) {
-      .hero { padding: 30px 14px 18px; }
-      .hero h1 { font-size: 1.75rem; line-height: 1.45; }
+    .discussion-section h2 {
+      text-align: center;
+      color: var(--purple);
+      margin-bottom: 24px;
+    }
 
-      .tool-card {
-        padding: 18px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        border-radius: 22px;
-        gap: 12px;
-      }
+    .testimonials {
+      margin-top: 24px;
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
 
-      .tool-icon {
-        width: 52px;
-        height: 52px;
-        font-size: 24px;
-        margin: 0;
-        border-radius: 14px;
-      }
+    .testimonials h2 {
+      margin: 0 0 18px;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      font-weight: 900;
+      text-align: right;
+    }
 
-      .tool-info h2 { font-size: 1.08rem; margin: 0; }
-      .tool-info p {
-        font-size: 0.9rem;
-        margin-top: 8px;
-        width: 100%;
-        max-width: 100%;
-      }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
 
-      .action-area {
-        width: 100%;
-        padding-right: 0;
-      }
+    .review {
+      background: linear-gradient(180deg, rgba(124,58,237,0.04), rgba(34,197,94,0.04));
+      border: 1px solid rgba(124,58,237,0.10);
+      border-radius: 18px;
+      padding: 16px;
+    }
 
-      .explore-btn {
-        width: 100%;
-        padding: 12px;
-        border-radius: 14px;
-      }
+    .review .name {
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
 
-      .tool-list-item {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-        gap: 12px;
-        padding: 18px;
-      }
+    .review .stars-static {
+      color: #f59e0b;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
 
-      .visit-link {
-        width: 100%;
-        text-align: center;
-      }
+    .review .text {
+      color: var(--text-light);
+      line-height: 1.8;
+      font-size: 0.96rem;
+    }
 
-      .section-title {
-        font-size: 1.28rem;
-      }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .footer-links a {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .footer-links a:hover { text-decoration: underline; }
+
+    .bottom-note {
+      text-align: center;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mobile-menu-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 1250;
+      border: none;
+      background: rgba(255,255,255,0.92);
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--purple);
+    }
+
+    @media (max-width: 760px) {
+      .hero h1 { font-size: 1.65rem; }
+      .content-card { padding: 20px 16px; }
+      .tool-card { padding: 16px; }
+      .section-title { font-size: 1.35rem; }
+      .sidebar { width: 86vw; right: -90vw; }
+      .floating-translate-panel { width: calc(100vw - 36px); }
     }
   </style>
 </head>
 
-  <!-- 
-    Ultimate Search Tool for ai-gate-chi.vercel.app
-    - Fully Auto-Sync with Dark/Light Mode
-    - Smart Keyword Search (Canva, ChatGPT, etc.)
-    - Direct Navigation to Articles
--->
-
-<style>
-    /* Search Tool Wrapper */
-    #search-wrapper {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        z-index: 10000;
-        font-family: 'Cairo', sans-serif;
-        direction: rtl;
-    }
-
-    /* Floating Button */
-    #search-btn {
-        background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
-        color: white;
-        border: none;
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    #search-btn:hover {
-        transform: scale(1.1);
-    }
-
-    /* Overlay */
-    #search-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(5px);
-        display: none;
-        justify-content: center;
-        align-items: flex-start;
-        padding-top: 100px;
-        z-index: 10001;
-    }
-
-    /* Main Container with Auto-Theme Support */
-    #search-container {
-        width: 90%;
-        max-width: 550px;
-        background: var(--search-bg, #ffffff);
-        color: var(--search-text, #1e293b);
-        border-radius: 20px;
-        padding: 20px;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        border: 1px solid var(--search-border, #e2e8f0);
-        transition: all 0.3s ease;
-    }
-
-    /* CSS Variables for Auto-Switching */
-    :root {
-        --search-bg: #ffffff;
-        --search-text: #1e293b;
-        --search-border: #e2e8f0;
-        --search-input-bg: #f1f5f9;
-        --search-hover: #f8fafc;
-    }
-
-    /* Detect Dark Mode from Site (Checking body class or local storage) */
-    body.dark-mode, [data-theme='dark'] {
-        --search-bg: #1e293b;
-        --search-text: #f8fafc;
-        --search-border: #334155;
-        --search-input-bg: #0f172a;
-        --search-hover: #334155;
-    }
-
-    .search-header {
-        display: flex;
-        align-items: center;
-        background: var(--search-input-bg);
-        border-radius: 12px;
-        padding: 10px 15px;
-        margin-bottom: 15px;
-    }
-
-    #search-input {
-        flex: 1;
-        border: none;
-        background: transparent;
-        outline: none;
-        font-size: 1rem;
-        font-family: 'Cairo', sans-serif;
-        color: inherit;
-        padding: 0 10px;
-    }
-
-    #close-search {
-        cursor: pointer;
-        font-size: 1.2rem;
-        color: #94a3b8;
-    }
-
-    /* Results */
-    .search-result-item {
-        display: block;
-        padding: 12px;
-        border-radius: 10px;
-        text-decoration: none;
-        color: inherit;
-        transition: background 0.2s;
-        border-bottom: 1px solid var(--search-border);
-    }
-
-    .search-result-item:hover {
-        background: var(--search-hover);
-    }
-
-    .result-title {
-        font-weight: bold;
-        color: #8b5cf6;
-        display: block;
-        font-size: 0.95rem;
-    }
-
-    .result-desc {
-        font-size: 0.85rem;
-        color: #64748b;
-        display: block;
-        margin-top: 3px;
-    }
-</style>
-
-<div id="search-wrapper">
-    <button id="search-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-    </button>
-</div>
-
-<div id="search-overlay">
-    <div id="search-container">
-        <div class="search-header">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" id="search-input" placeholder="ابحث عن أداة أو مقال (مثلاً: كانفا، شات جي بي تي)..." autocomplete="off">
-            <span id="close-search">✕</span>
-        </div>
-        <div id="search-results-box"></div>
-    </div>
-</div>
-
-<script>
-    (function() {
-        let searchData = [];
-        const overlay = document.getElementById('search-overlay');
-        const input = document.getElementById('search-input');
-        const resultsBox = document.getElementById('search-results-box');
-
-        // Load data
-        fetch('search_index.json')
-            .then(res => res.json())
-            .then(data => searchData = data);
-
-        document.getElementById('search-btn').onclick = () => {
-            overlay.style.display = 'flex';
-            input.focus();
-        };
-
-        const closeSearch = () => {
-            overlay.style.display = 'none';
-            input.value = '';
-            resultsBox.innerHTML = '';
-        };
-
-        document.getElementById('close-search').onclick = closeSearch;
-        overlay.onclick = (e) => { if(e.target === overlay) closeSearch(); };
-
-        input.oninput = (e) => {
-            const val = e.target.value.trim().toLowerCase();
-            if(val.length < 2) { resultsBox.innerHTML = ''; return; }
-
-            // Enhanced matching (checks title, content, and common aliases)
-            const matches = searchData.filter(item => {
-                const title = item.title.toLowerCase();
-                const content = item.content.toLowerCase();
-                return title.includes(val) || content.includes(val);
-            }).slice(0, 3); // Top 3 as requested
-
-            if(matches.length > 0) {
-                resultsBox.innerHTML = matches.map(m => `
-                    <a href="${m.url}" class="search-result-item">
-                        <span class="result-title">${m.title.split('-')[0].split('|')[0]}</span>
-                        <span class="result-desc">${m.content.substring(0, 80)}...</span>
-                    </a>
-                `).join('');
-            } else {
-                resultsBox.innerHTML = '<div style="padding:15px; text-align:center; color:#94a3b8; font-size:0.9rem;">لا توجد نتائج</div>';
-            }
-        };
-
-        // Handle ESC key
-        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeSearch(); });
-    })();
-</script>
-  
-   
-  <link rel="stylesheet" href="theme.css">
-
-<script src="theme.js"></script>
-<div onclick="openMenu()" style="cursor: pointer; position: fixed; top: 20px; right: 20px; z-index: 1001; padding: 10px;">
-    <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
-    <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
-    <div style="width: 30px; height: 3px; background: #8b5cf6; margin: 6px 0;"></div>
-</div>
-
-<div id="menuOverlay" onclick="closeMenu()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 999;"></div>
-
-<div id="sideSidebar" style="height: 100%; width: 0; position: fixed; top: 0; right: 0; background: #ffffff; z-index: 1000; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); overflow-x: hidden; padding-top: 80px; box-shadow: -5px 0 15px rgba(0,0,0,0.1);">
-    
-    <a href="remove-bg.html" style="display: block; padding: 20px 30px; text-decoration: none; color: #1e293b; font-weight: bold; border-right: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.borderRightColor='#8b5cf6'" onmouseout="this.style.borderRightColor='transparent'">إزالة الخلفية</a>
-    
-    <a href="resize.html" style="display: block; padding: 20px 30px; text-decoration: none; color: #1e293b; font-weight: bold; border-right: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.borderRightColor='#8b5cf6'" onmouseout="this.style.borderRightColor='transparent'">اقتصاص الصورة</a>
-    
-    <a href="enhance.html" style="display: block; padding: 20px 30px; text-decoration: none; color: #1e293b; font-weight: bold; border-right: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.borderRightColor='#8b5cf6'" onmouseout="this.style.borderRightColor='transparent'">تحسين الجودة</a>
-<div style="padding: 15px 30px; border-top: 1px solid var(--border-color); margin-top: 10px;">
-    <button id="theme-toggle" style="width: 100%; padding: 12px; border-radius: 10px; border: none; background: #8b5cf6; color: white; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
-        <span id="theme-icon">🌓</span>
-        <span id="theme-text">الوضع الليلي</span>
-    </button>
-</div>
-  
-</div>
-<script src="translations-complete.js"></script>
-  
 
 <body>
+  <button class="mobile-menu-btn" type="button" aria-label="فتح القائمة" onclick="openMenu()">☰</button>
+  <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-  <nav class="navbar">بوابة الأدوات الذكية</nav>
-
-  <div class="hero">
-  <div id="daily-tool-container">
-    <div class="tool-card" style="border: 2px solid #10b981; background: #f0fdf4; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-            <div class="tool-icon" style="font-size: 2rem;">🌟</div>
-            <div class="tool-info">
-                <h2 id="dynamic-title" style="margin: 0; color: #10b981;">جاري اختيار أداة اليوم...</h2>
-                <p id="dynamic-desc" style="margin: 5px 0; color: #64748b;">أفضل أدوات الذكاء الاصطناعي تتحدث هنا كل 24 ساعة.</p>
-            </div>
-        </div>
-        <div class="action-area">
-            <a id="dynamic-link" href="#" target="_blank" class="explore-btn" 
-               style="text-decoration: none; text-align: center; display: block; background: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%); color: white; padding: 12px; border-radius: 10px; font-weight: bold;">
-               <span id="btn-text">زيارة الأداة الآن واستخدامها</span>
-            </a>
-        </div>
+  <aside class="sidebar" id="sidebar">
+    <a class="side-link" href="remove-bg.html">إزالة الخلفية<small>أداة إزالة الخلفيات</small></a>
+    <a class="side-link" href="resize.html">اقتصاص الصورة<small>قص الصور بشكل سريع</small></a>
+    <a class="side-link" href="enhance.html">تحسين الجودة<small>رفع جودة الصور</small></a>
+    <div class="sidebar-divider"></div>
+    <a class="side-link" href="saved-tools.html">الأدوات المحفوظة<small>كل ما حفظته في مكان واحد</small></a>
+    <a class="side-link" href="suggest-tools.html">اقتراح أدوات جديدة<small>أرسل اسم الأداة ورابطها</small></a>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-actions">
+      <button class="sidebar-action" id="sidebar-theme-btn" type="button">الوضع الليلي / النهاري</button>
+      <button class="sidebar-action" id="sidebar-translate-btn" type="button">الترجمة</button>
+      <div id="language-selector"></div>
     </div>
-</div>
+  </aside>
 
-<script>
-const toolsList = [
-    { title: "ChatGPT", desc: "أشهر مساعد ذكي للكتابة والبرمجة من OpenAI.", link: "https://chat.openai.com" },
-    { title: "Midjourney", desc: "توليد صور فنية خيالية بجودة سينمائية.", link: "https://www.midjourney.com" },
-    { title: "Claude AI", desc: "منافس قوي لشات جي بي تي يمتاز بالدقة اللغوية.", link: "https://claude.ai" },
-    { title: "Leonardo AI", desc: "إنشاء صور مذهلة مع تحكم كامل في الأبعاد.", link: "https://leonardo.ai" },
-    { title: "Pika Labs", desc: "تحويل النصوص والصور إلى فيديوهات احترافية.", link: "https://pika.art" },
-    { title: "Jasper", desc: "مساعد متخصص في كتابة المحتوى التسويقي والإعلانات.", link: "https://www.jasper.ai" },
-    { title: "ElevenLabs", desc: "أفضل تقنية لتحويل النص إلى صوت بشري واقعي.", link: "https://elevenlabs.io" },
-    { title: "Gamma App", desc: "إنشاء عروض تقديمية ومواقع في ثوانٍ عبر الذكاء الاصطناعي.", link: "https://gamma.app" },
-    { title: "Runway Gen-2", desc: "أداة متطورة لصناعة السينما والفيديو بالذكاء الاصطناعي.", link: "https://runwayml.com" },
-    { title: "Perplexity AI", desc: "محرك بحث ذكي يعطيك إجابات مباشرة مع المصادر.", link: "https://www.perplexity.ai" },
-    { title: "Canva Magic Edit", desc: "تعديل الصور وإضافة عناصر بالذكاء الاصطناعي بسهولة.", link: "https://www.canva.com" },
-    { title: "Adobe Firefly", desc: "أدوات أدوبي المبتكرة للتصميم الإبداعي.", link: "https://www.adobe.com/firefly" },
-    { title: "HeyGen", desc: "إنشاء فيديو بمتحدث افتراضي (Avatar) واقعي جداً.", link: "https://www.heygen.com" },
-    { title: "Phind", desc: "محرك بحث مخصص للمبرمجين لحل المشاكل التقنية.", link: "https://www.phind.com" },
-    { title: "Luma Dream Machine", desc: "توليد فيديوهات ثلاثية الأبعاد بجودة مذهلة.", link: "https://lumalabs.ai" },
-    { title: "ClipDrop", desc: "مجموعة أدوات لتعديل الصور وإزالة الخلفيات بضغطة واحدة.", link: "https://clipdrop.co" },
-    { title: "Descript", desc: "تعديل الفيديو والصوت عن طريق تعديل النص المكتوب.", link: "https://www.descript.com" },
-    { title: "Remini", desc: "تحسين جودة الصور القديمة والمغبرة لتبدو احترافية.", link: "https://remini.ai" },
-    { title: "Veed.io", desc: "محرر فيديو سحابي مع ترجمة تلقائية ذكية.", link: "https://www.veed.io" },
-    { title: "Copy.ai", desc: "كتابة المقالات ورسائل البريد الإلكتروني بسرعة فائقة.", link: "https://www.copy.ai" },
-    { title: "Otter.ai", desc: "تسجيل الاجتماعات وتحويل الكلام إلى نص مكتوب.", link: "https://otter.ai" },
-    { title: "Suno AI", desc: "توليد أغاني وموسيقى كاملة من مجرد وصف بسيط.", link: "https://suno.com" },
-    { title: "Grammarly", desc: "تصحيح الأخطاء اللغوية وتحسين أسلوب الكتابة.", link: "https://www.grammarly.com" },
-    { title: "Tome", desc: "سرد قصصي وعروض تقديمية تفاعلية بالذكاء الاصطناعي.", link: "https://tome.app" },
-    { title: "D-ID", desc: "تحريك الصور وجعل الوجوه تتحدث بصوتك.", link: "https://www.d-id.com" },
-    { title: "Beautiful.ai", desc: "تصميم شرائح عروض تقديمية ذكية تنظم نفسها تلقائياً.", link: "https://www.beautiful.ai" },
-    { title: "Character.ai", desc: "الدردشة مع شخصيات افتراضية وتاريخية ذكية.", link: "https://character.ai" },
-    { title: "Upscale.media", desc: "تكبير حجم الصور دون فقدان الجودة.", link: "https://www.upscale.media" },
-    { title: "Synthesia", desc: "تحويل النصوص إلى فيديوهات احترافية بـ 120 لغة.", link: "https://www.synthesia.io" },
-    { title: "Bard (Gemini)", desc: "مساعد جوجل الذكي المتصل بأحدث المعلومات.", link: "https://gemini.google.com" },
-    { title: "Soundraw", desc: "تأليف موسيقى مخصصة لمقاطعك دون حقوق ملكية.", link: "https://soundraw.io" },
-    { title: "Pictory", desc: "تحويل المقالات الطويلة إلى فيديوهات قصيرة للسوشيال ميديا.", link: "https://pictory.ai" },
-    { title: "Krisp", desc: "إزالة الضجيج والخلفيات المزعجة من المكالمات فوراً.", link: "https://krisp.ai" },
-    { title: "StockImg AI", desc: "توليد شعارات، أغلفة كتب، وتصاميم جاهزة.", link: "https://stockimg.ai" },
-    { title: "Looka", desc: "تصميم هوية بصرية وشعارات احترافية في دقائق.", link: "https://looka.com" },
-    { title: "Murf AI", desc: "تحويل النصوص إلى أصوات استوديو احترافية.", link: "https://murf.ai" },
-    { title: "Poised", desc: "مدرب تواصل رقمي لتحسين طريقة كلامك في الاجتماعات.", link: "https://www.poised.com" },
-    { title: "Craiyon", desc: "مولد صور مجاني ومفتوح للجميع.", link: "https://www.craiyon.com" },
-    { title: "Writesonic", desc: "أداة شاملة لكتابة المحتوى المتوافق مع محركات البحث.", link: "https://writesonic.com" },
-    { title: "Remove.bg", desc: "إزالة خلفيات الصور بدقة مذهلة في ثانية واحدة.", link: "https://www.remove.bg" }
-];
-
-function updateDailyTool() {
-    const today = new Date();
-    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
-    const toolIndex = dayOfYear % toolsList.length;
-    const selectedTool = toolsList[toolIndex];
-    
-    document.getElementById('dynamic-title').innerText = "أداة اليوم: " + selectedTool.title;
-    document.getElementById('dynamic-desc').innerText = selectedTool.desc;
-    document.getElementById('dynamic-link').setAttribute('href', selectedTool.link);
-}
-
-// السطر السحري: تشغيل الوظيفة فور تحميل الصفحة
-window.onload = updateDailyTool;
-</script>
-  <h1>جميع أدوات <br> الذكاء الاصطناعي</h1>
+  <div class="floating-translate-panel" id="translate-panel">
+    <div class="title">الترجمة</div>
+    <div id="language-selector-float"></div>
   </div>
-  
-  <div style="text-align: center; margin: 40px 0;">
-    <button onclick="togglePaths()" style="background: #8b5cf6; color: white; padding: 20px 50px; border: none; border-radius: 50px; font-size: 1.3rem; font-weight: bold; cursor: pointer; box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);">
-        اختصر لي الطريق 🚀
-    </button>
-</div>
 
-<div id="paths-container" style="display: none; flex-direction: column; gap: 20px; max-width: 500px; margin: 20px auto; padding: 0 20px;">
-    
-    <a href="income-path.html" style="text-decoration: none;">
-        <div style="background: #ecfdf5; padding: 25px; border-radius: 20px; border: 2px solid #10b981; transition: 0.3s; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 5px;">💰</div>
-            <h3 style="color: #065f46; margin: 5px 0;">زيادة الدخل</h3>
-            <p style="color: #047857; font-size: 0.9rem; margin: 0;">اضغط هنا.. اكتشف كيف تحول الذكاء الاصطناعي إلى ماكينة مال! 💵</p>
+  <div class="floating-tools">
+    <button class="float-btn" id="search-btn" type="button" title="بحث">🔎</button>
+  </div>
+
+  <div class="search-overlay" id="search-overlay">
+    <div class="search-box">
+      <div class="search-top">
+        <input type="text" id="search-input" placeholder="ابحث عن أداة أو مقال...">
+        <div class="search-close" id="search-close">✕</div>
+      </div>
+      <div id="search-results-box"></div>
+    </div>
+  </div>
+
+  <header class="navbar">بوابة الأدوات الذكية</header>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-top">
+        <div class="hero-copy">
+          <div class="hero-badge">✨ تحديث يومي مستمر</div>
+          <h1 id="daily-tool-title">أداة اليوم: جاري التحميل...</h1>
+          <p id="daily-tool-desc">اكتشف كل يوم أداة ذكاء اصطناعي جديدة تساعدك في عملك وإبداعك.</p>
+
+          <div class="hero-actions">
+            <a id="daily-tool-link" href="#" class="hero-link" target="_blank" rel="noopener noreferrer">زيارة الأداة الآن <i class="fas fa-arrow-left"></i></a>
+            <a href="#all-tools" class="hero-link secondary">استعراض جميع الأقسام</a>
+          </div>
         </div>
-    </a>
 
-    <a href="coding-path.html" style="text-decoration: none;">
-        <div style="background: #eff6ff; padding: 25px; border-radius: 20px; border: 2px solid #3b82f6; transition: 0.3s; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 5px;">💻</div>
-            <h3 style="color: #1e40af; margin: 5px 0;">برمجة ومشاريع</h3>
-            <p style="color: #1e3a8a; font-size: 0.9rem; margin: 0;">لا تضيع وقتك في الكود.. خلنا نبني مشروعك في دقائق! 🚀</p>
+        <aside class="daily-box">
+          <div class="daily-title" id="daily-tool-mini-title">—</div>
+          <p id="daily-tool-mini-desc">—</p>
+        </aside>
+      </div>
+    </section>
+
+    <div class="path-toggle-wrap">
+      <button class="path-btn" type="button" id="path-toggle-btn">اختصر لي الطريق 🚀</button>
+    </div>
+
+    <div class="paths-container" id="paths-container">
+      <a href="income-path.html" class="path-card">
+        <div class="path-icon">💰</div>
+        <h3>زيادة الدخل</h3>
+        <p>اكتشف كيف تحول الذكاء الاصطناعي إلى مصدر دخل عملي.</p>
+      </a>
+
+      <a href="coding-path.html" class="path-card">
+        <div class="path-icon">💻</div>
+        <h3>برمجة ومشاريع</h3>
+        <p>ابنِ مشروعك بسرعة وادخل في تنفيذ عملي واضح.</p>
+      </a>
+
+      <a href="content-path.html" class="path-card">
+        <div class="path-icon">🎬</div>
+        <h3>صناعة المحتوى</h3>
+        <p>أدوات متكاملة لصناعة الفيديو والنصوص بشكل احترافي.</p>
+      </a>
+    </div>
+
+    <h2 class="section-title" id="all-tools">أقسام الأدوات</h2>
+    <div class="tools-grid">
+      <div class="tool-card" data-section="chat">
+        <div class="tool-icon">💬</div>
+        <div class="tool-main">
+          <div class="tool-text">
+            <h2>مساعدات المحادثة الذكية</h2>
+            <p>أدوات الدردشة التي تفهمك وتساعدك في الكتابة، البحث، وحل المشكلات المعقدة.</p>
+          </div>
+          <div class="tool-actions">
+            <a href="chat.html" class="explore-btn">استكشف الأدوات</a>
+          </div>
+          <div class="rating-box">
+            <div class="rating-label">قيّم هذا القسم</div>
+            <div class="stars" data-rating-target="chat"></div>
+            <div class="rating-value" id="rating-value-chat">0/5</div>
+          </div>
         </div>
-    </a>
+      </div>
 
-    <a href="content-path.html" style="text-decoration: none;">
-        <div style="background: #fffbeb; padding: 25px; border-radius: 20px; border: 2px solid #f59e0b; transition: 0.3s; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 5px;">🎬</div>
-            <h3 style="color: #92400e; margin: 5px 0;">صناعة المحتوى</h3>
-            <p style="color: #b45309; font-size: 0.9rem; margin: 0;">السر اللي يخفيه صناع المحتوى عنك.. ابدأ هنا! 🔥</p>
+      <div class="tool-card" data-section="image">
+        <div class="tool-icon">🖼️</div>
+        <div class="tool-main">
+          <div class="tool-text">
+            <h2>توليد الصور والفنون</h2>
+            <p>حوّل كلماتك إلى لوحات فنية وصور واقعية مذهلة عبر أقوى محركات التوليد.</p>
+          </div>
+          <div class="tool-actions">
+            <a href="image.html" class="explore-btn">استكشف الأدوات</a>
+          </div>
+          <div class="rating-box">
+            <div class="rating-label">قيّم هذا القسم</div>
+            <div class="stars" data-rating-target="image"></div>
+            <div class="rating-value" id="rating-value-image">0/5</div>
+          </div>
         </div>
-    </a>
-</div>
+      </div>
 
-<script>
-function togglePaths() {
-    const container = document.getElementById('paths-container');
-    // تغيير إلى flex ليظهر عمودياً
-    container.style.display = (container.style.display === 'flex') ? 'none' : 'flex';
-}
-</script>
-  
-  
+      <div class="tool-card" data-section="video">
+        <div class="tool-icon">🎥</div>
+        <div class="tool-main">
+          <div class="tool-text">
+            <h2>صناعة الفيديو والأنيميشن</h2>
+            <p>أدوات مبتكرة لإنشاء مقاطع فيديو، تحريك الصور، وإضافة تأثيرات بصرية ذكية.</p>
+          </div>
+          <div class="tool-actions">
+            <a href="video.html" class="explore-btn">استكشف الأدوات</a>
+          </div>
+          <div class="rating-box">
+            <div class="rating-label">قيّم هذا القسم</div>
+            <div class="stars" data-rating-target="video"></div>
+            <div class="rating-value" id="rating-value-video">0/5</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card" data-section="smart-tools">
+        <div class="tool-icon">🚀</div>
+        <div class="tool-main">
+          <div class="tool-text">
+            <h2>ترسانة الأدوات الذكية</h2>
+            <p>مجموعة مختارة من أقوى الأدوات المساعدة التي ترفع إنتاجيتك وتضاعف سرعة إنجازك.</p>
+          </div>
+          <div class="tool-actions">
+            <a href="smart-tools.html" class="explore-btn">استكشف الترسانة</a>
+          </div>
+          <div class="rating-box">
+            <div class="rating-label">قيّم هذا القسم</div>
+            <div class="stars" data-rating-target="smart-tools"></div>
+            <div class="rating-value" id="rating-value-smart-tools">0/5</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card" data-section="design">
+        <div class="tool-icon">🖌️</div>
+        <div class="tool-main">
+          <div class="tool-text">
+            <h2>تحرير الصور والتصميم</h2>
+            <p>مجموعة أدوات لتعديل الصور، إزالة الخلفيات، تصميم المحتوى، وتسهيل العمل الإبداعي.</p>
+          </div>
+          <div class="tool-actions">
+            <a href="design.html" class="explore-btn">استكشف الأدوات</a>
+          </div>
+          <div class="rating-box">
+            <div class="rating-label">قيّم هذا القسم</div>
+            <div class="stars" data-rating-target="design"></div>
+            <div class="rating-value" id="rating-value-design">0/5</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card" data-section="suggest">
+        <div class="tool-icon">➕</div>
+        <div class="tool-main">
+          <div class="tool-text">
+            <h2>اقتراح أدوات جديدة</h2>
+            <p>أرسل اسم الأداة والرابط ليتم اقتراحها وإضافتها لاحقًا بشكل منظم.</p>
+          </div>
+          <div class="tool-actions">
+            <a href="suggest-tools.html" class="explore-btn">افتح صفحة الاقتراح</a>
+          </div>
+          <div class="rating-box">
+            <div class="rating-label">قيّم هذا القسم</div>
+            <div class="stars" data-rating-target="suggest"></div>
+            <div class="rating-value" id="rating-value-suggest">0/5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-preview">
+      <div class="article-banner">✍️</div>
+      <div class="article-preview-body">
+        <h3>كيف تختار أداة الذكاء الاصطناعي المناسبة لمشروعك؟</h3>
+        <p>في هذا الدليل الشامل، نستعرض المعايير الأساسية لاختيار الأدوات التي توفر عليك الوقت والجهد...</p>
+        <a href="article1.html" class="read-more">اقرأ المزيد ←</a>
+      </div>
+    </div>
+
+    <section class="content-card">
+      <h2>مستقبل الذكاء الاصطناعي 2026: الدليل التقني الشامل</h2>
+      <p>
+        دخلنا في عام 2026 مرحلة جديدة من التطور التقني، حيث أصبح الذكاء الاصطناعي جزءًا أساسيًا من إنتاج المحتوى، البرمجة، البحث، والتصميم. لم يعد مجرد أداة مساعدة، بل أصبح عنصرًا مباشرًا في رفع الكفاءة وتسريع الإنجاز.
+      </p>
+
+      <h3>أولاً: معايير اختيار أدوات الذكاء الاصطناعي</h3>
+      <p>
+        ليست كل أداة مناسبة لكل استخدام. بعض الأدوات ممتازة في الكتابة، وبعضها أقوى في الصور, وبعضها مخصص للفيديو أو الصوت أو البحث. لذلك يجب النظر إلى الدقة، السرعة، سهولة الاستخدام، وجودة النتائج قبل الاعتماد على أي أداة.
+      </p>
+
+      <h3>ثانياً: التوليد البصري والواقعية</h3>
+      <p>
+        أدوات توليد الصور أصبحت تتيح تحويل وصف قصير إلى مخرجات بصرية احترافية. هذا المجال يخدم المصممين وصناع المحتوى والمشاريع التجارية التي تحتاج صورًا سريعة ومرنة.
+      </p>
+
+      <h3>ثالثاً: الذكاء الاصطناعي في خدمة المبرمجين</h3>
+      <p>
+        المبرمجون يستفيدون من المساعدات الذكية في شرح الأخطاء، اقتراح الأكواد، وتحسين الشيفرة. هذا يختصر الوقت ويزيد الإنتاجية، خصوصًا في المشاريع المتكررة أو المعقدة.
+      </p>
+
+      <h3>رابعاً: تحسين محركات البحث في عصر الذكاء الاصطناعي</h3>
+      <p>
+        المحتوى القوي لا يعتمد على الحشو، بل على القيمة الحقيقية، والتنسيق الجيد، وتجربة المستخدم. لهذا تم تنظيم الموقع بشكل واضح ومباشر بدون عناصر مشتتة أو زائدة.
+      </p>
+
+      <div class="note">
+        خلاصة الدليل: الذكاء الاصطناعي قوة إضافية، لكن اختيار الأداة المناسبة هو الذي يصنع الفرق الحقيقي.
+      </div>
+
+      <div class="comments-cta">
+        <p>هل أعجبك الموقع؟ شاركنا رأيك ليظهر هنا!</p>
+        <a href="#discussion" class="comments-link">أضف تعليقك الآن ✍️</a>
+      </div>
+    </section>
+
+    <section class="discussion-section" id="discussion">
+      <h2>ركن المناقشة والآراء</h2>
+      <script src="https://giscus.app/client.js"
+              data-repo="alwadymrw736-crypto/ai-guide"
+              data-repo-id="R_kgDOSB0dWQ"
+              data-category="Announcements"
+              data-category-id="DIC_kwDOSB0dWc4C66iT"
+              data-mapping="pathname"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="bottom"
+              data-theme="dark"
+              data-lang="ar"
+              crossorigin="anonymous"
+              async>
+      </script>
+    </section>
+
+    <section class="testimonials">
+      <h2>ماذا يقول زوارنا؟</h2>
+      <div class="review-grid">
+        <div class="review">
+          <div class="name">عبودي ناصر</div>
+          <div class="stars-static">★★★★★</div>
+          <div class="text">موقع رائع واستفدت منه كثيرًا.</div>
+        </div>
+
+        <div class="review">
+          <div class="name">عبد الحفيظ العطار</div>
+          <div class="stars-static">★★★★★</div>
+          <div class="text">تنظيم ممتاز وسهل في التصفح بين الأقسام.</div>
+        </div>
+
+        <div class="review">
+          <div class="name">أحمد علي</div>
+          <div class="stars-static">★★★★★</div>
+          <div class="text">وفر علي وقت طويل في البحث عن الأدوات المناسبة.</div>
+        </div>
+
+        <div class="review">
+          <div class="name">سارة حسن</div>
+          <div class="stars-static">★★★★★</div>
+          <div class="text">التصميم مريح والأقسام واضحة جدًا.</div>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">اتصل بنا</a>
+        <a href="disclaimer.html">إخلاء المسؤولية</a>
+      </div>
+
+      <div class="bottom-note">© 2026 بوابة الأدوات الذكية - جميع الحقوق محفوظة</div>
+    </section>
+  </div>
+
+  <!-- ملف السكربت الخارجي المطلوب -->
+  <script src="theme.js"></script>
+  <script>
+    const dailyToolsList = [
+      { name: "ChatGPT", url: "https://chatgpt.com", desc: "أقوى مساعد ذكي للكتابة، البرمجة، والبحث عن المعلومات." },
+      { name: "Midjourney", url: "https://www.midjourney.com", desc: "ملك توليد الصور الفنية والواقعية من الخيال." },
+      { name: "Runway Gen-3", url: "https://runwayml.com", desc: "أداة سينمائية احترافية لتحويل النصوص إلى فيديو." },
+      { name: "ElevenLabs", url: "https://elevenlabs.io", desc: "أفضل تقنية لتحويل النصوص إلى أصوات بشرية طبيعية." },
+      { name: "Claude AI", url: "https://claude.ai", desc: "مساعد ذكي يمتاز بدقة عالية في تحليل النصوص الطويلة." },
+      { name: "Perplexity", url: "https://www.perplexity.ai", desc: "محرك بحث ذكي يقدم لك إجابات دقيقة مع المصادر." },
+      { name: "Leonardo AI", url: "https://leonardo.ai", desc: "إنشاء صور مذهلة مع تحكم كامل في الأبعاد." },
+      { name: "Pika Labs", url: "https://pika.art", desc: "تحويل النصوص والصور إلى فيديوهات احترافية." },
+      { name: "Jasper", url: "https://www.jasper.ai", desc: "مساعد متخصص في كتابة المحتوى التسويقي والإعلانات." },
+      { name: "Gamma App", url: "https://gamma.app", desc: "إنشاء عروض تقديمية ومواقع في ثوانٍ عبر الذكاء الاصطناعي." },
+      { name: "Canva Magic Edit", url: "https://www.canva.com", desc: "تعديل الصور وإضافة عناصر بالذكاء الاصطناعي بسهولة." },
+      { name: "Adobe Firefly", url: "https://www.adobe.com/firefly", desc: "أدوات أدوبي المبتكرة للتصميم الإبداعي." },
+      { name: "HeyGen", url: "https://www.heygen.com", desc: "إنشاء فيديو بمتحدث افتراضي واقعي جداً." },
+      { name: "Phind", url: "https://www.phind.com", desc: "محرك بحث مخصص للمبرمجين لحل المشاكل التقنية." },
+      { name: "Luma Dream Machine", url: "https://lumalabs.ai", desc: "توليد فيديوهات ثلاثية الأبعاد بجودة مذهلة." },
+      { name: "ClipDrop", url: "https://clipdrop.co", desc: "مجموعة أدوات لتعديل الصور وإزالة الخلفيات بضغطة واحدة." },
+      { name: "Descript", url: "https://www.descript.com", desc: "تعديل الفيديو والصوت عن طريق تعديل النص المكتوب." },
+      { name: "Remini", url: "https://remini.ai", desc: "تحسين جودة الصور القديمة والمغبرة لتبدو احترافية." },
+      { name: "Veed.io", url: "https://www.veed.io", desc: "محرر فيديو سحابي مع ترجمة تلقائية ذكية." },
+      { name: "Copy.ai", url: "https://www.copy.ai", desc: "كتابة المقالات ورسائل البريد الإلكتروني بسرعة فائقة." },
+      { name: "Otter.ai", url: "https://otter.ai", desc: "تسجيل الاجتماعات وتحويل الكلام إلى نص مكتوب." },
+      { name: "Suno AI", url: "https://suno.com", desc: "توليد أغاني وموسيقى كاملة من مجرد وصف بسيط." },
+      { name: "Grammarly", url: "https://www.grammarly.com", desc: "تصحيح الأخطاء اللغوية وتحسين أسلوب الكتابة." },
+      { name: "Tome", url: "https://tome.app", desc: "سرد قصصي وعروض تقديمية تفاعلية بالذكاء الاصطناعي." },
+      { name: "D-ID", url: "https://www.d-id.com", desc: "تحريك الصور وجعل الوجوه تتحدث بصوتك." },
+      { name: "Beautiful.ai", url: "https://www.beautiful.ai", desc: "تصميم شرائح عروض تقديمية ذكية تنظم نفسها تلقائياً." },
+      { name: "Character.ai", url: "https://character.ai", desc: "الدردشة مع شخصيات افتراضية وتاريخية ذكية." },
+      { name: "Upscale.media", url: "https://www.upscale.media", desc: "تكبير حجم الصور دون فقدان الجودة." },
+      { name: "Synthesia", url: "https://www.synthesia.io", desc: "تحويل النصوص إلى فيديوهات احترافية بعدة لغات." },
+      { name: "Gemini", url: "https://gemini.google.com", desc: "مساعد جوجل الذكي المتصل بأحدث المعلومات." },
+      { name: "Soundraw", url: "https://soundraw.io", desc: "تأليف موسيقى مخصصة لمقاطعك دون حقوق ملكية." },
+      { name: "Pictory", url: "https://pictory.ai", desc: "تحويل المقالات الطويلة إلى فيديوهات قصيرة للسوشيال ميديا." },
+      { name: "Krisp", url: "https://krisp.ai", desc: "إزالة الضجيج والخلفيات المزعجة من المكالمات فوراً." },
+      { name: "StockImg AI", url: "https://stockimg.ai", desc: "توليد شعارات، أغلفة كتب، وتصاميم جاهزة." },
+      { name: "Looka", url: "https://looka.com", desc: "تصميم هوية بصرية وشعارات احترافية في دقائق." },
+      { name: "Murf AI", url: "https://murf.ai", desc: "تحويل النصوص إلى أصوات استوديو احترافية." },
+      { name: "Poised", url: "https://www.poised.com", desc: "مدرب تواصل رقمي لتحسين طريقة كلامك في الاجتماعات." },
+      { name: "Craiyon", url: "https://www.craiyon.com", desc: "مولد صور مجاني ومفتوح للجميع." },
+      { name: "Writesonic", url: "https://writesonic.com", desc: "أداة شاملة لكتابة المحتوى المتوافق مع محركات البحث." },
+      { name: "Remove.bg", url: "https://www.remove.bg", desc: "إزالة خلفيات الصور بدقة مذهلة في ثانية واحدة." },
+      { name: "Runway", url: "https://runwayml.com", desc: "أداة قوية لصناعة الفيديو والتأثيرات البصرية." },
+      { name: "DeepL", url: "https://www.deepl.com", desc: "ترجمة دقيقة واحترافية للنصوص والمستندات." }
+    ];
+
+    const sections = ["chat", "image", "video", "smart-tools", "design", "suggest"];
+
+    function openMenu() {
+      document.getElementById("sidebar").classList.add("open");
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function closeMenu() {
+      document.getElementById("sidebar").classList.remove("open");
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function updateDailyTool() {
+      const today = new Date();
+      const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+      const selected = dailyToolsList[dayOfYear % dailyToolsList.length];
+      const titleEl = document.getElementById("daily-tool-title");
+      const descEl = document.getElementById("daily-tool-desc");
+      const linkEl = document.getElementById("daily-tool-link");
+      const miniTitleEl = document.getElementById("daily-tool-mini-title");
+      const miniDescEl = document.getElementById("daily-tool-mini-desc");
+
+      if (titleEl) titleEl.innerText = "أداة اليوم: " + selected.name;
+      if (descEl) descEl.innerText = selected.desc;
+      if (linkEl) linkEl.href = selected.url;
+      if (miniTitleEl) miniTitleEl.innerText = selected.name;
+      if (miniDescEl) miniDescEl.innerText = selected.desc;
+    }
+
+    function getRating(section) {
+      return parseInt(localStorage.getItem("rating_" + section) || "0", 10);
+    }
+
+    function saveRating(section, value) {
+      localStorage.setItem("rating_" + section, String(value));
+      renderAllRatings();
+    }
+
+    function renderRatingWidget(section) {
+      const holder = document.querySelector(`[data-rating-target="${section}"]`);
+      const valueEl = document.getElementById("rating-value-" + section);
+      if (!holder || !valueEl) return;
+
+      const current = getRating(section);
+      holder.innerHTML = "";
+
+      for (let i = 1; i <= 5; i++) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "star-btn" + (i <= current ? " active" : "");
+        btn.innerHTML = "★";
+        btn.addEventListener("click", () => saveRating(section, i));
+        holder.appendChild(btn);
+      }
+
+      valueEl.textContent = current ? `${current}/5` : "0/5";
+    }
+
+    function renderAllRatings() {
+      sections.forEach(renderRatingWidget);
+    }
+
+    function setTheme(mode) {
+      const dark = mode === "dark";
+      document.body.classList.toggle("dark-mode", dark);
+      localStorage.setItem("site_theme", dark ? "dark" : "light");
+      const sidebarBtn = document.getElementById("sidebar-theme-btn");
+      if (sidebarBtn) sidebarBtn.textContent = dark ? "الوضع النهاري" : "الوضع الليلي";
+    }
+
+    function toggleTheme() {
+      const darkNow = document.body.classList.contains("dark-mode");
+      setTheme(darkNow ? "light" : "dark");
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem("site_theme") || "light";
+      setTheme(saved);
+    }
+
+    function initSearch() {
+      const overlay = document.getElementById("search-overlay");
+      const input = document.getElementById("search-input");
+      const resultsBox = document.getElementById("search-results-box");
+      const searchBtn = document.getElementById("search-btn");
+      const searchClose = document.getElementById("search-close");
+
+      let searchData = [];
+
+      fetch("search_index.json")
+        .then(res => res.json())
+        .then(data => { searchData = Array.isArray(data) ? data : []; })
+        .catch(() => { searchData = []; });
+
+      function closeSearch() {
+        overlay.style.display = "none";
+        input.value = "";
+        resultsBox.innerHTML = "";
+      }
+
+      searchBtn.addEventListener("click", () => {
+        overlay.style.display = "flex";
+        setTimeout(() => input.focus(), 50);
+      });
+
+      searchClose.addEventListener("click", closeSearch);
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeSearch();
+      });
+
+      input.addEventListener("input", (e) => {
+        const val = e.target.value.trim().toLowerCase();
+        if (val.length < 2) {
+          resultsBox.innerHTML = "";
+          return;
+        }
+
+        const matches = searchData.filter(item => {
+          const title = String(item.title || "").toLowerCase();
+          const content = String(item.content || "").toLowerCase();
+          return title.includes(val) || content.includes(val);
+        }).slice(0, 6);
+
+        if (matches.length) {
+          resultsBox.innerHTML = matches.map(m => `
+            <a href="${m.url}" class="search-result-item">
+              <span class="result-title">${(m.title || "").split('-')[0].split('|')[0]}</span>
+              <span class="result-desc">${String(m.content || "").substring(0, 100)}...</span>
+            </a>
+          `).join("");
+        } else {
+          resultsBox.innerHTML = '<div style="padding:15px; text-align:center; color:#94a3b8; font-size:0.9rem;">لا توجد نتائج</div>';
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeSearch();
+      });
+    }
+
+    function initTranslatePanel() {
+      const panel = document.getElementById("translate-panel");
+      const floatBtn = document.getElementById("translate-btn");
+      const sidebarBtn = document.getElementById("sidebar-translate-btn");
+
+      function togglePanel() {
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      }
+
+      if (floatBtn) floatBtn.addEventListener("click", togglePanel);
+      if (sidebarBtn) sidebarBtn.addEventListener("click", togglePanel);
+
+      const host = document.getElementById("language-selector-float");
+      const sidebarHost = document.getElementById("language-selector");
+      if (host && sidebarHost) {
+        sidebarHost.innerHTML = "";
+      }
+    }
+
+    function initSidebarThemeButton() {
+      const btn = document.getElementById("sidebar-theme-btn");
+      if (btn) btn.addEventListener("click", toggleTheme);
+    }
+
+    function initPathsToggle() {
+      const btn = document.getElementById("path-toggle-btn");
+      const container = document.getElementById("paths-container");
+      if (btn) btn.addEventListener("click", () => {
+        container.style.display = container.style.display === "flex" ? "none" : "flex";
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateDailyTool();
+      renderAllRatings();
+      initTheme();
+      initSearch();
+      initTranslatePanel();
+      initSidebarThemeButton();
+      initPathsToggle();
+    });
+
+    window.addEventListener("pageshow", () => {
+      updateDailyTool();
+      renderAllRatings();
+      initTheme();
+    });
+
+    window.addEventListener("storage", () => {
+      updateDailyTool();
+      renderAllRatings();
+      initTheme();
+    });
   </script>
-    <div class="tool-card">
-      <div class="tool-icon">💬</div>
-      <div class="tool-info">
-        <h2>أدوات الدردشة والذكاء الشامل</h2>
-        <p>أفضل نماذج الذكاء الاصطناعي لتوليد النصوص، البرمجة، والبحث المتقدم في مكان واحد.</p>
-      </div>
-      <div class="action-area">
-        <a href="chat.html" class="explore-btn" style="text-decoration: none; text-align: center; display: block;">استكشف الأدوات</a>
-        
-      </div>
-    </div>
-<div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-</div>
-
-  
-    <div class="tool-card">
-      <div class="tool-icon">🎨</div>
-      <div class="tool-info">
-        <h2>أدوات توليد الصور الفنية</h2>
-        <p>أدوات قوية لتحويل النصوص إلى صور واقعية وفنية بجودة عالية ولمسة إبداعية واضحة.</p>
-      </div>
-      <div class="action-area">
-        <a href="image.html" class="explore-btn" style="text-decoration: none; text-align: center; display: block;">استكشف الأدوات</a>
-        
-      </div>
-    </div>
-<div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-</div>
-
-  
-    <div class="tool-card">
-      <div class="tool-icon">🎬</div>
-      <div class="tool-info">
-        <h2>أدوات صناعة الفيديو والتحريك</h2>
-        <p>أدوات لتوليد الفيديو، تحريك الصور، وصناعة محتوى بصري حديث وسريع.</p>
-      </div>
-      <div class="action-area">
-        <a href="video.html" class="explore-btn" style="text-decoration: none; text-align: center; display: block;">استكشف الأدوات</a>
-
-      </div>
-    </div>
-<div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-</div>
-block;">استكشف الأدوات</a>
-<div class="tool-card">
-  <div class="tool-icon">🚀</div>
-  <div class="tool-info">
-    <h2>ترسانة الأدوات الذكية</h2>
-    <p>مجموعة مختارة من أقوى الأدوات المساعدة التي ترفع إنتاجيتك وتضاعف سرعة إنجازك.</p>
-  </div>
-  <div class="action-area">
-    <a href="smart-tools.html" class="explore-btn" style="text-decoration: none; text-align: center; display: block;">استكشف الترسانة</a>
-  </div>
-</div>
-  
-    <div class="tool-card">
-      <div class="tool-icon">🖌️</div>
-      <div class="tool-info">
-        <h2>تحرير الصور والتصميم</h2>
-        <p>مجموعة أدوات لتعديل الصور، إزالة الخلفيات، تصميم المحتوى، وتسهيل العمل الإبداعي.</p>
-      </div>
-      <div class="action-area">
-        <a href="design.html" class="explore-btn" style="text-decoration: none; text-align: center; display: block;">استكشف الأدوات</a>
-
-      </div>
-    </div>
-  </div>
-<script>
-const dailyToolsList = [
-    { name: "ChatGPT", url: "https://chatgpt.com", desc: "أقوى مساعد ذكي للكتابة، البرمجة، والبحث عن المعلومات." },
-    { name: "Midjourney", url: "https://www.midjourney.com", desc: "ملك توليد الصور الفنية والواقعية من الخيال." },
-    { name: "Runway Gen-3", url: "https://runwayml.com", desc: "أداة سينمائية احترافية لتحويل النصوص إلى فيديو." },
-    { name: "ElevenLabs", url: "https://elevenlabs.io", desc: "أفضل تقنية لتحويل النصوص إلى أصوات بشرية طبيعية." },
-    { name: "Claude AI", url: "https://claude.ai", desc: "مساعد ذكي يمتاز بدقة عالية في تحليل النصوص الطويلة." },
-    { name: "Perplexity", url: "https://www.perplexity.ai", desc: "محرك بحث ذكي يقدم لك إجابات دقيقة مع المصادر." }
-];
-
-// مصفوفة الأدوات المحدثة بروابط المقالات
-const dailyToolsList = [
-    { 
-        name: "ChatGPT", 
-        desc: "مساعدك الذكي للإجابة على التساؤلات وكتابة الأكواد البرمجية بدقة.", 
-        reviewUrl: "chatgpt-review.html" 
-    },
-    { 
-        name: "Perplexity", 
-        desc: "محرك بحث ذكي يعتمد على الذكاء الاصطناعي لتقديم إجابات موثقة بالمصادر.", 
-        reviewUrl: "perplexity-review.html" 
-    }
-    // يمكنك إضافة المزيد من الأدوات هنا لاحقاً بنفس الصيغة
-];
-
-function updateDailyTool() {
-    const today = new Date();
-    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-    
-    const toolIndex = dayOfYear % dailyToolsList.length;
-    const selectedTool = dailyToolsList[toolIndex];
-
-    const titleEl = document.getElementById('daily-tool-title');
-    const descEl = document.getElementById('daily-tool-desc');
-    const linkEl = document.getElementById('daily-tool-link');
-
-    if(titleEl) titleEl.innerText = "أداة اليوم: " + selectedTool.name;
-    if(descEl) descEl.innerText = selectedTool.desc;
-    
-    // الربط التلقائي بصفحة المقال الخاصة بالأداة المختارة
-    if(linkEl) {
-        linkEl.href = selectedTool.reviewUrl;
-    }
-}
-
-// تشغيل التحديث تلقائياً عند فتح الصفحة
-updateDailyTool();
-
-</script>
-<section class="container" style="margin-top: 40px;">
-    <h2 style="color: #8b5cf6; margin-bottom: 20px;">مقالات وشروحات حصرية 📚</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-        
-        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <div style="height: 150px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">✍️</div>
-            <div style="padding: 20px;">
-                <h3 style="font-size: 1.1rem; margin-bottom: 10px;">كيف تختار أداة الذكاء الاصطناعي المناسبة لمشروعك؟</h3>
-<p style="font-size: 0.85rem; color: #64748b; line-height: 1.6;">في هذا الدليل الشامل، نستعرض المعايير الأساسية لاختيار الأدوات التي توفر عليك الوقت والجهد...</p>
-<a href="article1.html" 
-<a href="article1.html" style="color: #10b981; text-decoration: none; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-top: 10px;">
-   اقرأ المزيد ←
-</a>
-        </div>
-
-        </div>
-</section>
-<section class="container" style="margin-top: 60px; margin-bottom: 60px; font-family: 'Cairo', sans-serif; direction: rtl;">
-    <article style="background: rgba(10, 10, 10, 0.85); padding: 45px; border-radius: 35px; border: 2px solid #8b5cf6; backdrop-filter: blur(20px); line-height: 2.2; color: #ffffff; text-align: justify; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        
-        <h1 style="color: #a78bfa; font-size: 2.5rem; text-align: center; margin-bottom: 40px; font-weight: 800; text-shadow: 0 0 15px rgba(167, 139, 250, 0.6);">
-            مستقبل الذكاء الاصطناعي 2026: الدليل التقني الشامل
-        </h1>
-
-        <p style="font-size: 1.25rem; margin-bottom: 30px; color: #ffffff; font-weight: 400;">
-            دخلنا في عام 2026 مرحلة جديدة كلياً من التطور التقني، حيث لم يعد الذكاء الاصطناعي مجرد أداة مساعدة، بل أصبح المحرك الأساسي لكافة العمليات الرقمية. من تطوير الويب عبر تطبيقات مثل <strong>Acode</strong> إلى إدارة المستودعات البرمجية في <strong>GitHub</strong>، يتغلغل الذكاء الاصطناعي في كل سطر برمجين وفكرة إبداعية. نحن في "بوابة الأدوات الذكية" استشعرنا هذه المسؤولية، وقررنا بناء هذا المرجع ليكون دليلاً حياً لكل باحث عن الكفاءة والاحترافية.
-        </p>
-
-        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">أولاً: معايير اختيار أدوات الذكاء الاصطناعي</h2>
-        <p style="font-size: 1.15rem; color: #f1f5f9;">
-            ليست كل أداة ذكاء اصطناعي هي الأداة المناسبة لك. في رحلتنا لجمع هذه الأدوات، اتبعنا منهجية "التحليل العميق" لضمان حصول زوارنا على أفضل تجربة مستخدم (UX). المعايير التي نعتمدها تتلخص في كفاءة الخوارزميات ومدى قدرة الأداة على فهم الأوامر المعقدة وتنفيذها بدقة متناهية، بالإضافة إلى التكلفة الإنتاجية وهل توفر الأداة قيمة حقيقية مقابل سعرها.
-        </p>
-
-        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">ثانياً: ثورة التوليد البصري والواقعية الفائقة</h2>
-        <p style="font-size: 1.15rem; color: #f1f5f9;">
-            تعد فئة توليد الصور (Image Generation) من أكثر الفئات جذباً للمبدعين في 2026. باستخدام نماذج متطورة مثل <strong>Nano Banana 2</strong>، أصبح من الممكن تحويل نص بسيط إلى لوحة فنية فخمة بأسلوب <em>Neo-Futurism</em> أو <em>Cyberpunk</em>. هذا التطور لم يخدم الفنانين فحسب، بل خدم المصممين المعماريين، ومطوري الألعاب، وحتى المسوقين الرقميين الذين يبحثون عن محتوى بصري حصري لا يخضع لحقوق الملكية الفكرية التقليدية.
-        </p>
-
-        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">ثالثاً: الذكاء الاصطناعي في خدمة المبرمجين (Coding AI)</h2>
-        <p style="font-size: 1.15rem; color: #f1f5f9;">
-            كمطورين نستخدم أدوات مثل <strong>Acode</strong> لإدارة مشاريعنا على الجوال، ندرك قيمة المساعد الذكي. أدوات البرمجة بالذكاء الاصطناعي لم تعد تكتفي بإكمال الكود تلقائياً، بل أصبحت قادرة على اكتشاف الثغرات الأمنية في الأكواد البرمجية قبل رفعها على <strong>GitHub</strong>، وتحويل التصاميم من ملفات عادية إلى كود HTML/CSS جاهز للعمل، وتحسين سرعة استجابة المواقع عبر إعادة صياغة الخوارزميات بشكل أكثر كفاءة.
-        </p>
-
-        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">رابعاً: تحسين محركات البحث (SEO) في عصر AI</h2>
-        <p style="font-size: 1.15rem; color: #f1f5f9;">
-            محركات البحث مثل جوجل أصبحت تعامل المحتوى المصنوع بالذكاء الاصطناعي بحذر، وهنا تأتي القيمة المضافة لموقعنا. نحن لا نعتمد على النصوص الآلية الجافة، بل ندمج الخبرة البشرية (E-E-A-T) مع الدقة التقنية. لكي يقبل موقعك في أدسنس، يجب أن تقدم تجربة حقيقية، وهذا ما نفعله في "بوابة الأدوات الذكية" من خلال تقديم شروحات مبنية على تجربة شخصية دامت لأكثر من 12 ساعة يومياً في العمل البرمجي.
-        </p>
-
-        <h2 style="color: #a78bfa; border-right: 6px solid #8b5cf6; padding-right: 15px; margin-top: 45px; font-size: 1.7rem;">خامساً: بناء مجتمع تقني تفاعلي واستشراف المستقبل</h2>
-        <p style="font-size: 1.15rem; color: #f1f5f9;">
-            أحد أهم شروط النجاح لأي منصة تقنية هو التفاعل. لذا قمنا بدمج نظام تعليقات متطور يعتمد على <strong>Giscus</strong>. هذا النظام يسمح للمبرمجين والتقنيين بمشاركة أكوادهم وتجاربهم مباشرة أسفل المقال. مع رؤية 2030 والتطور الرقمي المذهل في المملكة العربية السعودية، أصبح الذكاء الاصطناعي لغة العصر، وموقعنا يهدف لأن يكون جزءاً من هذا التحول، عبر تعريب المفاهيم التقنية الصعبة وجعلها في متناول المطور العربي الشاب.
-        </p>
-
-        <div style="background: rgba(139, 92, 246, 0.2); border-radius: 20px; padding: 35px; margin-top: 50px; border-right: 8px solid #a78bfa;">
-            <h3 style="color: #ffffff; margin-top: 0; font-weight: 700;">خلاصة الدليل التقني</h3>
-            <p style="margin-bottom: 0; font-size: 1.1rem; color: #ffffff;">
-                في النهاية، الذكاء الاصطناعي هو "قوة خارقة" تضاف إلى عقلك البشري. نحن هنا لنضمن أنك تمتلك أفضل الأدوات لاستخدام هذه القوة. تصفح الأقسام، جرب الأدوات، وشاركنا رأيك. موقعنا ليس مجرد صفحة ويب، بل هو رفيقك التقني في رحلة الإبداع الرقمي لعام 2026 وما بعده.
-            </p>
-        </div>
-
-    </article>
-</section>
-<div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-</div>
-
-  
-<section class="container" style="margin-top: 50px;">
-    <h2 style="text-align: center; color: #8b5cf6; margin-bottom: 30px;">ماذا يقول زوارنا؟</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-       <div style="background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 5px solid #8b5cf6;">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-        <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #10b981;">ع</div>
-        <div>
-            <h4 style="margin: 0; font-size: 0.9rem;">عبودي ناصر</h4>
-            <span style="color: #fbbf24;">★★★★★</span>
-        </div>
-    </div>
-    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">
-        "موقع رائع استفدت منه كثير"
-    </p>
-       </div>
-    </div>
-      <div style="background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 5px solid #8b5cf6;">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-        <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #10b981;">ع</div>
-        <div>
-            <h4 style="margin: 0; font-size: 0.9rem;">عبد الحفيظ العطار</h4>
-            <span style="color: #fbbf24;">★★★★★</span>
-        </div>
-    </div>
-    <p style="font-size: 0.85rem; color: #64748b; margin: 0;">
-        "ما شاء الله عمل ممتاز وموقع يسهل الزيارة والاعتماد على الكثير من ادوات الذكاء الصناعي، شكرا على المجهود الرائع"
-    </p>
-      </div>
-     </div>
-        <div style="background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 5px solid #10b981;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #8b5cf6;">أ</div>
-                <div>
-                    <h4 style="margin: 0; font-size: 0.9rem;">أحمد علي</h4>
-                    <span style="color: #fbbf24;">★★★★★</span>
-                </div>
-            </div>
-            <p style="font-size: 0.85rem; color: #64748b; margin: 0;">"موقع خرافي! وفر علي وقت طويل في البحث عن أدوات الذكاء الاصطناعي. ميزة أداة اليوم جداً مفيدة."</p>
-        </div>
-     </div>
-        <div style="background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 5px solid #8b5cf6;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #10b981;">س</div>
-                <div>
-                    <h4 style="margin: 0; font-size: 0.9rem;">سارة حسن</h4>
-                    <span style="color: #fbbf24;">★★★★★</span>
-                </div>
-                            </div>
-            <p style="font-size: 0.85rem; color: #64748b; margin: 0;">"التصميم مريح للعين والأدوات مختارة بعناية. حبيت تقسيم الأقسام وسرعة التنقل بينها."</p>
-        </div>
-</div>
-        <div style="background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-right: 5px solid #10b981;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #8b5cf6;">م</div>
-                <div>
-                </div>
-</section>
-
-        <div style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px dashed #e2e8f0;">
-            <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 10px;">هل أعجبك الموقع؟ شاركنا رأيك ليظهر هنا!</p>
-            <a href="contact.html" style="display: inline-block; text-decoration: none; padding: 12px 25px; background: var(--accent); color: white; border-radius: 15px; font-weight: 800; font-size: 0.9rem; transition: transform 0.2s;">
-                أضف تعليقك الآن ✍️
-            </a>
-        </div>
-<section class="container" style="margin-top: 50px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid #8b5cf6;">
-    <h2 style="text-align: center; color: #8b5cf6; margin-bottom: 30px;">💬 ركن المناقشة والآراء</h2>
-    
-    <script src="https://giscus.app/client.js"
-            data-repo="alwadymrw736-crypto/ai-guide"
-            data-repo-id="R_kgDOSB0dWQ"
-            data-category="Announcements"
-            data-category-id="DIC_kwDOSB0dWc4C66iT"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="bottom"
-            data-theme="dark" 
-            data-lang="ar"
-            crossorigin="anonymous"
-            async>
-    </script>
-</section>
-  
-<footer style="margin-top: 50px; padding: 30px; border-top: 1px solid #e2e8f0; text-align: center;">
-    <div style="margin-bottom: 15px;">
-        <a href="privacy.html" style="margin: 0 10px; color: #64748b; text-decoration: none; font-size: 0.9rem;">سياسة الخصوصية</a>
-        <a href="about.html" style="margin: 0 10px; color: #64748b; text-decoration: none; font-size: 0.9rem;">من نحن</a>
-        <a href="contact.html" style="margin: 0 10px; color: #64748b; text-decoration: none; font-size: 0.9rem;">اتصل بنا</a>
-        <a href="disclaimer.html" style="margin: 0 10px; color: #64748b; text-decoration: none; font-size: 0.9rem;"> إخلاء المسؤولية</a>
-        
-
-    </div>
-    <p style="color: #94a3b8; font-size: 0.8rem;">© 2026 بوابة الأدوات الذكية - جميع الحقوق محفوظة</p>
-</footer>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-   <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-      
+  <!-- ملفات التحكم (الثيم والترجمة) -->
+<script src="theme.js" defer></script>
 </body>
 </html>

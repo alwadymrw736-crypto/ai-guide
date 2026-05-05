@@ -3,31 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+      // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
+      if (localStorage.getItem("site_theme") === "dark") {
+        document.documentElement.classList.add("dark-mode");
+        document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+      }
+    </script>
+
     <title>إخلاء المسؤولية - بوابة الأدوات الذكية</title>
     <link rel="stylesheet" href="style.css"> 
     <style>
-        /* تنسيقات إضافية لتطابق الصور التي أرفقتها */
-        body {
-            background-color: #f8fbff; /* لون الخلفية الفاتح في موقعك */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --bg-body: #f8fbff; /* لون الخلفية الفاتح في موقعك */
+            --bg-container: #ffffff;
+            --text-color: #555;
         }
+
+        /* تنسيقات الثيم المظلم المتوافقة */
+        .dark-mode {
+            --bg-body: #0f172a;
+            --bg-container: #1e293b;
+            --text-color: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
         .policy-container {
             max-width: 900px;
             margin: 40px auto;
-            background: #ffffff;
+            background: var(--bg-container);
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
+        
+        .dark-mode .policy-container {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
         h1, h2 {
             color: #8a4fff; /* اللون البنفسجي الجميل في تصاميمك */
             margin-bottom: 20px;
         }
+        
         p {
-            color: #555;
+            color: var(--text-color);
             line-height: 1.8;
             font-size: 1.1rem;
+            transition: color 0.3s;
         }
+        
         .back-btn {
             display: inline-block;
             margin-top: 30px;
@@ -39,13 +77,20 @@
             border-radius: 10px;
             transition: 0.3s;
         }
-        .back-home { display: block; text-align: center; margin-top: 30px; color: #10b981; text-decoration: none; font-weight: 700; }
+        
+        .back-home { 
+            display: block; 
+            text-align: center; 
+            margin-top: 30px; 
+            color: #10b981; 
+            text-decoration: none; 
+            font-weight: 700; 
         }
     </style>
-</head>
-    <link rel="stylesheet" href="theme.css">
 
-<script src="theme.js"></script>
+    <script src="translate.js" defer></script>
+    <script src="translations-complete.js" defer></script>
+</head>
 <body>
 
     <div class="policy-container">
@@ -59,16 +104,9 @@
         
         <h2>3. روابط الإحالة</h2>
         <p>قد يحتوي الموقع على روابط إحالة، مما قد يمنحنا عمولة بسيطة عند اشتراكك في خدمة ما، وهذا يساعدنا على الاستمرار في تقديم المحتوى المجاني لكم.</p>
-        <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-        </div>
         
-        <a href="index.html" class="back-home">← العودة للرئيسية<//a>
+        <a href="index.html" class="back-home">← العودة للرئيسية</a>
     </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    
+
 </body>
 </html>

@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+      // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
+      if (localStorage.getItem("site_theme") === "dark") {
+        document.documentElement.classList.add("dark-mode");
+        document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+      }
+    </script>
+
     <title>خارطة طريق صناعة المحتوى 2026 | بوابة الأدوات الذكية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
@@ -14,6 +23,13 @@
             --white: #ffffff;
         }
 
+        /* تنسيقات الثيم المظلم المتوافقة */
+        .dark-mode {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --white: #1e293b;
+        }
+
         body {
             font-family: 'Cairo', sans-serif;
             background-color: var(--bg);
@@ -21,6 +37,7 @@
             line-height: 2.2;
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .container {
@@ -30,6 +47,7 @@
             padding: 60px;
             border-radius: 40px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         .nav-back {
@@ -67,6 +85,10 @@
             text-align: justify;
             color: #334155;
         }
+        
+        .dark-mode p {
+            color: #cbd5e1;
+        }
 
         .experience-box {
             background: linear-gradient(135deg, #f5f3ff 0%, #ecfdf5 100%);
@@ -75,6 +97,10 @@
             border-radius: 30px;
             margin: 60px 0;
             position: relative;
+        }
+
+        .dark-mode .experience-box {
+            background: linear-gradient(135deg, #1e1b4b 0%, #064e3b 100%);
         }
 
         .experience-box::before {
@@ -98,6 +124,11 @@
             transition: 0.3s;
         }
 
+        .dark-mode .strategy-step {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
         .tool-card {
             background: var(--white);
             border: 2px solid #f1f5f9;
@@ -108,6 +139,10 @@
             justify-content: space-between;
             align-items: center;
             transition: all 0.4s ease;
+        }
+
+        .dark-mode .tool-card {
+            border-color: #334155;
         }
 
         .tool-card:hover {
@@ -141,16 +176,21 @@
             border-top: 2px solid #f1f5f9;
         }
 
+        .dark-mode footer {
+            border-top-color: #334155;
+        }
+
         @media (max-width: 768px) {
             .container { padding: 30px; }
             h1 { font-size: 2.2rem; }
             .tool-card { flex-direction: column; text-align: center; gap: 30px; }
         }
     </style>
-</head>
-    <link rel="stylesheet" href="themes.css">
 
-<script src="theme.js"></script>
+    <script src="translate.js" defer></script>
+    <script src="translations-complete.js" defer></script>
+</head>
+
 <body>
 
 <div class="container">
@@ -183,37 +223,10 @@
 
     <h2>الفصل الثالث: ترسانة صناع المحتوى - أفضل 10 أدوات</h2>
     <p>هذه هي الأدوات التي ستجعل قناتك أو حسابك يبدو وكأن خلفه فريق عمل من 50 شخصاً:</p>
-  <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-  </div>
+
     <div class="tools-section">
         
-        <div class="tool-card">
-            <div class="tool-info">
-                <h3>1. Runway Gen-2 - مخرجك السينمائي</h3>
-                <p>حول كلماتك البسيطة إلى لقطات سينمائية مبهرة. لا تحتاج لكاميرا أو استوديو، فقط اكتب ما تتخيله وسيقوم Runway بإنتاجه.</p>
-            </div>
-            <a href="runway-review.html" class="btn-review">سر الإبداع ➡️</a>
-        </div>
-
-        <div class="tool-card">
-            <div class="tool-info">
-                <h3>2. HeyGen - المتحدث الرسمي باسمك</h3>
-                <p>أنشئ أفاتار يتحدث بدلاً منك وبأي لغة في العالم، مع مزامنة كاملة لحركة الشفاه. الحل الأمثل لمن لا يفضل الظهور بوجهه.</p>
-            </div>
-            <a href="heygen-review.html" class="btn-review">سر الإبداع ➡️</a>
-        </div>
-
-        <div class="tool-card">
-            <div class="tool-info">
-                <h3>3. InVideo AI - من نص إلى فيديو في دقيقة</h3>
-                <p>اكتب فكرتك فقط، وسيقوم النظام بكتابة السيناريو، اختيار المقاطع المناسبة، إضافة التعليق الصوتي والموسيقى تلقائياً.</p>
-            </div>
-            <a href="invideo-review.html" class="btn-review">سر الإبداع ➡️</a>
-        </div>
-<div class="tools-section">
+ <div class="tools-section">
 
     <div class="tool-card">
         <div class="tool-info">
@@ -301,14 +314,12 @@
     </div>
 
     <h2>خاتمة: لا تنتظر الكاميرا المثالية.. ابدأ بالذكاء!</h2>
-    <p>في النهاية، المحتوى هو "الملك"، ولكن التوزيع هو "الملكة". الذكاء الاصطناعي يمنحك التاجين معاً. لا تقلق بشأن الجودة التقنية في البداية، فالأدوات التي وضعتها لك ستتكفل بذلك. ركز أنت على "الصدق" في رسالتك وعلى بناء علاقة حقيقية مع جمهورك. تذكر أن كل صانع محتوى كبير بدأ بفيديو بسيط، والفرق الوحيد بينهم وبين الآخرين هو أنهم لم يتوقفوا. استخدم هذه الأدوات، كن مستمراً، وسيكون العالم مسرحك القادم.</p>
+    <p>في النهاية, المحتوى هو "الملك"، ولكن التوزيع هو "الملكة". الذكاء الاصطناعي يمنحك التاجين معاً. لا تقلق بشأن الجودة التقنية في البداية، فالأدوات التي وضعتها لك ستتكفل بذلك. ركز أنت على "الصدق" في رسالتك وعلى بناء علاقة حقيقية مع جمهورك. تذكر أن كل صانع محتوى كبير بدأ بفيديو بسيط، والفرق الوحيد بينهم وبين الآخرين هو أنهم لم يتوقفوا. استخدم هذه الأدوات، كن مستمراً، وسيكون العالم مسرحك القادم.</p>
 
     <footer>
         <p style="font-weight: 900; color: var(--primary);">© 2026 بوابة الأدوات الذكية | قسم صناعة المحتوى الإبداعي.</p>
     </footer>
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    
+
 </body>
 </html>

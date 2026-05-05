@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>اقتراح أدوات جديدة | بوابة الأدوات الذكية</title>
+
+  <script>
+    if (localStorage.getItem("site_theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --purple: #8b5cf6;
+      --green: #10b981;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --desc: #64748b;
+      --border: #e2e8f0;
+    }
+
+    /* تعديلات الوضع الليلي */
+    .dark-mode {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --desc: #94a3b8;
+      --border: #334155;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+      padding: 24px 16px 40px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+      padding: 24px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      gap: 15px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: var(--purple);
+      font-weight: 900;
+    }
+
+    .back {
+      text-decoration: none;
+      background: var(--card);
+      color: var(--purple);
+      border: 1px solid var(--purple);
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .back:hover {
+      background: var(--purple);
+      color: white;
+    }
+
+    .intro {
+      color: var(--desc);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      font-family: inherit;
+      margin-bottom: 15px;
+    }
+
+    input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(139,92,246,0.1);
+    }
+
+    .submit {
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--purple), var(--green));
+      color: white;
+      font-weight: 900;
+      font-family: inherit;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(139,92,246,0.3);
+    }
+
+    .hint {
+      font-size: 0.85rem;
+      color: var(--desc);
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .list-title {
+      font-weight: 900;
+      margin-bottom: 15px;
+      color: var(--text);
+      display: block;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      transition: 0.3s;
+    }
+
+    .item:hover {
+      border-color: var(--purple);
+    }
+
+    .item h3 {
+      margin: 0 0 6px;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .item a {
+      color: var(--purple);
+      text-decoration: none;
+      word-break: break-all;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--desc);
+      padding: 30px;
+      border: 2px dashed var(--border);
+      border-radius: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="top">
+      <h1>اقتراح أدوات جديدة</h1>
+      <a class="back" href="index.html">← العودة للرئيسية</a>
+    </div>
+
+    <p class="intro">
+      ساهم في تطوير القائمة؛ اكتب اسم الأداة المقترحة ورابطها وسيتم حفظها في سجلك المحلي لمراجعتها لاحقاً.
+    </p>
+
+    <div class="form-card">
+      <form id="suggestForm">
+        <label>اسم الأداة</label>
+        <input id="toolName" type="text" placeholder="مثال: محول الصيغ" required />
+
+        <label>الرابط (URL)</label>
+        <input id="toolUrl" type="url" placeholder="https://example.com" required />
+
+        <button class="submit" type="submit">إرسال الاقتراح</button>
+
+        <div class="hint">
+          ملاحظة: البيانات تُحفظ في متصفحك الحالي فقط (Local Storage).
+        </div>
+      </form>
+    </div>
+
+    <span class="list-title">اقتراحاتك السابقة:</span>
+    <div id="suggestionsList" class="list"></div>
+
+  </div>
+
+  <script src="translate.js" defer></script>
+  <script src="translations-complete.js" defer></script>
+
+  <script>
+    const form = document.getElementById("suggestForm");
+    const list = document.getElementById("suggestionsList");
+
+    function getSuggestions() {
+      return JSON.parse(localStorage.getItem("suggestedTools") || "[]");
+    }
+
+    function saveSuggestions(data) {
+      localStorage.setItem("suggestedTools", JSON.stringify(data));
+    }
+
+    function render() {
+      const items = getSuggestions();
+      list.innerHTML = "";
+
+      if (!items.length) {
+        list.innerHTML = `<div class="empty">لا توجد اقتراحات محفوظة بعد.</div>`;
+        return;
+      }
+
+      items.slice().reverse().forEach(i => {
+        list.innerHTML += `
+          <div class="item">
+            <h3>${i.name}</h3>
+            <a href="${i.url}" target="_blank">${i.url}</a>
+          </div>
+        `;
+      });
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("toolName").value.trim();
+      const url = document.getElementById("toolUrl").value.trim();
+
+      const data = getSuggestions();
+      data.push({ name, url });
+
+      saveSuggestions(data);
+      form.reset();
+      render();
+    });
+
+    render();
+  </script>
+
+</body>
+</html>

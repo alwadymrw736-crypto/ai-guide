@@ -4,179 +4,537 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>أدوات الصور - دليلك الشامل</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
-      --accent: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);
-      --text-dark: #1e293b;
-    }
-    body { font-family: 'Cairo', sans-serif; background: rgba(255, 255, 255, 0.8); margin: 0; padding: 0; color: var(--text-dark); }
-    .navbar { background: var(--main-bg); padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; font-size: 1.2rem; }
-    .container { width: 95%; max-width: 900px; margin: 30px auto; }
-    .tool-list-item { background: white; border-radius: 24px; padding: 20px; display: flex; align-items: center; gap: 16px; margin-bottom: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; }
-    .tool-number { width: 46px; height: 46px; background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
-    .tool-text { flex: 1; }
-    .tool-text h3 { margin: 0 0 6px 0; font-size: 1.15rem; color: #1e293b; }
-    .tool-text p { margin: 0; color: #64748b; font-size: 0.92rem; }
-    .visit-link { background: linear-gradient(135deg, #22c55e 0%, #a855f7 100%); color: white; padding: 10px 18px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.85rem; }
-    .back-home { display: block; text-align: center; margin: 20px auto; color: #8b5cf6; text-decoration: none; font-weight: 700; font-size: 1rem; }
-  </style>
-</head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="themes.css">
   <link rel="stylesheet" href="theme.css">
 
-<script src="theme.js"></script>
+  <style>
+    :root {
+      --bg: linear-gradient(to bottom, #eff6ff 0%, #f8fafc 100%);
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --purple: #7c3aed;
+      --green: #10b981;
+      --blue: #3b82f6;
+      --danger: #e74c3c;
+      --accent: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%);
+      --accent-soft: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(139,92,246,0.12));
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      --shadow-hover: 0 16px 34px rgba(15, 23, 42, 0.10);
+    }
+
+    html.dark-mode,
+    body.dark-mode {
+      --bg: linear-gradient(to bottom, #020617 0%, #0f172a 100%);
+      --card: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --border: rgba(148,163,184,0.16);
+      --shadow: 0 10px 28px rgba(0,0,0,0.25);
+      --shadow-hover: 0 16px 36px rgba(0,0,0,0.32);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 18px 16px;
+      text-align: center;
+      font-size: 1.12rem;
+      font-weight: 900;
+      color: var(--text);
+      background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(124,58,237,0.14));
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 42px;
+    }
+
+    .article {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      line-height: 2;
+      text-align: justify;
+      margin-bottom: 24px;
+    }
+
+    .article h1 {
+      margin: 0 0 22px;
+      color: var(--purple);
+      font-size: 2.1rem;
+      font-weight: 900;
+      line-height: 1.35;
+      text-align: center;
+      padding-bottom: 18px;
+      border-bottom: 4px solid rgba(124,58,237,0.18);
+    }
+
+    .article h2 {
+      margin: 34px 0 16px;
+      color: var(--text);
+      font-size: 1.45rem;
+      font-weight: 900;
+      text-align: right;
+      border-right: 6px solid var(--green);
+      padding-right: 14px;
+      line-height: 1.5;
+    }
+
+    .article h3 {
+      margin: 28px 0 10px;
+      color: var(--purple);
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .article p {
+      margin: 0 0 18px;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .hero-note {
+      background: var(--accent-soft);
+      border: 1px dashed rgba(16,185,129,0.45);
+      border-radius: 18px;
+      padding: 18px 16px;
+      margin: 22px 0 10px;
+      color: var(--text);
+    }
+
+    .hero-note strong {
+      color: var(--green);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .info-box {
+      background: rgba(148,163,184,0.08);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .info-box strong {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 1rem;
+    }
+
+    .info-box p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .cta-strip {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 800;
+      color: var(--purple);
+      background: rgba(148,163,184,0.08);
+      border: 1px solid var(--border);
+    }
+
+    .tools-shell {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      font-size: 1.35rem;
+      color: var(--text);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .tools-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+    }
+
+    .tool-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(124,58,237,0.22);
+    }
+
+    .tool-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 900;
+      box-shadow: 0 10px 20px rgba(16,185,129,0.16);
+    }
+
+    .tool-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tool-text h3 {
+      margin: 0 0 6px;
+      color: var(--text);
+      font-size: 1.12rem;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .tool-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    .tool-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .visit-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      box-shadow: 0 8px 16px rgba(16,185,129,0.14);
+    }
+
+    .visit-link:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .save-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(148,163,184,0.10);
+      color: #94a3b8;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .save-btn i {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .save-btn:hover {
+      transform: scale(1.08);
+      background: rgba(231,76,60,0.10);
+      color: var(--danger);
+    }
+
+    .save-btn.active,
+    .save-btn.active i {
+      color: var(--danger) !important;
+    }
+
+    .save-btn.active {
+      background: rgba(231,76,60,0.10);
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 800;
+      padding: 12px 14px;
+    }
+
+    .back-home:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding-inline: 12px;
+      }
+
+      .article {
+        padding: 20px 16px;
+      }
+
+      .article h1 {
+        font-size: 1.55rem;
+      }
+
+      .article h2 {
+        font-size: 1.2rem;
+      }
+
+      .tool-card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<script>
+  // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
+  if (localStorage.getItem("site_theme") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+  }
+</script>
+
+<!-- الترجمة -->
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
+
 <body>
   <nav class="navbar">بوابة أدوات الصور</nav>
-  <article style="direction: rtl; line-height: 2.2; color: #1e293b; padding: 40px; text-align: justify; font-family: 'Cairo', sans-serif; background: #ffffff; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); margin-bottom: 50px;">
 
-    <h1 style="color: #7c3aed; font-size: 2.4rem; font-weight: 900; margin-bottom: 30px; text-align: center; border-bottom: 4px solid #ddd6fe; padding-bottom: 20px;">
-        ثورة الإبداع البصري 2026: الدليل الشامل لأدوات توليد الصور بالذكاء الاصطناعي من التجربة إلى الاحتراف
-    </h1>
+  <div class="wrap">
+    <article class="article">
+      <h1>ثورة الإبداع البصري 2026: الدليل الشامل لأدوات توليد الصور بالذكاء الاصطناعي من التجربة إلى الاحتراف</h1>
 
-    <p style="font-size: 1.25rem; margin-bottom: 35px; color: #334155;">
-        لم يعد عالم التصميم الرقمي كما كان قبل أعوام قليلة؛ فنحن نعيش الآن في عصر "الديمقراطية الإبداعية"، حيث لم تعد القدرة على إنتاج لوحات فنية مذهلة مقتصرة على من يملك ريشة الرسام أو خبرة سنوات في برامج التصميم المعقدة. بفضل نماذج الذكاء الاصطناعي التوليدي، أصبح بإمكان المطورين الذين يقضون ساعاتهم في البرمجة عبر <strong>Acode</strong>، أو صناع المحتوى الطموحين، تحويل الخيال الجامح إلى بكسلات واقعية بضغطة زر. في هذا الدليل، لن نكتفي بسرد روابط، بل سنغوص في تحليل أعمق المحركات البصرية التي جربناها شخصياً لأكثر من 12 ساعة يومياً، لنقدم لك زبدة الخبرة التقنية التي تضمن لك التميز في سوق العمل والقبول الفوري في برامج الإعلانات العالمية مثل <strong>AdSense</strong>.
-    </p>
+      <p>
+        لم يعد عالم التصميم الرقمي كما كان قبل أعوام قليلة؛ فنحن نعيش الآن في عصر "الديمقراطية الإبداعية"، حيث لم تعد القدرة على إنتاج لوحات فنية مذهلة مقتصرة على من يملك ريشة الرسام أو خبرة سنوات في برامج التصميم المعقدة.
+      </p>
 
-    <div style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-right: 8px solid #7c3aed; padding: 30px; border-radius: 20px; margin-bottom: 40px;">
-        <h2 style="color: #6d28d9; margin-top: 0; font-size: 1.6rem; font-weight: 700;">لماذا تعتبر هذه المراجعة "أصلية" وذات قيمة؟</h2>
-        <p style="font-size: 1.15rem; color: #4338ca; margin-bottom: 0;">
-            خوارزميات جوجل الجديدة لم تعد تنخدع بالمحتوى المعاد صياغته أو الحشو الممل. هي تبحث عن "التجربة الشخصية". لذا، قمنا في "بوابة الأدوات الذكية" باختبار كل أداة في بيئات عمل حقيقية، من تصميم واجهات المستخدم (UI/UX) إلى إنشاء الشخصيات الخيالية. نحن نحلل كيف تتعامل الأداة مع الإضاءة، ومدى دقتها في فهم الأوامر المعقدة (Prompts)، وكيفية تكامل مخرجاتها مع مشاريع البرمجة على <strong>GitHub</strong>. هذا المحتوى مكتوب بشغف المطور ودقة المصمم ليعطيك الفائدة الحقيقية التي لن تجدها في المواقع المنسوخة.
-        </p>
+      <div class="hero-note">
+        <strong>ملاحظة:</strong> هذا القسم صار الآن بنفس نظام صفحة المحادثة: ثيمات خارجية، دعم الوضع الليلي والنهاري، وبطاقات مفضلات متناسقة.
+      </div>
+
+      <h2>لماذا تعتبر هذه المراجعة "أصلية" وذات قيمة؟</h2>
+      <p>
+        خوارزميات جوجل تبحث عن التجربة العملية والمحتوى الواضح. لذلك هذا القسم مبني ليعرض لك الأدوات بشكل مرتب، مع شرح يساعدك فعلياً على اختيار الأداة المناسبة.
+      </p>
+
+      <h3>أولاً: العمالقة في ساحة التوليد البصري</h3>
+      <p>
+        نستعرض هنا أشهر الأدوات التي يستخدمها المصممون والمطورون لصناعة صور احترافية، من الخلفيات السينمائية إلى الشعارات والرسومات التجريبية.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <strong>دقة الاستدلال</strong>
+          <p>مدى مطابقة الصورة للوصف المكتوب، وهو أهم معيار عند المقارنة بين الأدوات.</p>
+        </div>
+        <div class="info-box">
+          <strong>السرعة والـ API</strong>
+          <p>مهم جداً إذا كنت تريد دمج الأداة داخل مشروع أو موقع أو لوحة تحكم.</p>
+        </div>
+        <div class="info-box">
+          <strong>حقوق الاستخدام</strong>
+          <p>تأكد من قابلية الاستخدام التجاري قبل اعتماد الأداة في مشاريعك الربحية.</p>
+        </div>
+      </div>
+
+      <h2>ثالثاً: المقارنة النهائية</h2>
+      <p>
+        اختر الأداة حسب احتياجك: توليد فني، تعديل، رفع جودة، أو استخراج عناصر تصميم جاهزة للاستخدام.
+      </p>
+
+      <div class="cta-strip">👇 استكشف القائمة الكاملة المحدثة بالأسفل</div>
+    </article>
+
+    <div class="tools-shell">
+      <h2 class="section-title">الأدوات</h2>
+      <div id="image-list" class="tools-list"></div>
+      <a href="index.html" class="back-home">← العودة للرئيسية</a>
     </div>
-
-    <h2 style="color: #1e293b; font-size: 1.8rem; margin-top: 50px; border-right: 5px solid #10b981; padding-right: 15px;">أولاً: العمالقة في ساحة التوليد البصري (تحليل مفصل)</h2>
-
-    <h3 style="color: #7c3aed; font-size: 1.4rem; margin-top: 30px;">1. Midjourney v6: عندما تلامس الآلة روح الفن</h3>
-    <p style="font-size: 1.15rem;">
-        تعتبر أداة <strong>Midjourney</strong> هي المعيار الذهبي للجودة البصرية في عام 2026. من خلال تجربتنا المكثفة، لاحظنا أن الأداة لم تعد تكتفي بالجمال السطحي، بل أصبحت تفهم سيكولوجية الألوان وتوزيع الظلال بشكل سينمائي مذهل.
-    </p>
-    <ul style="margin-right: 20px; font-size: 1.1rem; color: #475569;">
-        <li><strong>المميزات:</strong> واقعية فائقة تتجاوز 4K، فهم عميق للمصطلحات الفنية، ومجتمع تفاعلي ضخم.</li>
-        <li><strong>العيوب:</strong> الاعتماد على منصة ديسكورد قد يكون مزعجاً للبعض، ولا يوجد إصدار مجاني دائم.</li>
-        <li><strong>تجربتنا:</strong> استخدمناها في تصميم خلفيات لموقعنا الجديد، وكانت النتائج مبهرة لدرجة أنها لم تحتاج لأي تعديل إضافي.</li>
-    </ul>
-
-    <h3 style="color: #7c3aed; font-size: 1.4rem; margin-top: 35px;">2. DALL-E 3: العبقرية اللغوية في أبسط صورها</h3>
-    <p style="font-size: 1.15rem;">
-        إذا كنت مبرمجاً ولا تملك وقتاً لتعلم "هندسة الأوامر" (Prompt Engineering)، فإن <strong>DALL-E 3</strong> هي صديقتك الوفية. بفضل دمجها مع GPT-4، تملك الأداة قدرة خارقة على فهم الوصف العربي والإنجليزية بلهجة طبيعية جداً.
-    </p>
-    <ul style="margin-right: 20px; font-size: 1.1rem; color: #475569;">
-        <li><strong>المميزات:</strong> تنفيذ دقيق جداً لكل كلمة في الوصف، سهولة الاستخدام المطلقة.</li>
-        <li><strong>العيوب:</strong> الصور أحياناً تميل للطابع الكرتوني مقارنة بـ Midjourney.</li>
-    </ul>
-
-    <h2 style="color: #1e293b; font-size: 1.8rem; margin-top: 55px; border-right: 5px solid #3b82f6; padding-right: 15px;">ثانياً: معايير المفاضلة (كيف تختار أداتك الذكية؟)</h2>
-    <p style="font-size: 1.15rem; margin-bottom: 25px;">
-        اختيار الأداة لا يجب أن يكون عشوائياً. بناءً على معايير السيو (SEO) ونية المستخدم، قمنا بتلخيص ما يجب أن تبحث عنه:
-    </p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-        <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid #e2e8f0;">
-            <strong style="color: #10b981; font-size: 1.1rem;">دقة الاستدلال (Fidelity)</strong>
-            <p style="font-size: 0.95rem; color: #64748b;">مدى مطابقة الصورة للوصف المكتوب، وهو أمر حيوي لتجنب إضاعة الائتمانات (Credits) في محاولات فاشلة.</p>
-        </div>
-        <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid #e2e8f0;">
-            <strong style="color: #3b82f6; font-size: 1.1rem;">سرعة المعالجة والـ API</strong>
-            <p style="font-size: 0.95rem; color: #64748b;">للمطورين، يهمنا جداً توفر واجهة برمجة تطبيقات تسمح بدمج الأداة داخل تطبيقاتنا الخاصة.</p>
-        </div>
-        <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid #e2e8f0;">
-            <strong style="color: #f59e0b; font-size: 1.1rem;">حقوق الملكية والاستخدام</strong>
-            <p style="font-size: 0.95rem; color: #64748b;">تأكد دائماً أن الأداة تمنحك حقوقاً تجارية كاملة لاستخدام الصور في إعلاناتك أو مشاريعك المربحة.</p>
-        </div>
-    </div>
-
-    <h2 style="color: #1e293b; font-size: 1.8rem; margin-top: 55px; border-right: 5px solid #ef4444; padding-right: 15px;">ثالثاً: المقارنة النهائية (القرار لك)</h2>
-    <table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-size: 1rem; text-align: center;">
-        <thead>
-            <tr style="background-color: #7c3aed; color: white;">
-                <th style="padding: 15px; border: 1px solid #ddd6fe;">الأداة</th>
-                <th style="padding: 15px; border: 1px solid #ddd6fe;">أفضل استخدام</th>
-                <th style="padding: 15px; border: 1px solid #ddd6fe;">مستوى الصعوبة</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">Midjourney</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">صور فنية وواقعية</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">متوسط</td>
-            </tr>
-            <tr style="background-color: #f9fafb;">
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">Leonardo.ai</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">ألعاب وتصميم داخلي</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">سهل - محترف</td>
-            </tr>
-            <tr>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">Magnific AI</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">ترقية الجودة (Upscale)</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">بسيط جداً</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2 style="color: #1e293b; font-size: 1.8rem; margin-top: 55px; border-right: 5px solid #8b5cf6; padding-right: 15px;">خاتمة ونصيحة للمستقبل</h2>
-    <p style="font-size: 1.15rem; margin-top: 20px;">
-        في نهاية هذا الدليل العميق، نؤكد أن الأدوات هي مجرد "توسع" لإبداعك البشري وليس بديلاً عنه. الالتزام بتقديم قيمة حقيقية، والشرح المفصل، والابتعاد عن النسخ هو طريقك الوحيد للنجاح في عالم التدوين والقبول في <strong>AdSense</strong>. نحن هنا في "بوابة الأدوات الذكية" نعدك بأن نظل مرجعك الأول، نحدث هذه القائمة دورياً بناءً على تجاربنا البرمجية والتصميمية اليومية. لا تكتفِ بالمشاهدة، ابدأ اليوم في تحويل خيالك إلى حقيقة بصرية تنافس بها العالم.
-    </p>
-
-    <div style="text-align: center; margin-top: 60px; border-top: 2px dashed #e2e8f0; padding-top: 40px;">
-        <p style="font-weight: 800; color: #7c3aed; font-size: 1.3rem; margin-bottom: 25px;">🚀 اكتشف الآن القائمة الكاملة المحدثة لأقوى 10 أداة عالمية بالأسفل 🚀</p>
-
-  </article>
-  <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
   </div>
-  <div class="container">
-    <div id="image-list"></div>
-    <a href="index.html" class="back-home">← العودة للرئيسية</a>
-  </div>
+
+  <script src="theme.js"></script>
+
   <script>
     const tools = [
-      { name: "Midjourney", url: "midjourney-review.html", desc: "الأداة رقم #1 عالمياً لتوليد الصور الفنية (اقرأ تجربتي وكيف تحصل على نتائج مذهلة)." },
-      { name: "Leonardo AI", url: "leonardo-review.html", desc: "أفضل بديل مجاني واحترافي لإنتاج صور فنية بجودة سينمائية (اقرأ شرح الاستخدام)." },
-
-      { name: "Ideogram", url: "ideogram-review.html", desc: "الأداة الأقوى لتصميم الشعارات والنصوص داخل الصور بدقة مذهلة (اقرأ تجربتي وكيف تستخدمها)." },
-
-      { name: "Adobe Firefly", url: "firefly-review.html", desc: "أقوى أداة لتعديل الصور وإضافة العناصر بالذكاء الاصطناعي (تعرف على سحر أدوبي)." },
-      { name: "DALL-E", url: "dalle-review.html", desc: "أسهل أداة لتوليد الصور من داخل محادثة ChatGPT مباشرة (اقرأ تجربتي وشرح الاستخدام)." },
-      {
-  name: "Krea AI",
-  url: "krea-review.html", 
-  desc: "حوّل تخيلاتك إلى واقع مذهل في ثوانٍ. استكشف قوة التوليد الفوري والتحسين الاحترافي مع Krea AI."
-},
-{
-  name: "Magnific AI",
-  url: "magnific-review.html", 
-  desc: "لا تقبل بجودة منخفضة! أعد تعريف التفاصيل في صورك وانقلها إلى دقة 4K و 8K الخارقة بلمسة سحرية."
-},
-{
-  name: "Playground AI",
-  url: "playground-review.html", 
-  desc: "صمم، عدّل، وأطلق العنان لإبداعك. تجربة تصميم مرنة تمنحك أدوات المحترفين في واجهة سهلة لا تعرف المستحيل."
-},
-{
-  name: "Recraft AI",
-  url: "recraft-review.html", 
-  desc: "وداعاً لأدوات التصميم المعقدة. احصل على أيقونات ورسومات Vector حصرية لموقعك بلمسة ذكية تجعل تصميماتك فريدة."
-},
-{
-  name: "Remove.bg",
-  url: "remove-bg-review.html", 
-  desc: "هل تحتاج لإزالة خلفية صورة بدقة متناهية؟ وفر وقتك وجهدك واحصل على نتائج نظيفة وخالية من الأخطاء بضغطة زر."
-  }
-
+      { id: "i1", name: "Midjourney", url: "midjourney-review.html", desc: "الأداة رقم #1 عالمياً لتوليد الصور الفنية." },
+      { id: "i2", name: "Leonardo AI", url: "leonardo-review.html", desc: "أفضل بديل احترافي لإنتاج صور فنية بجودة عالية." },
+      { id: "i3", name: "Ideogram", url: "ideogram-review.html", desc: "الأداة الأقوى لتصميم الشعارات والنصوص داخل الصور." },
+      { id: "i4", name: "Adobe Firefly", url: "firefly-review.html", desc: "أداة قوية لتعديل الصور وإضافة العناصر بالذكاء الاصطناعي." },
+      { id: "i5", name: "DALL-E", url: "dalle-review.html", desc: "أسهل أداة لتوليد الصور من داخل محادثة ChatGPT مباشرة." },
+      { id: "i6", name: "Krea AI", url: "krea-review.html", desc: "تجربة توليد فورية وتحسين احترافي في واجهة مرنة." },
+      { id: "i7", name: "Magnific AI", url: "magnific-review.html", desc: "أداة مميزة لرفع الجودة وإعادة تعريف التفاصيل." },
+      { id: "i8", name: "Playground AI", url: "playground-review.html", desc: "واجهة سهلة تمنحك أدوات قوية للتصميم السريع." },
+      { id: "i9", name: "Recraft AI", url: "recraft-review.html", desc: "ممتازة للرسومات المتجهة والأيقونات والتصاميم النظيفة." },
+      { id: "i10", name: "Remove.bg", url: "remove-bg-review.html", desc: "إزالة الخلفيات بدقة وسرعة عالية بضغطة زر." }
     ];
-    document.getElementById('image-list').innerHTML = tools.map((t, i) => `
-      <div class="tool-list-item">
-        <div class="tool-number">${i + 1}</div>
-        <div class="tool-text"><h3>${t.name}</h3><p>${t.desc}</p></div>
-        <a href="${t.url}" target="_blank" class="visit-link">زيارة</a>
-      </div>`).join('');
+
+    function getSavedTools() {
+      try {
+        return JSON.parse(localStorage.getItem("savedTools")) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveTools(items) {
+      localStorage.setItem("savedTools", JSON.stringify(items));
+    }
+
+    function renderList() {
+      const listContainer = document.getElementById("image-list");
+      if (!listContainer) return;
+
+      const savedItems = getSavedTools();
+
+      listContainer.innerHTML = tools.map((tool, index) => {
+        const isSaved = savedItems.some(item => String(item.id) === String(tool.id));
+        const iconClass = isSaved ? "fas fa-heart" : "far fa-heart";
+
+        return `
+          <div class="tool-card">
+            <div class="tool-number">${index + 1}</div>
+
+            <div class="tool-main">
+              <div class="tool-text">
+                <h3>${tool.name}</h3>
+                <p>${tool.desc}</p>
+              </div>
+
+              <div class="tool-actions">
+                <a href="${tool.url}" class="visit-link">إقرأ المراجعة ←</a>
+                <button
+                  class="save-btn ${isSaved ? "active" : ""}"
+                  type="button"
+                  data-id="${tool.id}"
+                  aria-pressed="${isSaved ? "true" : "false"}"
+                  title="حفظ الأداة"
+                >
+                  <i class="${iconClass}"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function updateButtonState(btn, saved) {
+      const icon = btn.querySelector("i");
+      if (!icon) return;
+
+      btn.classList.toggle("active", saved);
+      btn.setAttribute("aria-pressed", saved ? "true" : "false");
+      icon.className = saved ? "fas fa-heart" : "far fa-heart";
+    }
+
+    function toggleTool(toolId) {
+      const tool = tools.find(t => String(t.id) === String(toolId));
+      if (!tool) return null;
+
+      const saved = getSavedTools();
+      const index = saved.findIndex(item => String(item.id) === String(tool.id));
+
+      if (index === -1) {
+        saved.push({
+          id: tool.id,
+          name: tool.name,
+          url: tool.url,
+          desc: tool.desc
+        });
+        saveTools(saved);
+        return true;
+      } else {
+        saved.splice(index, 1);
+        saveTools(saved);
+        return false;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const listContainer = document.getElementById("image-list");
+
+      if (listContainer) {
+        listContainer.addEventListener("click", (e) => {
+          const btn = e.target.closest(".save-btn");
+          if (!btn) return;
+
+          const result = toggleTool(btn.dataset.id);
+          if (result === null) return;
+
+          updateButtonState(btn, result);
+        });
+      }
+
+      renderList();
+    });
+
+    window.addEventListener("pageshow", renderList);
+    window.addEventListener("storage", renderList);
   </script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
 </body>
 </html>

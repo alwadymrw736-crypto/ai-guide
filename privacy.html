@@ -4,48 +4,150 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>سياسة الخصوصية - بوابة الأدوات الذكية</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main-bg: linear-gradient(to bottom, #e0f2fe, #f8fafc);
-      --accent: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%);
-      --text-dark: #1e293b;
+      --main-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --primary: #8b5cf6;
+      --secondary: #10b981;
+      --text: #1e293b;
+      --desc-text: #334155;
+      --border-color: #e2e8f0;
     }
-    body { font-family: 'Cairo', sans-serif; background: #f8fafc; margin: 0; padding: 0; color: var(--text-dark); line-height: 1.8; }
-    .navbar { background: var(--main-bg); padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 800; font-size: 1.2rem; }
-    .container { width: 90%; max-width: 800px; margin: 40px auto; background: white; padding: 30px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-    h1, h2 { color: #8b5cf6; }
-    p { margin-bottom: 15px; text-align: justify; }
-    .back-home { display: block; text-align: center; margin-top: 30px; color: #10b981; text-decoration: none; font-weight: 700; }
+
+    /* إعدادات الوضع الليلي الذكي */
+    body.dark-mode {
+      --main-bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f1f5f9;
+      --desc-text: #cbd5e1;
+      --border-color: #334155;
+    }
+
+    body { 
+      font-family: 'Cairo', sans-serif; 
+      background: var(--main-bg); 
+      margin: 0; 
+      padding: 0; 
+      color: var(--text); 
+      line-height: 2;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar { 
+      background: var(--card-bg); 
+      padding: 20px 5%; 
+      text-align: center; 
+      border-bottom: 1px solid var(--border-color); 
+      font-weight: 900; 
+      font-size: 1.3rem;
+      color: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container { 
+      width: 90%; 
+      max-width: 850px; 
+      margin: 50px auto; 
+      background: var(--card-bg); 
+      padding: 45px; 
+      border-radius: 30px; 
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
+      transition: background 0.3s ease;
+    }
+
+    h1 { 
+      color: var(--primary); 
+      font-weight: 900; 
+      font-size: 2.2rem; 
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    h2 { 
+      color: var(--secondary); 
+      font-size: 1.6rem; 
+      margin-top: 40px; 
+      border-right: 5px solid var(--primary);
+      padding-right: 15px;
+      font-weight: 800;
+    }
+
+    p { 
+      margin-bottom: 20px; 
+      text-align: justify; 
+      color: var(--desc-text);
+      font-size: 1.15rem;
+    }
+
+    .info-box {
+      background: var(--main-bg);
+      border: 1px solid var(--border-color);
+      padding: 25px;
+      border-radius: 20px;
+      margin: 30px 0;
+    }
+
+    .back-home { 
+      display: inline-block; 
+      margin-top: 40px; 
+      color: var(--primary); 
+      text-decoration: none; 
+      font-weight: 800; 
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .back-home:hover {
+      transform: translateX(-5px);
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 25px; margin: 20px auto; }
+      h1 { font-size: 1.8rem; }
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
-  <nav class="navbar">سياسة الخصوصية</nav>
+
+  <nav class="navbar">بوابة الأدوات الذكية</nav>
+
   <div class="container">
-    <h1>خصوصيتك تهمنا</h1>
-    <p>مرحباً بك في بوابة الأدوات الذكية. نحن نولي خصوصية زوارنا أهمية بالغة، وتوضح هذه الصفحة أنواع المعلومات التي نجمعها وكيفية حمايتها.</p>
+    <h1>سياسة الخصوصية</h1>
+    
+    <div class="info-box">
+        <p><strong>خصوصيتك تهمنا:</strong> مرحباً بك في بوابة الأدوات الذكية. نحن نولي خصوصية زوارنا أهمية بالغة، وتوضح هذه الصفحة أنواع المعلومات التي نجمعها وكيفية حمايتها وفقاً للمعايير التقنية لعام 2026.</p>
+    </div>
     
     <h2>1. جمع المعلومات</h2>
-    <p>نحن في موقعنا لا نقوم بجمع أي بيانات شخصية حساسة عنك بشكل آلي. المعلومات التي قد يتم تسجيلها هي معلومات تقنية بسيطة يقدمها متصفحك، مثل نوع الجهاز، ونوع المتصفح، ووقت الزيارة، وذلك لتحسين تجربة المستخدم فقط.</p>
+    <p>نحن في موقعنا لا نقوم بجمع أي بيانات شخصية حساسة عنك بشكل آلي. المعلومات التي قد يتم تسجيلها هي معلومات تقنية بسيطة يقدمها متصفحك، مثل نوع الجهاز، ونوع المتصفح، ووقت الزيارة، وذلك لتحسين تجربة المستخدم وضمان توافق الأدوات مع جهازك.</p>
 
     <h2>2. ملفات تعريف الارتباط (Cookies)</h2>
-    <p>يستخدم موقعنا ملفات تعريف الارتباط لتخزين معلومات حول تفضيلات الزوار، وتسجيل معلومات محددة عن المستخدم، مثل الصفحات التي يزورها، وذلك لتخصيص محتوى الصفحة بناءً على نوع المتصفح أو أي معلومات أخرى يرسلها الزائر.</p>
+    <p>يستخدم موقعنا ملفات تعريف الارتباط لتخزين معلومات حول تفضيلات الزوار، وتسجيل معلومات محددة عن المستخدم، مثل الصفحات التي يزورها، وذلك لتخصيص محتوى الصفحة بناءً على نوع المتصفح.</p>
+    <p>كما نستخدم خدمات طرف ثالث موثوقة مثل <strong>Google AdSense</strong>، والتي تستخدم ملفات تعريف الارتباط لعرض الإعلانات بناءً على زياراتك السابقة لموقعنا أو لمواقع أخرى على الإنترنت، وذلك لتوفير إعلانات تهمك وتناسب اهتماماتك التقنية.</p>
 
-  <p>يستخدم موقعنا ملفات تعريف الارتباط لتخزين معلومات حول تفضيلات الزوار، وتخصيص محتوى الصفحة. كما نستخدم خدمات طرف ثالث مثل **Google AdSense**، والتي تستخدم ملفات تعريف الارتباط لعرض الإعلانات بناءً على زياراتك السابقة لموقعنا أو لمواقع أخرى على الإنترنت.</p>
-    
-    <h2>3. الروابط الخارجية</h2>
-    <p>يحتوي موقعنا على روابط لمواقع خارجية (أدوات الذكاء الاصطناعي). يرجى العلم أننا لا نملك أي سيطرة على محتوى أو ممارسات تلك المواقع، ولا يمكننا تحمل المسؤولية عن سياسات الخصوصية الخاصة بها. ننصحك بقراءة سياسة الخصوصية لكل موقع تزوره.</p>
+    <h2>3. الروابط الخارجية والأدوات</h2>
+    <p>يحتوي موقعنا على روابط لمواقع خارجية وأدوات ذكاء اصطناعي متنوعة. يرجى العلم أننا لا نملك أي سيطرة على محتوى أو ممارسات تلك المواقع، ولا يمكننا تحمل المسؤولية عن سياسات الخصوصية الخاصة بها. ننصحك بقراءة سياسة الخصوصية لكل أداة أو موقع خارجي تقوم بزيارته عبر بوابتنا.</p>
 
-    <h2>4. الموافقة</h2>
-    <p>باستخدامك لموقعنا، فإنك توافق على سياسة الخصوصية الخاصة بنا وتلتزم بشروطها. نحن نحتفظ بالحق في تعديل هذه السياسة في أي وقت، وسيتم نشر التحديثات مباشرة على هذه الصفحة لضمان شفافية التعامل مع جميع الزوار.</p>
+    <h2>4. الموافقة والتحديثات</h2>
+    <p>باستخدامك لموقعنا، فإنك توافق على سياسة الخصوصية الخاصة بنا وتلتزم بشروطها. نحن نحتفظ بالحق في تعديل هذه السياسة في أي وقت لمواكبة التطورات التقنية، وسيتم نشر التحديثات مباشرة على هذه الصفحة لضمان شفافية التعامل مع جميع زوارنا المبدعين.</p>
     
-    <a href="index.html" class="back-home">← العودة للرئيسية</a>
+    <div style="text-align: center;">
+        <a href="index.html" class="back-home">← العودة للصفحة الرئيسية</a>
+    </div>
   </div>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
+
+  <script>
+    // تفعيل الوضع الليلي تلقائياً بناءً على إعدادات الموقع الرئيسية
+    (function() {
+        if (localStorage.getItem("site_theme") === "dark" || localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    })();
+  </script>
+
 </body>
 </html>

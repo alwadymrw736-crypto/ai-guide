@@ -1,0 +1,66 @@
+:root {
+    --bg-site: #f3f4f6;
+    --bg-card: #ffffff;
+    --text-prime: #111827;
+    --border-color: #e5e7eb;
+    --navbar-text: #0f172a;
+    --income-bg: #f0fdf4;
+    --income-border: #10b981;
+    --info-bg: #eff6ff;
+    --info-border: #3b82f6;
+    --content-bg: #fffbeb;
+    --content-border: #f59e0b;
+}
+
+[data-theme="dark"] {
+    --bg-site: #0b0f1a;
+    --bg-card: #161b2a;
+    --text-prime: #f9fafb;
+    --border-color: #2d334a;
+    --navbar-text: #f9fafb;
+    --income-bg: #052e2b;
+    --income-border: #34d399;
+    --info-bg: #0b1e3a;
+    --info-border: #60a5fa;
+    --content-bg: #2d2006;
+    --content-border: #d97706;
+}
+
+body, html, .main-content, section, .container {
+    background-color: var(--bg-site) !important;
+    background-image: none !important;
+    color: var(--text-prime) !important;
+    transition: 0.3s ease;
+}
+
+.tool-card, .card, .bg-white, [class*="card"],
+div[style*="background-color: white"], div[style*="background: white"],
+div[style*="background-color: #ffffff"], div[style*="background: #ffffff"],
+.shadow-sm, .shadow-md {
+    background-color: var(--bg-card) !important;
+    background: var(--bg-card) !important;
+    color: var(--text-prime) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.18) !important;
+}
+
+/* إصلاح بطاقة صناعة المحتوى والبطاقات الملونة */
+div[style*="background: #fffbeb"], div[style*="background-color: #fffbeb"] {
+    background: var(--content-bg) !important;
+    border-color: var(--content-border) !important;
+}
+
+/* النصوص والعناوين */
+h1, h2, h3, h4, h5, h6, p, span, li, b, strong, i, small,
+[style*="color: #0"], [style*="color: #1"], [style*="color: navy"],
+[style*="color: #92400e"], [style*="color: #b45309"] {
+    color: var(--text-prime) !important;
+}
+
+.navbar, header, nav, .header-container {
+    background-color: var(--bg-card) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    color: var(--navbar-text) !important;
+}
+
+.tool-card *, .card *, div[class*="card"] * { color: var(--text-prime) !important; }

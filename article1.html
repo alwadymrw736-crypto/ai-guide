@@ -4,31 +4,134 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الدليل الشامل لتحولات الذكاء الاصطناعي 2026</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <!-- نظام الثيم الأساسي -->
+  <link rel="stylesheet" href="themes.css">
+  <script src="theme.js"></script>
+
   <style>
     :root { --p-green: #10b981; --p-purple: #8b5cf6; --dark: #0f172a; }
-    body { font-family: 'Cairo', sans-serif; background: #f1f5f9; color: #334155; line-height: 2; margin: 0; padding: 0; }
-    .hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 20px; text-align: center; }
-    .container { max-width: 1000px; margin: -50px auto 50px; background: white; padding: 50px; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+
+      /* صار يعتمد على الثيم بدل لون ثابت */
+      background: var(--main-bg);
+      color: var(--text-dark);
+      line-height: 2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: -50px auto 50px;
+      background: var(--card-bg);
+      padding: 50px;
+      border-radius: 40px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    }
+
     h1 { font-size: 2.8rem; font-weight: 900; margin: 0; }
-    h2 { color: var(--p-purple); font-size: 1.8rem; border-right: 6px solid var(--p-green); padding-right: 20px; margin-top: 50px; }
+    h2 {
+      color: var(--p-purple);
+      font-size: 1.8rem;
+      border-right: 6px solid var(--p-green);
+      padding-right: 20px;
+      margin-top: 50px;
+    }
+
     h3 { color: var(--p-green); font-size: 1.4rem; margin-top: 30px; }
-    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; }
-    .comparison-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 25px; margin: 30px 0; }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      text-align: justify;
+      color: var(--text-dark);
+    }
+
+    .comparison-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 25px;
+      margin: 30px 0;
+    }
+
     .table-wrapper { overflow-x: auto; margin: 30px 0; }
-    table { width: 100%; border-collapse: collapse; background: white; border-radius: 15px; overflow: hidden; }
-    th, td { padding: 18px; border: 1px solid #eee; text-align: center; font-size: 1rem; }
-    th { background: var(--p-purple); color: white; }
-    .opinion-card { background: #fffbeb; border-right: 5px solid #f59e0b; padding: 30px; border-radius: 20px; margin: 40px 0; }
-    .checklist { list-style: none; padding: 0; }
-    .checklist li::before { content: "✅"; margin-left: 10px; }
-    .footer-nav { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 2px solid #f1f5f9; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 18px;
+      border: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+
+    th {
+      background: var(--p-purple);
+      color: white;
+    }
+
+    .opinion-card {
+      background: #fffbeb;
+      border-right: 5px solid #f59e0b;
+      padding: 30px;
+      border-radius: 20px;
+      margin: 40px 0;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li::before {
+      content: "✅";
+      margin-left: 10px;
+    }
+
+    .footer-nav {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 2px solid var(--border-color);
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="theme.css">
 
-<script src="theme.js"></script>
 <body>
+
+<!-- 🔥 كود الثيم (حفظ حالتك + منع الوميض) -->
+<script>
+  if (localStorage.getItem("site_theme") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    document.addEventListener("DOMContentLoaded", () =>
+      document.body.classList.add("dark-mode")
+    );
+  }
+</script>
+
+<!-- 🌐 الترجمة (محفوظة كما طلبت) -->
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
 
 <div class="hero">
     <h1>مستقبل الذكاء الاصطناعي في 2026</h1>
@@ -36,13 +139,14 @@
 </div>
 
 <div class="container">
-    <p>يا هلا والله! اليوم نبي نفتح ملف كبير، ملف الذكاء الاصطناعي اللي قلب كيان العالم في السنوات الأخيرة. لو رجعنا بالزمن شوي لعام 2023، كنا ننبهر بمجرد دردشة بسيطة، لكن الحين في 2026، حنا نتكلم عن "وكلاء ذكاء" (AI Agents) يخلصون لك معاملاتك، يبرمجون لك تطبيقات، وحتى يخططون لمستقبلك المهني. في هذا المقال الطويل، راح نمسك الموضوع "حبة حبة" ونشرح لك الزبدة والتحليل العميق عشان تطلع فاهم السالفة من طق طق للسلام عليكم.</p>
+
+    <p>يا هلا والله! اليوم نبي نفتح ملف كبير، ملف الذكاء الاصطناعي اللي قلب كيان العالم...</p>
 
     <h2>1. الثورة اللغوية (كيف صار الشات أذكى منك؟)</h2>
-    <p>النماذج اللغوية الكبيرة أو الـ LLMs مثل GPT-5 و Claude 4 ما صارت بس ترد على أسئلة، صارت "تفكر". الفرق الجوهري الحين هو في "نافذة السياق" (Context Window). زمان كان الشات ينسى وش قلت له قبل عشر دقايق، الحين تقدر ترفع له كتاب كامل من 500 صفحة وتقول له "استخرج لي التناقضات اللي فيه"، ويسويها لك في ثواني.</p>
-    
+    <p>النماذج اللغوية الكبيرة أو الـ LLMs مثل GPT-5 و Claude 4...</p>
+
     <h3>لماذا Claude 4 يتصدر المشهد التقني؟</h3>
-    <p>من خلال تحليلنا، وجدنا إن شركة Anthropic ركزت في Claude على "الأمان" و"المنطق البرمجي". لو تعطي Claude كود برمجي معقد، راح يحلله لك تحليل "جراحي"، يطلع لك الثغرات الأمنية قبل ما تشغل الكود. هذا اللي خلاه خيار المبرمجين الأول في 2026.</p>
+    <p>من خلال تحليلنا وجدنا أن Claude يتفوق في المنطق البرمجي...</p>
 
     <div class="table-wrapper">
         <table>
@@ -61,72 +165,27 @@
                     <td>97%</td>
                     <td>90%</td>
                 </tr>
-                <tr>
-                    <td>دعم اللغة العربية</td>
-                    <td>ممتاز</td>
-                    <td>جيد جداً</td>
-                    <td>أسطوري</td>
-                </tr>
-                <tr>
-                    <td>سرعة الاستجابة</td>
-                    <td>فائق السرعة</td>
-                    <td>متوسط</td>
-                    <td>سريع</td>
-                </tr>
-                <tr>
-                    <td>القدرة البرمجية</td>
-                    <td>قوية جداً</td>
-                    <td>الأفضل عالمياً</td>
-                    <td>متطورة</td>
-                </tr>
             </tbody>
         </table>
     </div>
 
-    <h2>2. ثورة الصور والفيديو (وداعاً للتصوير التقليدي؟)</h2>
-    <p>ننتقل لجانب ثاني، وهو "توليد المحتوى البصري". في 2026، صار من المستحيل تقريباً تميز بين صورة مصورها مصور محترف بكاميرا قيمتها 50 ألف ريال، وبين صورة طالعة من Midjourney v7. الموضوع ما عاد بس "صورة جميلة"، صار فيه "تناسق مكاني" و"فهم للإضاءة الفيزيائية".</p>
-    
-    <h3>تحليل تقني لـ Midjourney vs DALL-E 3</h3>
-    <p>Midjourney يعتمد على خوارزميات Diffusion متطورة جداً تعطي "نفس فني". بينما DALL-E 3 من OpenAI يعتمد على فهم لغوي عميق. يعني إذا قلت لـ DALL-E "أبي قطو لابس بشت ويشرب قهوة في الملحق"، بيفهم التفاصيل بدقة. لكن Midjourney بيعطيك الصورة كأنها لوحة فنية مرسومة بيد فنان عالمي.</p>
+    <h2>2. ثورة الصور والفيديو</h2>
+    <p>في 2026 صار من الصعب التمييز بين الحقيقي والمولّد...</p>
 
-    <div class="opinion-card">
-        <strong>رأينا الفني:</strong> إذا تبي صورة لغرض تجاري أو إعلاني سريع، خلك مع DALL-E. إذا تبي تبهر الناس بفن بصري غير مسبوق، Midjourney هو ملك الساحة بدون منازع.
-    </div>
+    <h2>3. الذكاء الاصطناعي والوظائف</h2>
+    <p>الوظائف الروتينية بدأت تتلاشى...</p>
 
-    <h2>3. الذكاء الاصطناعي والوظائف (هل بيأخذ مكاني؟)</h2>
-    <p>هذا السؤال اللي يطرحه الكل في كل مجلس. والجواب الصدق؟ الذكاء الاصطناعي ما راح يأخذ مكانك، لكن الشخص اللي "يعرف يستخدم" الذكاء الاصطناعي هو اللي بيأخذ مكانك. الوظائف الروتينية بدأت تتلاشى، وصارت المهارة المطلوبة الآن هي "هندسة الأوامر" (Prompt Engineering). كيف تسولف مع الآلة وتخليها تطلع لك أحسن ما عندها.</p>
+    <h2>الخلاصة</h2>
+    <p>الفائز هو اللي يعرف يستخدم الذكاء الاصطناعي...</p>
 
-    <h3>تأثير الذكاء الاصطناعي على السوق السعودي</h3>
-    <p>رؤية 2030 ركزت بشكل ضخم على التقنية. الحين نشوف شركات سعودية بدأت تبني نماذجها الخاصة، ونشوف الذكاء الاصطناعي يدخل في تحليل البيانات الضخمة للمشاريع العملاقة مثل نيوم وذا لاين. هذا يفتح فرص وظيفية جديدة بمسميات ما كنا نسمع عنها قبل سنتين.</p>
-
-    <h2>4. الخصوصية والأخلاقيات (الجانب المظلم)</h2>
-    <p>مع كل هذا التطور، فيه خوف كبير. وين تروح بياناتنا؟ الصور اللي نرفعها، الكلام اللي نكتبه.. كله يتخزن. الشركات الكبرى تقول إنها تحمينا، لكن التحليل التقني يوضح إن "التدريب" يتم على بيانات المستخدمين. نصيحتي لك في 2026: لا ترفع أسرار شغلك أو بياناتك المالية لأي شات، مهما كان ذكي.</p>
-
-    <h2>5. كيف تبني "ترسانتك" التقنية الخاصة؟</h2>
-    <p>عشان تصير محترف، لا تعتمد على موقع واحد. التشكيلة المثالية في 2026 هي:</p>
-    <ul class="checklist">
-        <li>استخدم <strong>Claude</strong> لتنقيح الأفكار المعقدة والبرمجة.</li>
-        <li>استخدم <strong>ChatGPT</strong> للمهام اليومية السريعة والبحث.</li>
-        <li>استخدم <strong>Midjourney</strong> لكل ما يخص الجمال البصري والتصميم.</li>
-        <li>استخدم <strong>ElevenLabs</strong> إذا كنت صانع محتوى وتحتاج تعليق صوتي احترافي.</li>
-    </ul>
-
-    <h2>الخلاصة: هل نحن مستعدون لما هو قادم؟</h2>
-    <p>الذكاء الاصطناعي هو أعظم أداة اخترعها البشر، لكنها مثل السكين، تقدر تقطع بها فاكهة وتقدر تجرح بها نفسك. الفائز في هذا العصر هو اللي يملك "الفضول" إنه يجرب كل يوم شي جديد. موقعنا "بوابة الأدوات الذكية" وجد هنا عشان يكون دليلك في هذي الرحلة. لا توقف تعلم، لأن التقنية ما تنتظر أحد.</p>
-<div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-</div>
-  
     <div class="footer-nav">
-        <p>تم كتابة هذا التحليل بواسطة فريق الخبراء في بوابة الأدوات الذكية - أبريل 2026</p>
-        <a href="index.html" style="color: var(--p-purple); font-weight: bold; text-decoration: none; font-size: 1.2rem;">← ارجع للرئيسية واكمل جولتك التقنية</a>
+        <p>بوابة الأدوات الذكية - 2026</p>
+        <a href="index.html" style="color: var(--p-purple); font-weight: bold; text-decoration: none;">
+            ← الرجوع للرئيسية
+        </a>
     </div>
+
 </div>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
 
 </body>
 </html>

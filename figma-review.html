@@ -3,43 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+    // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
+    if (localStorage.getItem("site_theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+    }
+  </script>
+
   <meta name="description" content="شرح Figma للمبتدئين 2026: كيف تصمم واجهات المواقع والتطبيقات باحترافية؟ مراجعة شاملة بناءً على تجربة شخصية في تحويل الأفكار إلى كود حقيقي.">
   <title>شرح Figma للمبتدئين 2026: تجربتي في عالم تصميم تجربة المستخدم UI/UX</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --main-bg: #f8fafc; --primary: #f24e1e; --secondary: #a259ff; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    :root { 
+        --main-bg: #f8fafc; 
+        --primary: #f24e1e; 
+        --secondary: #a259ff; 
+        --text: #1e293b; 
+        --card-bg: white;
+        --border-color: #e2e8f0;
+    }
+
+    /* تنسيقات الثيم المظلم */
+    .dark-mode {
+        --main-bg: #0f172a;
+        --text: #f1f5f9;
+        --card-bg: #1e293b;
+        --border-color: #334155;
+    }
+
+    body { 
+        font-family: 'Cairo', sans-serif; 
+        background: var(--main-bg); 
+        line-height: 2.2; 
+        margin: 0; 
+        color: var(--text); 
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .nav-header { 
+        background: var(--card-bg); 
+        padding: 15px 5%; 
+        border-bottom: 1px solid var(--border-color); 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+        transition: background 0.3s;
+    }
+
+    .article-wrap { 
+        max-width: 900px; 
+        margin: 40px auto; 
+        background: var(--card-bg); 
+        padding: 50px; 
+        border-radius: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .dark-mode .article-wrap {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
     
     h1 { color: var(--primary); font-size: 2.5rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
     h2 { color: var(--secondary); font-size: 1.9rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
-    p { font-size: 1.25rem; margin-bottom: 25px; text-align: justify; color: #334155; }
+    
+    p { 
+        font-size: 1.25rem; 
+        margin-bottom: 25px; 
+        text-align: justify; 
+        color: var(--text); 
+        transition: color 0.3s;
+    }
 
-    .dev-story { background: #fff7ed; border: 1px solid #ffedd5; padding: 35px; border-radius: 20px; margin: 40px 0; border-right: 8px solid var(--primary); }
+    .dev-story { 
+        background: #fff7ed; 
+        border: 1px solid #ffedd5; 
+        padding: 35px; 
+        border-radius: 20px; 
+        margin: 40px 0; 
+        border-right: 8px solid var(--primary); 
+    }
+    .dark-mode .dev-story {
+        background: #2a1a10;
+        border-color: #431407;
+    }
     .dev-story h4 { margin-top: 0; color: #c2410c; font-size: 1.4rem; font-weight: 900; }
+    .dark-mode .dev-story h4 { color: #fb923c; }
 
-    .seo-links { background: #f1f5f9; padding: 20px; border-radius: 15px; margin-bottom: 35px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.95rem; }
+    .seo-links { 
+        background: var(--border-color); 
+        padding: 20px; 
+        border-radius: 15px; 
+        margin-bottom: 35px; 
+        display: flex; 
+        gap: 20px; 
+        flex-wrap: wrap; 
+        font-size: 0.95rem; 
+    }
     .seo-links a { color: var(--secondary); font-weight: bold; text-decoration: none; border-bottom: 1px dashed var(--secondary); }
 
     .figma-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 35px 0; }
-    .feat-card { background: #fff; border: 1px solid #eee; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .feat-card { 
+        background: var(--card-bg); 
+        border: 1px solid var(--border-color); 
+        padding: 25px; 
+        border-radius: 15px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+    }
     .feat-card b { color: var(--primary); font-size: 1.2rem; display: block; margin-bottom: 10px; }
 
-    .data-table { width: 100%; border-collapse: collapse; margin: 35px 0; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 35px 0; border-radius: 15px; overflow: hidden; border: 1px solid var(--border-color); }
     .data-table th { background: var(--secondary); color: white; padding: 20px; }
-    .data-table td { padding: 18px; border: 1px solid #eee; text-align: center; }
+    .data-table td { padding: 18px; border: 1px solid var(--border-color); text-align: center; color: var(--text); }
 
-    .faq-figma { background: #fafafa; padding: 40px; border-radius: 25px; margin-top: 60px; border: 1px solid #f1f5f9; }
+    .faq-figma { 
+        background: var(--main-bg); 
+        padding: 40px; 
+        border-radius: 25px; 
+        margin-top: 60px; 
+        border: 1px solid var(--border-color); 
+    }
     .faq-q { color: var(--primary); font-weight: 900; font-size: 1.3rem; display: block; margin-bottom: 10px; }
 
-    .cta-figma { text-align: center; margin-top: 70px; padding: 55px; background: linear-gradient(145deg, #ffffff, #fff7ed); border-radius: 35px; border: 2px solid #e2e8f0; }
-    .btn-figma { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 22px 55px; border-radius: 18px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1.4rem; box-shadow: 0 12px 25px rgba(242, 78, 30, 0.2); }
+    .cta-figma { 
+        text-align: center; 
+        margin-top: 70px; 
+        padding: 55px; 
+        background: var(--card-bg); 
+        border-radius: 35px; 
+        border: 2px solid var(--border-color); 
+    }
+    .btn-figma { 
+        background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+        color: white; 
+        padding: 22px 55px; 
+        border-radius: 18px; 
+        text-decoration: none; 
+        font-weight: 900; 
+        display: inline-block; 
+        font-size: 1.4rem; 
+        box-shadow: 0 12px 25px rgba(242, 78, 30, 0.2); 
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
 
 <nav class="nav-header">
@@ -57,6 +168,8 @@
 
     <h1>شرح Figma للمبتدئين 2026: كيف تصمم واجهة موقعك قبل برمجتها؟</h1>
     
+    
+
     <p>في رحلة تطوير أي مشروع برمجى، لا يمكنك القفز مباشرة إلى الكود دون خطة بصرية واضحة. هنا يأتي دور <strong>Figma</strong>، الأداة التي أصبحت في عام 2026 اللغة المشتركة بين المصممين والمبرمجين. ما يميز فيجما هو أنه يعمل بالكامل داخل المتصفح، مما يتيح لك الوصول لتصاميمك من أي جهاز وفي أي وقت. من خلال تجربتي في بناء صفحات الويب، وجدت أن <strong>Figma</strong> هو الجسر الذي يحول فكرتي المشتتة إلى واقع ملموس وقابل للتنفيذ. في هذا المقال، سأقدم لك <strong>شرح Figma للمبتدئين</strong> وكيف سيوفر عليك ساعات من التعديلات البرمجية المرهقة.</p>
 
     <div class="dev-story">
@@ -84,6 +197,7 @@
     </div>
 
     <h2>كيف تستخدم Figma باحترافية؟</h2>
+    
     <p>أول خطوة في <strong>كيفية استخدام Figma</strong> هي تعلم "التنظيم". استخدم ميزة (Frames) لترتيب صفحات موقعك، واعتمد على (Components) للعناصر التي تتكرر كثيراً مثل الأزرار أو الهيدر. في عام 2026، أتاح فيجما إمكانية "التحدث للتصميم"، حيث يمكنك أن تطلب منه: "أنشئ صفحة تسجيل دخول عصرية باللون الأرجواني"، وسيقوم برسم الهيكل الأساسي لك لتقوم أنت بتطويره.</p>
 
     <h2>مقارنة: Figma مقابل Adobe XD</h2>
@@ -136,18 +250,13 @@
     <div class="cta-figma">
         <h3>ارسم فكرتك قبل أن تضيع</h3>
         <p>التصميم الجيد هو نصف نجاح المشروع. ابدأ الآن في رسم واجهة حلمك مع Figma وانضم لملايين المبدعين عالمياً.</p>
-        <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-        </div>
-      
+        
         <a href="https://www.figma.com" target="_blank" rel="noopener" class="btn-figma">جرب Figma مجاناً اليوم</a>
         <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px;">* الرابط يفتح في نافذة جديدة - صمم بذكاء!</p>
     </div>
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
+
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
 </body>
 </html>

@@ -3,43 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script>
+    // نظام ذكي للتحقق من الثيم المفضل للمستخدم لمنع الومضة البيضاء
+    if (localStorage.getItem("site_theme") === "dark" || 
+        (!localStorage.getItem("site_theme") && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add("dark-mode");
+      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+    }
+  </script>
+
   <meta name="description" content="شرح HeyGen للمبتدئين 2026: كيف تصنع أفاتار يتحدث بصوتك وترجمة فيديوهاتك بذكاء؟ مراجعة شاملة بناءً على تجربة شخصية في صناعة المحتوى الرقمي.">
   <title>شرح HeyGen للمبتدئين 2026: تجربتي مع أفضل صانع أفاتار ذكي</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --main-bg: #f8fafc; --primary: #8b5cf6; --secondary: #10b981; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    :root { 
+        --main-bg: #f8fafc; 
+        --primary: #8b5cf6; 
+        --secondary: #10b981; 
+        --text: #1e293b; 
+        --card-bg: white;
+        --border-color: #e2e8f0;
+        --exp-bg: #eff6ff;
+        --exp-text: #1d4ed8;
+    }
+
+    /* تنسيقات الوضع المظلم (Dark Mode) */
+    .dark-mode {
+        --main-bg: #0f172a;
+        --text: #f1f5f9;
+        --card-bg: #1e293b;
+        --border-color: #334155;
+        --exp-bg: #1e293b;
+        --exp-text: #60a5fa;
+    }
+
+    body { 
+        font-family: 'Cairo', sans-serif; 
+        background: var(--main-bg); 
+        line-height: 2.2; 
+        margin: 0; 
+        color: var(--text); 
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .nav-header { 
+        background: var(--card-bg); 
+        padding: 15px 5%; 
+        border-bottom: 1px solid var(--border-color); 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+    }
+
+    .article-wrap { 
+        max-width: 900px; 
+        margin: 40px auto; 
+        background: var(--card-bg); 
+        padding: 50px; 
+        border-radius: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        transition: background 0.3s;
+    }
+
+    .dark-mode .article-wrap { box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
     
     h1 { color: var(--primary); font-size: 2.5rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
     h2 { color: var(--secondary); font-size: 1.9rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
-    p { font-size: 1.25rem; margin-bottom: 25px; text-align: justify; color: #334155; }
+    
+    p { font-size: 1.25rem; margin-bottom: 25px; text-align: justify; color: var(--text); opacity: 0.9; }
 
-    .heygen-experience { background: #eff6ff; border: 1px solid #dbeafe; padding: 35px; border-radius: 20px; margin: 40px 0; border-left: 8px solid #3b82f6; }
-    .heygen-experience h4 { margin-top: 0; color: #1d4ed8; font-size: 1.4rem; font-weight: 900; }
+    .heygen-experience { 
+        background: var(--exp-bg); 
+        border: 1px solid var(--border-color); 
+        padding: 35px; 
+        border-radius: 20px; 
+        margin: 40px 0; 
+        border-left: 8px solid #3b82f6; 
+    }
+    .heygen-experience h4 { margin-top: 0; color: var(--exp-text); font-size: 1.4rem; font-weight: 900; }
 
-    .internal-links { background: #f1f5f9; padding: 20px; border-radius: 15px; margin-bottom: 35px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.95rem; }
+    .internal-links { 
+        background: var(--main-bg); 
+        padding: 20px; 
+        border-radius: 15px; 
+        margin-bottom: 35px; 
+        display: flex; 
+        gap: 20px; 
+        flex-wrap: wrap; 
+        font-size: 0.95rem; 
+        border: 1px solid var(--border-color);
+    }
     .internal-links a { color: var(--primary); font-weight: bold; text-decoration: none; border-bottom: 1px dashed var(--primary); }
 
     .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 35px 0; }
-    .feature-item { background: #fff; border: 1px solid #eee; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .feature-item { 
+        background: var(--card-bg); 
+        border: 1px solid var(--border-color); 
+        padding: 25px; 
+        border-radius: 15px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+    }
     .feature-item b { color: var(--primary); font-size: 1.2rem; display: block; margin-bottom: 10px; }
 
-    .comparison-table { width: 100%; border-collapse: collapse; margin: 35px 0; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 35px 0; border-radius: 15px; overflow: hidden; border: 1px solid var(--border-color); }
     .comparison-table th { background: var(--secondary); color: white; padding: 20px; }
-    .comparison-table td { padding: 18px; border: 1px solid #eee; text-align: center; }
+    .comparison-table td { padding: 18px; border: 1px solid var(--border-color); text-align: center; color: var(--text); }
 
-    .faq-heygen { background: #fafafa; padding: 40px; border-radius: 25px; margin-top: 60px; border: 1px solid #f1f5f9; }
+    .faq-heygen { 
+        background: var(--main-bg); 
+        padding: 40px; 
+        border-radius: 25px; 
+        margin-top: 60px; 
+        border: 1px solid var(--border-color); 
+    }
     .faq-q { color: var(--primary); font-weight: 900; font-size: 1.3rem; display: block; margin-bottom: 10px; }
 
-    .cta-heygen { text-align: center; margin-top: 70px; padding: 55px; background: linear-gradient(145deg, #ffffff, #f8fafc); border-radius: 35px; border: 2px solid #e2e8f0; }
-    .btn-heygen { background: linear-gradient(135deg, #3b82f6, var(--primary)); color: white; padding: 22px 55px; border-radius: 18px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1.4rem; box-shadow: 0 12px 25px rgba(59, 130, 246, 0.2); }
+    .cta-heygen { 
+        text-align: center; 
+        margin-top: 70px; 
+        padding: 55px; 
+        background: var(--card-bg); 
+        border-radius: 35px; 
+        border: 2px solid var(--border-color); 
+    }
+    .btn-heygen { 
+        background: linear-gradient(135deg, #3b82f6, var(--primary)); 
+        color: white; 
+        padding: 22px 55px; 
+        border-radius: 18px; 
+        text-decoration: none; 
+        font-weight: 900; 
+        display: inline-block; 
+        font-size: 1.4rem; 
+        box-shadow: 0 12px 25px rgba(59, 130, 246, 0.2); 
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
 
 <nav class="nav-header">
@@ -84,7 +187,7 @@
     </div>
 
     <h2>كيف تستخدم HeyGen باحترافية؟</h2>
-    <p>لكي تحصل على أفضل نتيجة في <strong>كيفية استخدام HeyGen</strong>، ركز على "السيناريو". الأداة توفر ميزة التكامل مع ChatGPT لكتابة نصوص جذابة. بمجرد اختيار الأفاتار، قم بتعديل "لغة الجسد" (Body Language) من الإعدادات لتناسب طبيعة المحتوى؛ فإذا كان المحتوى تعليمياً، اختر حركات هادئة، وإذا كان تسويقياً، اختر حركات أكثر حيوية. في عام 2026، أطلقت HeyGen ميزة "الخلفيات الذكية" التي تتغير تلقائياً حسب سياق كلام الأفاتار.</p>
+    <p>لكي تحصل على أفضل نتيجة في <strong>كيفية استخدام HeyGen</strong>، ركز على "السيناريو". الأداة توفر ميزة التكامل مع ChatGPT لكتابة نصوص جذابة. بمجرد اختيار الأفاتار، قم بتعديل "لغة الجسد" (Body Language) من الإعدادات لتناسب طبيعة المحتوى. في عام 2026، أطلقت HeyGen ميزة "الخلفيات الذكية" التي تتغير تلقائياً حسب سياق كلام الأفاتار.</p>
 
     <h2>مقارنة: HeyGen مقابل Synthesia</h2>
     <table class="comparison-table">
@@ -115,7 +218,7 @@
     </table>
 
     <h2>العيوب التي يجب مراعاتها</h2>
-    <p>بكل صراحة، <strong>HeyGen</strong> تعتبر من الأدوات المكلفة نسبياً؛ فالخطة المجانية تعطيك "دقيقة واحدة" فقط للتجربة، وبعدها ستحتاج للاشتراك في خطط شهرية. كما أن معالجة الفيديوهات الطويلة قد تستغرق بعض الوقت خلال ساعات الذروة. لكن بالنسبة للشركات وصناع المحتوى الجادين، فإن العائد على الاستثمار في الوقت والجهد يستحق كل قرش.</p>
+    <p>بكل صراحة، <strong>HeyGen</strong> تعتبر من الأدوات المكلفة نسبياً؛ فالخطة المجانية تعطيك "دقيقة واحدة" فقط للتجربة. كما أن معالجة الفيديوهات الطويلة قد تستغرق بعض الوقت خلال ساعات الذروة. لكن بالنسبة للشركات وصناع المحتوى الجادين، فإن العائد على الاستثمار في الوقت والجهد يستحق كل قرش.</p>
 
     <div class="faq-heygen">
         <h3>الأسئلة الشائعة حول HeyGen (FAQ)</h3>
@@ -136,17 +239,13 @@
     <div class="cta-heygen">
         <h3>ابدأ بإنشاء جيشك الرقمي من المتحدثين</h3>
         <p>لا تدع حاجز اللغة أو الخجل من الكاميرا يوقفك. مع HeyGen، يمكنك أن تكون في كل مكان وتتحدث كل اللغات اليوم.</p>
-        <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-        </div>
+        
         <a href="https://heygen.com" target="_blank" rel="noopener" class="btn-heygen">جرب HeyGen واصنع الأفاتار الخاص بك</a>
         <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 15px;">* الرابط يفتح في نافذة جديدة - انطلق نحو العالمية!</p>
     </div>
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
+
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
 </body>
 </html>

@@ -6,27 +6,113 @@
   <title>مراجعة Remove.bg 2026: حذف خلفيات الصور بضغطة زر</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --main-bg: #f8fafc; --primary: #8b5cf6; --secondary: #10b981; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    :root { 
+        --main-bg: #f8fafc; 
+        --primary: #8b5cf6; 
+        --secondary: #10b981; 
+        --text: #1e293b; 
+        --card-bg: #ffffff;
+        --border-color: #e2e8f0;
+    }
+
+    /* دعم الوضع الليلي التلقائي */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --main-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --border-color: #334155;
+        }
+    }
+
+    body { 
+        font-family: 'Cairo', sans-serif; 
+        background: var(--main-bg); 
+        line-height: 2.2; 
+        margin: 0; 
+        color: var(--text); 
+        transition: background 0.3s ease;
+    }
+
+    .nav-header { 
+        background: var(--card-bg); 
+        padding: 15px 5%; 
+        border-bottom: 1px solid var(--border-color); 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+    }
+
+    .article-wrap { 
+        max-width: 900px; 
+        margin: 40px auto; 
+        background: var(--card-bg); 
+        padding: 50px; 
+        border-radius: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        border: 1px solid var(--border-color);
+    }
+
     h1 { color: var(--primary); font-size: 2.4rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
-    h2 { color: var(--secondary); font-size: 1.8rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
-    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: #334155; }
-    .my-story { background: #eff6ff; border: 1px solid #bfdbfe; padding: 30px; border-radius: 20px; margin: 40px 0; color: #1e40af; }
-    .cta-container { text-align: center; margin-top: 60px; padding: 40px 20px; border-top: 2px solid #f1f5f9; }
-    .btn-visit-gradient { display: inline-block; padding: 18px 50px; background: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%); color: white !important; text-decoration: none !important; border-radius: 50px; font-weight: 900; font-size: 1.3rem; transition: all 0.3s ease; }
-    .btn-visit-gradient:hover { transform: translateY(-3px); }
+    h2 { 
+        color: var(--secondary); 
+        font-size: 1.8rem; 
+        margin-top: 50px; 
+        border-right: 6px solid var(--primary); 
+        padding-right: 15px; 
+        font-weight: 700;
+    }
+
+    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: var(--text); opacity: 0.9; }
+
+    .my-story { 
+        background: rgba(139, 92, 246, 0.05); 
+        border: 1px solid var(--primary); 
+        padding: 30px; 
+        border-radius: 20px; 
+        margin: 40px 0; 
+    }
+    .my-story h4 { color: var(--primary); margin-top: 0; font-size: 1.4rem; }
+
+    ul { margin-bottom: 25px; }
+    li { font-size: 1.1rem; margin-bottom: 10px; }
+
+    .cta-container { 
+        text-align: center; 
+        margin-top: 60px; 
+        padding: 40px 20px; 
+        border-top: 2px solid var(--border-color); 
+    }
+
+    .btn-visit-gradient { 
+        display: inline-block; 
+        padding: 18px 50px; 
+        background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); 
+        color: white !important; 
+        text-decoration: none !important; 
+        border-radius: 50px; 
+        font-weight: 900; 
+        font-size: 1.3rem; 
+        transition: all 0.3s ease; 
+        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    }
+
+    .btn-visit-gradient:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4); }
+
+    @media (max-width: 768px) {
+        .article-wrap { padding: 25px; margin: 20px; }
+        h1 { font-size: 1.8rem; }
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
 
 <nav class="nav-header">
     <a href="design.html" style="text-decoration:none; color:var(--primary); font-weight:bold;">← العودة للتصاميم</a>
-    <span>بوابة الأدوات الذكية</span>
+    <span style="font-weight: 900; color: var(--secondary);">بوابة الأدوات الذكية</span>
 </nav>
 
 <div class="article-wrap">

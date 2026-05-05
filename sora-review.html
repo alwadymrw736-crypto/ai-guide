@@ -4,82 +4,169 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مراجعة Sora AI 2026: المحرك الذي أعاد تعريف محاكاة الواقع</title>
+  
+  <script>
+    if (localStorage.getItem("site_theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+    }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
   <style>
-    :root { --main-bg: #f8fafc; --primary: #8b5cf6; --secondary: #10b981; --text: #1e293b; }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); line-height: 2.2; margin: 0; color: var(--text); }
-    .nav-header { background: white; padding: 15px 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-    .article-wrap { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    h1 { color: var(--primary); font-size: 2.4rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
-    h2 { color: var(--secondary); font-size: 1.8rem; margin-top: 50px; border-right: 6px solid var(--primary); padding-right: 15px; }
-    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: #334155; }
-    .my-story { background: #eff6ff; border: 1px solid #bfdbfe; padding: 30px; border-radius: 20px; margin: 40px 0; color: #1e40af; }
-    .cta-container { text-align: center; margin-top: 60px; padding: 40px 20px; border-top: 2px solid #f1f5f9; }
-    .btn-visit-gradient { display: inline-block; padding: 18px 50px; background: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%); color: white !important; text-decoration: none !important; border-radius: 50px; font-weight: 900; font-size: 1.3rem; transition: all 0.3s ease; }
-    .btn-visit-gradient:hover { transform: translateY(-3px); }
+    :root { 
+        --purple: #8b5cf6; 
+        --green: #10b981; 
+        --bg: #f8fafc; 
+        --card: #ffffff; 
+        --text: #1e293b; 
+        --desc: #334155;
+        --border: #e2e8f0;
+    }
+
+    /* تعديلات الوضع الليلي */
+    .dark-mode {
+        --bg: #0f172a;
+        --card: #1e293b;
+        --text: #f1f5f9;
+        --desc: #cbd5e1;
+        --border: #334155;
+    }
+
+    body { 
+        font-family: 'Cairo', sans-serif; 
+        background: var(--bg); 
+        line-height: 2.2; 
+        margin: 0; 
+        color: var(--text); 
+        transition: background 0.3s ease;
+    }
+
+    .nav-header { 
+        background: var(--card); 
+        padding: 15px 5%; 
+        border-bottom: 1px solid var(--border); 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+    }
+
+    .article-wrap { 
+        max-width: 900px; 
+        margin: 40px auto; 
+        background: var(--card); 
+        padding: 50px; 
+        border-radius: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        border: 1px solid var(--border);
+    }
+
+    h1 { color: var(--purple); font-size: 2.4rem; font-weight: 900; line-height: 1.4; margin-bottom: 25px; }
+    h2 { 
+        color: var(--green); 
+        font-size: 1.8rem; 
+        margin-top: 50px; 
+        border-right: 6px solid var(--purple); 
+        padding-right: 15px; 
+    }
+
+    p { font-size: 1.2rem; margin-bottom: 25px; text-align: justify; color: var(--desc); }
+
+    .my-story { 
+        background: rgba(139, 92, 246, 0.05); 
+        border: 1px solid var(--purple); 
+        padding: 30px; 
+        border-radius: 20px; 
+        margin: 40px 0; 
+    }
+    .my-story h4 { color: var(--purple); margin-top: 0; font-weight: 900; }
+
+    ul { margin-bottom: 25px; }
+    li { font-size: 1.1rem; margin-bottom: 10px; color: var(--desc); }
+
+    .cta-container { 
+        text-align: center; 
+        margin-top: 60px; 
+        padding: 40px 20px; 
+        border-top: 2px solid var(--border); 
+    }
+
+    .btn-visit-gradient { 
+        display: inline-block; 
+        padding: 18px 50px; 
+        background: linear-gradient(135deg, var(--green) 0%, var(--purple) 100%); 
+        color: white !important; 
+        text-decoration: none !important; 
+        border-radius: 50px; 
+        font-weight: 900; 
+        font-size: 1.3rem; 
+        transition: all 0.3s ease; 
+        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+    }
+
+    .btn-visit-gradient:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(139, 92, 246, 0.3); }
+
+    @media (max-width: 768px) {
+        .article-wrap { padding: 25px; margin: 20px auto; width: 90%; }
+        h1 { font-size: 1.8rem; }
+    }
   </style>
 </head>
-  <link rel="stylesheet" href="themes.css">
-
-<script src="theme.js"></script>
 <body>
 
 <nav class="nav-header">
-    <a href="chat.html" style="text-decoration:none; color:var(--primary); font-weight:bold;">← العودة للأدوات</a>
-    <span>بوابة الأدوات الذكية</span>
+    <a href="chat.html" style="text-decoration:none; color:var(--purple); font-weight:bold;">← العودة للأدوات</a>
+    <span style="font-weight: 900; color: var(--green);">بوابة الأدوات الذكية</span>
 </nav>
 
 <div class="article-wrap">
     <h1>مراجعة Sora AI 2026: المحرك الذي أعاد تعريف محاكاة الواقع</h1>
 
-    <p>عند الحديث عن <strong>Sora AI</strong>، نحن لا نتحدث عن مجرد أداة توليد فيديو، بل نتحدث عن "محاكي للواقع" (World Simulator). OpenAI قدمت في Sora معمارية تقنية تفهم الفيزياء، التفاعل بين الأجسام، واستمرارية الزمان والمكان بطريقة لم يسبق لها مثيل في تاريخ الذكاء الاصطناعي. إنها الأداة التي جعلت من الصعب التمييز بين ما هو حقيقي وما هو مُخلق رقمياً.</p>
+    <p>عند الحديث عن <strong>Sora AI</strong>، نحن لا نتحدث عن مجرد أداة توليد فيديو، بل نتحدث عن "محاكي للواقع" (World Simulator). OpenAI قدمت في Sora معمارية تقنية تفهم الفيزياء، التفاعل بين الأجسام، واستمرارية الزمان والمكان بطريقة لم يسبق لها ميديل في تاريخ الذكاء الاصطناعي.</p>
 
     <div class="my-story">
         <h4>تجربتي التقنية: ما وراء القدرة التوليدية</h4>
-        <p>لطالما عانت فيديوهات الذكاء الاصطناعي من "قصر المدة" و"تفكك المشهد". في تجربتي مع Sora، كانت الصدمة ليست في الجودة فحسب، بل في "المنطق البصري". عندما طلبت منه مشهداً طويلاً يحتوي على تفاعلات معقدة بين شخصيات وبيئة متغيرة، استطاع النموذج الحفاظ على ثبات العناصر وتفاعل الضوء بشكل فيزيائي دقيق. Sora ليس مجرد أداة مونتاج، إنه "عقل بصري" يفهم كيف تعمل الظلال، وكيف تنعكس الإضاءة، وكيف تتغير الأجسام أثناء الحركة. هذا المستوى من الفهم هو الذي ينقل صناعة المحتوى من "التوليد" إلى "الإخراج السينمائي" الشامل.</p>
+        <p>لطالما عانت فيديوهات الذكاء الاصطناعي من "قصر المدة" و"تفكك المشهد". في تجربتي مع Sora، كانت الصدمة ليست في الجودة فحسب، بل في "المنطق البصري". عندما طلبت منه مشهداً طويلاً يحتوي على تفاعلات معقدة بين شخصيات وبيئة متغيرة، استطاع النموذج الحفاظ على ثبات العناصر وتفاعل الضوء بشكل فيزيائي دقيق.</p>
     </div>
 
     <h2>العمق التقني: كيف يفكر Sora؟</h2>
     <ul>
-        <li><strong>معمارية الـ Spacetime Patches:</strong> بدلاً من التعامل مع الإطارات (Frames) بشكل منفصل، يقوم Sora بتفكيك الفيديو إلى "رقع" (Patches) مكانية وزمانية، مما يسمح للنموذج بفهم كيفية تحرك الأشياء عبر الزمن في مساحة ثلاثية الأبعاد.</li>
-        <li><strong>فهم الفيزياء التفاعلية:</strong> النموذج مدرب على محاكاة قوانين الطبيعة، مما يعني أن سقوط كرة، أو تدفق ماء، أو انعكاس ضوء يتم برمجته "ذكائياً" داخل الفيديو، وليس مجرد تطبيق فلاتر.</li>
-        <li><strong>اتساق المشهد (Scene Consistency):</strong> القدرة على الحفاظ على هوية الشخصيات والخلفيات حتى مع تغيير زوايا الكاميرا وحركات المشهد الطويلة، وهي المشكلة الكبرى التي كانت تعاني منها الأدوات السابقة.</li>
+        <li><strong>معمارية الـ Spacetime Patches:</strong> بدلاً من التعامل مع الإطارات (Frames) بشكل منفصل، يقوم Sora بتفكيك الفيديو إلى "رقع" مكانية وزمانية.</li>
+        <li><strong>فهم الفيزياء التفاعلية:</strong> النموذج مدرب على محاكاة قوانين الطبيعة، مما يعني أن سقوط كرة أو تدفق ماء يتم برمجته "ذكائياً".</li>
+        <li><strong>اتساق المشهد (Scene Consistency):</strong> القدرة على الحفاظ على هوية الشخصيات حتى مع تغيير زوايا الكاميرا.</li>
     </ul>
 
     <h2>لماذا نسخة Pro هي "الاستثمار" الضروري؟</h2>
-    <p>الترقية إلى إصدارات Pro في أدوات مثل Sora ليست للمتعة، بل هي ضرورة مهنية للأسباب التالية:</p>
     <ul>
-        <li><strong>الوصول إلى الدقة السينمائية (Cinematic Resolution):</strong> النسخ المتقدمة تتيح الوصول إلى جودة تصوير RAW، مما يمنحك مجالاً واسعاً لتعديل الألوان (Color Grading) لاحقاً في برامج مثل DaVinci Resolve.</li>
-        <li><strong>أدوات التحكم المتقدمة (Advanced Control Nodes):</strong> التحكم في حركة الكاميرا، ووضع الإضاءة، وزوايا اللقطة بشكل احترافي، وهو ما يجعل الفيديو قابلاً للاستخدام في مشاريع سينمائية فعلية.</li>
-        <li><strong>الأولوية في المعالجة (Compute Priority):</strong> نظراً لأن Sora يستهلك موارد حوسبية ضخمة، فإن المستخدمين المحترفين يحصلون على أولوية في المعالجة، مما يضمن تسليم المشاريع في مواعيدها دون انتظار في "طوابير الحوسبة".</li>
-        <li><strong>تراخيص الاستخدام التجاري:</strong> توفر النسخ الاحترافية حقوق ملكية كاملة للمحتوى، وهو أمر حاسم للمصممين الذين يعملون مع عملاء تجاريين أو شركات كبرى.</li>
+        <li><strong>الوصول إلى الدقة السينمائية (Cinematic Resolution):</strong> النسخ المتقدمة تتيح الوصول إلى جودة تصوير RAW.</li>
+        <li><strong>أدوات التحكم المتقدمة (Advanced Control Nodes):</strong> التحكم في حركة الكاميرا، ووضع الإضاءة، وزوايا اللقطة.</li>
+        <li><strong>الأولوية في المعالجة (Compute Priority):</strong> ضمان تسليم المشاريع في مواعيدها دون انتظار.</li>
+        <li><strong>تراخيص الاستخدام التجاري:</strong> توفر النسخ الاحترافية حقوق ملكية كاملة للمحتوى.</li>
     </ul>
-
-    <h2>نصيحة الخبراء: هندسة الطلبات (Prompting) لـ Sora</h2>
-    <p>لتحقيق أقصى استفادة من Sora، لا تكن مختصراً. اتبع أسلوب "سيناريو التصوير":</p>
-    <ul>
-        <li>حدد نوع العدسة (مثلاً: 35mm lens).</li>
-        <li>صف حركة الكاميرا بدقة (مثلاً: Slow panning, Dolly zoom).</li>
-        <li>حدد الإضاءة بدقة (مثلاً: Golden hour lighting, Soft rim light).</li>
-        <li>الذكاء الاصطناعي هنا ليس فناناً، بل هو "منفذ" لرؤيتك؛ كلما كنت دقيقاً في تفاصيلك التقنية، كانت النتيجة أقرب لما في خيالك.</li>
-    </ul>
-
-    <h2>الخلاصة: هل Sora هو المستقبل؟</h2>
-    <p>Sora ليس مجرد أداة لعام 2026، بل هو حجر الأساس لجيل كامل من أدوات الإنتاج السينمائي. هو يمنحك قدرة استديو إنتاج كامل في واجهة استخدام واحدة.</p>
 
     <div class="cta-container">
         <h3>هل أنت مستعد لصناعة أفلامك المستقبلية؟</h3>
         <p>لا تتخيل فقط، اجعل Sora يحول رؤيتك إلى واقع سينمائي ملموس.</p>
-          <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-  </div>
+        
+        <div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
+            <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
+            <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
+            <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
+        </div>
+
         <a href="https://openai.com/sora" target="_blank" class="btn-visit-gradient">استكشف Sora AI الآن</a>
     </div>
 
     <script async src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
 </div>
+
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
+
 <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
 <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
 

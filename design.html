@@ -4,208 +4,600 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>أدوات التصميم - دليلك الشامل</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- روابط الثيمات الخارجية -->
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="theme.css">
+
   <style>
     :root {
-      --main-bg: linear-gradient(to bottom, #f0f9ff, #f8fafc);
+      --bg: linear-gradient(to bottom, #f0f9ff, #f8fafc);
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --purple: #7c3aed;
+      --green: #10b981;
+      --blue: #3b82f6;
+      --danger: #e74c3c;
       --accent: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%);
-      --text-dark: #1e293b;
+      --accent-soft: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(139,92,246,0.12));
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      --shadow-hover: 0 16px 34px rgba(15, 23, 42, 0.10);
     }
-    body { font-family: 'Cairo', sans-serif; background: var(--main-bg); margin: 0; padding: 0; color: var(--text-dark); min-height: 100vh; }
-    .navbar { background: white; padding: 25px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 900; font-size: 1.5rem; color: #8b5cf6; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-    .container { width: 95%; max-width: 900px; margin: 30px auto; }
-    
-    .tool-list-item { 
-      background: white; 
-      border-radius: 24px; 
-      padding: 22px; 
-      display: flex; 
-      align-items: center; 
-      gap: 18px; 
-      margin-bottom: 20px; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04); 
-      border: 1px solid #f1f5f9;
-      transition: transform 0.3s ease;
-    }
-    .tool-list-item:hover { transform: translateY(-5px); border-color: #8b5cf6; }
-    
-    .tool-number { 
-      width: 50px; 
-      height: 50px; 
-      background: var(--accent); 
-      color: white; 
-      border-radius: 16px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      font-weight: 900; 
-      font-size: 1.2rem;
-      flex-shrink: 0; 
-    }
-    .tool-text { flex: 1; }
-    .tool-text h3 { margin: 0 0 6px 0; font-size: 1.25rem; color: #1e293b; font-weight: 800; }
-    .tool-text p { margin: 0; color: #64748b; font-size: 0.95rem; line-height: 1.6; }
-    
-    .visit-link { 
-      background: var(--accent); 
-      color: white; 
-      padding: 12px 24px; 
-      border-radius: 14px; 
-      text-decoration: none; 
-      font-weight: 800; 
-      font-size: 0.9rem; 
-      transition: opacity 0.3s;
-    }
-    .visit-link:hover { opacity: 0.9; }
-    
-    .back-home { display: block; text-align: center; margin: 30px auto; color: #64748b; text-decoration: none; font-weight: 700; font-size: 1rem; transition: color 0.3s; }
-    .back-home:hover { color: #8b5cf6; }
 
-    @media (max-width: 600px) {
-      .tool-list-item { flex-direction: column; text-align: center; }
-      .visit-link { width: 100%; box-sizing: border-box; }
+    html.dark-mode,
+    body.dark-mode {
+      --bg: linear-gradient(to bottom, #020617 0%, #0f172a 100%);
+      --card: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --border: rgba(148,163,184,0.16);
+      --shadow: 0 10px 28px rgba(0,0,0,0.25);
+      --shadow-hover: 0 16px 36px rgba(0,0,0,0.32);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(124,58,237,0.14));
+      padding: 18px 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--text);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 42px;
+    }
+
+    .article {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      line-height: 2.2;
+      text-align: justify;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .article h1 {
+      margin: 0 0 22px;
+      color: var(--purple);
+      font-size: 2.1rem;
+      font-weight: 900;
+      line-height: 1.35;
+      text-align: center;
+      padding-bottom: 18px;
+      border-bottom: 4px solid rgba(124,58,237,0.18);
+    }
+
+    .article h2 {
+      margin: 34px 0 16px;
+      color: var(--text);
+      font-size: 1.45rem;
+      font-weight: 900;
+      text-align: right;
+      border-right: 6px solid var(--green);
+      padding-right: 14px;
+      line-height: 1.5;
+    }
+
+    .article h3 {
+      margin: 28px 0 10px;
+      color: var(--purple);
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .article p {
+      margin: 0 0 18px;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .hero-note {
+      background: var(--accent-soft);
+      border: 1px dashed rgba(16,185,129,0.45);
+      border-radius: 18px;
+      padding: 18px 16px;
+      margin: 22px 0 10px;
+      color: var(--text);
+    }
+
+    .hero-note strong {
+      color: var(--green);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .info-box {
+      background: rgba(148,163,184,0.08);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .info-box strong {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 1rem;
+    }
+
+    .info-box p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .cta-strip {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 800;
+      color: var(--purple);
+      background: rgba(148,163,184,0.08);
+      border: 1px solid var(--border);
+    }
+
+    .tools-shell {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      font-size: 1.35rem;
+      color: var(--text);
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .tools-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+    }
+
+    .tool-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(124,58,237,0.22);
+    }
+
+    .tool-number {
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex-shrink: 0;
+      box-shadow: 0 10px 20px rgba(124, 58, 237, 0.18);
+    }
+
+    .tool-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tool-text h3 {
+      margin: 0 0 6px;
+      font-size: 1.12rem;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .tool-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    .tool-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .visit-link {
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      box-shadow: 0 8px 16px rgba(34, 197, 94, 0.14);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .visit-link:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .save-btn {
+      background: rgba(148, 163, 184, 0.1);
+      border: none;
+      cursor: pointer;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .save-btn i {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .save-btn:hover {
+      transform: scale(1.08);
+      background: rgba(231, 76, 60, 0.10);
+      color: var(--danger);
+    }
+
+    .save-btn.active,
+    .save-btn.active i {
+      color: var(--danger) !important;
+    }
+
+    .save-btn.active {
+      background: rgba(231, 76, 60, 0.10);
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 800;
+      padding: 12px 14px;
+    }
+
+    .back-home:hover {
+      text-decoration: underline;
+    }
+
+    .ad-box {
+      width: 100%;
+      max-width: 900px;
+      margin: 15px auto 26px;
+      text-align: center;
+    }
+
+    .ad-label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 640px) {
+      .article {
+        padding: 20px 16px;
+      }
+
+      .tool-card {
+        padding: 16px;
+      }
+
+      .article h1 {
+        font-size: 1.55rem;
+      }
+
+      .article h2 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
-  <link rel="stylesheet" href="theme.css">
 
-<script src="theme.js"></script>
+<script>
+  // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
+  if (localStorage.getItem("site_theme") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+  }
+</script>
+
+<!-- الترجمة -->
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
+
 <body>
   <nav class="navbar">نخبة أدوات التصميم والإبداع 2026</nav>
-  <article style="direction: rtl; line-height: 2.2; color: #1e293b; padding: 40px; text-align: justify; font-family: 'Cairo', sans-serif; background: #ffffff; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); margin-bottom: 50px;">
 
-    <h1 style="color: #7c3aed; font-size: 2.4rem; font-weight: 900; margin-bottom: 30px; text-align: center; border-bottom: 4px solid #ddd6fe; padding-bottom: 20px;">
-        هندسة الإبداع الرقمي 2026: الدليل الشامل لأدوات تحرير الصور وتصميم المحتوى بالذكاء الاصطناعي
-    </h1>
+  <div class="wrap">
+    <article class="article">
+      <h1>هندسة الإبداع الرقمي 2026: الدليل الشامل لأدوات تحرير الصور وتصميم المحتوى بالذكاء الاصطناعي</h1>
 
-    <p style="font-size: 1.25rem; margin-bottom: 35px; color: #334155;">
+      <p>
         في عالم المحتوى الرقمي المزدحم، لم تعد الصور مجرد مكمل للنص، بل أصبحت هي الواجهة الأولى التي تحدد مدى احترافية موقعك أو علامتك التجارية. إن عملية تحرير الصور وتصميم المحتوى شهدت قفزة نوعية في عام 2026، حيث تحولت من مهام يدوية تستغرق ساعات إلى عمليات ذكية تتم في ثوانٍ بفضل خوارزميات التعلم العميق. سواء كنت مبرمجاً يعمل عبر <strong>Acode</strong> ويحتاج لتنسيق صور مشروعه على <strong>GitHub</strong>، أو كنت صانع محتوى يبحث عن التميز البصري، فإن امتلاك الأدوات الصحيحة هو ما يفصل بين العمل الهاوي والعمل الاحترافي. في هذا الدليل، سنحلل بعمق أقوى أدوات التحرير والتصميم التي ستجعل محتواك يتصدر نتائج البحث ويحوز على ثقة <strong>AdSense</strong> من المراجعة الأولى.
-    </p>
+      </p>
 
-    <div style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-right: 8px solid #7c3aed; padding: 30px; border-radius: 20px; margin-bottom: 40px;">
-        <h2 style="color: #6d28d9; margin-top: 0; font-size: 1.6rem; font-weight: 700;">فلسفتنا في اختيار أدوات التصميم</h2>
-        <p style="font-size: 1.15rem; color: #4338ca; margin-bottom: 0;">
-            نحن لا نؤمن بالنسخ واللصق؛ فخوارزميات جوجل الجديدة تبحث عن "الخبرة المباشرة". لذا، قمنا في "بوابة الأدوات الذكية" باختبار كل أداة في هذا القسم للتأكد من قدرتها على إزالة الخلفيات بدقة شعرة الرأس، وتعديل الإضاءة بشكل سينمائي، وتوفير قوالب تصميمية تتوافق مع هوية المستخدم العربي. هدفنا هو تقديم تحليل صادق يشمل المميزات والعيوب لنوفر عليك عناء التجربة والخطأ، ونمنحك القيمة التي تستحقها كزائر يبحث عن الاحترافية الحقيقية.
+      <div class="hero-note">
+        <strong>فلسفتنا في اختيار أدوات التصميم</strong>
+        <p style="margin: 8px 0 0; color: var(--text);">
+          نحن لا نؤمن بالنسخ واللصق؛ فخوارزميات جوجل الجديدة تبحث عن "الخبرة المباشرة". لذا، قمنا في "بوابة الأدوات الذكية" باختبار كل أداة في هذا القسم للتأكد من قدرتها على إزالة الخلفيات بدقة شعرة الرأس، وتعديل الإضاءة بشكل سينمائي، وتوفير قوالب تصميمية تتوافق مع هوية المستخدم العربي. هدفنا هو تقديم تحليل صادق يشمل المميزات والعيوب لنوفر عليك عناء التجربة والخطأ، ونمنحك القيمة التي تستحقها كزائر يبحث عن الاحترافية الحقيقية.
         </p>
-    </div>
+      </div>
 
-    <h2 style="color: #1e293b; font-size: 1.8rem; margin-top: 50px; border-right: 5px solid #10b981; padding-right: 15px;">أولاً: أدوات التحرير الذكي وإزالة الخلفيات</h2>
+      <h2>أولاً: أدوات التحرير الذكي وإزالة الخلفيات</h2>
 
-    <h3 style="color: #7c3aed; font-size: 1.4rem; margin-top: 30px;">1. Canva Magic Studio: رفيق المصمم الشامل</h3>
-    <p style="font-size: 1.15rem;">
+      <h3>1. Canva Magic Studio: رفيق المصمم الشامل</h3>
+      <p>
         أصبحت <strong>Canva</strong> اليوم أكثر من مجرد أداة بسيطة، فقد تحولت إلى استوديو كامل مدعوم بالذكاء الاصطناعي. ميزة "المسح السحري" و"إعادة التصميم" تسمح لك بتعديل أبعاد الصور لتناسب كل منصات التواصل الاجتماعي بضغطة زر واحدة.
-    </p>
-    <ul style="margin-right: 20px; font-size: 1.1rem; color: #475569;">
+      </p>
+      <ul style="margin-right: 20px; font-size: 1.1rem; color: var(--text); line-height: 1.9;">
         <li><strong>المميزات:</strong> آلاف القوالب الجاهزة، واجهة عربية بالكامل، وأدوات ذكاء اصطناعي مدمجة وسهلة الاستخدام.</li>
         <li><strong>العيوب:</strong> بعض الميزات الاحترافية تتطلب اشتراك Pro، وقد تكون مقيدة في التعديلات الفنية المتقدمة جداً.</li>
         <li><strong>تجربتنا:</strong> استخدمناها في تصميم كافة أيقونات وصور هذا الموقع، ووفرت علينا أكثر من 70% من وقت العمل اليدوي.</li>
-    </ul>
+      </ul>
 
-    <h3 style="color: #7c3aed; font-size: 1.4rem; margin-top: 35px;">2. Adobe Firefly: عندما تلتقي الخبرة بالذكاء</h3>
-    <p style="font-size: 1.15rem;">
+      <h3>2. Adobe Firefly: عندما تلتقي الخبرة بالذكاء</h3>
+      <p>
         يعتبر محرك <strong>Firefly</strong> من أدوبي هو الأقوى في مجال "الملء التوليدي" (Generative Fill). يمكنك ببساطة تحديد جزء من الصورة وطلب إضافة عنصر جديد أو تغيير الملابس أو حتى تغيير الطقس في الخلفية، وسيقوم الذكاء الاصطناعي بدمجها بشكل لا يمكن تفرقته عن الحقيقة.
-    </p>
-    <ul style="margin-right: 20px; font-size: 1.1rem; color: #475569;">
+      </p>
+      <ul style="margin-right: 20px; font-size: 1.1rem; color: var(--text); line-height: 1.9;">
         <li><strong>المميزات:</strong> جودة لا تضاهى، توافق كامل مع فوتوشوب، وحقوق ملكية تجارية مضمونة.</li>
         <li><strong>العيوب:</strong> يحتاج لجهاز قوي أو اتصال انترنت سريع جداً لمعالجة الصور السحابية.</li>
-    </ul>
+      </ul>
 
-    <h2 style="color: #1e293b; font-size: 1.8rem; margin-top: 55px; border-right: 5px solid #3b82f6; padding-right: 15px;">ثانياً: معايير اختيار أداة التصميم لعام 2026</h2>
-    <p style="font-size: 1.15rem; margin-bottom: 25px;">
+      <h2>ثانياً: معايير اختيار أداة التصميم لعام 2026</h2>
+      <p>
         لضمان نجاح مشروعك الرقمي وقبوله في <strong>AdSense</strong>، يجب أن تختار أدواتك بناءً على معايير تقنية دقيقة تخدم نية المستخدم (User Intent):
-    </p>
+      </p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-        <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid #e2e8f0;">
-            <strong style="color: #10b981; font-size: 1.1rem;">الدقة المتناهية (Precision)</strong>
-            <p style="font-size: 0.95rem; color: #64748b;">تأكد من قدرة الأداة على عزل العناصر المعقدة (مثل الشعر أو الدخان) دون ترك آثار تشويه تشوه المنظر العام.</p>
+      <div class="info-grid">
+        <div class="info-box">
+          <strong>الدقة المتناهية (Precision)</strong>
+          <p>تأكد من قدرة الأداة على عزل العناصر المعقدة (مثل الشعر أو الدخان) دون ترك آثار تشويه تشوه المنظر العام.</p>
         </div>
-        <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid #e2e8f0;">
-            <strong style="color: #3b82f6; font-size: 1.1rem;">دعم اللغة والهوية العربية</strong>
-            <p style="font-size: 0.95rem; color: #64748b;">من المهم جداً أن تدعم الأداة الخطوط العربية الاحترافية وتفهم السياق الثقافي للتصاميم الموجهة للمنطقة العربية.</p>
+        <div class="info-box">
+          <strong>دعم اللغة والهوية العربية</strong>
+          <p>من المهم جداً أن تدعم الأداة الخطوط العربية الاحترافية وتفهم السياق الثقافي للتصاميم الموجهة للمنطقة العربية.</p>
         </div>
-        <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid #e2e8f0;">
-            <strong style="color: #f59e0b; font-size: 1.1rem;">السرعة والتوافق مع الجوال</strong>
-            <p style="font-size: 0.95rem; color: #64748b;">بما أنك قد تعمل عبر هاتف Redmi أو باستخدام <strong>Acode</strong>، يجب أن تكون الأداة خفيفة وتعمل بكفاءة عبر المتصفح.</p>
+        <div class="info-box">
+          <strong>السرعة والتوافق مع الجوال</strong>
+          <p>بما أنك قد تعمل عبر هاتف Redmi أو باستخدام <strong>Acode</strong>، يجب أن تكون الأداة خفيفة وتعمل بكفاءة عبر المتصفح.</p>
         </div>
-    </div>
+      </div>
 
-    <h2 style="color: #1e293b; font-size: 1.8rem; margin-top: 55px; border-right: 5px solid #ef4444; padding-right: 15px;">ثالثاً: المقارنة الفنية (أدوات التصميم والتحرير)</h2>
-    <table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-size: 1rem; text-align: center;">
+      <h2>ثالثاً: المقارنة الفنية (أدوات التصميم والتحرير)</h2>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-size: 1rem; text-align: center; overflow: hidden; border-radius: 16px; border: 1px solid var(--border);">
         <thead>
-            <tr style="background-color: #7c3aed; color: white;">
-                <th style="padding: 15px; border: 1px solid #ddd6fe;">الأداة</th>
-                <th style="padding: 15px; border: 1px solid #ddd6fe;">أقوى ميزة</th>
-                <th style="padding: 15px; border: 1px solid #ddd6fe;">التقييم العام</th>
-            </tr>
+          <tr style="background-color: #7c3aed; color: white;">
+            <th style="padding: 15px; border: 1px solid #ddd6fe;">الأداة</th>
+            <th style="padding: 15px; border: 1px solid #ddd6fe;">أقوى ميزة</th>
+            <th style="padding: 15px; border: 1px solid #ddd6fe;">التقييم العام</th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">PhotoRoom</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">إزالة الخلفية للمنتجات</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">9.5/10</td>
-            </tr>
-            <tr style="background-color: #f9fafb;">
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">Pixelcut</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">التحرير السريع بالجوال</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">9/10</td>
-            </tr>
-            <tr>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">Remove.bg</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">بساطة وسرعة فائقة</td>
-                <td style="padding: 15px; border: 1px solid #e2e8f0;">8.5/10</td>
-            </tr>
+          <tr>
+            <td style="padding: 15px; border: 1px solid var(--border);">PhotoRoom</td>
+            <td style="padding: 15px; border: 1px solid var(--border);">إزالة الخلفية للمنتجات</td>
+            <td style="padding: 15px; border: 1px solid var(--border);">9.5/10</td>
+          </tr>
+          <tr style="background-color: rgba(148,163,184,0.06);">
+            <td style="padding: 15px; border: 1px solid var(--border);">Pixelcut</td>
+            <td style="padding: 15px; border: 1px solid var(--border);">التحرير السريع بالجوال</td>
+            <td style="padding: 15px; border: 1px solid var(--border);">9/10</td>
+          </tr>
+          <tr>
+            <td style="padding: 15px; border: 1px solid var(--border);">Remove.bg</td>
+            <td style="padding: 15px; border: 1px solid var(--border);">بساطة وسرعة فائقة</td>
+            <td style="padding: 15px; border: 1px solid var(--border);">8.5/10</td>
+          </tr>
         </tbody>
-    </table>
+      </table>
 
-    <h2 style="color: #1e293b; font-size: 1.8rem; margin-top: 55px; border-right: 5px solid #8b5cf6; padding-right: 15px;">خاتمة ونصيحة للمبدع الرقمي</h2>
-    <p style="font-size: 1.15rem; margin-top: 20px;">
+      <h2>خاتمة ونصيحة للمبدع الرقمي</h2>
+      <p>
         ختاماً، تذكر أن الذكاء الاصطناعي لن يحل محل المصمم، بل سيحل المصمم الذي يستخدم الذكاء الاصطناعي محل المصمم الذي لا يستخدمه. الالتزام بتقديم محتوى أصلي، وشرح مفصل لكل خطوة، والابتعاد عن المحتوى المنسوخ هو مفتاحك السحري للنجاح والاستمرارية في عالم التدوين الربحي. نحن في "بوابة الأدوات الذكية" ملتزمون بتقديم أحدث المراجعات بناءً على تجاربنا البرمجية اليومية لنضمن لك دائماً البقاء في القمة. ابدأ الآن في تجربة هذه الأدوات واصنع هويتك البصرية الفريدة التي تستحقها.
-    </p>
+      </p>
 
-    <div style="text-align: center; margin-top: 60px; border-top: 2px dashed #e2e8f0; padding-top: 40px;">
-        <p style="font-weight: 800; color: #7c3aed; font-size: 1.3rem; margin-bottom: 25px;">🎨 هل أنت مستعد لتصميم تحفتك الفنية القادمة؟ استكشف القائمة بالأسفل 🎨</p>
+      <div class="cta-strip">🎨 هل أنت مستعد لتصميم تحفتك الفنية القادمة؟ استكشف القائمة بالأسفل 🎨</div>
+    </article>
 
-<div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-</div>
-      
-  </article>
-  
-  <div class="container">
-    <div id="design-list"></div>
-    <a href="index.html" class="back-home">← العودة للرئيسية</a>
+    <div class="ad-box">
+      <p class="ad-label">إعلان</p>
+      <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
+      <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
+    </div>
+
+    <div class="tools-shell">
+      <h2 class="section-title">الأدوات</h2>
+      <div id="design-list" class="tools-list"></div>
+      <a href="index.html" class="back-home">← العودة للرئيسية</a>
+    </div>
   </div>
+
+  <script src="theme.js"></script>
 
   <script>
     const tools = [
-  { name: "Leonardo AI", url: "leonardo-review.html", desc: "يمنحك تحكماً كاملاً في إنتاج الصور الفنية (اقرأ تجربتي)." },
-  { name: "Midjourney", url: "midjourney-review.html", desc: "الملك غير المتوج في دقة التفاصيل واللوحات الفنية الخيالية (اقرأ تجربتي)." },
-  { name: "Canva", url: "canva-review.html", desc: "الأداة الأشهر والأسهل لتصميم السوشيال ميديا والعروض التقديمية (اقرأ تجربتي)." },
-  { name: "Figma", url: "figma-review.html", desc: "المعيار العالمي لتصميم واجهات الطبقات والمواقع باحترافية (اقرأ تجربتي)." },
-  { name: "Adobe Firefly", url: "firefly-review.html", desc: "ذكاء أدوبي المدمج لتوليد الصور وتعديلها داخل الفوتوشوب (اقرأ تجربتي)." },
-  { name: "Photopea", url: "photopea-review.html", desc: "بديل الفوتوشوب المجاني، يعمل مباشرة من المتصفح (اقرأ تجربتي)." },
-  { name: "Framer", url: "framer-review.html", desc: "حول تصميماتك إلى مواقع ويب حقيقية ومتحركة بلمسات عصرية (اقرأ تجربتي)." },
-  { name: "Microsoft Designer", url: "microsoft-designer-review.html", desc: "أداة ذكية وبسيطة لإنشاء منشورات سريعة بدعم من DALL-E 3 (اقرأ تجربتي)." },
-  { name: "Remove.bg", url: "removebg-review.html", desc: "أفضل وأسرع أداة لحذف خلفيات الصور بضغطة زر واحدة (اقرأ تجربتي)." },
-  { name: "Krea AI", url: "krea-review.html", desc: "ثورة التصميم الفوري؛ حيث تتحول رسماتك البدائية إلى صور واقعية (اقرأ تجربتي)." }
-];
+      { id: "d1", name: "Leonardo AI", url: "leonardo-review.html", desc: "يمنحك تحكماً كاملاً في إنتاج الصور الفنية (اقرأ تجربتي)." },
+      { id: "d2", name: "Midjourney", url: "midjourney-review.html", desc: "الملك غير المتوج في دقة التفاصيل واللوحات الفنية الخيالية (اقرأ تجربتي)." },
+      { id: "d3", name: "Canva", url: "canva-review.html", desc: "الأداة الأشهر والأسهل لتصميم السوشيال ميديا والعروض التقديمية (اقرأ تجربتي)." },
+      { id: "d4", name: "Figma", url: "figma-review.html", desc: "المعيار العالمي لتصميم واجهات الطبقات والمواقع باحترافية (اقرأ تجربتي)." },
+     { id: "d5", name: "Adobe Firefly", url: "firefly-review.html", desc: "ذكاء أدوبي المدمج لتوليد الصور وتعديلها داخل الفوتوشوب (اقرأ تجربتي)." },
 
+      { id: "d6", name: "Photopea", url: "photopea-review.html", desc: "بديل الفوتوشوب المجاني، يعمل مباشرة من المتصفح (اقرأ تجربتي)." },
+      { id: "d7", name: "Framer", url: "framer-review.html", desc: "حول تصميماتك إلى مواقع ويب حقيقية ومتحركة بلمسات عصرية (اقرأ تجربتي)." },
+      { id: "d8", name: "Microsoft Designer", url: "microsoft-designer-review.html", desc: "أداة ذكية وبسيطة لإنشاء منشورات سريعة بدعم من DALL-E 3 (اقرأ تجربتي)." },
+      { id: "d9", name: "Remove.bg", url: "removebg-review.html", desc: "أفضل وأسرع أداة لحذف خلفيات الصور بضغطة زر واحدة (اقرأ تجربتي)." },
+      { id: "d10", name: "Krea AI", url: "krea-review.html", desc: "ثورة التصميم الفوري؛ حيث تتحول رسماتك البدائية إلى صور واقعية (اقرأ تجربتي)." }
+    ];
 
-    document.getElementById('design-list').innerHTML = tools.map((t, i) => `
-      <div class="tool-list-item">
-        <div class="tool-number">${i + 1}</div>
-        <div class="tool-text">
-          <h3>${t.name}</h3>
-          <p>${t.desc}</p>
-        </div>
-        <a href="${t.url}" target="_blank" class="visit-link">زيارة الموقع</a>
-      </div>`).join('');
+    function getSavedTools() {
+      try {
+        return JSON.parse(localStorage.getItem("savedTools")) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveTools(items) {
+      localStorage.setItem("savedTools", JSON.stringify(items));
+    }
+
+    function renderList() {
+      const listContainer = document.getElementById("design-list");
+      if (!listContainer) return;
+
+      const savedItems = getSavedTools();
+
+      listContainer.innerHTML = tools.map((tool, index) => {
+        const isSaved = savedItems.some(item => String(item.id) === String(tool.id));
+        const iconClass = isSaved ? "fas fa-heart" : "far fa-heart";
+
+        return `
+          <div class="tool-card">
+            <div class="tool-number">${index + 1}</div>
+
+            <div class="tool-main">
+              <div class="tool-text">
+                <h3>${tool.name}</h3>
+                <p>${tool.desc}</p>
+              </div>
+
+              <div class="tool-actions">
+                <a href="${tool.url}" class="visit-link">زيارة المقال</a>
+                <button
+                  class="save-btn ${isSaved ? "active" : ""}"
+                  type="button"
+                  data-id="${tool.id}"
+                  aria-pressed="${isSaved ? "true" : "false"}"
+                  title="حفظ الأداة"
+                >
+                  <i class="${iconClass}"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function updateButtonState(btn, saved) {
+      const icon = btn.querySelector("i");
+      if (!icon) return;
+
+      btn.classList.toggle("active", saved);
+      btn.setAttribute("aria-pressed", saved ? "true" : "false");
+      icon.className = saved ? "fas fa-heart" : "far fa-heart";
+    }
+
+    function toggleTool(toolId) {
+      const tool = tools.find(t => String(t.id) === String(toolId));
+      if (!tool) return null;
+
+      const saved = getSavedTools();
+      const index = saved.findIndex(item => String(item.id) === String(tool.id));
+
+      if (index === -1) {
+        saved.push({
+          id: tool.id,
+          name: tool.name,
+          url: tool.url,
+          desc: tool.desc
+        });
+        saveTools(saved);
+        return true;
+      } else {
+        saved.splice(index, 1);
+        saveTools(saved);
+        return false;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const listContainer = document.getElementById("design-list");
+
+      if (listContainer) {
+        listContainer.addEventListener("click", (e) => {
+          const btn = e.target.closest(".save-btn");
+          if (!btn) return;
+
+          const result = toggleTool(btn.dataset.id);
+          if (result === null) return;
+
+          updateButtonState(btn, result);
+        });
+      }
+
+      renderList();
+    });
+
+    window.addEventListener("pageshow", renderList);
+    window.addEventListener("storage", renderList);
   </script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-  
 </body>
 </html>

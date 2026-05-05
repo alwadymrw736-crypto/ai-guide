@@ -4,34 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مراجعة ChatGPT الشاملة 2026 | بوابة الأدوات الذكية</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root { --main-purple: #8b5cf6; --main-green: #10b981; --bg-gray: #f9fafb; --text-dark: #1f2937; }
-        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-gray); color: var(--text-dark); margin: 0; padding: 0; line-height: 1.8; }
-        .nav-header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .container { max-width: 900px; margin: 40px auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
-        h1 { color: var(--main-purple); font-size: 2.2rem; font-weight: 800; border-bottom: 3px solid var(--main-purple); padding-bottom: 15px; }
-        h2 { color: var(--main-green); font-size: 1.6rem; margin-top: 40px; border-right: 5px solid var(--main-green); padding-right: 15px; }
-        .info-box { background: #f5f3ff; border: 1px dashed var(--main-purple); padding: 20px; border-radius: 15px; margin: 25px 0; }
-        .cta-button { display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, var(--main-green), var(--main-purple)); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 30px; transition: 0.3s; }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4); }
-        p { text-align: justify; font-size: 1.1rem; }
-        ul li { margin-bottom: 12px; }
-    </style>
-</head>
+
     <link rel="stylesheet" href="theme.css">
 
-<script src="theme.js"></script>
+    <style>
+        :root {
+            --main-purple: #8b5cf6;
+            --main-green: #10b981;
+            --bg-gray: #f9fafb;
+            --text-dark: #1f2937;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-gray);
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.8;
+            transition: 0.3s;
+        }
+
+        body.dark-mode {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .nav-header {
+            background: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        body.dark-mode .nav-header {
+            background: #111827;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+
+        body.dark-mode .container {
+            background: #111827;
+        }
+
+        h1 {
+            color: var(--main-purple);
+            font-size: 2.2rem;
+            font-weight: 800;
+            border-bottom: 3px solid var(--main-purple);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--main-green);
+            font-size: 1.6rem;
+            margin-top: 40px;
+            border-right: 5px solid var(--main-green);
+            padding-right: 15px;
+        }
+
+        p { text-align: justify; font-size: 1.1rem; }
+
+        ul li { margin-bottom: 12px; }
+
+        .info-box {
+            background: #f5f3ff;
+            border: 1px dashed var(--main-purple);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        body.dark-mode .info-box {
+            background: #1e1b4b;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--main-green), var(--main-purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
 <body>
+
+<!-- الثيم -->
+<script>
+  if (localStorage.getItem("site_theme") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    document.addEventListener("DOMContentLoaded", () =>
+      document.body.classList.add("dark-mode")
+    );
+  }
+</script>
+
+<!-- الترجمة -->
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
 
 <header class="nav-header">
     <div style="font-weight: 800; color: var(--main-purple);">بوابة الأدوات الذكية</div>
-    <a href="index.html" style="text-decoration: none; color: #666;">← العودة للرئيسية</a>
+    <a href="index.html" style="text-decoration:none; color:#666;">← العودة للرئيسية</a>
 </header>
 
 <div class="container">
+
     <h1>تجربتي مع ChatGPT في 2026: هل ما زال يستحق لقب "ملك الذكاء الاصطناعي"؟</h1>
-    
+
     <div class="info-box">
         <strong>روابط سريعة:</strong> مراجعة الأدوات الأخرى | كيفية الربح من AI | شروحات تقنية
     </div>
@@ -39,32 +134,26 @@
     <p>لقد مر أكثر من عام على إطلاق التحديثات الكبرى لنماذج اللغة، وبصفتي مبرمجاً أعمل يومياً لأكثر من 12 ساعة، أصبحت أداة ChatGPT جزءاً لا يتجزأ من بيئتي البرمجية وتطويري لموقع "بوابة الأدوات الذكية". في هذا المقال، سأقوم بتحليل الأداة بعمق بعيداً عن التسويق، لنعرف الحقيقة التقنية خلف أدائها في عام 2026.</p>
 
     <h2>لماذا نخصص مقالاً كاملاً لـ ChatGPT؟</h2>
-    <p>جوجل أدسنس والباحثون عن المحتوى عالي الجودة يبحثون عن التجربة الشخصية. ChatGPT ليس مجرد شات؛ إنه محرك استدلال منطقي. خلال تطويري لهذا الموقع باستخدام Acode، واجهت مشاكل في ربط مكتبات GitHub مع واجهات API المعقدة، وهنا تبرز قوة الأداة في حل المشكلات اللحظية وتوفير ساعات من البحث في Stack Overflow.</p>
+    <p>ChatGPT ليس مجرد شات؛ إنه محرك استدلال منطقي. أثناء تطوير الموقع واجهت مشاكل في ربط API وGitHub، وهنا ظهرت قوته في حل المشاكل بسرعة بدل ساعات بحث.</p>
 
-    <h2>مميزات النسخة الحديثة وتأثيرها على الإنتاجية</h2>
+    <h2>مميزات النسخة الحديثة</h2>
     <ul>
-        <li><strong>الفهم العميق للسياق العربي:</strong> في 2026، تطور ChatGPT ليفهم اللهجات المحلية السعودية والمصطلحات التقنية المعربة بدقة متناهية.</li>
-        <li><strong>التكامل مع GitHub:</strong> القدرة على تصحيح الأكواد ورفعها مباشرة أو مراجعة الـ Pull Requests.</li>
-        <li><strong>الواقعية الفائقة في تحليل الصور:</strong> الأداة الآن لا تولد نصوصاً فقط، بل تحلل لقطات الشاشة البرمجية وتخبرك أين يقع الخطأ في السطر البرمجي.</li>
+        <li>فهم عميق للسياق العربي واللهجات السعودية</li>
+        <li>تكامل مع GitHub وتصحيح الأكواد</li>
+        <li>تحليل الصور البرمجية واكتشاف الأخطاء</li>
     </ul>
 
-    <h2>عيوب واجهتها (الجانب المظلم للأداة)</h2>
-    <p>رغم كل هذه القوة، إلا أن الأداة تقع أحياناً في "الهلوسة البرمجية". من خلال تجربتي، لاحظت أنه عند سؤاله عن دوال حديثة جداً في لغات البرمجة، قد يخترع دوالاً غير موجودة. هذا يتطلب من المستخدم أن يكون "مبرمجاً واعياً" وليس مجرد "ناسخ للأكواد".</p>
+    <h2>عيوبه</h2>
+    <p>أحياناً يعاني من “الهلوسة البرمجية” ويخترع دوال غير موجودة، لذلك لا بد من وعي تقني وعدم النسخ الأعمى.</p>
 
     <h2>كيف يحقق لك هذا المقال القبول في أدسنس؟</h2>
-    <p>اتباعنا لهذه الهيكلية (مقدمة، شرح، تجربة، عيوب، خاتمة) يجعل عناكب جوجل تصنف المحتوى كـ "محتوى مفيد". لقد تجاوزنا الـ 1000 كلمة في هذا الشرح لضمان تغطية كافة الكلمات المفتاحية التي تهم الزائر وتهم محرك البحث.</p>
-<div style="width: 100%; max-width: 900px; margin: 15px auto; text-align: center;">
-    <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 5px;">إعلان</p>
-    <script async="async" data-cfasync="false" src="https://pl29170484.profitablecpmratenetwork.com/545e1c9e9b7c0e88a4d7e2c73a81da5f/invoke.js"></script>
-    <div id="container-545e1c9e9b7c0e88a4d7e2c73a81da5f"></div>
-</div>
-    
-    <div style="text-align: center;">
-        <a href="https://chatgpt.com" class="cta-button">زيارة الأداة وتجربتها بنفسك</a>
+    <p>لأنه محتوى تحليلي طويل + تجربة شخصية + هيكل SEO واضح، وهذا النوع من المقالات يتم تصنيفه كمحتوى مفيد عالي الجودة.</p>
+
+    <div style="text-align:center;">
+        <a href="https://chatgpt.com" class="cta-button">زيارة الأداة وتجربتها</a>
     </div>
+
 </div>
-<script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    <script src="https://pl29170221.profitablecpmratenetwork.com/ea/5d/50/ea5d507ec11c217dd8d0b5f3a6553584.js"></script>
-    
+
 </body>
 </html>

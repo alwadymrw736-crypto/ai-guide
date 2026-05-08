@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة اقتراحات الأدوات الذكية</title>
-  <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الصفحة</title>
-
-  <!-- خط Cairo -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة اقتراحات الأدوات الذكية</title>
 
   <!-- منع الوميض + مزامنة الثيم مع الصفحة الرئيسية -->
   <script>
@@ -144,7 +135,6 @@
 
     .card,
     .suggestion-card,
-    .notifications-panel,
     .toast {
       background: var(--surface);
       color: var(--text);
@@ -258,25 +248,6 @@
       transform: none;
     }
 
-    .btn-icon {
-      background: none;
-      border: none;
-      padding: 8px;
-      cursor: pointer;
-      color: var(--text-2);
-      transition: color 0.3s ease, transform 0.3s ease;
-      width: auto;
-      justify-content: flex-start;
-    }
-
-    .btn-icon:hover {
-      color: var(--danger);
-    }
-
-    .btn-icon.active {
-      color: var(--danger);
-    }
-
     .suggestions-container {
       display: flex;
       flex-direction: column;
@@ -350,6 +321,7 @@
       font-weight: 600;
       transition: all 0.3s ease;
       padding: 0;
+      white-space: nowrap;
     }
 
     .vote-btn:hover {
@@ -362,6 +334,44 @@
 
     .vote-btn.voted svg {
       fill: currentColor;
+    }
+
+    .suggestion-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .action-btn {
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: 0.3s ease;
+    }
+
+    .edit-btn {
+      background: rgba(37, 99, 235, 0.12);
+      color: #2563eb;
+    }
+
+    .edit-btn:hover {
+      background: rgba(37, 99, 235, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .delete-btn {
+      background: rgba(239, 68, 68, 0.12);
+      color: #ef4444;
+    }
+
+    .delete-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      transform: translateY(-1px);
     }
 
     .search-filter {
@@ -421,96 +431,6 @@
       font-size: 1.3rem;
       margin-bottom: 10px;
       color: var(--text);
-    }
-
-    .notification-bell {
-      position: fixed;
-      bottom: 30px;
-      left: 30px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-
-    .notification-bell:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
-    }
-
-    .notification-badge {
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      background: var(--danger);
-      color: white;
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: bold;
-    }
-
-    .notifications-panel {
-      position: fixed;
-      bottom: 100px;
-      left: 30px;
-      width: 350px;
-      max-height: 400px;
-      overflow-y: auto;
-      z-index: 999;
-      display: none;
-    }
-
-    .notifications-panel.active {
-      display: block;
-      animation: slideUp 0.3s ease;
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .notification-item {
-      padding: 15px;
-      border-bottom: 1px solid var(--border-2);
-      background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(37, 99, 235, 0.05) 100%);
-      border-left: 4px solid var(--primary);
-    }
-
-    .notification-item:last-child {
-      border-bottom: none;
-    }
-
-    .notification-title {
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 5px;
-    }
-
-    .notification-meta {
-      font-size: 0.85rem;
-      color: var(--text-2);
     }
 
     @media (min-width: 769px) {
@@ -588,376 +508,378 @@
   <script src="translations-complete.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>منصة اقتراحات الأدوات الذكية</h1>
-            <p>شارك أفكارك واكتشف أدوات جديدة مع المجتمع</p>
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-grid">
-            <!-- Form Section -->
-            <div class="form-card card">
-                <div class="card-header">
-                    <h2>اقتراح أداة جديدة</h2>
-                    <p>شارك أداة مفيدة مع المجتمع</p>
-                </div>
-                <div class="card-body">
-                    <form id="suggestionForm">
-                        <div class="form-group">
-                            <label for="toolName">اسم الأداة</label>
-                            <input type="text" id="toolName" placeholder="مثال: ChatGPT" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="description">الوصف</label>
-                            <textarea id="description" placeholder="اكتب وصفاً قصيراً للأداة..." required></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="category">الفئة</label>
-                            <select id="category" required>
-                                <option value="">اختر فئة</option>
-                                <option value="أدوات الذكاء الاصطناعي">أدوات الذكاء الاصطناعي</option>
-                                <option value="أدوات الإنتاجية">أدوات الإنتاجية</option>
-                                <option value="أدوات التصميم">أدوات التصميم</option>
-                                <option value="أدوات البرمجة">أدوات البرمجة</option>
-                                <option value="أدوات التسويق">أدوات التسويق</option>
-                                <option value="أدوات التحليل">أدوات التحليل</option>
-                                <option value="أدوات الاتصالات">أدوات الاتصالات</option>
-                                <option value="أخرى">أخرى</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="submitterName">اسمك</label>
-                            <input type="text" id="submitterName" placeholder="أدخل اسمك" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="submitterEmail">بريدك الإلكتروني</label>
-                            <input type="email" id="submitterEmail" placeholder="your@email.com" required>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">
-                            <span id="submitText">إضافة الاقتراح</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Suggestions Section -->
-            <div>
-                <!-- Voter Email -->
-                <div class="card" style="margin-bottom: 20px;">
-                    <div class="card-header">
-                        <h2>للتصويت على الاقتراحات</h2>
-                    </div>
-                    <div class="card-body">
-                        <input type="email" id="voterEmail" placeholder="أدخل بريدك الإلكتروني للتصويت" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px;">
-                    </div>
-                </div>
-
-                <!-- Search and Filter -->
-                <div class="card" style="margin-bottom: 20px;">
-                    <div class="card-header">
-                        <h2>البحث والفلترة</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="search-filter">
-                            <div class="search-wrapper">
-                                <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                                    <circle cx="8" cy="8" r="6"></circle>
-                                    <path d="M12 12l4 4"></path>
-                                </svg>
-                                <input type="text" id="searchInput" placeholder="ابحث عن أداة...">
-                                <button class="clear-search" id="clearSearch" style="display: none;">✕</button>
-                            </div>
-                            <select id="categoryFilter">
-                                <option value="">جميع الفئات</option>
-                                <option value="أدوات الذكاء الاصطناعي">أدوات الذكاء الاصطناعي</option>
-                                <option value="أدوات الإنتاجية">أدوات الإنتاجية</option>
-                                <option value="أدوات التصميم">أدوات التصميم</option>
-                                <option value="أدوات البرمجة">أدوات البرمجة</option>
-                                <option value="أدوات التسويق">أدوات التسويق</option>
-                                <option value="أدوات التحليل">أدوات التحليل</option>
-                                <option value="أدوات الاتصالات">أدوات الاتصالات</option>
-                                <option value="أخرى">أخرى</option>
-                            </select>
-                        </div>
-                        <div class="result-count" id="resultCount"></div>
-                    </div>
-                </div>
-
-                <!-- Suggestions List -->
-                <div id="suggestionsContainer" class="suggestions-container">
-                    <div class="empty-state">
-                        <div class="empty-state-icon">📋</div>
-                        <h3>لا توجد اقتراحات حتى الآن</h3>
-                        <p>كن أول من يقترح أداة!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="header">
+      <h1>منصة اقتراحات الأدوات الذكية</h1>
+      <p>شارك أفكارك واكتشف أدوات جديدة مع المجتمع</p>
     </div>
 
-    <!-- Notification Bell -->
-    <button class="notification-bell" id="notificationBell">
-        🔔
-        <div class="notification-badge" id="notificationBadge" style="display: none;">0</div>
-    </button>
+    <div class="main-grid">
+      <div class="form-card card">
+        <div class="card-header">
+          <h2>اقتراح أداة جديدة</h2>
+          <p>شارك أداة مفيدة مع المجتمع</p>
+        </div>
+        <div class="card-body">
+          <form id="suggestionForm">
+            <div class="form-group">
+              <label for="toolName">اسم الأداة</label>
+              <input type="text" id="toolName" placeholder="مثال: ChatGPT" required>
+            </div>
 
-    <!-- Notifications Panel -->
-    <div class="notifications-panel" id="notificationsPanel">
-        <div id="notificationsList"></div>
+            <div class="form-group">
+              <label for="description">الوصف</label>
+              <textarea id="description" placeholder="اكتب وصفاً قصيراً للأداة..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="category">الفئة</label>
+              <select id="category" required>
+                <option value="">اختر فئة</option>
+                <option value="أدوات الذكاء الاصطناعي">أدوات الذكاء الاصطناعي</option>
+                <option value="أدوات الإنتاجية">أدوات الإنتاجية</option>
+                <option value="أدوات التصميم">أدوات التصميم</option>
+                <option value="أدوات البرمجة">أدوات البرمجة</option>
+                <option value="أدوات التسويق">أدوات التسويق</option>
+                <option value="أدوات التحليل">أدوات التحليل</option>
+                <option value="أدوات الاتصالات">أدوات الاتصالات</option>
+                <option value="أخرى">أخرى</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="submitterName">اسمك</label>
+              <input type="text" id="submitterName" placeholder="أدخل اسمك" required>
+            </div>
+
+            <div class="form-group">
+              <label for="submitterEmail">بريدك الإلكتروني</label>
+              <input type="email" id="submitterEmail" placeholder="your@email.com" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              <span id="submitText">إضافة الاقتراح</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-header">
+            <h2>للتصويت وإدارة اقتراحاتك</h2>
+          </div>
+          <div class="card-body">
+            <input type="email" id="voterEmail" placeholder="أدخل بريدك الإلكتروني للتصويت والتعديل" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--input-bg); color: var(--input-text);">
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-header">
+            <h2>البحث والفلترة</h2>
+          </div>
+          <div class="card-body">
+            <div class="search-filter">
+              <div class="search-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                  <circle cx="8" cy="8" r="6"></circle>
+                  <path d="M12 12l4 4"></path>
+                </svg>
+                <input type="text" id="searchInput" placeholder="ابحث عن أداة...">
+                <button class="clear-search" id="clearSearch" style="display: none;">✕</button>
+              </div>
+              <select id="categoryFilter">
+                <option value="">جميع الفئات</option>
+                <option value="أدوات الذكاء الاصطناعي">أدوات الذكاء الاصطناعي</option>
+                <option value="أدوات الإنتاجية">أدوات الإنتاجية</option>
+                <option value="أدوات التصميم">أدوات التصميم</option>
+                <option value="أدوات البرمجة">أدوات البرمجة</option>
+                <option value="أدوات التسويق">أدوات التسويق</option>
+                <option value="أدوات التحليل">أدوات التحليل</option>
+                <option value="أدوات الاتصالات">أدوات الاتصالات</option>
+                <option value="أخرى">أخرى</option>
+              </select>
+            </div>
+            <div class="result-count" id="resultCount"></div>
+          </div>
+        </div>
+
+        <div id="suggestionsContainer" class="suggestions-container">
+          <div class="empty-state">
+            <div class="empty-state-icon">📋</div>
+            <h3>لا توجد اقتراحات حتى الآن</h3>
+            <p>كن أول من يقترح أداة!</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Data Storage
-        const suggestions = JSON.parse(localStorage.getItem('suggestions')) || [];
-        const votes = JSON.parse(localStorage.getItem('votes')) || [];
-        const notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+  <script>
+    const suggestions = JSON.parse(localStorage.getItem('suggestions')) || [];
+    const votes = JSON.parse(localStorage.getItem('votes')) || [];
 
-        // DOM Elements
-        const form = document.getElementById('suggestionForm');
-        const suggestionsContainer = document.getElementById('suggestionsContainer');
-        const searchInput = document.getElementById('searchInput');
-        const categoryFilter = document.getElementById('categoryFilter');
-        const clearSearchBtn = document.getElementById('clearSearch');
-        const voterEmail = document.getElementById('voterEmail');
-        const notificationBell = document.getElementById('notificationBell');
-        const notificationsPanel = document.getElementById('notificationsPanel');
-        const notificationsList = document.getElementById('notificationsList');
-        const notificationBadge = document.getElementById('notificationBadge');
-        const resultCount = document.getElementById('resultCount');
+    const form = document.getElementById('suggestionForm');
+    const suggestionsContainer = document.getElementById('suggestionsContainer');
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const clearSearchBtn = document.getElementById('clearSearch');
+    const voterEmail = document.getElementById('voterEmail');
+    const resultCount = document.getElementById('resultCount');
 
-        // Form Submission
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    function normalizeEmail(email) {
+      return String(email || '').trim().toLowerCase();
+    }
 
-            const toolName = document.getElementById('toolName').value;
-            const description = document.getElementById('description').value;
-            const category = document.getElementById('category').value;
-            const submitterName = document.getElementById('submitterName').value;
-            const submitterEmail = document.getElementById('submitterEmail').value;
+    function saveSuggestions() {
+      localStorage.setItem('suggestions', JSON.stringify(suggestions));
+    }
 
-            if (!toolName || !description || !category || !submitterName || !submitterEmail) {
-                showToast('جميع الحقول مطلوبة', 'error');
-                return;
-            }
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-            const newSuggestion = {
-                id: Date.now(),
-                toolName,
-                description,
-                category,
-                submitterName,
-                submitterEmail,
-                votesCount: 0,
-                createdAt: new Date().toISOString()
-            };
+      const toolName = document.getElementById('toolName').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const category = document.getElementById('category').value;
+      const submitterName = document.getElementById('submitterName').value.trim();
+      const submitterEmail = normalizeEmail(document.getElementById('submitterEmail').value);
 
-            suggestions.push(newSuggestion);
-            localStorage.setItem('suggestions', JSON.stringify(suggestions));
+      if (!toolName || !description || !category || !submitterName || !submitterEmail) {
+        showToast('جميع الحقول مطلوبة', 'error');
+        return;
+      }
 
-            // Add notification
-            const notification = {
-                id: Date.now(),
-                toolName,
-                submitterName,
-                timestamp: new Date().toISOString()
-            };
-            notifications.unshift(notification);
-            localStorage.setItem('notifications', JSON.stringify(notifications));
+      const newSuggestion = {
+        id: Date.now(),
+        toolName,
+        description,
+        category,
+        submitterName,
+        submitterEmail,
+        votesCount: 0,
+        createdAt: new Date().toISOString()
+      };
 
-            // Show notification
-            addNotificationToPanel(notification);
+      suggestions.unshift(newSuggestion);
+      saveSuggestions();
 
-            showToast('تم إضافة الاقتراح بنجاح!', 'success');
-            form.reset();
-            renderSuggestions();
-        });
+      showToast('تم إضافة الاقتراح بنجاح!', 'success');
+      form.reset();
+      renderSuggestions();
+    });
 
-        // Search and Filter
-        searchInput.addEventListener('input', (e) => {
-            clearSearchBtn.style.display = e.target.value ? 'block' : 'none';
-            renderSuggestions();
-        });
+    searchInput.addEventListener('input', (e) => {
+      clearSearchBtn.style.display = e.target.value ? 'block' : 'none';
+      renderSuggestions();
+    });
 
-        clearSearchBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            clearSearchBtn.style.display = 'none';
-            renderSuggestions();
-        });
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearSearchBtn.style.display = 'none';
+      renderSuggestions();
+    });
 
-        categoryFilter.addEventListener('change', renderSuggestions);
+    categoryFilter.addEventListener('change', renderSuggestions);
+    voterEmail.addEventListener('input', renderSuggestions);
+    voterEmail.addEventListener('change', () => {
+      localStorage.setItem('voterEmail', voterEmail.value);
+    });
 
-        // Render Suggestions
-        function renderSuggestions() {
-            const searchQuery = searchInput.value.toLowerCase();
-            const selectedCategory = categoryFilter.value;
+    function renderSuggestions() {
+      const searchQuery = searchInput.value.toLowerCase().trim();
+      const selectedCategory = categoryFilter.value;
+      const currentEmail = normalizeEmail(voterEmail.value);
 
-            let filtered = suggestions.filter(s => {
-                const matchesSearch = 
-                    s.toolName.toLowerCase().includes(searchQuery) ||
-                    s.description.toLowerCase().includes(searchQuery) ||
-                    s.submitterName.toLowerCase().includes(searchQuery);
-                
-                const matchesCategory = !selectedCategory || s.category === selectedCategory;
-                
-                return matchesSearch && matchesCategory;
-            });
+      const filtered = suggestions
+        .filter(s => {
+          const matchesSearch =
+            s.toolName.toLowerCase().includes(searchQuery) ||
+            s.description.toLowerCase().includes(searchQuery) ||
+            s.submitterName.toLowerCase().includes(searchQuery);
 
-            // Sort by votes
-            filtered.sort((a, b) => b.votesCount - a.votesCount);
+          const matchesCategory = !selectedCategory || s.category === selectedCategory;
 
-            // Update result count
-            if (searchQuery || selectedCategory) {
-                resultCount.textContent = `عدد النتائج: ${filtered.length}`;
-            } else {
-                resultCount.textContent = '';
-            }
+          return matchesSearch && matchesCategory;
+        })
+        .sort((a, b) => b.votesCount - a.votesCount);
 
-            if (filtered.length === 0) {
-                suggestionsContainer.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-state-icon">📋</div>
-                        <h3>${suggestions.length === 0 ? 'لا توجد اقتراحات حتى الآن' : 'لا توجد نتائج تطابق البحث'}</h3>
-                        <p>${suggestions.length === 0 ? 'كن أول من يقترح أداة!' : 'جرب بحثاً آخر'}</p>
-                    </div>
-                `;
-                return;
-            }
+      if (searchQuery || selectedCategory) {
+        resultCount.textContent = `عدد النتائج: ${filtered.length}`;
+      } else {
+        resultCount.textContent = '';
+      }
 
-            suggestionsContainer.innerHTML = filtered.map(suggestion => {
-                const hasVoted = votes.some(v => v.suggestionId === suggestion.id && v.voterEmail === voterEmail.value);
-                return `
-                    <div class="suggestion-card">
-                        <div class="suggestion-header">
-                            <div>
-                                <div class="suggestion-title">${suggestion.toolName}</div>
-                                <span class="suggestion-category">${suggestion.category}</span>
-                            </div>
-                            <button class="vote-btn ${hasVoted ? 'voted' : ''}" onclick="handleVote(${suggestion.id})">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                                    <path d="M10 18.5s-7-4-7-9c0-3 2-5 5-5s2 1 2 1s0-1 2-1c3 0 5 2 5 5c0 5-7 9-7 9z"></path>
-                                </svg>
-                                <span>${suggestion.votesCount}</span>
-                            </button>
-                        </div>
-                        <div class="suggestion-description">${suggestion.description}</div>
-                        <div class="suggestion-footer">
-                            <div class="suggestion-meta">
-                                <span>من: ${suggestion.submitterName}</span>
-                                <span>${new Date(suggestion.createdAt).toLocaleDateString('ar-SA')}</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
+      if (filtered.length === 0) {
+        suggestionsContainer.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">📋</div>
+            <h3>${suggestions.length === 0 ? 'لا توجد اقتراحات حتى الآن' : 'لا توجد نتائج تطابق البحث'}</h3>
+            <p>${suggestions.length === 0 ? 'كن أول من يقترح أداة!' : 'جرب بحثاً آخر'}</p>
+          </div>
+        `;
+        return;
+      }
 
-        // Handle Vote
-        function handleVote(suggestionId) {
-            if (!voterEmail.value) {
-                showToast('يرجى إدخال بريدك الإلكتروني للتصويت', 'error');
-                return;
-            }
+      suggestionsContainer.innerHTML = filtered.map(suggestion => {
+        const hasVoted = votes.some(v => v.suggestionId === suggestion.id && normalizeEmail(v.voterEmail) === currentEmail);
+        const canManage = currentEmail && currentEmail === normalizeEmail(suggestion.submitterEmail);
 
-            const hasVoted = votes.some(v => v.suggestionId === suggestionId && v.voterEmail === voterEmail.value);
-            if (hasVoted) {
-                showToast('لقد صوتت بالفعل على هذا الاقتراح', 'error');
-                return;
-            }
+        return `
+          <div class="suggestion-card">
+            <div class="suggestion-header">
+              <div>
+                <div class="suggestion-title">${escapeHtml(suggestion.toolName)}</div>
+                <span class="suggestion-category">${escapeHtml(suggestion.category)}</span>
+              </div>
+              <button class="vote-btn ${hasVoted ? 'voted' : ''}" onclick="handleVote(${suggestion.id})">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                    <path d="M10 18.5s-7-4-7-9c0-3 2-5 5-5s2 1 2 1s0-1 2-1c3 0 5 2 5 5c0 5-7 9-7 9z"></path>
+                </svg>
+                <span>${suggestion.votesCount}</span>
+              </button>
+            </div>
 
-            const suggestion = suggestions.find(s => s.id === suggestionId);
-            if (suggestion) {
-                suggestion.votesCount++;
-                votes.push({
-                    suggestionId,
-                    voterEmail: voterEmail.value,
-                    timestamp: new Date().toISOString()
-                });
-                localStorage.setItem('suggestions', JSON.stringify(suggestions));
-                localStorage.setItem('votes', JSON.stringify(votes));
-                showToast('شكراً لتصويتك!', 'success');
-                renderSuggestions();
-            }
-        }
+            <div class="suggestion-description">${escapeHtml(suggestion.description)}</div>
 
-        // Notification Bell
-        notificationBell.addEventListener('click', () => {
-            notificationsPanel.classList.toggle('active');
-        });
+            <div class="suggestion-footer">
+              <div class="suggestion-meta">
+                <span>من: ${escapeHtml(suggestion.submitterName)}</span>
+                <span>${new Date(suggestion.createdAt).toLocaleDateString('ar-SA')}</span>
+              </div>
 
-        function addNotificationToPanel(notification) {
-            updateNotificationBadge();
-            renderNotifications();
-        }
+              <div class="suggestion-actions">
+                ${canManage ? `
+                  <button class="action-btn edit-btn" onclick="editSuggestion(${suggestion.id})">✏️ تعديل</button>
+                  <button class="action-btn delete-btn" onclick="deleteSuggestion(${suggestion.id})">🗑 حذف</button>
+                ` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
 
-        function renderNotifications() {
-            if (notifications.length === 0) {
-                notificationsList.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--dark-2);">لا توجد إشعارات جديدة</div>';
-                return;
-            }
+    function handleVote(suggestionId) {
+      const email = normalizeEmail(voterEmail.value);
 
-            notificationsList.innerHTML = notifications.slice(0, 10).map(notif => `
-                <div class="notification-item">
-                    <div class="notification-title">✨ ${notif.toolName}</div>
-                    <div class="notification-meta">من: ${notif.submitterName}</div>
-                    <div class="notification-meta">${new Date(notif.timestamp).toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' })}</div>
-                </div>
-            `).join('');
-        }
+      if (!email) {
+        showToast('يرجى إدخال بريدك الإلكتروني للتصويت', 'error');
+        return;
+      }
 
-        function updateNotificationBadge() {
-            if (notifications.length > 0) {
-                notificationBadge.textContent = notifications.length;
-                notificationBadge.style.display = 'flex';
-            } else {
-                notificationBadge.style.display = 'none';
-            }
-        }
+      const hasVoted = votes.some(v => v.suggestionId === suggestionId && normalizeEmail(v.voterEmail) === email);
+      if (hasVoted) {
+        showToast('لقد صوتت بالفعل على هذا الاقتراح', 'error');
+        return;
+      }
 
-        // Toast Notification
-        function showToast(message, type = 'success') {
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.textContent = message;
-            document.body.appendChild(toast);
+      const suggestion = suggestions.find(s => s.id === suggestionId);
+      if (!suggestion) return;
 
-            setTimeout(() => {
-                toast.style.animation = 'slideIn 0.3s ease reverse';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
-        }
+      suggestion.votesCount++;
+      votes.push({
+        suggestionId,
+        voterEmail: email,
+        timestamp: new Date().toISOString()
+      });
 
-        // Initial Render
-        renderSuggestions();
-        updateNotificationBadge();
-        renderNotifications();
+      localStorage.setItem('votes', JSON.stringify(votes));
+      saveSuggestions();
+      showToast('شكراً لتصويتك!', 'success');
+      renderSuggestions();
+    }
 
-        // Load stored voter email
-        const storedVoterEmail = localStorage.getItem('voterEmail');
-        if (storedVoterEmail) {
-            voterEmail.value = storedVoterEmail;
-        }
+    function editSuggestion(id) {
+      const currentEmail = normalizeEmail(voterEmail.value);
+      const suggestion = suggestions.find(s => s.id === id);
 
-        // Save voter email
-        voterEmail.addEventListener('change', () => {
-            localStorage.setItem('voterEmail', voterEmail.value);
-        });
-    </script><script>
-  // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
-  if (localStorage.getItem("site_theme") === "dark") {
-    document.documentElement.classList.add("dark-mode");
-    document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
-  }
-</script>
+      if (!suggestion) return;
 
-<!-- الترجمة -->
-<script src="translate.js" defer></script>
-<script src="translations-complete.js" defer></script>
+      if (!currentEmail || currentEmail !== normalizeEmail(suggestion.submitterEmail)) {
+        showToast('فقط صاحب الاقتراح يقدر يعدل عليه', 'error');
+        return;
+      }
+
+      const newToolName = prompt('تعديل اسم الأداة', suggestion.toolName);
+      if (newToolName === null) return;
+
+      const newDescription = prompt('تعديل الوصف', suggestion.description);
+      if (newDescription === null) return;
+
+      const trimmedToolName = newToolName.trim();
+      const trimmedDescription = newDescription.trim();
+
+      if (!trimmedToolName || !trimmedDescription) {
+        showToast('الاسم والوصف لا يمكن أن يكونا فارغين', 'error');
+        return;
+      }
+
+      suggestion.toolName = trimmedToolName;
+      suggestion.description = trimmedDescription;
+
+      saveSuggestions();
+      showToast('تم تعديل الاقتراح', 'success');
+      renderSuggestions();
+    }
+
+    function deleteSuggestion(id) {
+      const currentEmail = normalizeEmail(voterEmail.value);
+      const index = suggestions.findIndex(s => s.id === id);
+
+      if (index === -1) return;
+
+      if (currentEmail !== normalizeEmail(suggestions[index].submitterEmail)) {
+        showToast('فقط صاحب الاقتراح يقدر يحذفه', 'error');
+        return;
+      }
+
+      const confirmed = confirm('هل أنت متأكد من حذف الاقتراح؟');
+      if (!confirmed) return;
+
+      suggestions.splice(index, 1);
+      saveSuggestions();
+      showToast('تم حذف الاقتراح', 'success');
+      renderSuggestions();
+    }
+
+    function showToast(message, type = 'success') {
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      toast.textContent = message;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.animation = 'slideIn 0.3s ease reverse';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    const storedVoterEmail = localStorage.getItem('voterEmail');
+    if (storedVoterEmail) {
+      voterEmail.value = storedVoterEmail;
+    }
+
+    renderSuggestions();
+  </script>
+
+  <script>
+    if (localStorage.getItem("site_theme") === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+    }
+  </script>
+
+  <!-- الترجمة -->
+  <script src="translate.js" defer></script>
+  <script src="translations-complete.js" defer></script>
 </body>
 </html>

@@ -1,289 +1,963 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة اقتراحات الأدوات الذكية</title>
+  <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>اقتراح أدوات جديدة | بوابة الأدوات الذكية</title>
+  <title>الصفحة</title>
 
+  <!-- خط Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- منع الوميض + مزامنة الثيم مع الصفحة الرئيسية -->
   <script>
-    if (localStorage.getItem("site_theme") === "dark") {
-      document.documentElement.classList.add("dark-mode");
-      document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
-    }
+    (function () {
+      const savedTheme = localStorage.getItem("site_theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        if (savedTheme === "dark") {
+          document.body.classList.add("dark-mode");
+        }
+      });
+    })();
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
-
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
-      --purple: #8b5cf6;
-      --green: #10b981;
-      --bg: #f8fafc;
-      --card: #ffffff;
+      color-scheme: light;
+
+      --primary: #7c3aed;
+      --primary-dark: #6d28d9;
+      --secondary: #2563eb;
+      --secondary-dark: #1d4ed8;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+
+      --bg: #f0f4f8;
+      --bg-2: #f8fafc;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
       --text: #1e293b;
-      --desc: #64748b;
-      --border: #e2e8f0;
+      --text-2: #475569;
+      --text-muted: #64748b;
+      --border: #cbd5e1;
+      --border-2: #e2e8f0;
+
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
+      --shadow-md: 0 8px 16px rgba(15, 23, 42, 0.12);
+      --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.16);
+
+      --input-bg: #ffffff;
+      --input-text: #1e293b;
+      --placeholder: #94a3b8;
     }
 
-    /* تعديلات الوضع الليلي */
-    .dark-mode {
+    html.dark-mode {
+      color-scheme: dark;
+
       --bg: #0f172a;
-      --card: #1e293b;
-      --text: #f1f5f9;
-      --desc: #94a3b8;
+      --bg-2: #111827;
+      --surface: #1e293b;
+      --surface-2: #0f172a;
+      --text: #e2e8f0;
+      --text-2: #cbd5e1;
+      --text-muted: #94a3b8;
       --border: #334155;
-    }
+      --border-2: #1f2937;
 
-    * { box-sizing: border-box; }
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28);
+      --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.32);
+      --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.42);
+
+      --input-bg: #0f172a;
+      --input-text: #e2e8f0;
+      --placeholder: #64748b;
+    }
 
     body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: var(--bg);
+      font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
       color: var(--text);
-      transition: 0.3s;
-      padding: 24px 16px 40px;
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: var(--text);
     }
 
     .container {
-      max-width: 760px;
+      max-width: 1200px;
       margin: 0 auto;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
-      padding: 24px;
-    }
-
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-      gap: 15px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: var(--purple);
-      font-weight: 900;
-    }
-
-    .back {
-      text-decoration: none;
-      background: var(--card);
-      color: var(--purple);
-      border: 1px solid var(--purple);
-      padding: 10px 18px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .back:hover {
-      background: var(--purple);
-      color: white;
-    }
-
-    .intro {
-      color: var(--desc);
-      line-height: 1.9;
-      margin-bottom: 20px;
-    }
-
-    .form-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
       padding: 20px;
-      margin-bottom: 25px;
     }
 
-    label {
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 40px 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      color: var(--text-2);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card,
+    .suggestion-card,
+    .notifications-panel,
+    .toast {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border-2);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover,
+    .suggestion-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--border-2);
+      background: var(--surface);
+    }
+
+    .card-header h2 {
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+      color: var(--text);
+    }
+
+    .card-header p {
+      font-size: 0.9rem;
+      color: var(--text-2);
+    }
+
+    .card-body {
+      padding: 20px;
+      background: var(--surface);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
       display: block;
       margin-bottom: 8px;
-      font-weight: 800;
+      font-weight: 600;
       color: var(--text);
+      font-size: 0.95rem;
     }
 
-    input {
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
       width: 100%;
-      padding: 14px;
-      border-radius: 12px;
+      padding: 10px 12px;
       border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--text);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--input-text);
+      background: var(--input-bg);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--placeholder);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
       outline: none;
-      font-family: inherit;
-      margin-bottom: 15px;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.14);
     }
 
-    input:focus {
-      border-color: var(--purple);
-      box-shadow: 0 0 0 3px rgba(139,92,246,0.1);
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
     }
 
-    .submit {
-      width: 100%;
-      padding: 15px;
-      border-radius: 14px;
+    .btn {
+      padding: 12px 24px;
       border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      background: linear-gradient(135deg, var(--purple), var(--green));
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: white;
-      font-weight: 900;
-      font-family: inherit;
-      font-size: 16px;
-      transition: 0.3s;
+      box-shadow: 0 8px 16px rgba(124, 58, 237, 0.25);
     }
 
-    .submit:hover {
+    .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(139,92,246,0.3);
+      box-shadow: 0 12px 22px rgba(124, 58, 237, 0.32);
     }
 
-    .hint {
-      font-size: 0.85rem;
-      color: var(--desc);
-      margin-top: 10px;
-      text-align: center;
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
     }
 
-    .list-title {
-      font-weight: 900;
-      margin-bottom: 15px;
-      color: var(--text);
-      display: block;
+    .btn-icon {
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--text-2);
+      transition: color 0.3s ease, transform 0.3s ease;
+      width: auto;
+      justify-content: flex-start;
     }
 
-    .list {
-      display: grid;
+    .btn-icon:hover {
+      color: var(--danger);
+    }
+
+    .btn-icon.active {
+      color: var(--danger);
+    }
+
+    .suggestions-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .suggestion-card {
+      padding: 20px;
+    }
+
+    .suggestion-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .suggestion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
       gap: 12px;
     }
 
-    .item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-      transition: 0.3s;
-    }
-
-    .item:hover {
-      border-color: var(--purple);
-    }
-
-    .item h3 {
-      margin: 0 0 6px;
+    .suggestion-title {
+      font-size: 1.2rem;
+      font-weight: 700;
       color: var(--text);
-      font-size: 1.1rem;
+      margin-bottom: 8px;
     }
 
-    .item a {
-      color: var(--purple);
-      text-decoration: none;
-      word-break: break-all;
+    .suggestion-category {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.12) 0%, rgba(37, 99, 235, 0.12) 100%);
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .suggestion-description {
+      color: var(--text-2);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .suggestion-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-size: 0.9rem;
+      color: var(--text-2);
+      border-top: 1px solid var(--border-2);
+      padding-top: 12px;
+      gap: 12px;
+    }
+
+    .suggestion-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .vote-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-2);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .vote-btn:hover {
+      color: var(--danger);
+    }
+
+    .vote-btn.voted {
+      color: var(--danger);
+    }
+
+    .vote-btn.voted svg {
+      fill: currentColor;
+    }
+
+    .search-filter {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .search-filter {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .search-wrapper {
+      position: relative;
+    }
+
+    .search-wrapper input {
+      padding-right: 40px;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-2);
+      pointer-events: none;
+    }
+
+    .clear-search {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-2);
+      font-size: 1.2rem;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-2);
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .empty-state h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .notification-bell {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .notification-bell:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      background: var(--danger);
+      color: white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
       font-weight: bold;
     }
 
-    .empty {
-      text-align: center;
-      color: var(--desc);
-      padding: 30px;
-      border: 2px dashed var(--border);
-      border-radius: 16px;
+    .notifications-panel {
+      position: fixed;
+      bottom: 100px;
+      left: 30px;
+      width: 350px;
+      max-height: 400px;
+      overflow-y: auto;
+      z-index: 999;
+      display: none;
+    }
+
+    .notifications-panel.active {
+      display: block;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .notification-item {
+      padding: 15px;
+      border-bottom: 1px solid var(--border-2);
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(37, 99, 235, 0.05) 100%);
+      border-left: 4px solid var(--primary);
+    }
+
+    .notification-item:last-child {
+      border-bottom: none;
+    }
+
+    .notification-title {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .notification-meta {
+      font-size: 0.85rem;
+      color: var(--text-2);
+    }
+
+    @media (min-width: 769px) {
+      .form-card {
+        position: sticky;
+        top: 20px;
+      }
+    }
+
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      z-index: 10000;
+      animation: slideIn 0.3s ease;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border-2);
+      box-shadow: var(--shadow-md);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .toast.success {
+      border-left: 4px solid var(--success);
+    }
+
+    .toast.error {
+      border-left: 4px solid var(--danger);
+    }
+
+    .result-count {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      margin-top: 10px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    ::selection {
+      background: rgba(124, 58, 237, 0.22);
+      color: var(--text);
     }
   </style>
-</head>
 
-<body>
-
-  <div class="container">
-
-    <div class="top">
-      <h1>اقتراح أدوات جديدة</h1>
-      <a class="back" href="index.html">← العودة للرئيسية</a>
-    </div>
-
-    <p class="intro">
-      ساهم في تطوير القائمة؛ اكتب اسم الأداة المقترحة ورابطها وسيتم حفظها في سجلك المحلي لمراجعتها لاحقاً.
-    </p>
-
-    <div class="form-card">
-      <form id="suggestForm">
-        <label>اسم الأداة</label>
-        <input id="toolName" type="text" placeholder="مثال: محول الصيغ" required />
-
-        <label>الرابط (URL)</label>
-        <input id="toolUrl" type="url" placeholder="https://example.com" required />
-
-        <button class="submit" type="submit">إرسال الاقتراح</button>
-
-        <div class="hint">
-          ملاحظة: البيانات تُحفظ في متصفحك الحالي فقط (Local Storage).
-        </div>
-      </form>
-    </div>
-
-    <span class="list-title">اقتراحاتك السابقة:</span>
-    <div id="suggestionsList" class="list"></div>
-
-  </div>
-
+  <!-- الترجمة -->
   <script src="translate.js" defer></script>
   <script src="translations-complete.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>منصة اقتراحات الأدوات الذكية</h1>
+            <p>شارك أفكارك واكتشف أدوات جديدة مع المجتمع</p>
+        </div>
 
-  <script>
-    const form = document.getElementById("suggestForm");
-    const list = document.getElementById("suggestionsList");
+        <!-- Main Content -->
+        <div class="main-grid">
+            <!-- Form Section -->
+            <div class="form-card card">
+                <div class="card-header">
+                    <h2>اقتراح أداة جديدة</h2>
+                    <p>شارك أداة مفيدة مع المجتمع</p>
+                </div>
+                <div class="card-body">
+                    <form id="suggestionForm">
+                        <div class="form-group">
+                            <label for="toolName">اسم الأداة</label>
+                            <input type="text" id="toolName" placeholder="مثال: ChatGPT" required>
+                        </div>
 
-    function getSuggestions() {
-      return JSON.parse(localStorage.getItem("suggestedTools") || "[]");
-    }
+                        <div class="form-group">
+                            <label for="description">الوصف</label>
+                            <textarea id="description" placeholder="اكتب وصفاً قصيراً للأداة..." required></textarea>
+                        </div>
 
-    function saveSuggestions(data) {
-      localStorage.setItem("suggestedTools", JSON.stringify(data));
-    }
+                        <div class="form-group">
+                            <label for="category">الفئة</label>
+                            <select id="category" required>
+                                <option value="">اختر فئة</option>
+                                <option value="أدوات الذكاء الاصطناعي">أدوات الذكاء الاصطناعي</option>
+                                <option value="أدوات الإنتاجية">أدوات الإنتاجية</option>
+                                <option value="أدوات التصميم">أدوات التصميم</option>
+                                <option value="أدوات البرمجة">أدوات البرمجة</option>
+                                <option value="أدوات التسويق">أدوات التسويق</option>
+                                <option value="أدوات التحليل">أدوات التحليل</option>
+                                <option value="أدوات الاتصالات">أدوات الاتصالات</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
 
-    function render() {
-      const items = getSuggestions();
-      list.innerHTML = "";
+                        <div class="form-group">
+                            <label for="submitterName">اسمك</label>
+                            <input type="text" id="submitterName" placeholder="أدخل اسمك" required>
+                        </div>
 
-      if (!items.length) {
-        list.innerHTML = `<div class="empty">لا توجد اقتراحات محفوظة بعد.</div>`;
-        return;
-      }
+                        <div class="form-group">
+                            <label for="submitterEmail">بريدك الإلكتروني</label>
+                            <input type="email" id="submitterEmail" placeholder="your@email.com" required>
+                        </div>
 
-      items.slice().reverse().forEach(i => {
-        list.innerHTML += `
-          <div class="item">
-            <h3>${i.name}</h3>
-            <a href="${i.url}" target="_blank">${i.url}</a>
-          </div>
-        `;
-      });
-    }
+                        <button type="submit" class="btn btn-primary">
+                            <span id="submitText">إضافة الاقتراح</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+            <!-- Suggestions Section -->
+            <div>
+                <!-- Voter Email -->
+                <div class="card" style="margin-bottom: 20px;">
+                    <div class="card-header">
+                        <h2>للتصويت على الاقتراحات</h2>
+                    </div>
+                    <div class="card-body">
+                        <input type="email" id="voterEmail" placeholder="أدخل بريدك الإلكتروني للتصويت" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                </div>
 
-      const name = document.getElementById("toolName").value.trim();
-      const url = document.getElementById("toolUrl").value.trim();
+                <!-- Search and Filter -->
+                <div class="card" style="margin-bottom: 20px;">
+                    <div class="card-header">
+                        <h2>البحث والفلترة</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="search-filter">
+                            <div class="search-wrapper">
+                                <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                                    <circle cx="8" cy="8" r="6"></circle>
+                                    <path d="M12 12l4 4"></path>
+                                </svg>
+                                <input type="text" id="searchInput" placeholder="ابحث عن أداة...">
+                                <button class="clear-search" id="clearSearch" style="display: none;">✕</button>
+                            </div>
+                            <select id="categoryFilter">
+                                <option value="">جميع الفئات</option>
+                                <option value="أدوات الذكاء الاصطناعي">أدوات الذكاء الاصطناعي</option>
+                                <option value="أدوات الإنتاجية">أدوات الإنتاجية</option>
+                                <option value="أدوات التصميم">أدوات التصميم</option>
+                                <option value="أدوات البرمجة">أدوات البرمجة</option>
+                                <option value="أدوات التسويق">أدوات التسويق</option>
+                                <option value="أدوات التحليل">أدوات التحليل</option>
+                                <option value="أدوات الاتصالات">أدوات الاتصالات</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="result-count" id="resultCount"></div>
+                    </div>
+                </div>
 
-      const data = getSuggestions();
-      data.push({ name, url });
+                <!-- Suggestions List -->
+                <div id="suggestionsContainer" class="suggestions-container">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📋</div>
+                        <h3>لا توجد اقتراحات حتى الآن</h3>
+                        <p>كن أول من يقترح أداة!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      saveSuggestions(data);
-      form.reset();
-      render();
-    });
+    <!-- Notification Bell -->
+    <button class="notification-bell" id="notificationBell">
+        🔔
+        <div class="notification-badge" id="notificationBadge" style="display: none;">0</div>
+    </button>
 
-    render();
-  </script>
+    <!-- Notifications Panel -->
+    <div class="notifications-panel" id="notificationsPanel">
+        <div id="notificationsList"></div>
+    </div>
 
+    <script>
+        // Data Storage
+        const suggestions = JSON.parse(localStorage.getItem('suggestions')) || [];
+        const votes = JSON.parse(localStorage.getItem('votes')) || [];
+        const notifications = JSON.parse(localStorage.getItem('notifications')) || [];
+
+        // DOM Elements
+        const form = document.getElementById('suggestionForm');
+        const suggestionsContainer = document.getElementById('suggestionsContainer');
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const clearSearchBtn = document.getElementById('clearSearch');
+        const voterEmail = document.getElementById('voterEmail');
+        const notificationBell = document.getElementById('notificationBell');
+        const notificationsPanel = document.getElementById('notificationsPanel');
+        const notificationsList = document.getElementById('notificationsList');
+        const notificationBadge = document.getElementById('notificationBadge');
+        const resultCount = document.getElementById('resultCount');
+
+        // Form Submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const toolName = document.getElementById('toolName').value;
+            const description = document.getElementById('description').value;
+            const category = document.getElementById('category').value;
+            const submitterName = document.getElementById('submitterName').value;
+            const submitterEmail = document.getElementById('submitterEmail').value;
+
+            if (!toolName || !description || !category || !submitterName || !submitterEmail) {
+                showToast('جميع الحقول مطلوبة', 'error');
+                return;
+            }
+
+            const newSuggestion = {
+                id: Date.now(),
+                toolName,
+                description,
+                category,
+                submitterName,
+                submitterEmail,
+                votesCount: 0,
+                createdAt: new Date().toISOString()
+            };
+
+            suggestions.push(newSuggestion);
+            localStorage.setItem('suggestions', JSON.stringify(suggestions));
+
+            // Add notification
+            const notification = {
+                id: Date.now(),
+                toolName,
+                submitterName,
+                timestamp: new Date().toISOString()
+            };
+            notifications.unshift(notification);
+            localStorage.setItem('notifications', JSON.stringify(notifications));
+
+            // Show notification
+            addNotificationToPanel(notification);
+
+            showToast('تم إضافة الاقتراح بنجاح!', 'success');
+            form.reset();
+            renderSuggestions();
+        });
+
+        // Search and Filter
+        searchInput.addEventListener('input', (e) => {
+            clearSearchBtn.style.display = e.target.value ? 'block' : 'none';
+            renderSuggestions();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearSearchBtn.style.display = 'none';
+            renderSuggestions();
+        });
+
+        categoryFilter.addEventListener('change', renderSuggestions);
+
+        // Render Suggestions
+        function renderSuggestions() {
+            const searchQuery = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+
+            let filtered = suggestions.filter(s => {
+                const matchesSearch = 
+                    s.toolName.toLowerCase().includes(searchQuery) ||
+                    s.description.toLowerCase().includes(searchQuery) ||
+                    s.submitterName.toLowerCase().includes(searchQuery);
+                
+                const matchesCategory = !selectedCategory || s.category === selectedCategory;
+                
+                return matchesSearch && matchesCategory;
+            });
+
+            // Sort by votes
+            filtered.sort((a, b) => b.votesCount - a.votesCount);
+
+            // Update result count
+            if (searchQuery || selectedCategory) {
+                resultCount.textContent = `عدد النتائج: ${filtered.length}`;
+            } else {
+                resultCount.textContent = '';
+            }
+
+            if (filtered.length === 0) {
+                suggestionsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📋</div>
+                        <h3>${suggestions.length === 0 ? 'لا توجد اقتراحات حتى الآن' : 'لا توجد نتائج تطابق البحث'}</h3>
+                        <p>${suggestions.length === 0 ? 'كن أول من يقترح أداة!' : 'جرب بحثاً آخر'}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            suggestionsContainer.innerHTML = filtered.map(suggestion => {
+                const hasVoted = votes.some(v => v.suggestionId === suggestion.id && v.voterEmail === voterEmail.value);
+                return `
+                    <div class="suggestion-card">
+                        <div class="suggestion-header">
+                            <div>
+                                <div class="suggestion-title">${suggestion.toolName}</div>
+                                <span class="suggestion-category">${suggestion.category}</span>
+                            </div>
+                            <button class="vote-btn ${hasVoted ? 'voted' : ''}" onclick="handleVote(${suggestion.id})">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                                    <path d="M10 18.5s-7-4-7-9c0-3 2-5 5-5s2 1 2 1s0-1 2-1c3 0 5 2 5 5c0 5-7 9-7 9z"></path>
+                                </svg>
+                                <span>${suggestion.votesCount}</span>
+                            </button>
+                        </div>
+                        <div class="suggestion-description">${suggestion.description}</div>
+                        <div class="suggestion-footer">
+                            <div class="suggestion-meta">
+                                <span>من: ${suggestion.submitterName}</span>
+                                <span>${new Date(suggestion.createdAt).toLocaleDateString('ar-SA')}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Handle Vote
+        function handleVote(suggestionId) {
+            if (!voterEmail.value) {
+                showToast('يرجى إدخال بريدك الإلكتروني للتصويت', 'error');
+                return;
+            }
+
+            const hasVoted = votes.some(v => v.suggestionId === suggestionId && v.voterEmail === voterEmail.value);
+            if (hasVoted) {
+                showToast('لقد صوتت بالفعل على هذا الاقتراح', 'error');
+                return;
+            }
+
+            const suggestion = suggestions.find(s => s.id === suggestionId);
+            if (suggestion) {
+                suggestion.votesCount++;
+                votes.push({
+                    suggestionId,
+                    voterEmail: voterEmail.value,
+                    timestamp: new Date().toISOString()
+                });
+                localStorage.setItem('suggestions', JSON.stringify(suggestions));
+                localStorage.setItem('votes', JSON.stringify(votes));
+                showToast('شكراً لتصويتك!', 'success');
+                renderSuggestions();
+            }
+        }
+
+        // Notification Bell
+        notificationBell.addEventListener('click', () => {
+            notificationsPanel.classList.toggle('active');
+        });
+
+        function addNotificationToPanel(notification) {
+            updateNotificationBadge();
+            renderNotifications();
+        }
+
+        function renderNotifications() {
+            if (notifications.length === 0) {
+                notificationsList.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--dark-2);">لا توجد إشعارات جديدة</div>';
+                return;
+            }
+
+            notificationsList.innerHTML = notifications.slice(0, 10).map(notif => `
+                <div class="notification-item">
+                    <div class="notification-title">✨ ${notif.toolName}</div>
+                    <div class="notification-meta">من: ${notif.submitterName}</div>
+                    <div class="notification-meta">${new Date(notif.timestamp).toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' })}</div>
+                </div>
+            `).join('');
+        }
+
+        function updateNotificationBadge() {
+            if (notifications.length > 0) {
+                notificationBadge.textContent = notifications.length;
+                notificationBadge.style.display = 'flex';
+            } else {
+                notificationBadge.style.display = 'none';
+            }
+        }
+
+        // Toast Notification
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideIn 0.3s ease reverse';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Initial Render
+        renderSuggestions();
+        updateNotificationBadge();
+        renderNotifications();
+
+        // Load stored voter email
+        const storedVoterEmail = localStorage.getItem('voterEmail');
+        if (storedVoterEmail) {
+            voterEmail.value = storedVoterEmail;
+        }
+
+        // Save voter email
+        voterEmail.addEventListener('change', () => {
+            localStorage.setItem('voterEmail', voterEmail.value);
+        });
+    </script><script>
+  // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
+  if (localStorage.getItem("site_theme") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
+  }
+</script>
+
+<!-- الترجمة -->
+<script src="translate.js" defer></script>
+<script src="translations-complete.js" defer></script>
 </body>
 </html>

@@ -1,256 +1,132 @@
-</a><!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ترند المشجع داخل الملاعب | ترند تيك توك</title>
-  <meta name="description" content="صفحة مختصرة تشرح ترند المشجع داخل الملاعب مع زر تجربة القالب المجاني." />  <!-- Cairo Font -->  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>ترند المشجع داخل الملاعب | ترند تيك توك</title>  <!-- Cairo Font -->  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">  <!-- Theme System -->  <link rel="stylesheet" href="themes.css">
-  <script>
-    // كود التحقق الفوري من الثيم لمنع الومضة البيضاء
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">  <!-- Theme System -->  <link rel="stylesheet" href="themes.css">  <script>
     if (localStorage.getItem("site_theme") === "dark") {
       document.documentElement.classList.add("dark-mode");
       document.addEventListener("DOMContentLoaded", () => document.body.classList.add("dark-mode"));
     }
   </script>  <style>
-    :root {
-      --bg: #07111a;
-      --bg2: #0c1d2a;
-      --card: rgba(255, 255, 255, 0.07);
-      --card-strong: rgba(255, 255, 255, 0.11);
-      --text: #f6fbff;
-      --muted: #bfd0de;
-      --line: rgba(255, 255, 255, 0.12);
-      --accent: #ffb300;
-      --accent2: #3ddc97;
-      --btn: #22c55e;
-      --btnText: #07130b;
-      --shadow: 0 18px 60px rgba(0, 0, 0, 0.32);
+    body{
+      margin:0;
+      font-family:'Cairo',Arial,sans-serif;
+      background:#07111a;
+      color:#f6fbff;
+      line-height:1.9;
     }
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: 'Cairo', Arial, sans-serif;
-      background:
-        radial-gradient(circle at 20% 15%, rgba(255, 179, 0, 0.16), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(61, 220, 151, 0.14), transparent 24%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.9;
+    .page{
+      max-width:980px;
+      margin:0 auto;
+      padding:24px;
     }
 
-    .page {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 24px;
+    .hero{
+      border-radius:24px;
+      padding:26px;
+      background:linear-gradient(135deg,rgba(255,179,0,.12),rgba(61,220,151,.08));
+      border:1px solid rgba(255,255,255,.12);
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 28px;
-      background:
-        linear-gradient(135deg, rgba(255, 179, 0, 0.12), rgba(61, 220, 151, 0.08)),
-        rgba(255, 255, 255, 0.03);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
+    .badge{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      font-size:13px;
+      font-weight:700;
+      color:#ffb300;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto -12% -48% -12%;
-      height: 180px;
-      background: linear-gradient(180deg, transparent, rgba(61, 220, 151, 0.15));
-      transform: rotate(-4deg);
-      pointer-events: none;
+    h1{margin:12px 0;font-size:38px;}
+
+    .sub{color:#bfcfdc;margin:0;max-width:700px;}
+
+    .card{
+      margin-top:18px;
+      padding:20px;
+      border-radius:20px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      color: var(--accent);
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.2px;
+    .steps{padding:0;margin:0;list-style:none;display:grid;gap:10px;}
+
+    .steps li{
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.05);
     }
 
-    h1 {
-      margin: 14px 0 10px;
-      font-size: clamp(28px, 5vw, 46px);
-      line-height: 1.15;
+    .btn{
+      display:inline-block;
+      margin-top:14px;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:800;
+      text-decoration:none;
+      transition:.2s;
     }
 
-    .sub {
-      margin: 0;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 17px;
+    .primary{
+      background:linear-gradient(135deg,#22c55e,#86efac);
+      color:#07130b;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 20px;
-      margin-top: 20px;
+    .secondary{
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.12);
+      margin-left:8px;
     }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+    .back{
+      display:inline-block;
+      margin-top:18px;
+      color:#fff;
+      opacity:.8;
+      text-decoration:none;
     }
 
-    .card h2 {
-      margin: 0 0 10px;
-      font-size: 21px;
-    }
-
-    .card p, .card li {
-      color: var(--muted);
-      margin-top: 0;
-    }
-
-    .steps {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .steps li {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px 16px;
-      color: var(--text);
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 18px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 800;
-      transition: transform .16s ease, opacity .16s ease, box-shadow .16s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      opacity: 0.96;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--btn), #86efac);
-      color: var(--btnText);
-      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.22);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text);
-      border-color: var(--line);
-    }
-
-    .mini-note {
-      margin-top: 16px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255, 179, 0, 0.10);
-      border: 1px solid rgba(255, 179, 0, 0.16);
-      color: #fff2cc;
-    }
-
-    .back-wrap {
-      margin-top: 18px;
-      display: flex;
-      justify-content: flex-start;
-    }
-
-    .back-btn {
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .decor {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .decor span {
-      height: 8px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(255,179,0,.15), rgba(61,220,151,.26), rgba(255,179,0,.15));
-      opacity: .9;
-    }
-
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
+    .side-offer{
+      margin-top:14px;
+      padding:12px;
+      border-radius:14px;
+      background:rgba(255,179,0,.10);
+      border:1px solid rgba(255,179,0,.2);
+      font-size:14px;
     }
   </style></head>
-<body>
-  <main class="page">
-    <section class="hero">
-      <div class="badge">⚽ ترند تيك توك •  </div>
-      <h1>ترند المشجع داخل الملاعب</h1>
-      <p class="sub">
-        الفكرة بسيطة: تدخل القالب، تضبطه بسرعة، ويطلع لك مشهد حماسي يوحي أن الشخص داخل الملعب أو المدرج.
-      </p>
-      <div class="decor" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
-      </div>
-    </section><section class="grid">
-  <article class="card">
-    <h2>طريقة الاستخدام</h2>
-    <ul class="steps">
-      <li>اضغط على <strong>تجربة القالب المجاني</strong>.</li>
-      <li>عدّل الصورة أو المشهد حسب ذوقك.</li>
-    </ul>
+<body>  <div class="page"><div class="hero">
+  <div class="badge">⚽ ترند تيك توك</div>
+  <h1>ترند المشجع داخل الملاعب</h1>
+  <p class="sub">تحول صورتك أو فكرتك لمشهد داخل ملعب أو مدرج بشكل ترندي جاهز للنشر على تيك توك.</p>
+</div>
 
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://share.pix.video/template/402331965264704" target="_blank" rel="noopener noreferrer">
-        تجربة القالب المجاني
-      </a>
-    </div>
+<div class="card">
+  <h3>طريقة الاستخدام</h3>
+  <ul class="steps">
+    <li>اضغط تجربة القالب المجاني.</li>
+    <li>عدّل المشهد ومبروك عليك القالب   .</li>
+  </ul>
 
-    <div class="mini-note">
-      هذا الترند مناسب للمقاطع السريعة ذات الطابع الرياضي والحماسي.
-    </div>
+  <a class="btn primary" href="https://share.pix.video/template/402331965264704" target="_blank">
+    تجربة القالب المجاني
+  </a>
 
-    <div class="back-wrap">
-      <a class="btn back-btn" href="index.html">العودة إلى الرئيسية</a>
-    </div>
-  </article>
+  <a class="btn secondary" href="https://relu0u.pxf.io/rE2Do5" target="_blank">
+    فلاتر مجانية
+  </a>
 
-</section>
+  <div class="side-offer">
+    🔥 نصيحة: اذا كنت مصور او مصمم هنا فلاتر تختصر كثير من وقتك  
+  </div>
 
-  </main>  <!-- الترجمة -->  <script src="translate.js" defer></script>  <script src="translations-complete.js" defer></script></body>
+  <a class="back" href="index.html">← العودة إلى الرئيسية</a>
+</div>
+
+  </div>  <script src="translate.js" defer></script>  <script src="translations-complete.js" defer></script></body>
 </html>
